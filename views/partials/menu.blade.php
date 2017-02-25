@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="images/logo.svg" class="imgSVG logoHeader" alt="Gestores en México" title="Gestores en México"  />
+                            <img src="/assets/images/logo.svg" class="imgSVG logoHeader" alt="Gestores en México" title="Gestores en México"  />
                             <!-- <i class="fa fa-home"></i> --></a>
 
                     </div><!-- end navbar-header -->
@@ -75,7 +75,7 @@
                                                                 </div> --><!-- end box -->
                                                             <!-- </div> --><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->
                                                     </div>
@@ -96,7 +96,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->                  
                                                     </div>
@@ -118,7 +118,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->                  
                                                     </div>
@@ -136,7 +136,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->                  
                                                     </div>
@@ -153,7 +153,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->                  
                                                     </div>
@@ -170,7 +170,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->                  
                                                     </div>
@@ -183,7 +183,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_01.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_01.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -193,7 +193,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_02.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_02.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -203,7 +203,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_03.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_03.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -213,7 +213,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_04.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_04.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -223,7 +223,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_05.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_05.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -233,7 +233,7 @@
                                                                 <div class="widget clearfix">
                                                                     <a href="#">
                                                                     <div class="entry">
-                                                                        <img src="images/menu_mini_06.png" alt="" class="img-responsive">
+                                                                        <img src="/assets/images/menu_mini_06.png" alt="" class="img-responsive">
                                                                         <span class="magnifier"></span>
                                                                     </div><!-- enntry --> 
                                                                     </a>
@@ -252,10 +252,10 @@
                                                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                                                     <div class="carousel-inner">
                                                                         <div class="item active">
-                                                                            <a href="single-project.html"><img src="images/menu_01.png" class="img-responsive" alt=""></a>
+                                                                            <a href="single-project.html"><img src="/assets/images/menu_01.png" class="img-responsive" alt=""></a>
                                                                         </div><!-- End Item -->     
                                                                         <div class="item">
-                                                                            <a href="single-project.html"><img src="images/menu_02.png" class="img-responsive" alt=""></a>
+                                                                            <a href="single-project.html"><img src="/assets/images/menu_02.png" class="img-responsive" alt=""></a>
                                                                         </div><!-- End Item -->
                                                                     </div><!-- End Carousel Inner -->
                                                                 </div><!-- /.carousel -->
@@ -317,7 +317,7 @@
                                                             </div><!-- end col -->
 
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->
                                                     </div>
@@ -338,7 +338,7 @@
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
-                                                                <img src="images/ejecutiva.png" alt="" class="img-responsive">
+                                                                <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
                                                         </div><!-- end row -->
                                                     </div>

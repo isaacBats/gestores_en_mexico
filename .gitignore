@@ -1,0 +1,13 @@
+# gitignore general para Gestores en México
+# plugins Sublime
+.phpintel/
+
+# Composer y vendor de PHP
+composer.lock
+vendor/
+
+# temporales
+tmp/
+
+# Migraciones
+migration/
