@@ -29,7 +29,7 @@
 	$router->attach('\config\Migrator');
 	$router->attach('\config\Blade');
 	$router->attach('\config\AutoDocumentator', '/apidocs' , $details = true);
-	$router->attach('\config\FacebookLogin');
+	//$router->attach('\config\FacebookLogin');
 	$router->attach('\config\SessionLogin');
 
 	//  ROUTES

@@ -11,3 +11,6 @@ tmp/
 
 # Migraciones
 migration/
+
+#config
+config/config.php

@@ -20,9 +20,8 @@
                         <ul class="nav navbar-nav">
 
                             <li class="dropdown ttmenu-full"><a href="/" class="">Inicio</a></li>
-                            <li class="dropdown ttmenu-full"><a href="nosotros.php" class="">Nosotros</a></li>
-                            <li class="dropdown ttmenu-full"><a href="como-funciona.php" class="">¿Cómo funciona?</a></li>
-
+                            <li class="dropdown ttmenu-full"><a href="/nosotros" class="">Nosotros</a></li>
+                            <li class="dropdown ttmenu-full"><a href="/como-funciona" class="">¿Cómo funciona?</a></li>
                             <li class="dropdown ttmenu-full"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="naranja">Trámites</span> <b class="dropme"></b></a>
                                 <ul id="first-menu" class="dropdown-menu">
                                     <li>
@@ -352,7 +351,7 @@
                             </li><!-- end mega menu -->
 
                             <!-- fin -->
-                            <li class="dropdown ttmenu-full"><a href="contacto.php" class="">Contacto</a></li>
+                            <li class="dropdown ttmenu-full"><a href="/contacto" class="">Contacto</a></li>
 
                             <li class="dropdown ttmenu-full noneo"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Contacto <b class="dropme"></b></a>
                                 <ul class="dropdown-menu">

@@ -10,9 +10,9 @@
 
 	$cfg = new \Spot\Config();
 	$cfg->addConnection('mysql', [
-	    'dbname' => 'luna',
-	    'user' => 'luna',
-	    'password' => 'luna',
+	    'dbname' => 'gestores',
+	    'user' => 'gestores',
+	    'password' => 'gestores',
 	    'host' => 'localhost',
 	    'driver' => 'pdo_mysql',
 	]);
@@ -27,7 +27,7 @@
 
 	// LANG  MANNAGER
 	// TODO: Pass to middleware
-	$lang = isset($_GET["lang"])?$_GET["lang"]:"es";
-	if( str_replace( "/".$lang ,"",$_SERVER["REQUEST_URI"] ) != $_SERVER["REQUEST_URI"] ){
-		$_SERVER["REQUEST_URI"] = substr( $_SERVER["REQUEST_URI"], 3 );	
-	}
+	// $lang = isset($_GET["lang"])?$_GET["lang"]:"es";
+	// if( str_replace( "/".$lang ,"",$_SERVER["REQUEST_URI"] ) != $_SERVER["REQUEST_URI"] ){
+	// 	$_SERVER["REQUEST_URI"] = substr( $_SERVER["REQUEST_URI"], 3 );	
+	// }

@@ -59,7 +59,7 @@
 	                <a href="#" class="transitions"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 	            </div>
 	            <div class="col-md-4 justificadoDerecha">
-	            <!-- <a href="preguntas-frecuentes.php" class="transitions">Preguntas Frecuentes </a> |  --> <a href="aviso-de-privacidad.php" class="transitions">Aviso de Privacidad </a> <!-- |  <a href="#" class="transitions">Términos de uso</a> -->
+	            <!-- <a href="preguntas-frecuentes.php" class="transitions">Preguntas Frecuentes </a> |  --> <a href="/aviso-privacidad" class="transitions">Aviso de Privacidad </a> <!-- |  <a href="#" class="transitions">Términos de uso</a> -->
 	        </div>
 	    </div>
 	    <!-- Main Scripts-->

@@ -1,12 +1,28 @@
 <?php
 	
-
-	/**
-	 * Home of the website
-	 */
 	$router->addRoute(array(
 	  'path'     => '/',
 	  'get'      => array('Plain', 'home')
+	));
+
+	$router->addRoute(array(
+	  'path'     => '/nosotros',
+	  'get'      => array('Plain', 'nosotros')
+	));
+
+	$router->addRoute(array(
+	  'path'     => '/como-funciona',
+	  'get'      => array('Plain', 'comoFunciona')
+	));
+
+	$router->addRoute(array(
+	  'path'     => '/contacto',
+	  'get'      => array('Plain', 'contacto')
+	));
+
+	$router->addRoute(array(
+	  'path'     => '/aviso-privacidad',
+	  'get'      => array('Plain', 'aviso')
 	));
 
 	/**
@@ -43,5 +59,3 @@
 	//   'post'      => array('Continent', 'addAction'), 		//TERMINADA		
 	//   'get'      => array('Continent', 'allAction')			//TERMINADA
 	// ));
-
-?>

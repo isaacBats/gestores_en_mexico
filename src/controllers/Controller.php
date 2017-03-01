@@ -9,9 +9,9 @@ namespace Olive\controllers;
 
 	/**
 	 *
-	 *	Controlador base para luna
+	 *	Controlador base para Olive
 	 * 	
-	 * 	@author jz for denumeris 2016
+	 * 	@author Isaac Batista 2017
 	 */
 	
 	

@@ -8,7 +8,7 @@ namespace config;
  *
  * Usage:
  * 
- * $router->attach('\Luna\SessionLogin');
+ * $router->attach('\config\SessionLogin');
  *     
  * 
  */
@@ -35,18 +35,22 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
 
     //  URL's Autorizadas
     $allow_uri = [
-        "/login" , 
-        "/logout",
-        "/migrate/up" ,
-        "/migrate/data" ,
-        "/" ,
-        ''];
+                    "/" ,
+                    "/login" , 
+                    "/logout",
+                    "/migrate/up" ,
+                    "/migrate/data" ,
+                    "/nosotros",
+                    "/como-funciona",
+                    "/contacto",
+                    "/aviso-privacidad",
+                  ""];
 
     global $spot;
     $usersMapper = $spot->mapper("Entity\User");
 
     global $session_handle;
-    $session = $session_handle->getSegment('Luna\Session');
+    $session = $session_handle->getSegment('Olive\Session');
     
     
     if( array_search(self::$context["pattern"] , $allow_uri ) === false ){
@@ -90,11 +94,11 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     }
                     
                 }else{
-                   $session_controller = $session_handle->getSegment('Luna\Controllers');
+                   $session_controller = $session_handle->getSegment('Olive\Controllers');
                    $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
                 }
             }else{
-                $session_controller = $session_handle->getSegment('Luna\Controllers');
+                $session_controller = $session_handle->getSegment('Olive\Controllers');
                 $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
             }
         }
