@@ -1,0 +1,41 @@
+Tramites
+	Se maneja de dos tipos; 
+		- nacionales 
+			* Registro civil
+				- Acta de nacimiento
+				- Aclaracion de acta de nacimiento
+				- Acta de defuncion
+				- Acta de matrimonio
+				- Acta de divorcio
+				- Acta de reconocimiento
+				- Constancia de solteria CDMX
+				- Busqueda de acta
+			* SEP
+				- Duplicados de certificado de estudio
+				- Duplicado de cedula profecional
+				- Registro de titulo y cedula profecinal
+				- Revalidacion de estudios
+				- Registro de grado
+			* Apostillas
+				- Apostilla de cata de antecedentes no penales federal
+				- Apostilla de acta de nacimiento
+				- Apostilla de acta de matrimonio
+				- Apostilla de documentos escolares
+				- Apostilla de constancia de solteria
+				- Apostilla de todo tipo de documentos
+			* Registro publico de la propiedad
+			 	- Certificado de libertad o gravamen
+			 	- Folio real CDMX
+			* Legalizacion de documentos
+				- Legalizacion de documentos
+			* Carta de antecedentes no penales
+				- Carta de antecedentes no penales federal
+
+		- internacionales
+			- Pais [Argentina]
+				* Apostillado de Certificado de Nacimiento
+                * Apostillado de Certificado de Matrimonio
+				* Apostillado de Certificado de Defunción
+                * Legalización en Ministerio del Interior de la Nación
+                * Apostilla de Antecedentes de Reincidencia penal
+                * Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios

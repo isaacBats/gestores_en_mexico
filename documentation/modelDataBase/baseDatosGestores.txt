@@ -1,0 +1,67 @@
+Tipo_tramite
+	nombre
+	slug
+
+Tramite
+	nombre
+	id_tipo_tramite
+	id_pais
+	slug
+	costo
+	costo_copia
+	entrega_min
+	entrega_max
+	status
+	created_at
+
+Solicitud
+	tramite_id
+	cliente_id
+	destinatario_id
+	costo_total
+	mensaje
+
+solicitud_data
+	id_solicitud
+	id_atributo
+	valor
+
+attributos_solicitudes
+	atributo
+
+Cliente
+	nombre
+	paterno
+	materno
+	correo
+	telefono
+	mobil
+	direccion
+	num_interior
+	num_exterior
+	colonia
+	codigo_postal
+	municipio
+	pais
+	estado
+	referencia
+	is_destinatario
+
+Paises
+	nombre
+	clave
+
+estados
+	nombre
+	clave
+	id_pais
+
+municipios
+	nombre
+	id_estado
+
+codigo_postal
+	codigo_postal
+	asentamiento
+	id_municipio
+	id_estado
