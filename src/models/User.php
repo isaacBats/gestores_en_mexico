@@ -1,7 +1,5 @@
 <?php 
 
-
-//  EJEMPLO
 namespace Entity;
 
 use Spot\EntityInterface as Entity;
@@ -9,7 +7,7 @@ use Spot\MapperInterface as Mapper;
 use Spot\EventEmitter as EventEmitter;
 
 /**
- *  Model for Faqs
+ *  Model for User
  * 	
  */
 
@@ -21,12 +19,20 @@ use Spot\EventEmitter as EventEmitter;
  	public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'fist_name'    => ['type' => 'string'],
-            'last_name'    => ['type' => 'string'],
-            'email'        => ['type' => 'string', 'required' => true, 'unique' => true],
-            'password'     => ['type' => 'string', 'required' => true],
-            'user_name'    => ['type' => 'string', 'unique' => true],
-            'type_user'    => ['type' => 'smallint'],
+            'fist_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true],
+            'last_name'    => ['type' => 'string', 'length' => 100 ],
+            'email'        => ['type' => 'string', 'required' => true, 'unique' => true,
+                'validation' => [
+                    'email',
+                    'length' => [4, 255]
+                ]
+            ],
+            'password'     => ['type' => 'string', 'required' => true, 'length' => 150],
+            'user_name'    => ['type' => 'string', 'unique' => true, 'length' => 50],
+            'type_user'    => ['type' => 'string', 'required' => true, 'options' => [
+                'admin', 
+                'user'
+            ]],
             'is_active'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];

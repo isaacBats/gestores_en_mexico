@@ -60,7 +60,7 @@ municipios
 	nombre
 	id_estado
 
-codigo_postal
+codigo_postal //settlement
 	codigo_postal
 	asentamiento
 	id_municipio
