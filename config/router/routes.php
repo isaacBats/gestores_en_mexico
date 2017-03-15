@@ -25,6 +25,11 @@
 	  'get'      => array('Plain', 'aviso')
 	));
 
+	$router->addRoute(array(
+	  'path'     => '/tramites/{code_contry}/{slug}',
+	  'get'      => array('Transaction', 'show')
+	));
+
 	/**
 	 * Upload for images
 	 */

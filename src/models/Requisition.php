@@ -22,6 +22,11 @@ use Spot\MapperInterface as Mapper;
             'id_client' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_reciver' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'total_cost'         => ['type' => 'float'],
+            'status'    => ['type' => 'string', 'required' => true, 'options' => [
+                'pending',
+                'process', 
+                'delivered'
+            ]],
             'message'         => ['type' => 'string'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];

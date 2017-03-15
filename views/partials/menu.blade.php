@@ -45,7 +45,7 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Registro Civil</h4></li>
-                                                                        <li><a href="regCivil-acta-de-nacimiento.php" class="link transitions">Acta de nacimiento </a></li>
+                                                                        <li><a href="/tramites/MX/acta-nacimiento" class="link transitions">Acta de nacimiento </a></li>
                                                                         <li><a href="regCivil-aclaracion-acta-de-nacimiento.php" class="link transitions">Aclaración de acta de nacimiento </a></li>
                                                                         <li><a href="regCivil-acta-de-defuncion.php" class="link transitions">Acta de defunción </a></li>
                                                                         <li><a href="regCivil-acta-de-matrimonio.php" class="link transitions">Acta de matrimonio </a></li>

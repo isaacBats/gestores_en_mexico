@@ -46,7 +46,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
       $migration = date("YmdHis");
       echo "Creating dataFixtures for migrations {$migration}:\n";
       mkdir( __OLIVE__.$this->dir."/".$migration );
-      foreach( scandir( __OLIVE__.'/model' ) as $model ){
+      foreach( scandir( __OLIVE__.'/src/models' ) as $model ){
         $bffmodel = explode("." , $model);
         if( end( $bffmodel ) == "php" ){
           array_pop($bffmodel);

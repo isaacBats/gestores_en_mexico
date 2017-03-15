@@ -19,7 +19,7 @@ use Spot\MapperInterface as Mapper;
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
             'name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
-            'code'    => ['type' => 'string', 'length' => 5 ],
+            'code'    => ['type' => 'string', 'length' => 8 ],
             'id_contry' => ['type' => 'integer', 'required' => true, 'unsigned' => true]
         ];
     }
