@@ -30,6 +30,7 @@ use Spot\MapperInterface as Mapper;
             'client' => $mapper->hasOne($entity, 'Entity\Client', 'id_state'),
             'settlements' => $mapper->hasMany($entity, 'Entity\Settlement', 'id_state'),
             'townships' => $mapper->hasMany($entity, 'Entity\Township', 'id_state'),
+            'prices' => $mapper->hasMany($entity, 'Entity\Price', 'id_state'),
         ];
     }
  } 

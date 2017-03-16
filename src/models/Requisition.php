@@ -21,6 +21,7 @@ use Spot\MapperInterface as Mapper;
             'id_transaction' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_client' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_reciver' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
+            'id_price'  => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'total_cost'         => ['type' => 'float'],
             'status'    => ['type' => 'string', 'required' => true, 'options' => [
                 'pending',
@@ -37,7 +38,8 @@ use Spot\MapperInterface as Mapper;
             'transaction' => $mapper->belongsTo($entity, 'Entity\Transaction', 'id_transaction'),
             'client' => $mapper->belongsTo($entity, 'Entity\Client', 'id_client'),
             'reciver' => $mapper->belongsTo($entity, 'Entity\Client', 'id_reciver'),
-            'attributes' => $mapper->hasMany($entity, 'Entity\DataRequisition', 'id_requisition')
+            'attributes' => $mapper->hasMany($entity, 'Entity\DataRequisition', 'id_requisition'),
+            'price' => $mapper->belongsTo($entity, 'Entity\Price', 'id_price'),
         ];
     }
  } 

@@ -24,8 +24,6 @@ use Spot\MapperInterface as Mapper;
             'code_product' => ['type' => 'string', 'required' => true, 'notnull' => true, 'length' => 20],
             'name'         => ['type' => 'string', 'required' => true, 'length' => 200, 'notnull' => true],
             'slug'         => ['type' => 'string', 'length' => 200],
-            'cost'         => ['type' => 'float'],
-            'copy_cost'         => ['type' => 'float'],
             'delivery_max'    => ['type' => 'smallint'],
             'delivery_min'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
@@ -36,7 +34,8 @@ use Spot\MapperInterface as Mapper;
         return [
             'transactionType' => $mapper->belongsTo($entity, 'Entity\TypeTransaction', 'id_transaction_type'),
             'contry' => $mapper->belongsTo($entity, 'Entity\Contry', 'id_contry'),
-            'requisitions' => $mapper->hasMany($entity, 'Entity\Requisition', 'id_transaction')
+            'requisitions' => $mapper->hasMany($entity, 'Entity\Requisition', 'id_transaction'),
+            'price' => $mapper->hasMany($entity, 'Entity\Price', 'id_transaction')
         ];
     }
  } 

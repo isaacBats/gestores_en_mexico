@@ -7,12 +7,18 @@ Tramite
 	id_tipo_tramite
 	id_pais
 	slug
-	costo
-	costo_copia
 	entrega_min
 	entrega_max
 	status
 	created_at
+
+Costos
+	id_estado
+	id_tramite
+	costo
+	costo_copia
+	costo_envio
+
 
 Solicitud
 	tramite_id
