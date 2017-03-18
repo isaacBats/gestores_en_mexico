@@ -9,8 +9,43 @@
 		('Carta de antecedentes no penales', 'carta-antecedentes-no-penales', 1, NOW());
 
 	-- Tramite
-	INSERT INTO transactions (id_public, id_transaction_type, id_contry, code_product, name, slug, cost, copy_cost, delivery_max, delivery_min, date_created) VALUES
-		('1c0c83c71a0216deaa4d22bf20ae8a85', 1, 142, 'REGC_ACT_NACIMTO', 'Acta de nacimiento', 'acta-nacimiento', )
+	INSERT INTO transactions (id_public, id_transaction_type, id_contry, code_product, name, slug, date_created) VALUES
+		-- Registro civil
+		('1c0c83c71a0216deaa4d22bf20ae8a85', 1, 142, 'REGC_ACT_NACIMTO', 'Acta de nacimiento', 'acta-nacimiento', NOW()),
+		('630e1f8e97781d0d13237e6c16f7624b', 1, 142, 'ACLN_ACT_NACIMTO', 'Aclaración de acta de nacimiento', 'aclaracion-acta-nacimiento', NOW()),
+		('13bdb584fdf30dd51f8449d951c2a487', 1, 142, 'PETI_ACT_DEFUNCN', 'Acta de defunción', 'acta-defuncion', NOW()),
+		('e70d35f0a31c7a53284c283949a8bdb3', 1, 142, 'PETI_ACT_MATRIMO', 'Acta de matrimonio', 'acta-matrimonio', NOW()),
+		('236b3aab72ae14d54a46b1ef67cf4739', 1, 142, 'PETI_ACT_DIVORCO', 'Acta de divorcio', 'acta-divorcio', NOW()),
+		('2dd1cd5ad5eac214758cbc7842e4e505', 1, 142, 'PETI_ACT_RECNCTO', 'Acta de reconocimiento', 'acta-reconocimiento', NOW()),
+		('d7de5f2156d5cca76a56a5e6d9563aef', 1, 142, 'CONS_MBT_SOLTRIA', 'Constancia de solteria CDMX', 'constancia-solteria-cdmx', NOW()),
+		('365db7827f2b72eb7e60a050ad264539', 1, 142, 'SERV_BUS_QEDACTA', 'Busqueda de acta', 'busqueda-acta', NOW()),
+		-- SEP
+		('20bfc7e798913c0e16028ae865ab2ebd', 2, 142, 'SERV_DUP_SERTEST', 'Duplicados de certificado de estudio', 'duplicados-certificado-estudio', NOW()),
+		('79e7543a399ba27a01263ef68d6a022c', 2, 142, 'SERV_DUP_CEDPROF', 'Duplicado de cédula profecional', 'duplicado-cedula-profecional', NOW()),
+		('958ae8efb9c176b1dd2664ed456d3f23', 2, 142, 'REGS_ACT_TITCEDU', 'Regístro de título y cédula profecinal', 'registro-titulo-cedula-profecional', NOW()),
+		('0b9a4f96c3781da3b3bdab257b2c9dac', 2, 142, 'SERV_REV_ESTUDOS', 'Revalidación de estudios', 'revalidacion-estudios', NOW()),
+		('fe44091a4b7ab7b855c1ace4b50e426f', 2, 142, 'SERV_REG_RGGRADO', 'Registro de grado', 'registro-grado', NOW()),
+		-- Apostillas
+		('515b9172c58dc4ec1ce1a9b68a5089cc', 3, 142, 'APOS_CAR_ANTNPEN', 'Apostilla de carta de antecedentes no penales federal', 'apostilla-carta-antecedentes-penales-federal', NOW()),
+		('5c79241a5d611b33d2cbd9aec60a9559', 3, 142, 'APOS_ACT_NACIMTO', 'Apostilla de acta de nacimiento', 'apostilla-acta-nacimiento', NOW()),
+		('05d175cad6851151e1bffec41c908d9c', 3, 142, 'APOS_ACT_MATRIMO', 'Apostilla de acta de matrimonio', 'apostilla-acta-matrimonio', NOW()),
+		('33f053914671f8c5069eea24f7328ef3', 3, 142, 'APOS_DOC_ESCLRES', 'Apostilla de documentos escolares', 'apostilla-documentos-escolares', NOW()),
+		('e2df433be0e9ca39be2b53d525a965cc', 3, 142, 'APOS_MBT_SOLTRIA', 'Apostilla de constancia de soltería', 'apostilla-constancia-solteria', NOW()),
+		('9a14b393407bb3a4282d0297244ec6a9', 3, 142, 'APOS_DOC_TODTIPO', 'Apostilla de todo tipo de documentos', 'apostilla-todo-tipo-documentos', NOW()),
+		-- Argentina Apostillas
+		('45b6a89b80115ea345bcfbe51c96f419', 3, 10, 'APOS_CER_NACIMTO', 'Apostillado de Certificado de Nacimiento', 'apostilla-certificado-nacimiento', NOW()),
+		('0f17b7269d4409d3d8f7995796a8e01b', 3, 10, 'APOS_CER_MATRIMO', 'Apostillado de Certificado de Matrimonio', 'apostilla-certificado-matrimonio', NOW()),
+		('c3a0bfbe6f42b8023c42f64ce2dae63a', 3, 10, 'APOS_CER_DEFUNCN', 'Apostillado de Certificado de Defuncion', 'apostilla-certificado-defuncion', NOW()),
+		('0d4c3d5d2510e8000ba3113aaa10fe48', 3, 10, 'APOS_DOC_ANTREPN', 'Apostilla de Antecedentes de Reincidencia penal', 'apostilla-antecedentes-reincidencia-penal', NOW()),
+		('b4a41df88cf1d3df52e614fdc5535b92', 3, 10, 'APOS_CER_ESTMULT', 'Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios', 'apostilla-certificado-estudios-multiples', NOW()),
+		-- Registro publico de la propiedad
+		('317603e58b2d061b2717da50f14f5d15', 4, 142, 'SERV_CER_LIBGRAV', 'Certificado de libertad o gravamen', 'certificado-livertad-gravamen', NOW()),
+		('745ca34b7d3e7b084791c130ae6a1242', 4, 142, 'SERV_DOC_FOLCDMX', 'Folio real CDMX', 'folio-real-cdmx', NOW()),
+		-- Localizacion de documentos
+		('f9641a58518c2a17477926013caad3e4', 5, 142, 'SERV_DOC_LEGALON', 'Legalización de documentos', 'legalizacion-documentos', NOW()),
+		('f9641a58518c2a17477926013caad3e4', 5, 10, 'SERV_DOC_LEGLMIN', 'Legalización en Ministerio del Interior de la Nación', 'legalizacion-ministerio-interno-nacion', NOW()),
+		-- Carta de antecedentes no penales
+		('7a2dc5df9f97da8b9cb892bc7b670e76', 6, 142, 'SERV_DOC_ANTNPEN', 'Carta de antecedentes no penales federales', 'carta-antecedentes-penales-federales', NOW());
 
 	-- Contries
 	INSERT INTO contries (name, code) VALUES 
@@ -2754,3 +2789,12 @@
 		('32', 'Zacatecas'),
 		('32', 'Trancoso'),
 		('32', 'Santa María de la Paz');
+
+	-- Users
+	-- INSERT INTO users(first_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
+	-- 	('admin', 'administrator', 'klonate@gmail.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'admin', 'admin', 1, NOW());
+	INSERT INTO users(fist_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
+		('admin', 'administrator', 'klonate@gmail.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'admin', 'admin', 1, NOW());
+
+	-- Prices
+	INSERT INTO prices ()

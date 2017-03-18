@@ -19,7 +19,7 @@ use Spot\EventEmitter as EventEmitter;
  	public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'fist_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true],
+            'first_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true],
             'last_name'    => ['type' => 'string', 'length' => 100 ],
             'email'        => ['type' => 'string', 'required' => true, 'unique' => true,
                 'validation' => [
@@ -29,7 +29,7 @@ use Spot\EventEmitter as EventEmitter;
             ],
             'password'     => ['type' => 'string', 'required' => true, 'length' => 150],
             'user_name'    => ['type' => 'string', 'unique' => true, 'length' => 50],
-            'type_user'    => ['type' => 'string', 'required' => true, 'options' => [
+            'type_user'    => ['type' => 'string', 'length' => 20, 'required' => true, 'options' => [
                 'admin', 
                 'user'
             ]],

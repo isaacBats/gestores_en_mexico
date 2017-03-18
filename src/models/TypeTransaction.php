@@ -17,7 +17,7 @@ use Spot\MapperInterface as Mapper;
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
             'name'         => ['type' => 'string', 'length' => 150, 'notnull' => true, 'required' => true],
-            'slug'         => ['type' => 'string', 'length' => 150],
+            'slug'         => ['type' => 'string', 'length' => 150, 'unique' => true],
             'is_active'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];

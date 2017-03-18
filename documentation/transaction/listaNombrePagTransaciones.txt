@@ -1,0 +1,92 @@
+-- creation
+	touch mx_acta_nacimiento.blade.php
+	touch mx_aclaracion_acta_nacimiento.blade.php
+	touch mx_acta_defuncion.blade.php
+	touch mx_acta_matrimonio.blade.php
+	touch mx_acta_divorcio.blade.php
+	touch mx_acta_reconocimiento.blade.php
+	touch mx_constancia_solteria_cdmx.blade.php
+	touch mx_busqueda_acta.blade.php
+	touch mx_duplicados_certificado_estudio.blade.php
+	touch mx_duplicado_cedula_profecional.blade.php
+	touch mx_registro_titulo_cedula_profecional.blade.php
+	touch mx_revalidacion_estudios.blade.php
+	touch mx_registro_grado.blade.php
+	touch mx_apostilla_carta_antecedentes_penales_federal.blade.php
+	touch mx_apostilla_acta_nacimiento.blade.php
+	touch mx_apostilla_acta_matrimonio.blade.php
+	touch mx_apostilla_documentos_escolares.blade.php
+	touch mx_apostilla_constancia_solteria.blade.php
+	touch mx_apostilla_todo_tipo_documentos.blade.php
+	touch ar_apostilla_certificado_nacimiento.blade.php
+	touch ar_apostilla_certificado_matrimonio.blade.php
+	touch ar_apostilla_certificado_defuncion.blade.php
+	touch ar_apostilla_antecedentes_reincidencia_penal.blade.php
+	touch ar_apostilla_certificado_estudios_multiples.blade.php
+	touch mx_certificado_livertad_gravamen.blade.php
+	touch mx_folio_real_cdmx.blade.php
+	touch mx_legalizacion_documentos.blade.php
+	touch ar_legalizacion_ministerio_interno_nacion.blade.php
+	touch mx_carta_antecedentes_penales_federales.blade.php
+
+-- name templates
+	mx_acta_nacimiento.blade.php
+	mx_aclaracion_acta_nacimiento.blade.php
+	mx_acta_defuncion.blade.php
+	mx_acta_matrimonio.blade.php
+	mx_acta_divorcio.blade.php
+	mx_acta_reconocimiento.blade.php
+	mx_constancia_solteria_cdmx.blade.php
+	mx_busqueda_acta.blade.php
+	mx_duplicados_certificado_estudio.blade.php
+	mx_duplicado_cedula_profecional.blade.php
+	mx_registro_titulo_cedula_profecional.blade.php
+	mx_revalidacion_estudios.blade.php
+	mx_registro_grado.blade.php
+	mx_apostilla_carta_antecedentes_penales_federal.blade.php
+	mx_apostilla_acta_nacimiento.blade.php
+	mx_apostilla_acta_matrimonio.blade.php
+	mx_apostilla_documentos_escolares.blade.php
+	mx_apostilla_constancia_solteria.blade.php
+	mx_apostilla_todo_tipo_documentos.blade.php
+	ar_apostilla_certificado_nacimiento.blade.php
+	ar_apostilla_certificado_matrimonio.blade.php
+	ar_apostilla_certificado_defuncion.blade.php
+	ar_apostilla_antecedentes_reincidencia_penal.blade.php
+	ar_apostilla_certificado_estudios_multiples.blade.php
+	mx_certificado_livertad_gravamen.blade.php
+	mx_folio_real_cdmx.blade.php
+	mx_legalizacion_documentos.blade.php
+	ar_legalizacion_ministerio_interno_nacion.blade.php
+	mx_carta_antecedentes_penales_federales.blade.php
+
+-- Ruta
+	/tramites/MX/acta-nacimiento
+	/tramites/MX/aclaracion-acta-nacimiento
+	/tramites/MX/acta-defuncion
+	/tramites/MX/acta-matrimonio
+	/tramites/MX/acta-divorcio
+	/tramites/MX/acta-reconocimiento
+	/tramites/MX/constancia-solteria-cdmx
+	/tramites/MX/busqueda-acta
+	/tramites/MX/duplicados-certificado-estudio
+	/tramites/MX/duplicado-cedula-profecional
+	/tramites/MX/registro-titulo-cedula-profecional
+	/tramites/MX/revalidacion-estudios
+	/tramites/MX/registro-grado
+	/tramites/MX/apostilla-carta-antecedentes-penales-federal
+	/tramites/MX/apostilla-acta-nacimiento
+	/tramites/MX/apostilla-acta-matrimonio
+	/tramites/MX/apostilla-documentos-escolares
+	/tramites/MX/apostilla-constancia-solteria
+	/tramites/MX/apostilla-todo-tipo-documentos
+	/tramites/AR/apostilla-certificado-nacimiento
+	/tramites/AR/apostilla-certificado-matrimonio
+	/tramites/AR/apostilla-certificado-defuncion
+	/tramites/AR/apostilla-antecedentes-reincidencia-penal
+	/tramites/AR/apostilla-certificado-estudios-multiples
+	/tramites/MX/certificado-livertad-gravamen
+	/tramites/MX/folio-real-cdmx
+	/tramites/MX/legalizacion-documentos
+	/tramites/AR/legalizacion-ministerio-interno-nacion
+	/tramites/MX/carta-antecedentes-penales-federales

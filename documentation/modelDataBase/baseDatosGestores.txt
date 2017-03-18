@@ -19,7 +19,6 @@ Costos
 	costo_copia
 	costo_envio
 
-
 Solicitud
 	tramite_id
 	cliente_id

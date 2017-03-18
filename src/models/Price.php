@@ -22,6 +22,8 @@ use Spot\MapperInterface as Mapper;
             'cost'           => ['type' => 'float'],
             'copy_cost'      => ['type' => 'float'],
             'copy_send'      => ['type' => 'float'],
+            'delivery_max'    => ['type' => 'smallint'],
+            'delivery_min'    => ['type' => 'smallint'],
             'create_at'      => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }

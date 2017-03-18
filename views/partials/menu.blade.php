@@ -46,13 +46,13 @@
                                                                     <ul>
                                                                         <li><h4>Registro Civil</h4></li>
                                                                         <li><a href="/tramites/MX/acta-nacimiento" class="link transitions">Acta de nacimiento </a></li>
-                                                                        <li><a href="regCivil-aclaracion-acta-de-nacimiento.php" class="link transitions">Aclaración de acta de nacimiento </a></li>
-                                                                        <li><a href="regCivil-acta-de-defuncion.php" class="link transitions">Acta de defunción </a></li>
-                                                                        <li><a href="regCivil-acta-de-matrimonio.php" class="link transitions">Acta de matrimonio </a></li>
-                                                                        <li><a href="regCivil-acta-de-divorcio.php" class="link transitions">Acta de divoricio </a></li>
-                                                                        <li><a href="regCivil-acta-de-reconocimiento.php" class="link transitions">Acta de reconocimiento </a></li>
-                                                                        <li><a href="regCivil-constancia-de-solteria.php" class="link transitions">Constancia de soltería CDMX</a></li>
-                                                                        <li><a href="regCivil-busqueda-de-acta.php" class="link transitions">Búsqueda de acta </a></li>
+                                                                        <li><a href="/tramites/MX/aclaracion-acta-nacimiento" class="link transitions">Aclaración de acta de nacimiento </a></li>
+                                                                        <li><a href="/tramites/MX/acta-defuncion" class="link transitions">Acta de defunción </a></li>
+                                                                        <li><a href="/tramites/MX/acta-matrimonio" class="link transitions">Acta de matrimonio </a></li>
+                                                                        <li><a href="/tramites/MX/acta-divorcio" class="link transitions">Acta de divoricio </a></li>
+                                                                        <li><a href="/tramites/MX/acta-reconocimiento" class="link transitions">Acta de reconocimiento </a></li>
+                                                                        <li><a href="/tramites/MX/constancia-solteria-cdmx" class="link transitions">Constancia de soltería CDMX</a></li>
+                                                                        <li><a href="/tramites/MX/busqueda-acta" class="link transitions">Búsqueda de acta </a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -86,11 +86,11 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Secretaría de Educación Pública</h4></li>
-                                                                        <li><a href="sep-duplicado-de-certificado-de-estudio.php" class="link transitions">Duplicados de certificado de estudio</a></li>
-                                                                        <li><a href="sep-duplicado-de-cedula-profesional.php" class="link transitions">Duplicado de cédula profesional</a></li>
-                                                                        <li><a href="sep-registro-de-titulo-y-cedula-profesional.php" class="link transitions">Regístro de título y cédula profesional</a></li>
-                                                                        <li><a href="sep-revalidacion-de-estudios.php" class="link transitions">Revalidación de estudios</a></li>
-                                                                        <li><a href="sep-registro-de-grado.php" class="link transitions">Registro de grado</a></li>
+                                                                        <li><a href="/tramites/MX/duplicados-certificado-estudio" class="link transitions">Duplicados de certificado de estudio</a></li>
+                                                                        <li><a href="/tramites/MX/duplicado-cedula-profecional" class="link transitions">Duplicado de cédula profesional</a></li>
+                                                                        <li><a href="/tramites/MX/registro-titulo-cedula-profecional" class="link transitions">Regístro de título y cédula profesional</a></li>
+                                                                        <li><a href="/tramites/MX/revalidacion-estudios" class="link transitions">Revalidación de estudios</a></li>
+                                                                        <li><a href="/tramites/MX/registro-grado" class="link transitions">Registro de grado</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -107,12 +107,12 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Apostillas</h4></li>
-                                                                        <li><a href="apostilla-carta-de-antecedentes-no-penales-federal.php" class="link transitions">Apostilla de carta de antecedentes no penales federal</a></li>
-                                                                        <li><a href="apostilla-acta-de-nacimiento.php" class="link transitions">Apostilla de actas de nacimiento</a></li>
-                                                                        <li><a href="apostilla-acta-de-matrimonio.php" class="link transitions">Apostilla de actas de matrimonio</a></li>
-                                                                        <li><a href="apostilla-documentos-escolares.php" class="link transitions">Apostilla de documentos escolares</a></li>
-                                                                        <li><a href="apostilla-constancia-de-solteria.php" class="link transitions">Apostilla de constancia de soltería</a></li>
-                                                                        <li><a href="apostilla-todo-tipo-de-documentos.php" class="link transitions">Apostilla de todo tipo de documentos</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-carta-antecedentes-penales-federal" class="link transitions">Apostilla de carta de antecedentes no penales federal</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-acta-nacimiento" class="link transitions">Apostilla de actas de nacimiento</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-acta-matrimonio" class="link transitions">Apostilla de actas de matrimonio</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-documentos-escolares" class="link transitions">Apostilla de documentos escolares</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-constancia-solteria" class="link transitions">Apostilla de constancia de soltería</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de todo tipo de documentos</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -129,8 +129,8 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Registro público de la propiedad</h4></li>
-                                                                        <li><a href="regPublicoPropiedad-certificado-de-libertad-gravamen.php" class="link transitions">Certificado de libertad o gravamen</a></li>
-                                                                        <li><a href="regPublicoPropiedad-folio-real.php" class="link transitions">Folio real CDMX</a></li>
+                                                                        <li><a href="/tramites/MX/certificado-livertad-gravamen" class="link transitions">Certificado de libertad o gravamen</a></li>
+                                                                        <li><a href="/tramites/MX/folio-real-cdmx" class="link transitions">Folio real CDMX</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -147,7 +147,7 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Legalización de documentos</h4></li>
-                                                                        <li><a href="legalizacion-de-documentos.php" class="link transitions">Legalización de documentos</a></li>
+                                                                        <li><a href="/tramites/MX/legalizacion-documentos" class="link transitions">Legalización de documentos</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -164,7 +164,7 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>SEGOB</h4></li>
-                                                                        <li><a href="segob-carta-antecedentes-no-penales.php" class="link transitions">Carta de antecedentes no penales federal</a></li>
+                                                                        <li><a href="/tramites/MX/carta-antecedentes-penales-federales" class="link transitions">Carta de antecedentes no penales federal</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -305,12 +305,12 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Trámites en México - Argentina</h4></li>
-                                                                        <li><a href="argentina-apostilla-certificado-nacimiento.php" class="link transitions">Apostillado de Certificado de Nacimiento</a></li>
-                                                                        <li><a href="argentina-apostilla-certificado-matrimonio.php" class="link transitions">Apostillado de Certificado de Matrimonio</a></li>
-                                                                        <li><a href="argentina-apostilla-certificado-defuncion.php" class="link transitions">Apostillado de Certificado de Defunción</a></li>
-                                                                        <li><a href="argentina-legalizacion-en-ministerio-del-interior-de-la-nacion.php" class="link transitions">Legalización en Ministerio del Interior de la Nación</a></li>
-                                                                        <li><a href="argentina-apostilla-antecedentes-de-reincidencia-penal.php" class="link transitions">Apostilla de Antecedentes de Reincidencia penal</a></li>
-                                                                        <li><a href="argentina-apostilla-certificados-de-estudio.php" class="link transitions">Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-certificado-nacimiento" class="link transitions">Apostillado de Certificado de Nacimiento</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-certificado-matrimonio" class="link transitions">Apostillado de Certificado de Matrimonio</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-certificado-defuncion" class="link transitions">Apostillado de Certificado de Defunción</a></li>
+                                                                        <li><a href="/tramites/AR/legalizacion-ministerio-interno-nacion" class="link transitions">Legalización en Ministerio del Interior de la Nación</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-antecedentes-reincidencia-penal" class="link transitions">Apostilla de Antecedentes de Reincidencia penal</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-certificado-estudios-multiples" class="link transitions">Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
