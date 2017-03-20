@@ -14,3 +14,4 @@ migration/
 
 #config
 config/config.php
+composer.phar
