@@ -48,7 +48,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                   ""];
 
     global $spot;
-    $usersMapper = $spot->mapper("Entity\User");
+    $usersMapper = $spot->mapper("Olive\models\User");
 
     global $session_handle;
     $session = $session_handle->getSegment('Olive\Session');

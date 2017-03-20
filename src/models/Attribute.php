@@ -1,5 +1,5 @@
 <?php 
-namespace Entity;
+namespace Olive\models;
 
 use Spot\EntityInterface as Entity;
 use Spot\MapperInterface as Mapper;

@@ -36,12 +36,6 @@ namespace Olive\controllers;
 			$this->session_handle = $session_handle;
 			$this->session = $this->session_handle->getSegment('Olive\controllers');
 
-			// $this->entity_name = class_exists( "\\Entity\\".get_class($this))?("\\Entity\\".get_class($this)):"";
-			
-			// global $spot;
-			// $this->spot = $spot;
-			// $this->mapper = ($this->entity_name != "")?$this->spot->mapper( $this->entity_name ):NULL;
-
 			// create a log channel
 			$this->log = new Logger('luna');
 			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
@@ -66,8 +60,7 @@ namespace Olive\controllers;
          */
         public function renderView($res, $template, $data = [])
         {
-
-	        $session = $this->session_handle->getSegment('Olive\Session');
+        	$session = $this->session_handle->getSegment('Olive\Session');
 	        $data = array_merge(["user" => $session->get("user")], $data);
 	        $alert = $this->session->getFlash("alert");
 	        $showmodal = $this->session->getFlash("showmodal");

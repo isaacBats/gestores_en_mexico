@@ -1,6 +1,6 @@
 <?php 
 
-namespace Entity;
+namespace Olive\models;
 
 use Spot\EntityInterface as Entity;
 use Spot\MapperInterface as Mapper;
@@ -44,11 +44,11 @@ use Spot\MapperInterface as Mapper;
 
     public static function relations(Mapper $mapper, Entity $entity) {
         return [
-            'settlement' => $mapper->belongsTo($entity, 'Entity\Settlement', 'id_settlement'),
-            'township' => $mapper->belongsTo($entity, 'Entity\Township', 'id_township'),
-            'state' => $mapper->belongsTo($entity, 'Entity\State', 'id_state'),
-            'contry' => $mapper->belongsTo($entity, 'Entity\Contry', 'id_contry'),
-            'requisitions' => $mapper->hasMany($entity, 'Entity\Requisition', 'id_client'),
+            'settlement' => $mapper->belongsTo($entity, 'Olive\models\Settlement', 'id_settlement'),
+            'township' => $mapper->belongsTo($entity, 'Olive\models\Township', 'id_township'),
+            'state' => $mapper->belongsTo($entity, 'Olive\models\State', 'id_state'),
+            'contry' => $mapper->belongsTo($entity, 'Olive\models\Contry', 'id_contry'),
+            'requisitions' => $mapper->hasMany($entity, 'Olive\models\Requisition', 'id_client'),
         ];
     }
  } 
