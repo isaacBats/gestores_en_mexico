@@ -40,7 +40,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     global $spot;
     echo "<pre>";
     if( isset( $req->params["entity"] ) ){
-      $entMapper = $spot->mapper( "Entity\\".$req->params["entity"] );  
+      $entMapper = $spot->mapper( "Olive\\models\\".$req->params["entity"] );  
     }else{
       if( !is_dir( __OLIVE__.$this->dir )){mkdir( __OLIVE__.$this->dir );}
       $migration = date("YmdHis");
@@ -52,7 +52,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
           array_pop($bffmodel);
           if( str_replace("Mapper" , "" ,implode("." , $bffmodel ) ) == implode("." , $bffmodel )){
             echo "\n\t Exporting data for Entity ".implode("." , $bffmodel ).":";
-            $entMapper = $spot->mapper("Entity\\".implode("." , $bffmodel ) );
+            $entMapper = $spot->mapper("Olive\\models\\".implode("." , $bffmodel ) );
             file_put_contents(__OLIVE__.$this->dir."/".$migration."/".implode("." , $bffmodel ).".json" , 
                               serialize( $entMapper->all()->toArray() ));
             echo "done";
@@ -75,7 +75,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
       if( end( $bffmodel ) == "php" ){
         array_pop($bffmodel);
         if( str_replace("Mapper" , "" ,implode("." , $bffmodel ) ) == implode("." , $bffmodel )){
-          $entMapper = $spot->mapper("Entity\\".implode("." , $bffmodel ) );
+          $entMapper = $spot->mapper("Olive\\models\\".implode("." , $bffmodel ) );
           $entity = $entMapper->entity();
           echo "Creating table ".$entity::table()." for ".$entity."\n";
           flush();
