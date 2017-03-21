@@ -22,7 +22,8 @@ class Transaction extends Controller
 		$contries = $this->contryRepo->all();
 		
 		$template = 'Transaction.' . strtolower($req->params['code_contry']) . '_' . str_replace('-', '_', $req->params['slug']);
+		$templateFields = 'Transaction.fieldsForms.' . strtolower($req->params['code_contry']) . '_' . str_replace('-', '_', $req->params['slug']);
 		
-		return $this->renderView($res, $template, compact('states', 'contries'));
+		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields'));
 	}
 }

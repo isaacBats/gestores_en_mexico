@@ -27,6 +27,7 @@
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/css/menu.css" rel="stylesheet">
     <link href="/assets/css/material.css" rel="stylesheet">
+    <link href="/assets/css/fileinput.min.css" rel="stylesheet">
     <link href="/assets/css/custom.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -65,8 +66,11 @@
 	    <!-- Main Scripts-->
 	    <script src="/assets/js/jquery.js"></script>
 	    <script src="/assets/js/bootstrap.min.js"></script>
+	    <script src="/assets/js/bootstrap-datetimepicker.js"></script>
+		<script src="/assets/js/bootstrap-datetimepicker.es.js"></script>
 	    <script src="/assets/js/search.js"></script>
 	    <script src="/assets/js/ttmenu.js"></script>
+	    <script src="/assets/js/fileinput.min.js" type="text/javascript"></script>
 	    <script src="/assets/js/jquery.fitvids.js"></script>
 
 		<script>
@@ -87,6 +91,44 @@
 	        });
 
 	        $('.carousel').carousel('cycle');
+
+	        $('.form_datetime').datetimepicker({
+		        //language:  'es',
+		        weekStart: 1,
+		        todayBtn:  1,
+		        autoclose: 1,
+		        todayHighlight: 1,
+		        startView: 2,
+		        forceParse: 0,
+		        showMeridian: 1
+		    });
+		    $('.form_date').datetimepicker({
+		        language:  'es',
+		        weekStart: 1,
+		        todayBtn:  1,
+		        autoclose: 1,
+		        todayHighlight: 1,
+		        startView: 2,
+		        minView: 2,
+		        forceParse: 0
+		    });
+		    $('.form_time').datetimepicker({
+		        language:  'es',
+		        weekStart: 1,
+		        todayBtn:  1,
+		        autoclose: 1,
+		        todayHighlight: 1,
+		        startView: 1,
+		        minView: 0,
+		        maxView: 1,
+		        forceParse: 0
+		    });
+
+		    $("#file-3").fileinput({
+		        showCaption: false,
+		        browseClass: "btn btn-primary btn-lg",
+		        fileType: "any"
+		    });
 	    });
 	    </script>  
 	</footer>

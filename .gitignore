@@ -10,7 +10,7 @@ vendor/
 tmp/
 
 # Migraciones
-migration/
+#migration/
 
 #config
 config/config.php
