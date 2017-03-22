@@ -33,6 +33,6 @@ class Transaction extends Controller
 
 	public function saveTrancaction($req, $res)
 	{
-		var_dump($req); exit;
+		echo '<pre>'; print_r($req->data); exit;
 	}
 }
