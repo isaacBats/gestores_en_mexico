@@ -10,7 +10,7 @@
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                 </div>
             </div>
-            @include('Components.generalForm', compact('states', 'contries', 'templateFields'))
+            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
         </div>
     </div>
     <div class="callCentre paddingContent">
