@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h5>Datos del titular</h5>
+    <h5>Datos del solicitante</h5>
 </div>
 <div class="col-md-4">
     <input name="hold_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)" required="true">

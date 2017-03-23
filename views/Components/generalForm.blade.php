@@ -5,7 +5,7 @@
             <h3 class="light azul">Completa el siguiente formulario
             <span>para solicitar tu trámite</span></h3>
             <div class="col-md-12">
-                <h5>Datos generales para cualquier trámite</h5>
+                <h5>Datos generales para el trámite</h5>
             </div>
             <div id="validacion_forzosos" >
                 @include($templateFields, compact('states'))
