@@ -330,6 +330,31 @@
 		('Yucatán', 'Yuc.', 142),
 		('Zacatecas', 'Zac.', 142);
 
+	INSERT INTO states (name, code, id_contry) VALUES
+		('Buenos Aires','AR-B',10),
+		('Catamarca','AR-K',10),
+		('Chaco','AR-H',10),
+		('Chubut','AR-U',10),
+		('Cordoba','AR-X',10),
+		('Corrientes','AR-W',10),
+		('Entre Rios','AR-E',10),
+		('Formosa','AR-P',10),
+		('Jujuy','AR-Y',10),
+		('La Pampa','AR-L',10),
+		('La Rioja','AR-F',10),
+		('Mendoza','AR-M',10),
+		('Misiones','AR-N',10),
+		('Neuquen','AR-Q',10),
+		('Rio Negro','AR-R',10),
+		('Salta','AR-A',10),
+		('San Juan','AR-J',10),
+		('San Luis','AR-D',10),
+		('Santa Cruz','AR-Z',10),
+		('Santa Fe','AR-S',10),
+		('Santiago del Estero','AR-G',10),
+		('Tierra del Fuego','AR-V',10),
+		('Tucuman','AR-T',10);
+
 	-- townships	
 	INSERT INTO townships(id_state, name) VALUES 
 		('1', 'Aguascalientes'),

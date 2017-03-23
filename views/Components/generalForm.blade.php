@@ -8,7 +8,7 @@
                 <h5>Datos generales para el trámite</h5>
             </div>
             <div id="validacion_forzosos" >
-                @include($templateFields, compact('states'))
+                @include($templateFields, compact('states', 'transaction'))
                 @include('Components.holder', compact('states', 'contries'))
             </div>
             @include('Components.reciver', compact('states', 'contries'))

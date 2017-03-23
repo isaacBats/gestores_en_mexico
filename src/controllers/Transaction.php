@@ -21,12 +21,13 @@ class Transaction extends Controller
 
 	public function showFormTransaction($req, $res)
 	{
-		$states = $this->stateRepo->all();
+		$codeContry = strtolower($req->params['code_contry']);
+		$states = $this->stateRepo->getStatesByContry($codeContry);
 		$contries = $this->contryRepo->all();
 		$transaction = $this->transactionRepo->findBySlug($req->params['slug']);
 
-		$template = 'Transaction.' . strtolower($req->params['code_contry']) . '_' . str_replace('-', '_', $req->params['slug']);
-		$templateFields = 'Transaction.fieldsForms.' . strtolower($req->params['code_contry']) . '_' . str_replace('-', '_', $req->params['slug']);
+		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
+		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		
 		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction'));
 	}

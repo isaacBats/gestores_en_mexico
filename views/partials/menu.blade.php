@@ -107,6 +107,7 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>Apostillas</h4></li>
+                                                                        <li><a href="/tramites/MX/apostilla-titulo-profesional" class="link transitions">Apostilla de título profesional</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-carta-antecedentes-penales-federal" class="link transitions">Apostilla de carta de antecedentes no penales federal</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-acta-nacimiento" class="link transitions">Apostilla de actas de nacimiento</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-acta-matrimonio" class="link transitions">Apostilla de actas de matrimonio</a></li>
