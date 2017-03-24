@@ -34,6 +34,8 @@ class Transaction extends Controller
 
 	public function saveTrancaction($req, $res)
 	{
+		
+		exit('Seguimos trabajando en esta parte. Pronto estara completo el registro');
 		echo '<pre>'; print_r($req->data); exit;
 	}
 }

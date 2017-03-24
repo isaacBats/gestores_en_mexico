@@ -37,7 +37,7 @@ use Spot\MapperInterface as Mapper;
             'id_state' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_contry' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'reference'    => ['type' => 'string'],
-            'is_reciver'    => ['type' => 'string'],
+            'is_reciver'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }

@@ -43,7 +43,7 @@
 		('745ca34b7d3e7b084791c130ae6a1242', 4, 142, 'SERV_DOC_FOLCDMX', 'Folio real CDMX', 'folio-real-cdmx', NOW()),
 		-- Localizacion de documentos
 		('f9641a58518c2a17477926013caad3e4', 5, 142, 'SERV_DOC_LEGALON', 'Legalización de documentos', 'legalizacion-documentos', NOW()),
-		('f9641a58518c2a17477926013caad3e4', 5, 10, 'SERV_DOC_LEGLMIN', 'Legalización en Ministerio del Interior de la Nación', 'legalizacion-ministerio-interno-nacion', NOW()),
+		('ebc1f2c54ba97b726289b8af39b86e95', 5, 10, 'SERV_DOC_LEGLMIN', 'Legalización en Ministerio del Interior de la Nación', 'legalizacion-ministerio-interno-nacion', NOW()),
 		-- Carta de antecedentes no penales
 		('7a2dc5df9f97da8b9cb892bc7b670e76', 6, 142, 'SERV_DOC_ANTNPEN', 'Carta de antecedentes no penales federales', 'carta-antecedentes-penales-federales', NOW());
 
@@ -2818,7 +2818,7 @@
 	-- Users
 	-- INSERT INTO users(first_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
 	-- 	('admin', 'administrator', 'klonate@gmail.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'admin', 'admin', 1, NOW());
-	INSERT INTO users(fist_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
+	INSERT INTO users(first_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
 		('admin', 'administrator', 'klonate@gmail.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'admin', 'admin', 1, NOW());
 
 	-- Prices

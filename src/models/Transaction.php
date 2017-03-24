@@ -24,15 +24,16 @@ use Spot\MapperInterface as Mapper;
             'code_product' => ['type' => 'string', 'required' => true, 'notnull' => true, 'length' => 20],
             'name'         => ['type' => 'string', 'required' => true, 'length' => 200, 'notnull' => true],
             'slug'         => ['type' => 'string', 'length' => 200, 'unique' => true],
+            'h_copies'     => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }
 
     public static function relations(Mapper $mapper, Entity $entity) {
         return [
-            'transactionType' => $mapper->belongsTo($entity, 'Olive\models\TypeTransaction', 'id_transaction_type'),
             'contry' => $mapper->belongsTo($entity, 'Olive\models\Contry', 'id_contry'),
             'requisitions' => $mapper->hasMany($entity, 'Olive\models\Requisition', 'id_transaction'),
+            'transactionType' => $mapper->belongsTo($entity, 'Olive\models\TypeTransaction', 'id_transaction_type'),
             'price' => $mapper->hasMany($entity, 'Olive\models\Price', 'id_transaction')
         ];
     }
