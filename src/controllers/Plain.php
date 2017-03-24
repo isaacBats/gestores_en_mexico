@@ -30,4 +30,9 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.aviso');
 	}
 
+	public function preguntas ($req, $res)
+	{		
+		return $this->renderView($res, 'Plain.preguntas');
+	}
+
 }

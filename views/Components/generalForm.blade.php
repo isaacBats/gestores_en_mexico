@@ -36,7 +36,7 @@
                 <hr>
                 <div class="col-md-12">
                     <label>
-                        <input type="checkbox" id="terminosycondiciones" checked="checked" class="check" required="true"> He leído y acepto el <a href="aviso-de-privacidad.php" target="_blank" class="transitions">Aviso de Privacidad</a>
+                        <input type="checkbox" id="terminosycondiciones" checked="checked" class="check" required="true"> He leído y acepto el <a href="/aviso-privacidad" target="_blank" class="transitions">Aviso de Privacidad</a>
                     </label>
                 </div>
                 <span id="validation_error" style="color:red;" ></span>

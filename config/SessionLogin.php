@@ -44,6 +44,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/como-funciona",
                     "/contacto",
                     "/aviso-privacidad",
+                    "/preguntas-frecuentes",
                     "/tramites/{code_contry}/{slug}",
                   ""];
 
