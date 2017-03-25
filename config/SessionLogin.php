@@ -35,6 +35,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
 
     //  URL's Autorizadas
     $allow_uri = [
+                    "",
                     "/" ,
                     "/login" , 
                     "/logout",
@@ -46,7 +47,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/aviso-privacidad",
                     "/preguntas-frecuentes",
                     "/tramites/{code_contry}/{slug}",
-                  ""];
+                  ];
 
     global $spot;
     $usersMapper = $spot->mapper("Olive\models\User");

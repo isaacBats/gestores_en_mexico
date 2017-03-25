@@ -69,9 +69,11 @@
 	    <script src="/assets/js/bootstrap-datetimepicker.js"></script>
 		<script src="/assets/js/bootstrap-datetimepicker.es.js"></script>
 	    <script src="/assets/js/search.js"></script>
+	    <script src="/assets/js/jqvalidate.min.js"></script>
 	    <script src="/assets/js/ttmenu.js"></script>
 	    <script src="/assets/js/fileinput.min.js" type="text/javascript"></script>
 	    <script src="/assets/js/jquery.fitvids.js"></script>
+	    <script src="/assets/js/custom.js"></script>
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

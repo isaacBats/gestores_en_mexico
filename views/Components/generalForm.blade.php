@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 form">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="form-transaction">
             <input type="hidden" name="id_transaction" value="{{ $transaction->id }}">        
             <h3 class="light azul">Completa el siguiente formulario
             <span>para solicitar tu trámite</span></h3>
@@ -36,7 +36,7 @@
                 <hr>
                 <div class="col-md-12">
                     <label>
-                        <input type="checkbox" id="terminosycondiciones" checked="checked" class="check" required="true"> He leído y acepto el <a href="/aviso-privacidad" target="_blank" class="transitions">Aviso de Privacidad</a>
+                        <input type="checkbox" id="terminosycondiciones" checked="checked" class="check" required> He leído y acepto el <a href="/aviso-privacidad" target="_blank" class="transitions">Aviso de Privacidad</a>
                     </label>
                 </div>
                 <span id="validation_error" style="color:red;" ></span>

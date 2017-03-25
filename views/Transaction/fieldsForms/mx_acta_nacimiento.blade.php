@@ -1,15 +1,15 @@
 <div class="col-md-4">
-    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)">
+    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)" required>
 </div>
 <div class="col-md-4">
-    <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno">
+    <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno" required>
 </div>
 <div class="col-md-4">
-    <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno">
+    <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno" required>
 </div>
 
 <div class="col-md-4">
-    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
+    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP" required>
 </div>
 <div class="col-md-4">
     <select name="attr_sexo" id="sexo" class="form-control light">
