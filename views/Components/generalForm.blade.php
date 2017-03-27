@@ -18,20 +18,29 @@
                 </div>
             </div>
             <div class="col-md-12 calculoCosto">
-                <h4>Costo por concepto de <span class="tituloTramite">Acta de nacimiento</span></h4>
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="col-md-6">
-                        <span id="costoTramite" class="costoTexto">Costo del trámite</span>
-                        <span id="costoCopias" class="costoTexto">Copias adicionales</span>
-                        <span id="costoEnvio" class="costoTexto">Envío</span>
-                        <span id="costoTotal" class="costoTexto">Total</span>
-                    </div>
-                    <div class="col-md-6">
-                        <span id="costoTramitePesos" class="costoNumeros">$ 1,390 <sup>mn</sup></span>
-                        <span id="costoCopiasPesos" class="costoNumeros">$ 200 <sup>mn</sup></span>
-                        <span id="costoEnvioPesos" class="costoNumeros">$ 350 <sup>mn</sup></span>
-                        <span id="costoTotalPesos" class="costoNumeros"><strong>$1,940 <sup>mn</sup></strong></span>
-                    </div>
+                <h4>Costo por concepto de <span class="tituloTramite">{{ utf8_encode($transaction->name) }}</span></h4>
+                <div class="col-md-8 col-md-offset-2" id="pricesTransaction">
+                    <p id="costoTramite" >
+                        Costo del trámite $
+                        <span id="costoTramitePesos" >0</span>
+                        <sup>mn</sup>
+                    </p>
+                    @if ($transaction->h_copies)
+                        <p id="costoCopias">
+                            Copias adicionales
+                            <input type="number" min="0" max="20" name="copies" id="copies" value="1"> $
+                            <span id="costoCopiasPesos">0</span>
+                            <sup>mn</sup>
+                        </p>
+                    @endif
+                    <p id="costoEnvio">
+                        Envío $<span id="costoEnvioPesos">0</span><sup>mn</sup>
+                    </p>
+                    <p id="costoTotal">
+                        Total $
+                        <strong id="costoTotalPesos">0</strong>
+                        <sup>mn</sup>
+                    </p>
                 </div>
                 <hr>
                 <div class="col-md-12">

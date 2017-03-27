@@ -45,7 +45,7 @@
     <input name="attr_juzgado" class="form-control materail-input light" id="juzgado_oficialia" placeholder="Juzgado u Oficialia">
 </div>
 <div class="col-md-4">
-    <select name="attr_estado" id="gral-estado" class="form-control light">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
             <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>

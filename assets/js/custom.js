@@ -101,11 +101,43 @@ $(document).ready(function () {
 	$('#attr_estado').on('change', function() {
 		var $transaction = $('#id_transaction');
 		var $state = $(this);
+		var $costoTramite = $('#costoTramitePesos');
+		var $costoCopias = $('#costoCopiasPesos');
+		var $costoEnvio = $('#costoEnvioPesos');
+		var $costoTotal = $('#costoTotalPesos');
+		var $numCopies = $('#copies').val();
 
-		console.log('La transaccion es ' + $transaction.val() + ' y el estado es ' + $state.val());
 		$.get('/serv/obtener-precio?state=' + $state.val() + '&transaction=' + $transaction.val(), function(data) {
-			console.log(data);
+			if (data) {
+
+				var copias = (!data.copy_cost) ? 0 : data.copy_cost * $numCopies;
+				$costoTramite.text(data.cost);
+				$costoCopias.text(copias);
+				$costoEnvio.text(data.copy_send);
+				$costoTotal.text(parseInt($costoTramite.html()) + parseInt($costoCopias.html()) + parseInt($costoEnvio.html()));
+			}
 		});
 	});
 
+	
+	//function  number with commas
+	function numberWithCommas(x) {
+	    var parts = x.toString().split(".");
+	    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	    return parts.join(".");
+	}
+
+	function sum (values) {
+		var total = 0;
+			// console.log(values[0].html());
+		values.each(function() {
+			total += parseInt($(this).html());
+		});
+		// for (var i = 0; i >= values.length; i++) {
+		// 	total += parseInt(values[i].html());
+		// 	debugger;
+		// }
+		return total;
+	}
 });
+
