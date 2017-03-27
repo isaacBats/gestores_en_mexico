@@ -47,6 +47,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/aviso-privacidad",
                     "/preguntas-frecuentes",
                     "/tramites/{code_contry}/{slug}",
+                    "/serv/obtener-precio",
                   ];
 
     global $spot;

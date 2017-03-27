@@ -29,13 +29,11 @@ class Transaction extends Controller
 		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		
-		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction'));
+		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry'));
 	}
 
 	public function saveTrancaction($req, $res)
 	{
-		
-		exit('Seguimos trabajando en esta parte. Pronto estara completo el registro');
 		echo '<pre>'; print_r($req->data); exit;
 	}
 }

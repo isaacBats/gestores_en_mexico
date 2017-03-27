@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 form">
         <form action="" method="post" enctype="multipart/form-data" id="form-transaction">
-            <input type="hidden" name="id_transaction" value="{{ $transaction->id }}">        
+            <input type="hidden" name="id_transaction" id="id_transaction" value="{{ $transaction->id }}">        
             <h3 class="light azul">Completa el siguiente formulario
             <span>para solicitar tu trámite</span></h3>
             <div class="col-md-12">
@@ -9,9 +9,9 @@
             </div>
             <div id="validacion_forzosos" >
                 @include($templateFields, compact('states', 'transaction'))
-                @include('Components.holder', compact('states', 'contries'))
+                @include('Components.holder', compact('states', 'contries', 'codeContry'))
             </div>
-            @include('Components.reciver', compact('states', 'contries'))
+            @include('Components.reciver', compact('states', 'contries', 'codeContry'))
             <div class="col-md-12">
                 <div class="field">
                     <textarea class="light" name="form_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>
@@ -36,7 +36,7 @@
                 <hr>
                 <div class="col-md-12">
                     <label>
-                        <input type="checkbox" id="terminosycondiciones" checked="checked" class="check" required> He leído y acepto el <a href="/aviso-privacidad" target="_blank" class="transitions">Aviso de Privacidad</a>
+                        <input name="terminos" type="checkbox" id="terminosycondiciones" checked="checked" class="check" required> He leído y acepto el <a href="/aviso-privacidad" target="_blank" class="transitions">Aviso de Privacidad</a>
                     </label>
                 </div>
                 <span id="validation_error" style="color:red;" ></span>

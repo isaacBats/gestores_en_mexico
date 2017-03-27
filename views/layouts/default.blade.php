@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon-apple-touch-144.png">
     <link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="favicon.ico">
     <link rel="icon" sizes="128x128" href="favicon.icns">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
     <!-- Font Awesome Styles -->
     <link type="text/css" rel="stylesheet" href="/assets/css/font-awesome.css">
     <!-- Bootstrap Styles -->
@@ -69,7 +69,8 @@
 	    <script src="/assets/js/bootstrap-datetimepicker.js"></script>
 		<script src="/assets/js/bootstrap-datetimepicker.es.js"></script>
 	    <script src="/assets/js/search.js"></script>
-	    <script src="/assets/js/jqvalidate.min.js"></script>
+	    <script src="/assets/js/jquery.validate.min.js"></script>
+	    <script src="/assets/js/jquery.form.js"></script>
 	    <script src="/assets/js/ttmenu.js"></script>
 	    <script src="/assets/js/fileinput.min.js" type="text/javascript"></script>
 	    <script src="/assets/js/jquery.fitvids.js"></script>

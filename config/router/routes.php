@@ -36,6 +36,11 @@
 	  'post'	 => array('Transaction', 'saveTrancaction'),
 	));
 
+	$router->addRoute(array(
+	  'path'     => '/serv/obtener-precio',
+	  'get'      => array('PriceController', 'getPrice'),
+	));
+
 	/**
 	 * Upload for images
 	 */

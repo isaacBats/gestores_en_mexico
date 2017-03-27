@@ -1,5 +1,5 @@
 <div class="col-md-4">
-    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)" required>
+    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)">
 </div>
 <div class="col-md-4">
     <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno" required>
@@ -12,14 +12,14 @@
     <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP" required>
 </div>
 <div class="col-md-4">
-    <select name="attr_sexo" id="sexo" class="form-control light">
+    <select name="attr_sexo" id="sexo" class="form-control light" required>
         <option value="">Seleccionar sexo</option>
         <option value="1">Hombre</option>
         <option value="2">Mujer</option>
     </select>
 </div>
 <div class="col-md-4">
-    <select name="attr_estado" id="gral-estado" class="form-control light">
+    <select name="attr_estado" id="attr_estado" class="form-control light" required>
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
             <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
@@ -31,7 +31,7 @@
 </div>
 <div class="col-md-8">
     <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-        <input class="form-control" size="16" type="text" name="attr_fnacimiento" readonly="">
+        <input class="form-control" size="16" type="text" name="attr_fnacimiento" readonly="" required>
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
@@ -42,7 +42,7 @@
 </div>
 <div class="col-md-8">
     <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-        <input class="form-control" size="16" type="text" name="attr_fregistro" readonly="">
+        <input class="form-control" size="16" type="text" name="attr_fregistro" readonly="" required>
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
@@ -50,24 +50,24 @@
 </div>
 
 <div class="col-md-4">
-    <input name="attr_no_acta" class="form-control materail-input light" id="no_acta" placeholder="No. de acta">
+    <input name="attr_no_acta" class="form-control materail-input light" id="no_acta" placeholder="No. de acta" required>
 </div>
 <div class="col-md-4">
-    <input name="attr_no_libro" class="form-control materail-input light" id="no_libro" placeholder="No. de libro">
+    <input name="attr_no_libro" class="form-control materail-input light" id="no_libro" placeholder="No. de libro" required>
 </div>
 <div class="col-md-4">
-    <input name="attr_foja" class="form-control materail-input light" id="foja" placeholder="Foja y/o Partida">
-</div>
-
-<div class="col-md-4">
-    <input name="attr_juzgado" class="form-control materail-input light" id="juzgado_oficialia" placeholder="Juzgado u Oficialia">
+    <input name="attr_foja" class="form-control materail-input light" id="foja" placeholder="Foja y/o Partida" required>
 </div>
 
 <div class="col-md-4">
-    <input name="attr_nom_padre" class="form-control materail-input light" id="nombre_padre" placeholder="Nombre del padre">
+    <input name="attr_juzgado" class="form-control materail-input light" id="juzgado_oficialia" placeholder="Juzgado u Oficialia" required>
+</div>
+
+<div class="col-md-4">
+    <input name="attr_nom_padre" class="form-control materail-input light" id="nombre_padre" placeholder="Nombre del padre" required>
 </div>
 <div class="col-md-4">
-    <input name="attr_nom_madre" class="form-control materail-input light" id="nombre_madre" placeholder="Nombre de la madre">
+    <input name="attr_nom_madre" class="form-control materail-input light" id="nombre_madre" placeholder="Nombre de la madre" required>
 </div>
 
 <div class="col-md-12">
@@ -76,6 +76,6 @@
 
 <div class="col-md-12">
     <div class="form-group">
-        <input name="attr_image" id="file-1" type="file" class="file" data-preview-file-type="any">
+        <input name="attr_image" id="file-1" type="file" class="file" data-preview-file-type="any" >
     </div>
 </div>
