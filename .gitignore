@@ -15,3 +15,6 @@ tmp/
 #config
 config/config.php
 composer.phar
+
+# storage
+/assets/storage/
