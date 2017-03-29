@@ -14,7 +14,7 @@
             @include('Components.reciver', compact('states', 'contries', 'codeContry'))
             <div class="col-md-12">
                 <div class="field">
-                    <textarea class="light" name="form_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>
+                    <textarea class="light" name="attr_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>
                 </div>
             </div>
             <div class="col-md-12 calculoCosto">
@@ -28,7 +28,7 @@
                     @if ($transaction->h_copies)
                         <p id="costoCopias">
                             Copias adicionales
-                            <input type="number" min="0" max="20" name="copies" id="copies" value="1"> $
+                            <input type="number" min="0" max="20" name="attr_copies" id="attr_copies" value="1"> $
                             <span id="costoCopiasPesos">0</span>
                             <sup>mn</sup>
                         </p>
@@ -38,7 +38,7 @@
                     </p>
                     <p id="costoTotal">
                         Total $
-                        <strong id="costoTotalPesos">0</strong>
+                        <input id="costoTotalPesos" name="attr_total" value="0" readonly>
                         <sup>mn</sup>
                     </p>
                 </div>

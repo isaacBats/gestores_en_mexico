@@ -2824,17 +2824,24 @@
 		('attr_nombre_esposo', NOW()),
 		('attr_paterno_esposo', NOW()),
 		('attr_materno_esposo', NOW()),
-		('attr_nombre_esposa', NOW()),
 		('attr_paterno_esposa', NOW()),
 		('attr_materno_esposa', NOW()),
-		('attr_fdivorcio', NOW()),
+		('attr_nombre_esposa', NOW()),
 		('attr_fmatrimonio', NOW()),
+		('attr_fdivorcio', NOW()),
 		('attr_no_cedula', NOW()),
 		('attr_profesion', NOW()),
-		('attr_name', NOW()),
+		('attr_mensaje', NOW()),
 		('attr_paterno', NOW()),
 		('attr_materno', NOW()),
+		('attr_copies', NOW()),
+		('attr_total', NOW()),
+		('attr_name', NOW()),
 		('attr_curp', NOW());
+
+		INSERT INTO attributes (attribute, date_created) VALUES ('attr_copies', NOW());
+		INSERT INTO attributes (attribute, date_created) VALUES ('attr_total', NOW());
+		INSERT INTO attributes (attribute, date_created) VALUES ('attr_mensaje', NOW());
 
 
 	-- Prices

@@ -420,5 +420,10 @@ sup {font-size: 9px;}
 .noneo {display: none !important;}
 .noDisponible { font-size: 9px;}
 
-
-
+#costoTotalPesos {
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    width: 60px;
+}

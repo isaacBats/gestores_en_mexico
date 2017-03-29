@@ -4,6 +4,8 @@ use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo;
 use Olive\infrastructure\StateRepo;
 use Olive\infrastructure\TransactionRepo;
+use \Upload\Storage\FileSystem;
+use \Upload\File;
 
 class Transaction extends Controller
 {
@@ -34,6 +36,24 @@ class Transaction extends Controller
 
 	public function saveTrancaction($req, $res)
 	{
-		echo '<pre>'; print_r($req->data); exit;
+		$storage = new FileSystem(__ASSETS__.'storage');
+		$file = new File('attr_image', $storage);
+		$file->setName($file->getName().'_'.uniqid());
+		$file->addValidations(array(
+		    new \Upload\Validation\Mimetype(['image/png', 'image/jpeg', 'image/jpg', 'image/gif']),
+		    new \Upload\Validation\Size('5M')
+		));
+		try {
+		    
+		    $file->upload();
+
+		} catch (\Exception $e) {
+
+		    $errors = $file->getErrors();
+		}
+
+		
+		
+		echo '<pre>'; print_r([ 'data' => $req->data, 'files' => $_FILES, 'file' => $file, 'error' => $errors]); exit;
 	}
 }
