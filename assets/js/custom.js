@@ -27,11 +27,6 @@ $(document).ready(function () {
         errorClass: "error",
         debug: true,
         submitHandler: function(form) {
-            // var formulario = $(form);
-            // var datos = formulario.serialize();
-            // $.post(formulario.attr('action'), datos, function (json) {
-      //           console.log(json);
-      //       });
             form.submit();
         }
     });

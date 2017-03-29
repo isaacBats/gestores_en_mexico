@@ -18,7 +18,7 @@ use Spot\MapperInterface as Mapper;
     public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'fist_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
+            'first_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
             'middle_name'    => ['type' => 'string', 'length' => 100 ],
             'last_name'    => ['type' => 'string', 'length' => 100 ],
             'email'        => ['type' => 'string', 'required' => true, 'unique' => true,
