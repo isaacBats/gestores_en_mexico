@@ -5,6 +5,12 @@ use Olive\infrastructure\ContryRepo;
 use Olive\infrastructure\StateRepo;
 use Olive\infrastructure\TransactionRepo;
 use Olive\infrastructure\SettlementRepo;
+use Olive\infrastructure\PriceRepo;
+use Olive\infrastructure\RequisitionRepo;
+use Olive\infrastructure\ClientRepo;
+use Olive\infrastructure\TownshipRepo;
+use Olive\infrastructure\AttributeRepo;
+use Olive\infrastructure\DataRequisitionRepo;
 use \Upload\Storage\FileSystem;
 use \Upload\File;
 
@@ -13,10 +19,16 @@ class Transaction extends Controller
 	const RECIVER = 1;
 	const NO_RECIVER = 0;
 
-	private $stateRepo;
-	private $contryRepo;
+	private $dataRequisitionRepo;
+	private $requisitionRepo;
 	private $transactionRepo;
 	private $settlementRepo;
+	private $attributeRepo;
+	private $townshipRepo;
+	private $contryRepo;
+	private $clientRepo;
+	private $stateRepo;
+	private $priceRepo;
 
 	
 	function __construct()
@@ -26,6 +38,12 @@ class Transaction extends Controller
 		$this->contryRepo = new ContryRepo();
 		$this->transactionRepo = new TransactionRepo();
 		$this->settlementRepo = new SettlementRepo();
+		$this->priceRepo = new PriceRepo();
+		$this->requisitionRepo = new RequisitionRepo();
+		$this->clientRepo = new ClientRepo();
+		$this->townshipRepo = new TownshipRepo();
+		$this->attributeRepo = new AttributeRepo();
+		$this->dataRequisitionRepo = new DataRequisitionRepo();
 	}
 
 	public function showFormTransaction($req, $res)
@@ -63,29 +81,106 @@ class Transaction extends Controller
 			    $errorsFile = $file->getErrors();
 			}
 		}
-
+		$price = $this->priceRepo->getPrice($data['attr_estado'], $data['id_transaction']);
+		$newRequisition = new Olive\models\Requisition();
+		$newRequisition->id_transaction = $data['id_transaction'];
+		$newRequisition->id_price = $price->id;
+		$newRequisition->total_cost = $data['attr_total'];
+		$newRequisition->status = 'pending';
+		$newRequisition->message = $data['attr_mensaje'];
+		
 		if (isset($data['cb_reciver'])) {
 			$settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
-			$client = new Olive\models\Client();
-			$client->first_name = $data['hold_name'];
-			$client->middle_name = $data['hold_paterno'];
-			$client->last_name = $data['hold_materno'];
-			$client->email = $data['hold_email'];
-			$client->telephone = $data['hold_tel'];
-			$client->mobile = $data['hold_mobil'];
-			$client->address = $data['hold_calle'];
-			$client->num_inside = $data['hold_num_int'];
-			$client->num_extern = $data['hold_num_ext'];
+			$newClient = new Olive\models\Client();
+			$newClient->first_name = $data['hold_name'];
+			$newClient->middle_name = $data['hold_paterno'];
+			$newClient->last_name = $data['hold_materno'];
+			$newClient->email = $data['hold_email'];
+			$newClient->telephone = $data['hold_tel'];
+			$newClient->mobile = $data['hold_mobil'];
+			$newClient->address = $data['hold_calle'];
+			$newClient->num_inside = $data['hold_num_int'];
+			$newClient->num_extern = $data['hold_num_ext'];
 			// Para las pruebas se pondra por defecto 1
-			$client->id_settlement = ($settlemetn) ? $settlemetn->id : 1;
-			$client->id_township = $data['hold_municipio'];
-			$client->id_state = $data['hold_estado'];
-			$client->id_contry = $data['hold_pais'];
-			$client->reference = $data['hold_referencia'];
-			$client->is_reciver = self::RECIVER;
+			$newClient->id_settlement = ($settlemetn) ? $settlemetn->id : 1;
+			$newClient->id_township = $settlemetn->id_township;
+			$newClient->id_state = $data['hold_estado'];
+			$newClient->id_contry = $data['hold_pais'];
+			$newClient->reference = $data['hold_referencia'];
+			$newClient->is_reciver = self::RECIVER;
+
+			if ($client = $this->clientRepo->save($newClient)) {
+				$newRequisition->id_client = $client->id;
+				$newRequisition->id_reciver = $client->id;
+			}
+		} else {
+			$hold_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
+			$newHold = new Olive\models\Client();
+			$newHold->first_name = $data['hold_name'];
+			$newHold->middle_name = $data['hold_paterno'];
+			$newHold->last_name = $data['hold_materno'];
+			$newHold->email = $data['hold_email'];
+			$newHold->telephone = $data['hold_tel'];
+			$newHold->mobile = $data['hold_mobil'];
+			$newHold->address = $data['hold_calle'];
+			$newHold->num_inside = $data['hold_num_int'];
+			$newHold->num_extern = $data['hold_num_ext'];
+			// Para las pruebas se pondra por defecto 1
+			$newHold->id_settlement = ($hold_settlemetn) ? $hold_settlemetn->id : 1;
+			$newHold->id_township = $hold_settlemetn->id_township;
+			$newHold->id_state = $data['hold_estado'];
+			$newHold->id_contry = $data['hold_pais'];
+			$newHold->reference = $data['hold_referencia'];
+			$newHold->is_reciver = self::NO_RECIVER;
+
+			if ($hold = $this->clientRepo->save($newHold)) {
+				$newRequisition->id_client = $hold->id;
+			}
+
+			$reciver_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['reciv_cp']);
+			$newReciver = new Olive\models\Client();
+			$newReciver->first_name = $data['reciv_name'];
+			$newReciver->middle_name = $data['reciv_paterno'];
+			$newReciver->last_name = $data['reciv_materno'];
+			$newReciver->email = $data['reciv_email'];
+			$newReciver->telephone = $data['reciv_tel'];
+			$newReciver->mobile = $data['reciv_mobil'];
+			$newReciver->address = $data['reciv_calle'];
+			$newReciver->num_inside = $data['reciv_num_int'];
+			$newReciver->num_extern = $data['reciv_num_ext'];
+			// Para las pruebas se pondra por defecto 1
+			$newReciver->id_settlement = ($reciver_settlemetn) ? $reciver_settlemetn->id : 1;
+			$newReciver->id_township = $reciver_settlemetn->id_township;
+			$newReciver->id_state = $data['reciv_estado'];
+			$newReciver->id_contry = $data['reciv_pais'];
+			$newReciver->reference = $data['reciv_referencia'];
+			$newReciver->is_reciver = self::NO_RECIVER;
+
+			if ($reciver = $this->clientRepo->save($newReciver)) {
+				$newRequisition->id_reciver = $reciver->id;
+			}
+		}
+		
+		$requisition = $this->requisitionRepo->save($newRequisition);
+		
+		$attrbs = array_filter($data, function($val, $key) {
+			return (substr($key, 0,4) == 'attr');
+		}, ARRAY_FILTER_USE_BOTH);
+
+		foreach ($attrbs as $key => $attr) {
+			if ($key !== 'attr_mensaje' || $key !== 'attr_total'){
+				$attribute = $this->attributeRepo->findByName($key);
+				$newDataRequisition = new Olive\models\DataRequisition();
+				$newDataRequisition->id_requisition = $requisition->id;
+				$newDataRequisition->id_attribute = $attribute->id;
+				$newDataRequisition->value = $attr;
+				$dataRequisition = $this->dataRequisitionRepo->save($newDataRequisition);
+			}
 		}
 
+		// exit("SE ha guardado tu registro en la base de datos el numero de tu pedido es " . $requisition->id_public);
 		
-		echo '<pre>'; print_r([ 'data' => $req->data, 'files' => $_FILES, 'file' => $file, 'error' => $errors]); exit;
+			
+		echo '<pre>'; print_r(compact('price', 'newRequisition')); exit;
 	}
 }

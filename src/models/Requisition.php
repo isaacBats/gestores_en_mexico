@@ -4,6 +4,7 @@ namespace Olive\models;
 
 use Spot\EntityInterface as Entity;
 use Spot\MapperInterface as Mapper;
+use Spot\EventEmitter as EventEmitter;
 
 /**
  *  Model for Requisition
@@ -18,6 +19,7 @@ use Spot\MapperInterface as Mapper;
  	public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
+            'id_public' => ['type' => 'string', 'required' => true, 'length' => 50, 'unique' => true],
             'id_transaction' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_client' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_reciver' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
@@ -41,5 +43,12 @@ use Spot\MapperInterface as Mapper;
             'attributes' => $mapper->hasMany($entity, 'Olive\models\DataRequisition', 'id_requisition'),
             'price' => $mapper->belongsTo($entity, 'Olive\models\Price', 'id_price'),
         ];
+    }
+
+    public static function events(EventEmitter $eventEmitter)
+    {
+        $eventEmitter->on('beforeInsert', function (Entity $entity, Mapper $mapper) {
+            $entity->id_public = md5(uniqid());
+        });
     }
  } 

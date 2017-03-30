@@ -4,6 +4,8 @@ namespace Olive\models;
 
 use Spot\EntityInterface as Entity;
 use Spot\MapperInterface as Mapper;
+use Spot\EventEmitter as EventEmitter;
+
 
 /**
  *  Model for Transaction
@@ -36,5 +38,12 @@ use Spot\MapperInterface as Mapper;
             'transactionType' => $mapper->belongsTo($entity, 'Olive\models\TypeTransaction', 'id_transaction_type'),
             'price' => $mapper->hasMany($entity, 'Olive\models\Price', 'id_transaction')
         ];
+    }
+
+    public static function events(EventEmitter $eventEmitter)
+    {
+        $eventEmitter->on('beforeInsert', function (Entity $entity, Mapper $mapper) {
+            $entity->id_publico = md5(uniqid());
+        });
     }
  } 

@@ -21,11 +21,28 @@ abstract class BaseRepository
 
 		// create a log channel
 		$this->log = new Logger('luna');
-		$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
+		$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/olive.log', Logger::INFO ) );
 	}
 
 	public function all ()
 	{
 		return $this->mapper->all();
+	}
+
+	public function save (\Spot\Entity $entity)
+	{
+		$rs = $this->mapper->insert($entity);
+		if($rs)
+			return $this->mapper->get($rs);
+		else
+			return false;
+	}
+
+	public function get ($key = null)
+	{
+		if(is_null($key))
+			return $this->mapper->get();
+		else 
+			return $this->mapper->get($key);
 	}
 }
