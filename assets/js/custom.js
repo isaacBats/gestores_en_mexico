@@ -113,10 +113,14 @@ $(document).ready(function () {
         $.get('/serv/obtener-precio?state=' + $state.val() + '&transaction=' + $transaction.val(), function(data) {
             if (data) {
                 var copias = (!data.copy_cost) ? 0 : data.copy_cost * $numCopies;
+                var cp = 0;
                 $costoTramite.text(data.cost);
-                $costoCopias.text(copias);
+                if ($costoCopias.length > 0) {
+                    cp = copias;
+                    $costoCopias.text(copias);
+                }
                 $costoEnvio.text(data.copy_send);
-                $costoTotal.val(parseInt($costoTramite.html()) + parseInt($costoCopias.html()) + parseInt($costoEnvio.html()));
+                $costoTotal.val(parseInt($costoTramite.html()) + cp + parseInt($costoEnvio.html()));
             }
         });
     });

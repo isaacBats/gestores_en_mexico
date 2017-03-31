@@ -10,11 +10,19 @@
 <div class="col-md-4">
     <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
 </div>
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-4">
     <select name="attr_sexo" id="sexo" class="form-control light">
         <option value="">Seleccionar sexo</option>
         <option value="1">Hombre</option>
         <option value="2">Mujer</option>
+    </select>
+</div>
+<div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Seleccionar Estado</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
     </select>
 </div>
 <div class="col-md-4">

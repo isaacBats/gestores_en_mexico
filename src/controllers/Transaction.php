@@ -115,7 +115,7 @@ class Transaction extends Controller
 				$newRequisition->id_reciver = $client->id;
 			} else {
 				$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
-				$this->session->setFlash("alert", ["message" => "No se puede crear al cliente", "status" => "Error:", "class" => "alert-danger"]);
+				$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
 	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
 	            exit();
 			}
