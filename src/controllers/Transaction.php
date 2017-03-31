@@ -75,6 +75,7 @@ class Transaction extends Controller
 			try {
 			    
 			    $file->upload();
+			$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
 
 			} catch (\Exception $e) {
 
@@ -112,6 +113,11 @@ class Transaction extends Controller
 			if ($client = $this->clientRepo->save($newClient)) {
 				$newRequisition->id_client = $client->id;
 				$newRequisition->id_reciver = $client->id;
+			} else {
+				$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
+				$this->session->setFlash("alert", ["message" => "No se puede crear al cliente", "status" => "Error:", "class" => "alert-danger"]);
+	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+	            exit();
 			}
 		} else {
 			$hold_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
@@ -135,6 +141,11 @@ class Transaction extends Controller
 
 			if ($hold = $this->clientRepo->save($newHold)) {
 				$newRequisition->id_client = $hold->id;
+			} else {
+				$this->session->set('errors_solicitante', $this->clientRepo->getErrors());
+				$this->session->setFlash("alert", ["message" => "Error al agregar los datos de la persona que lo solicita", "status" => "Error:", "class" => "alert-danger"]);
+	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+	            exit();
 			}
 
 			$reciver_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['reciv_cp']);
@@ -158,29 +169,53 @@ class Transaction extends Controller
 
 			if ($reciver = $this->clientRepo->save($newReciver)) {
 				$newRequisition->id_reciver = $reciver->id;
+			} else {
+				$this->session->set('errors_recive', $this->clientRepo->getErrors());
+				$this->session->setFlash("alert", ["message" => "Error al agregar los datos de la persona que lo recive", "status" => "Error:", "class" => "alert-danger"]);
+	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+	            exit();
 			}
 		}
 		
-		$requisition = $this->requisitionRepo->save($newRequisition);
+		if(!$requisition = $this->requisitionRepo->save($newRequisition)) {
+			$this->session->set('errors_tramite', $this->requisitionRepo->getErrors());
+			$this->session->setFlash("alert", ["message" => "No se pudo completar tu tramite", "status" => "Error:", "class" => "alert-danger"]);
+            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+            exit();
+		}
 		
 		$attrbs = array_filter($data, function($val, $key) {
 			return (substr($key, 0,4) == 'attr');
 		}, ARRAY_FILTER_USE_BOTH);
 
+		$attrNoInserted = array();
 		foreach ($attrbs as $key => $attr) {
-			if ($key !== 'attr_mensaje' || $key !== 'attr_total'){
-				$attribute = $this->attributeRepo->findByName($key);
+			if ($key != 'attr_mensaje' && $key != 'attr_total'){
+				if(!$attribute = $this->attributeRepo->findByName($key)) {
+					$newAttribute = new Olive\models\Attribute();
+					$newAttribute->attribute = $key;
+					$attribute = $this->attributeRepo->save($newAttribute);
+				}
+
 				$newDataRequisition = new Olive\models\DataRequisition();
 				$newDataRequisition->id_requisition = $requisition->id;
 				$newDataRequisition->id_attribute = $attribute->id;
 				$newDataRequisition->value = $attr;
-				$dataRequisition = $this->dataRequisitionRepo->save($newDataRequisition);
+				if(!$dataRequisition = $this->dataRequisitionRepo->save($newDataRequisition)) {
+					array_push($attrNoInserted, $newDataRequisition);
+				}
 			}
 		}
+		if(sizeof($attrNoInserted) > 0) {
+			$this->session->setFlash("alert", ["message" => "No se pudo completar tu tramite. Intentalo en unos minutos", "status" => "Error:", "class" => "alert-danger"]);
+            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+            exit();	
+		} else {
+			$this->session->setFlash("alert", ["message" => "Tu tramite de ha completado. En breve te llegara un correo con la clave y datos de tu registro.", "status" => "Exito:", "class" => "alert-info"]);
+            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+            exit();
+		}
 
-		// exit("SE ha guardado tu registro en la base de datos el numero de tu pedido es " . $requisition->id_public);
-		
-			
-		echo '<pre>'; print_r(compact('price', 'newRequisition')); exit;
+
 	}
 }

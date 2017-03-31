@@ -9,6 +9,13 @@ abstract class BaseRepository
 {
 	public $entity_name;
 
+	/**
+     * Entity error messages (may be present after save attempt)
+     *
+     * @var array
+     */
+    protected $_errors = [];
+
 	abstract public function getModel();
 
 	function __construct()
@@ -32,6 +39,7 @@ abstract class BaseRepository
 	public function save (\Spot\Entity $entity)
 	{
 		$rs = $this->mapper->insert($entity);
+		$this->_errors = array_merge($this->_errors, $entity->errors());
 		if($rs)
 			return $this->mapper->get($rs);
 		else
@@ -44,5 +52,10 @@ abstract class BaseRepository
 			return $this->mapper->get();
 		else 
 			return $this->mapper->get($key);
+	}
+
+	public function getErrors()
+	{
+		return $this->_errors;
 	}
 }

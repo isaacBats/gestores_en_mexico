@@ -38,6 +38,12 @@
 </head>
 <body class="gradient">
 	@include('partials.menu')
+	@if ($alert)
+		<div class="alert {{ $alert['class'] }} fade in">
+	        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	        <strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
+	    </div>
+	@endif
 	@yield('content')		
 	<footer class="paddingContent">
 		<script src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
