@@ -211,8 +211,11 @@ class Transaction extends Controller
             header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
             exit();	
 		} else {
-			$this->session->setFlash("alert", ["message" => "Tu tramite de ha completado. En breve te llegara un correo con la clave y datos de tu registro.", "status" => "Exito:", "class" => "alert-info"]);
-            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+			$rs = new stdClass();
+			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";
+			$rs->status = "Exito:";
+			$this->session->set("requisition_result", $rs);
+            header('Location: /gracias');
             exit();
 		}
 

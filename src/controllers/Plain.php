@@ -40,4 +40,11 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.construction');
 	}
 
+	public function gracias ($req, $res)
+	{
+		$rs = $this->session->get('requisition_result');
+		$this->session->set('requisition_result', NULL);
+		return $this->renderView($res, 'Plain.gracias', compact('rs'));
+	}
+
 }

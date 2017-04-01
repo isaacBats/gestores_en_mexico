@@ -31,6 +31,11 @@
 	));
 
 	$router->addRoute(array(
+	  'path'     => '/gracias',
+	  'get'      => array('Plain', 'gracias')
+	));
+
+	$router->addRoute(array(
 	  'path'     => '/tramites/{code_contry}/{slug}',
 	  'get'      => array('Transaction', 'showFormTransaction'),
 	  'post'	 => array('Transaction', 'saveTrancaction'),
