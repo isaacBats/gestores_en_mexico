@@ -23,6 +23,7 @@ namespace Olive\controllers;
 		public $session_handle;
 		public $session;
 		public $entity;
+		private $_mail;
 		
 		/**
 		 * Comienza la session en el constructor de la accion
@@ -39,6 +40,9 @@ namespace Olive\controllers;
 			// create a log channel
 			$this->log = new Logger('luna');
 			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
+			
+			global $mail;
+        	$this->mail = $mail;
 		}
 
 
@@ -73,6 +77,23 @@ namespace Olive\controllers;
 	        $data = array_merge(["system" => ['current'=>time()]], $data);
 	        
         	 echo $res->blade->render($template, $data);
+	    }
+
+		function mailer($res, $data, $template) {
+	        /* Para pasar un adjunto en el controlador
+	          $attachment['path']='assets/files/pdfs/texto.pdf';
+	          $attachment['name']='HolaName.pdf';
+	          $this->mailer($res, ["attachment"=> $attachment,.....
+	         * */
+	        $this->mail->clearAddresses();
+	        $this->mail->CharSet = "UTF-8";
+	        $this->mail->AddAddress($data['usuario']);
+	        $this->mail->Subject = $data['subject'];
+	        $this->mail->Body = $res->blade->render($template, $data);
+	        if (isset($data['attachment'])) {
+	            $this->mail->AddAttachment($data['attachment']['path'], $name = $data['attachment']['name'], $encoding = 'base64', $type = 'application/octet-stream');
+	        }
+	        $this->mail->Send();
 	    }
 
 		/**
