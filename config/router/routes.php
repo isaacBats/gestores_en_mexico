@@ -2,7 +2,7 @@
 	
 	$router->addRoute(array(
 	  'path'     => '/',
-	  'get'      => array('Plain', 'home')
+	  'get'      => array('Plain', 'construction')
 	));
 
 	$router->addRoute(array(
