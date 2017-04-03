@@ -113,6 +113,7 @@ class Transaction extends Controller
 			if ($client = $this->clientRepo->save($newClient)) {
 				$newRequisition->id_client = $client->id;
 				$newRequisition->id_reciver = $client->id;
+				self::vdd($client);
 			} else {
 				$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
 				$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
