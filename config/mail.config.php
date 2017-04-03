@@ -2,13 +2,13 @@
 global $mail;
 $mail = new \PHPMailer();
 $mail->setFrom('soporte@gestoresenmexico.com', 'Soporte');
+$mail->isHTML(true);
 
 // $mail->Subject  = 'First PHPMailer Message';
 // $mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
 // $mail->addAddress('myfriend@example.net', 'My Friend');
 
 // $mail->IsSMTP();
-// $mail->isHTML(true);
 // $mail->SMTPAuth = true;
 
 // $mail->SMTPSecure = 'ssl';
