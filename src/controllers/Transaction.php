@@ -213,7 +213,6 @@ class Transaction extends Controller
 		} else {
 			if (isset($data['cb_reciver'])) {
 				$c = $r = $client->toArray();
-				$date = new DateTime($c['date_created']['date']);
 				$c['date_created'] = $c['date_created']->format('Y-m-d');
 				$r['date_created'] = $r['date_created']->format('Y-m-d');
 			} else {
