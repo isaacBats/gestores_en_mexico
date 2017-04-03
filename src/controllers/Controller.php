@@ -42,7 +42,7 @@ namespace Olive\controllers;
 			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
 			
 			global $mail;
-        	$this->mail = $mail;
+			$this->_mail = $mail;
 		}
 
 
@@ -80,21 +80,26 @@ namespace Olive\controllers;
         	 echo $res->blade->render($template, $data);
 	    }
 
-		function mailer($res, $data, $template) {
+		protected function mailer($res, $data, $template) {
 	        /* Para pasar un adjunto en el controlador
 	          $attachment['path']='assets/files/pdfs/texto.pdf';
 	          $attachment['name']='HolaName.pdf';
 	          $this->mailer($res, ["attachment"=> $attachment,.....
 	         * */
-	        $this->mail->clearAddresses();
-	        $this->mail->CharSet = "UTF-8";
-	        $this->mail->AddAddress($data['usuario']);
-	        $this->mail->Subject = $data['subject'];
-	        $this->mail->Body = $res->blade->render($template, $data);
+	        $this->_mail->clearAddresses();
+	        $this->_mail->CharSet = "UTF-8";
+	        $this->_mail->AddAddress($data['usuario']);
+	        $this->_mail->Subject = $data['subject'];
+	        $this->_mail->Body = $res->blade->render($template, $data);
 	        if (isset($data['attachment'])) {
-	            $this->mail->AddAttachment($data['attachment']['path'], $name = $data['attachment']['name'], $encoding = 'base64', $type = 'application/octet-stream');
+	            $this->_mail->AddAttachment($data['attachment']['path'], $name = $data['attachment']['name'], $encoding = 'base64', $type = 'application/octet-stream');
 	        }
-	        $this->mail->Send();
+	        // $this->_mail->Send();
+	        if( ! $this->_mail->send() ) {
+			  return $this->_mail->ErrorInfo;
+			} 
+
+			return true;
 	    }
 
 		/**

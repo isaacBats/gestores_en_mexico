@@ -1,6 +1,6 @@
 <?php
 global $mail;
-$mail = new PHPMailer();
+$mail = new \PHPMailer();
 $mail->setFrom('soporte@gestoresenmexico.com', 'Soporte');
 
 // $mail->Subject  = 'First PHPMailer Message';

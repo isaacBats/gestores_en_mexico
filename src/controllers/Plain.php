@@ -49,9 +49,13 @@ class Plain extends Controller
 
 	public function test ($req, $res)
 	{
-		$name = isset($req->data['name']) ? $req->data['name'] : 'Daniel';
-		$saludo = 'Hola como estas ' . $name;
-		self::vdd(compact('saludo', 'name'));
+		$color = 'Red';
+		$usuario = 'klonate@gmail.com';
+		$subject = 'Test email';
+		if ($mail = $this->mailer($res, compact('color', 'usuario', 'subject'), 'Emails.test'))
+			exit('Se ha enviado el correo ');
+		else
+			die('No se mando el correo');
 	}
 
 }
