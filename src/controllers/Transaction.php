@@ -221,7 +221,7 @@ class Transaction extends Controller
 			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
 			$usersList = ['klonate@gmail.com'];
 			foreach ($usersList as $user) {
-				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.admins');
+				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.email_admins');
 			}
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";
