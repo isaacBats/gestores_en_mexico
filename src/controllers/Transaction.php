@@ -212,26 +212,24 @@ class Transaction extends Controller
             exit();	
 		} else {
 			if (isset($data['cb_reciver'])) {
-				$c = $r = array_map(function ($clie) {
-					$date = new DateTime($clie['date_created']);
-					$clie['date_created'] = $date->format('Y-m-d');
-					return $clie;
-				}, $client->toArray());
-				
+				$c = $r = $client->toArray();
+				$date = new DateTime($c['date_created']);
+				$c['date_created'] = $date->format('Y-m-d');
+				$r['date_created'] = $date->format('Y-m-d');
 			} else {
-				$c = array_map(function ($clie) {
-					$date = new DateTime($clie['date_created']);
-					$clie['date_created'] = $date->format('Y-m-d');
-					return $clie;
-				}, $hold->toArray());
-
-				$r = array_map(function ($clie) {
-					$date = new DateTime($clie['date_created']);
-					$clie['date_created'] = $date->format('Y-m-d');
-					return $clie;
-				}, $reciver->toArray());
-
+				$c = $hold->toArray();
+				$date = new DateTime($c['date_created']);
+				$c['date_created'] = $date->format('Y-m-d');
+				$r = $reciver->toArray();
+				$dater = new DateTime($r['date_created']);
+				$r['date_created'] = $dater->format('Y-m-d');
 			}
+
+			// $r = array_map(function ($clie) {
+			// 		$date = new DateTime($clie['date_created']);
+			// 		$clie['date_created'] = $date->format('Y-m-d');
+			// 		return $clie;
+			// 	}, $reciver->toArray());
 			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
 			$usersList = ['klonate@gmail.com'];
 			foreach ($usersList as $user) {
