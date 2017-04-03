@@ -32,7 +32,7 @@
     <tr>
       <td width=\"30%\">&nbsp;</td>
       <td width=\"40%\" style=\"padding:6px 0;\">
-        <div style=\"background:#f44336; display:block;\"><p>Folio: <span style=\"font-weight:bold;\">{{ $data['id'] }}</span></p></div>
+        <div style=\"background:#f44336; display:block;\"><p>Folio: <span style=\"font-weight:bold;\">{{ $data->id }}</span></p></div>
       </td>
       <td width=\"30%\">&nbsp;</td>
     </tr>
@@ -44,7 +44,7 @@
     <tr>
       <td>
 
-        <p style=\"font-size:12px;\">Fecha de solicitud: <span style=\"font-weight:bold;\"> {{ $data['data_created'] }}"</span></p>
+        <p style=\"font-size:12px;\">Fecha de solicitud: <span style=\"font-weight:bold;\"> {{ $data->data_created }}"</span></p>
 
         <h5 style=\"color:#4682b4; font-size:9px;\">Registro de trámite</h5>
 
@@ -62,7 +62,7 @@
             <p style=\"font-size:12px;\">{{ $key }}: <span style=\"font-weight:bold;\">{{ $re }} </span></p>
         @endforeach
 
-        <p style=\"font-size:12px;\">Costo total: <span style=\"font-weight:bold;\">${{ $data['total_cost'] }} <sup style=\"font-size:8px;\">MN</sup></span></p>
+        <p style=\"font-size:12px;\">Costo total: <span style=\"font-weight:bold;\">${{ $data->total_cost }} <sup style=\"font-size:8px;\">MN</sup></span></p>
 
 
       </td>

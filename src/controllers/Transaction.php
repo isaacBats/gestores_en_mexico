@@ -212,11 +212,11 @@ class Transaction extends Controller
             exit();	
 		} else {
 			if (isset($data['cb_reciver'])) {
-				$c = $client;
-				$r = $client;
+				$c = $r = $client->toArray();
+				
 			} else {
-				$c = $hold;
-				$r = $reciver;
+				$c = $hold->toArray();
+				$r = $reciver->toArray();
 			}
 			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
 			$usersList = ['klonate@gmail.com'];
