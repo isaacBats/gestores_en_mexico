@@ -212,11 +212,25 @@ class Transaction extends Controller
             exit();	
 		} else {
 			if (isset($data['cb_reciver'])) {
-				$c = $r = $client->toArray();
+				$c = $r = array_map(function ($clie) {
+					$date = new DateTime($clie['date_created']);
+					$clie['date_created'] = $date->format('Y-m-d');
+					return $clie;
+				}, $client->toArray());
 				
 			} else {
-				$c = $hold->toArray();
-				$r = $reciver->toArray();
+				$c = array_map(function ($clie) {
+					$date = new DateTime($clie['date_created']);
+					$clie['date_created'] = $date->format('Y-m-d');
+					return $clie;
+				}, $hold->toArray());
+
+				$r = array_map(function ($clie) {
+					$date = new DateTime($clie['date_created']);
+					$clie['date_created'] = $date->format('Y-m-d');
+					return $clie;
+				}, $reciver->toArray());
+
 			}
 			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
 			$usersList = ['klonate@gmail.com'];
