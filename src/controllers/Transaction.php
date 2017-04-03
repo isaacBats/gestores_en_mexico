@@ -113,7 +113,6 @@ class Transaction extends Controller
 			if ($client = $this->clientRepo->save($newClient)) {
 				$newRequisition->id_client = $client->id;
 				$newRequisition->id_reciver = $client->id;
-				self::vdd($client);
 			} else {
 				$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
 				$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
@@ -214,16 +213,14 @@ class Transaction extends Controller
 		} else {
 			if (isset($data['cb_reciver'])) {
 				$c = $r = $client->toArray();
-				$date = new DateTime($c['date_created']);
-				$c['date_created'] = $date->format('Y-m-d');
-				$r['date_created'] = $date->format('Y-m-d');
+				$date = new DateTime($c['date_created']['date']);
+				$c['date_created'] = $c['date_created']->format('Y-m-d');
+				$r['date_created'] = $r['date_created']->format('Y-m-d');
 			} else {
 				$c = $hold->toArray();
-				$date = new DateTime($c['date_created']);
-				$c['date_created'] = $date->format('Y-m-d');
+				$c['date_created'] = $c['date_created']->format('Y-m-d');
 				$r = $reciver->toArray();
-				$dater = new DateTime($r['date_created']);
-				$r['date_created'] = $dater->format('Y-m-d');
+				$r['date_created'] = $r['date_created']->format('Y-m-d');
 			}
 
 			// $r = array_map(function ($clie) {
