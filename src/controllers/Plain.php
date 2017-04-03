@@ -49,6 +49,7 @@ class Plain extends Controller
 
 	public function test ($req, $res)
 	{
+		self::vdd($_SERVER);
 		$color = 'Red';
 		$usuario = 'klonate@gmail.com';
 		$subject = 'Test email';

@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset=\"UTF-8\">
-    <title>Nuevo Registro - Gestores en México</title>
+    <title>Confirmación - Gestores en México</title>
   </head>
 <body style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; margin:0 auto; background:#f7fcfe; color:#363c45;\">
     <table width=\"600\" border=\"0\" cellpadding=\"0\" style=\"background:#fff; padding:20px;\">
@@ -23,7 +23,7 @@
     <tr>
       <td height=\"20px\">
       <hr style=\"background:#6a6e74;\">
-        <h4 style=\"text-align:center;\">Nueva solicitud de trámite</h4>
+        <h4 style=\"text-align:center;\">Confirmación de solicitud de trámite</h4>
       </td>
     </tr>
     <tr>
@@ -32,7 +32,6 @@
     <tr>
       <td width=\"30%\">&nbsp;</td>
       <td width=\"40%\" style=\"padding:6px 0;\">
-        <div style=\"background:#f44336; display:block;\"><p>Folio: <span style=\"font-weight:bold;\">{{ $data['id'] }}</span></p></div>
       </td>
       <td width=\"30%\">&nbsp;</td>
     </tr>
@@ -46,23 +45,7 @@
 
         <p style=\"font-size:12px;\">Fecha de solicitud: <span style=\"font-weight:bold;\"> {{ $data['data_created'] }}"</span></p>
 
-        <h5 style=\"color:#4682b4; font-size:9px;\">Registro de trámite</h5>
-
-        @foreach ($requisition as $key => $r)
-            <p style=\"font-size:12px;\">{{ $key }}: <span style=\"font-weight:bold;\">{{ $r }}</span></p>
-        @endforeach
-        
-        <h5 style=\"color:#4682b4; font-size:9px;\">Dirección de Solicitante</h5>
-        @foreach ($client as $key => $c)
-            <p style=\"font-size:12px;\">{{ $key }}: <span style=\"font-weight:bold;\">{{ $c }} </span></p>
-        @endforeach
-
-        <h5 style=\"color:#4682b4; font-size:9px;\">Datos de envío</h5>
-        @foreach ($reciver as $key => $re)
-            <p style=\"font-size:12px;\">{{ $key }}: <span style=\"font-weight:bold;\">{{ $re }} </span></p>
-        @endforeach
-
-        <p style=\"font-size:12px;\">Costo total: <span style=\"font-weight:bold;\">${{ $data['total_cost'] }} <sup style=\"font-size:8px;\">MN</sup></span></p>
+        <h5 style=\"color:#4682b4; font-size:9px;\">Puedes consultar el estatus de tu proceso en  <a href="http://{{$_SERVER['HTTP_HOST']}}/estatus/{{ $data['id_public'] }}">Consultar proceso</a></h5>
 
 
       </td>

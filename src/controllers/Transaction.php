@@ -211,6 +211,18 @@ class Transaction extends Controller
             header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
             exit();	
 		} else {
+			if (isset($data['cb_reciver'])) {
+				$c = $client;
+				$r = $client;
+			} else {
+				$c = $hold;
+				$r = $reciver;
+			}
+			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
+			$usersList = ['klonate@gmail.com'];
+			foreach ($usersList as $user) {
+				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.admins');
+			}
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";
 			$rs->status = "Exito:";
