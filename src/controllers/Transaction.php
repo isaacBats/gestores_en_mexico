@@ -222,13 +222,9 @@ class Transaction extends Controller
 				$r['date_created'] = $r['date_created']->format('Y-m-d');
 			}
 
-			// $r = array_map(function ($clie) {
-			// 		$date = new DateTime($clie['date_created']);
-			// 		$clie['date_created'] = $date->format('Y-m-d');
-			// 		return $clie;
-			// 	}, $reciver->toArray());
-			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
-			$usersList = ['klonate@gmail.com'];
+			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
+			// falta traerme toda la data de la requsisicion
+			// $usersList = ['klonate@gmail.com'];
 			foreach ($usersList as $user) {
 				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.email_admins');
 			}
