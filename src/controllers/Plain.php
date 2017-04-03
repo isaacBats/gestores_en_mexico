@@ -47,4 +47,11 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.gracias', compact('rs'));
 	}
 
+	public function test ($req, $res)
+	{
+		$name = isset($req->data['name']) ? $req->data['name'] : 'Daniel';
+		$saludo = 'Hola como estas ' . $name;
+		self::vdd(compact('saludo', 'name'));
+	}
+
 }

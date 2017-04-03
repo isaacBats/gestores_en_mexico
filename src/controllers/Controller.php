@@ -51,9 +51,10 @@ namespace Olive\controllers;
 		 * 
 		 * @param  * $mixed Mixed data to print
 		 */
-		public static function pr($mixed){
+		protected static function vdd($mixed){
 			echo "<pre>";
-			print_r( $mixed );
+			var_dump($mixed);
+			print_r($mixed);
 		}
 
 		 /**

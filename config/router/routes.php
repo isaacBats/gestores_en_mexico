@@ -36,6 +36,11 @@
 	));
 
 	$router->addRoute(array(
+	  'path'     => '/test-email',
+	  'get'      => array('Plain', 'test')
+	));
+
+	$router->addRoute(array(
 	  'path'     => '/tramites/{code_contry}/{slug}',
 	  'get'      => array('Transaction', 'showFormTransaction'),
 	  'post'	 => array('Transaction', 'saveTrancaction'),
