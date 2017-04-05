@@ -75,7 +75,7 @@
                         <tbody>
                             <tr>    
                                 <td>
-                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logoBottom.png" width="100" height="62" alt=""/>
+                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logoBottom.png" width="100" height="62" alt="Gestores en México" />
                                 </td>
                                 <td style="padding:10px; text-align:right; font-size:12px;">
                                     <p>Gestores en México<br>

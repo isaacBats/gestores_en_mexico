@@ -55,6 +55,7 @@ namespace Olive\controllers;
 			echo "<pre>";
 			var_dump($mixed);
 			print_r($mixed);
+			exit;
 		}
 
 		 /**

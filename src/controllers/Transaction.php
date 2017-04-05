@@ -29,6 +29,7 @@ class Transaction extends Controller
 	private $clientRepo;
 	private $stateRepo;
 	private $priceRepo;
+	private $clientController;
 
 	
 	function __construct()
@@ -44,6 +45,7 @@ class Transaction extends Controller
 		$this->townshipRepo = new TownshipRepo();
 		$this->attributeRepo = new AttributeRepo();
 		$this->dataRequisitionRepo = new DataRequisitionRepo();
+		$this->clientController = new Client();
 	}
 
 	public function showFormTransaction($req, $res)
@@ -212,22 +214,26 @@ class Transaction extends Controller
             exit();	
 		} else {
 			if (isset($data['cb_reciver'])) {
-				$c = $r = $client->toArray();
-				$c['date_created'] = $c['date_created']->format('Y-m-d');
-				$r['date_created'] = $r['date_created']->format('Y-m-d');
+				$c = $r = $this->clientController->getMap($client);
 			} else {
-				$c = $hold->toArray();
-				$c['date_created'] = $c['date_created']->format('Y-m-d');
-				$r = $reciver->toArray();
-				$r['date_created'] = $r['date_created']->format('Y-m-d');
+				$c = $this->clientController->getMap($hold);
+				$r = $this->clientController->getMap($reciver);
 			}
 
-			// $usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
+			// Admin List contacts
+			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
 			// falta traerme toda la data de la requsisicion
-			$usersList = ['klonate@gmail.com'];
+			// $usersList = ['klonate@gmail.com'];
 			foreach ($usersList as $user) {
 				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.email_admins');
 			}
+
+			// List users reciver
+			$usersReciver = isset($client) ? array($client->email) : array($hold->email, $reciver->email);
+			foreach ($usersReciver as $userr) {
+				$this->mailer($res, ['usuario' => $userr, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
+			}
+
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";
 			$rs->status = "Exito:";
