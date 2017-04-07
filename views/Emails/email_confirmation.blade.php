@@ -64,7 +64,7 @@
                 <td>
                     <h5 style="color:#4682b4; font-size:9px;">Solicitante</h5>
                     @foreach ($client as $key => $c)
-                        <p style="font-size:12px;">{{ $key }}: <span style="font-weight:bold;">{{ $c }} </span></p>
+                        <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
                     @endforeach
                     {{-- <p style="font-size:12px;">Nombre(s): <span style="font-weight:bold;">Juan </span></p>
                     <p style="font-size:12px;">Apellido paterno: <span style="font-weight:bold;">Pérex</span></p>

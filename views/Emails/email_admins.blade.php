@@ -58,11 +58,11 @@
                     @endforeach
                     <h5 style="color:#4682b4; font-size:9px;">Dirección de Solicitante</h5>
                     @foreach ($client as $key => $c)
-                        <p style="font-size:12px;">{{ $key }}: <span style="font-weight:bold;">{{ $c }} </span></p>
+                        <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
                     @endforeach
                     <h5 style="color:#4682b4; font-size:9px;">Datos de envío</h5>
                     @foreach ($reciver as $key => $re)
-                        <p style="font-size:12px;">{{ $key }}: <span style="font-weight:bold;">{{ $re }} </span></p>
+                        <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $re }} </span></p>
                     @endforeach
                     <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">${{ $data->total_cost }} <sup style="font-size:8px;">MN</sup></span></p>
                 </td>
