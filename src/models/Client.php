@@ -21,7 +21,7 @@ use Spot\MapperInterface as Mapper;
             'first_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
             'middle_name'    => ['type' => 'string', 'length' => 100 ],
             'last_name'    => ['type' => 'string', 'length' => 100 ],
-            'email'        => ['type' => 'string', 'required' => true, 'unique' => true,
+            'email'        => ['type' => 'string', 'required' => true,
                 'validation' => [
                     'email',
                     'length' => [4, 255]
