@@ -115,14 +115,33 @@ $(document).ready(function () {
                 var copias = (!data.copy_cost) ? 0 : data.copy_cost * $numCopies;
                 var cp = 0;
                 $costoTramite.text(data.cost);
+                $('#price_id').val(data.id);
                 if ($costoCopias.length > 0) {
                     cp = copias;
                     $costoCopias.text(copias);
+                    $('#value_price_copy').val(data.copy_cost);
                 }
                 $costoEnvio.text(data.copy_send);
                 $costoTotal.val(parseInt($costoTramite.html()) + cp + parseInt($costoEnvio.html()));
             }
         });
+    });
+
+    // Calcula el precio con copias
+    $('#attr_copies').on('change', function() {
+        var $costoTramite = parseInt($('#costoTramitePesos').html());
+        var $costoCopias = parseInt($('#value_price_copy').val());
+        var $costoEnvio = parseInt($('#costoEnvioPesos').html());
+        var $costoTotal = $('#costoTotalPesos');
+        var $costoCopiasHtml = $('#costoCopiasPesos');
+        
+        var copies = $(this).val();
+        var ccopies = $costoCopias * copies;
+        $costoCopiasHtml.text(ccopies);
+
+        $costoTotal.val($costoTramite + ccopies + $costoEnvio);
+
+
     });
 
     

@@ -18,6 +18,7 @@
                 </div>
             </div>
             <div class="col-md-12 calculoCosto">
+                <input type="hidden" name="price_id" id="price_id" value=""> 
                 <h4>Costo por concepto de <span class="tituloTramite">{{ utf8_encode($transaction->name) }}</span></h4>
                 <div class="col-md-8 col-md-offset-2" id="pricesTransaction">
                     <p id="costoTramite" >
@@ -28,7 +29,8 @@
                     @if ($transaction->h_copies)
                         <p id="costoCopias">
                             Copias adicionales
-                            <input type="number" min="0" max="20" name="attr_copies" id="attr_copies" value="1"> $
+                            <input type="hidden" name="value_price_copy" id="value_price_copy" value="">
+                            <input type="number" min="0" max="20" name="attr_copies" id="attr_copies" value="0"> $
                             <span id="costoCopiasPesos">0</span>
                             <sup>mn</sup>
                         </p>
