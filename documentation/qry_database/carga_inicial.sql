@@ -2816,6 +2816,7 @@
 		('32', 'Santa María de la Paz');
 
 	-- Users
+	-- password is secret
 	INSERT INTO users(first_name, last_name, email, password, user_name, type_user, is_active, date_created) VALUES
 		('admin', 'administrator', 'klonate@gmail.com', '5ebe2294ecd0e0f08eab7690d2a6ee69', 'admin', 'admin', 1, NOW());
 

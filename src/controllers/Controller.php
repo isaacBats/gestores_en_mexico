@@ -62,7 +62,7 @@ namespace Olive\controllers;
          * Hace render 
          * @param array $data
          * @param Zapha\Reponse $res
-         * @return Mustache Render String
+         * @return Blade Render String
          */
         public function renderView($res, $template, $data = [])
         {
@@ -77,7 +77,7 @@ namespace Olive\controllers;
 	            $data = array_merge(["showmodal" => $showmodal], $data);
 	        }
 	        $data = array_merge(["system" => ['current'=>time()]], $data);
-	        
+	        // echo '<pre>'; print_r($data); exit;	
         	 echo $res->blade->render($template, $data);
 	    }
 

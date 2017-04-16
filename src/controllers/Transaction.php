@@ -221,7 +221,7 @@ class Transaction extends Controller
 			}
 
 			// Admin List contacts
-			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com'];
+			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com', 'jm217938@hotmail.com'];
 			// falta traerme toda la data de la requsisicion
 			// $usersList = ['klonate@gmail.com'];
 			foreach ($usersList as $user) {

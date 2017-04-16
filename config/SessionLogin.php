@@ -31,7 +31,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
 
   public function preroute(&$req, &$res) {
 
-    $redirect_after_login = "/";
+    $redirect_after_login = "/admin/index";
 
     //  URL's Autorizadas
     $allow_uri = [
@@ -39,8 +39,8 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/" ,
                     "/login" , 
                     "/logout",
-                    "/migrate/up" ,
-                    "/migrate/data" ,
+                    // "/migrate/up" ,
+                    // "/migrate/data" ,
                     "/nosotros",
                     "/como-funciona",
                     "/contacto",
@@ -86,11 +86,11 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
             $username = $req->data["username"];
             $password = $req->data["password"];
 
-            $user = $usersMapper->where(["email" => $username]);
+            $user = $usersMapper->where(["user_name" => $username]);
             if( $user->first() ){
                 if( $user->first()->password === md5($password)){
 
-                    $user = $user->select()->with("detail")->first()->toArray();
+                    $user = $user->select()->first();
                     $session->set( "user" , $user );
                     
                     if(isset($req->data["redirect"] )){
