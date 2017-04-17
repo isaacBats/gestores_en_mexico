@@ -38,11 +38,7 @@
     <h5>Fecha de nacimiento</h5>
 </div>
 <div class="col-md-8">
-    <div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-        <input class="form-control" size="16" type="text" name="attr_fnacimiento" readonly="">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-    </div>
+    <input class="form-control" size="16" type="date" name="attr_fnacimiento">
     <br>
 </div>
 <div class="col-md-12">
