@@ -16,7 +16,7 @@ class PriceController extends Controller
 	public function getPrice ($req, $res)
 	{
 		$price = $this->priceRepo->getPrice($req->data['state'], $req->data['transaction']);
-		$res->addHeader( "Content-Type ", "application/json; charset=utf-8");
+		$res->addHeader( "Content-Type", "application/json; charset=utf-8");
         $res->add(json_encode( $price , JSON_UNESCAPED_UNICODE) );
         echo $res->send();
 

@@ -58,3 +58,20 @@
 		'path'	=> '/admin/index',
 		'get'	=> array('User', 'index'),
 	));
+
+	/* Usuarios */
+	$router->addRoute(array(
+		'path'	=> '/admin/usuarios',
+		'get'	=> array('User', 'showUsers'),
+	));
+
+	$router->addRoute(array(
+		'path'	=> '/admin/usuario/crear',
+		'get'	=> array('User', 'create'),
+		'post'	=> array('User', 'store'),
+	));
+
+	// $router->addRoute(array(
+	// 	'path'	=> '/admin/usuarios',
+	// 	'get'	=> array('User', 'listar'),
+	// ));

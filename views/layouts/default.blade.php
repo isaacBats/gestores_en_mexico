@@ -46,8 +46,6 @@
 	@endif
 	@yield('content')		
 	<footer class="paddingContent">
-		<script src="https://code.jquery.com/jquery-2.2.2.min.js" ></script>
-		@yield('js')
 		<div class="container">
 	        <div class="row">
 	            <div class="col-md-4">
@@ -80,6 +78,7 @@
 	    <script src="/assets/js/ttmenu.js"></script>
 	    <script src="/assets/js/fileinput.min.js" type="text/javascript"></script>
 	    <script src="/assets/js/jquery.fitvids.js"></script>
+	    @yield('js')
 	    <script src="/assets/js/custom.js"></script>
 
 		<script>

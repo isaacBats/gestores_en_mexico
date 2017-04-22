@@ -18,3 +18,7 @@ composer.phar
 
 # storage
 /assets/storage/
+
+#sublime
+*.sublime-project
+*.sublime-workspace

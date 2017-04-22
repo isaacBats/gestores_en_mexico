@@ -22,7 +22,12 @@
 </head>
 
 <body class="signwrapper">
-
+    @if ($alert)
+        <div class="alert {{ $alert['class'] }} fade in">
+            <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
+        </div>
+    @endif
   <div class="sign-overlay"></div>
   <div class="signpanel"></div>
 

@@ -101,11 +101,11 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     
                 }else{
                    $session_controller = $session_handle->getSegment('Olive\Controllers');
-                   $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
+                   $session_controller->setFlashNow("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
                 }
             }else{
                 $session_controller = $session_handle->getSegment('Olive\Controllers');
-                $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
+                $session_controller->setFlashNow("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
             }
         }
     }

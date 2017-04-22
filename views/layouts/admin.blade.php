@@ -228,10 +228,16 @@
             <h5 class="sidebar-title">Main Menu</h5>
             <ul class="nav nav-pills nav-stacked nav-quirk">
               <li class="nav-parent">
-                <a href=""><i class="fa fa-check-square"></i> <span>Usuarios</span></a>
+                <a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
                 <ul class="children">
-                  <li><a href="general-forms.html">Listar usuarios</a></li>
-                  <li><a href="form-validation.html">Crear usuarios</a></li>
+                  <li><a href="/admin/usuarios">Listar usuarios</a></li>
+                  <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
+                </ul>
+              </li>
+              <li class="nav-parent">
+                <a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
+                <ul class="children">
+                  <li><a href="/admin/tramites">Listar tramites</a></li>
                 </ul>
               </li>
             </ul>
@@ -243,15 +249,16 @@
     <div class="mainpanel">
 
       <div class="contentpanel">
-
-        <ol class="breadcrumb breadcrumb-quirk">
-          <li><a href="index.html"><i class="fa fa-home mr5"></i> Home</a></li>
-          <li><a href="buttons.html">Pages</a></li>
-          <li class="active">Blank</li>
-        </ol>
-
-        <!-- content goes here... -->
-
+        @if (isset($bread))
+          {{ $bread }}
+        @endif
+        @if ($alert)
+          <div class="alert {{ $alert['class'] }} fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
+          </div>
+        @endif
+        @yield('content')
       </div><!-- contentpanel -->
     </div><!-- mainpanel -->
 </section>

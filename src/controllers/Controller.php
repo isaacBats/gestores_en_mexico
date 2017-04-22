@@ -22,6 +22,7 @@ namespace Olive\controllers;
 		public $spot;
 		public $session_handle;
 		public $session;
+		public $bread = array();
 		public $entity;
 		private $_mail;
 		
@@ -143,12 +144,8 @@ namespace Olive\controllers;
 				$url = implode( "/" , array_map( function($s){return urlencode($s); } , $ur ) );
 				return "/".$lang.$url;
 			}
-			
-
 		}
 
-
-	
 		/**
 		 * Devuelve el string correcto dependiendo el LANG recibido
 		 * @param string $lang 
@@ -164,6 +161,32 @@ namespace Olive\controllers;
 				return $es;
 			}
 		}
+
+		public function bread( ){
+	         $out = '
+	                <ol class="breadcrumb breadcrumb-quirk">
+	                    <li><a href="/admin/index"><i class="fa fa-home mr5"></i> Home</a></li>';
+	        $size = sizeof( $this->bread );
+	        $outc = 1;
+	        foreach( $this->bread  as $step ){
+	            if( $size == $outc){
+	                $out .= '<li class="active"><a href="javascript:void(0);">' . $step["label"] . '</a></li>';
+	            }else{
+	                $out .= '<li><a href="'.$this->url( $step["url"]).'">'.$step["label"].'</a></li>';
+	            }
+	            $outc++;
+	        }
+
+	        $out .= '
+	                </ol>
+	                ';
+
+	        return $out;
+	    }
+
+	    public function addBread( $array ){
+	        array_push( $this->bread  , $array );
+	    }
 	
 	}
 
