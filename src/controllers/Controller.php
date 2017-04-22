@@ -6,19 +6,12 @@ namespace Olive\controllers;
 	use Monolog\Logger;
 	use Monolog\Handler\StreamHandler;
 
-
 	/**
-	 *
-	 *	Controlador base para Olive
-	 * 	
+	 *	Controlador base para Olive	
 	 * 	@author Isaac Batista 2017
 	 */
-	
-	
-		
 	class Controller
-	{
-		
+	{	
 		public $spot;
 		public $session_handle;
 		public $session;
@@ -46,10 +39,8 @@ namespace Olive\controllers;
 			$this->_mail = $mail;
 		}
 
-
 		/**
 		 * Mejor visualizacion de print_r
-		 * 
 		 * @param  * $mixed Mixed data to print
 		 */
 		protected static function vdd($mixed){
@@ -70,6 +61,8 @@ namespace Olive\controllers;
         	$session = $this->session_handle->getSegment('Olive\Session');
 	        $data = array_merge(["user" => $session->get("user")], $data);
 	        $alert = $this->session->getFlash("alert");
+	        $bread = $this->bread();
+	        $data = array_merge(['bread' => $bread], $data);
 	        $showmodal = $this->session->getFlash("showmodal");
 	        if ($alert) {
 	            $data = array_merge(["alert" => $alert], $data);
@@ -78,8 +71,7 @@ namespace Olive\controllers;
 	            $data = array_merge(["showmodal" => $showmodal], $data);
 	        }
 	        $data = array_merge(["system" => ['current'=>time()]], $data);
-	        // echo '<pre>'; print_r($data); exit;	
-        	 echo $res->blade->render($template, $data);
+	         echo $res->blade->render($template, $data);
 	    }
 
 		protected function mailer($res, $data, $template) {
@@ -111,38 +103,32 @@ namespace Olive\controllers;
 		 * @param  string $action [description]
 		 * @return [type]         [description]
 		 */
-		public function formTest( $action = "" , $values = NULL ){
-			
-			$entity = new $this->entity_name();
+		public static function form( \Spot\Entity $entity, $values = null, $action = "" , $method = 'post')
+		{	
  			$fields = $entity->fields();
- 				
-			$html = "<form action='{$action}' method='post'>";
+			$html = "<form action='{$action}' method='{$method}'>";
 
 			foreach ($fields as $key => $value) {
-
 				if( $key != "id" && is_array( $value ) && !isset( $value["value"] ) ){
-
-					$value = $values != NULL && isset( $values[$key] )?$values[$key]:"";
+					$value = $values != NULL && isset($values[$key]) ? $values[$key] : "";
 					$html .= "<label>{$key}</label><br>";
-					$html .= "<input type='text' name='{$key}' value='{$value}' ><br />";	
+					$html .= "<input type='text' class=\"form-control\" name='{$key}' value='{$value}' ><br />";	
 				}
-				
 			}
-
-			$html.= "<input type='submit' value='send'>";
+			$html.= "<input type='submit' class=\"btn btn-primary col-sm-offset-11\" value='send'>";
 			$html.= "</form>";
 			return $html;
 		}
 
 		
 		// TODO: Extender para que trabaje mejor con la URL completa
-		public function url( $lang , $url = ""){
+		public function url($url = ""){
 			if( $url == ""){
-				return "/".$lang.$_SERVER["REQUEST_URI"];
+				return "/".$_SERVER["REQUEST_URI"];
 			}else{
 				$ur = explode( "/" , $url );
 				$url = implode( "/" , array_map( function($s){return urlencode($s); } , $ur ) );
-				return "/".$lang.$url;
+				return $url;
 			}
 		}
 
@@ -161,9 +147,12 @@ namespace Olive\controllers;
 				return $es;
 			}
 		}
-
+		/**
+		 * Add a breadcrumb
+		 * @return string $out html create with the breadcrumb
+		 */
 		public function bread( ){
-	         $out = '
+	        $out = '
 	                <ol class="breadcrumb breadcrumb-quirk">
 	                    <li><a href="/admin/index"><i class="fa fa-home mr5"></i> Home</a></li>';
 	        $size = sizeof( $this->bread );
@@ -172,15 +161,11 @@ namespace Olive\controllers;
 	            if( $size == $outc){
 	                $out .= '<li class="active"><a href="javascript:void(0);">' . $step["label"] . '</a></li>';
 	            }else{
-	                $out .= '<li><a href="'.$this->url( $step["url"]).'">'.$step["label"].'</a></li>';
+	            	$out .= '<li><a href="'.$this->url($step["url"]).'">'.$step["label"].'</a></li>';
 	            }
 	            $outc++;
 	        }
-
-	        $out .= '
-	                </ol>
-	                ';
-
+	        $out .= '</ol>';
 	        return $out;
 	    }
 
@@ -189,8 +174,6 @@ namespace Olive\controllers;
 	    }
 	
 	}
-
-
 	
 //  AUTOLOAD CONTROLLERS
 foreach( scandir( __OLIVE__.'/src/controllers' ) as $class ){

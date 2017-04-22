@@ -20,8 +20,7 @@ class User extends Controller
 
     public function index ($req, $res)
     {
-        $bread = $this->bread();
-        return $this->renderView($res, 'User.index', compact('bread'));
+        return $this->renderView($res, 'User.index');
     }
 
     public function logout($req, $res) 
@@ -32,17 +31,16 @@ class User extends Controller
     public function showUsers ($req, $res)
     {
         $this->addBread(['label' => 'Lista de usuarios']);
-        $bread = $this->bread();
         $users = $this->userRepo->all();
-
-        return $this->renderView($res, 'User.listar', compact('bread', 'users'));
+        return $this->renderView($res, 'User.listar', compact('users'));
     }
 
     public function create ($req, $res)
     {
+        $this->addBread(['label' => 'Usuarios', 'url' => '/admin/usuarios']);
         $this->addBread(['label' => 'Crear usuario']);
-        $bread = $this->bread();
-        return $this->renderView($res, 'User.create', compact('bread'));
+        $form = self::form(new Olive\models\User);
+        return $this->renderView($res, 'User.create', compact('form'));
     }
 
 }
