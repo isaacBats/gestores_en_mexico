@@ -46,6 +46,16 @@ abstract class BaseRepository
 			return false;
 	}
 
+	public function create (array $entity)
+	{
+		$rs = $this->mapper->create($entity);
+		$this->_errors = array_merge($this->_errors, $rs->errors());
+		if($rs)
+			return $this->mapper->get($rs->id);
+		else
+			return false;
+	}
+
 	public function get ($key = null)
 	{
 		if(is_null($key))

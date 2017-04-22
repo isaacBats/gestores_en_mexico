@@ -6,6 +6,8 @@ use Olive\infrastructure\UserRepo;
 class User extends Controller
 {
 	private $userRepo;
+    const ACTIVO = 1;
+    const INACTIVO = 0;
 
     function __construct()
     {
@@ -39,8 +41,19 @@ class User extends Controller
     {
         $this->addBread(['label' => 'Usuarios', 'url' => '/admin/usuarios']);
         $this->addBread(['label' => 'Crear usuario']);
+        
         $form = self::form(new Olive\models\User);
         return $this->renderView($res, 'User.create', compact('form'));
+    }
+
+    public function store($req, $res)
+    {
+        $data = $req->data;
+        unset($data['_RAW_HTTP_DATA']);
+        $data['is_active'] = self::ACTIVO;
+        $user = $this->userRepo->create($data);
+        self::vdd($user);
+
     }
 
 }

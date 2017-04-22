@@ -98,21 +98,43 @@ namespace Olive\controllers;
 
 		/**
 		 * TODO: mover a una clase de fromularios y pasar como una propiedad referenciada a un objeto
-		 * Imprime un formulario de prueba en base a la entidad
-		 * @param  [type] $array  [description]
-		 * @param  string $action [description]
-		 * @return [type]         [description]
+		 * Imprime un formulario en base a la entidad
+		 * @param  Spot\Entity $entity
+		 * @param  array $values
+		 * @param  string $action
+		 * @param  string $method
+		 * @return string $html
 		 */
 		public static function form( \Spot\Entity $entity, $values = null, $action = "" , $method = 'post')
 		{	
  			$fields = $entity->fields();
-			$html = "<form action='{$action}' method='{$method}'>";
+ 			$html = "<form action='{$action}' method='{$method}'>";
 
 			foreach ($fields as $key => $value) {
-				if( $key != "id" && is_array( $value ) && !isset( $value["value"] ) ){
-					$value = $values != NULL && isset($values[$key]) ? $values[$key] : "";
-					$html .= "<label>{$key}</label><br>";
-					$html .= "<input type='text' class=\"form-control\" name='{$key}' value='{$value}' ><br />";	
+				if( $key != "id" && $key != 'is_active' && is_array( $value ) && !isset( $value["value"] ) ){
+					$val = ($values != NULL && isset($values[$key])) ? $values[$key] : "";
+					$html .= "<div class='form-group'>";
+					// If field is options 
+					if(isset($value['options'])) {
+						$html .= "<select name='{$key}' class='form-control'>
+									<option value=''>Select a {$key}</option>";
+						foreach ($value['options'] as $option) {
+							$html .= "<option value='{$option}' ";
+							$html .= ($val == $option) ? 'selected' : '';
+							$html .= ">{$option}</option>";
+						}
+						$html .= "</select>";
+					} 
+					// If field is email
+					elseif ($key == 'email') {
+						$html .= "<label>{$key}</label>";
+						$html .= "<input type='email' class='form-control' name='{$key}' value='{$val}' >";
+					} else {
+						$html .= "<label>{$key}</label>";
+						$val = ($key == 'password') ? '' : $val;
+						$html .= "<input type='text' class='form-control' name='{$key}' value='{$val}' >";	
+					}
+					$html .= "</div>";
 				}
 			}
 			$html.= "<input type='submit' class=\"btn btn-primary col-sm-offset-11\" value='send'>";
