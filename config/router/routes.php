@@ -71,7 +71,14 @@
 		'post'	=> array('User', 'store'),
 	));
 
-	// $router->addRoute(array(
-	// 	'path'	=> '/admin/usuarios',
-	// 	'get'	=> array('User', 'listar'),
-	// ));
+	/* Admin Tramites */
+	$router->addRoute(array(
+		'path'	=> '/admin/tramites',
+		'get'	=> array('RequisitionController', 'showRequisitions'),
+	));
+
+	/* Admin Precios */
+	$router->addRoute(array(
+		'path'	=> '/admin/precios',
+		'get'	=> array('PriceController', 'index'),
+	));

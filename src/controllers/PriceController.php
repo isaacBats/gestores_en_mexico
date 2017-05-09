@@ -22,5 +22,11 @@ class PriceController extends Controller
 
 	}
 
-
+	public function index ($req, $res)
+	{
+		$this->addBread(['label' => 'Lista de precios']);
+		$states = $this->priceRepo->getStatesWithPrices();
+		self::vdd($states);
+		return $this->renderView($res, 'Price.index');
+	}
 }

@@ -225,7 +225,7 @@
         <div class="tab-content">
           <!-- ################# MAIN MENU ################### -->
           <div class="tab-pane active" id="mainmenu">
-            <h5 class="sidebar-title">Main Menu</h5>
+            <h5 class="sidebar-title">Catalogos</h5>
             <ul class="nav nav-pills nav-stacked nav-quirk">
               <li class="nav-parent">
                 <a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
@@ -234,6 +234,22 @@
                   <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
                 </ul>
               </li>
+              <li class="nav-parent">
+                <a href="javascript:void(0)"><i class="fa fa-usd"></i> <span>Precios</span></a>
+                <ul class="children">
+                  <li><a href="/admin/precios">Listar precios</a></li>
+                  {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
+                </ul>
+              </li>
+              {{-- <li class="nav-parent">
+                <a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
+                <ul class="children">
+                  <li><a href="/admin/tramites">Listar tramites</a></li>
+                </ul>
+              </li> --}}
+            </ul>
+            <h5 class="sidebar-title">Tramites</h5>
+            <ul class="nav nav-pills nav-stacked nav-quirk">
               <li class="nav-parent">
                 <a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
                 <ul class="children">

@@ -28,7 +28,7 @@ abstract class BaseRepository
 
 		// create a log channel
 		$this->log = new Logger('luna');
-		$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/olive.log', Logger::INFO ) );
+		$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/orm_olive.log', Logger::INFO ) );
 	}
 
 	public function all ()

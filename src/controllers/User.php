@@ -52,7 +52,9 @@ class User extends Controller
         unset($data['_RAW_HTTP_DATA']);
         $data['is_active'] = self::ACTIVO;
         $user = $this->userRepo->create($data);
-        self::vdd($user);
+        // self::vdd($user);
+
+        return $res->send(200);
 
     }
 

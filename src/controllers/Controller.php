@@ -33,7 +33,7 @@ namespace Olive\controllers;
 
 			// create a log channel
 			$this->log = new Logger('luna');
-			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/luna.log', Logger::INFO ) );
+			$this->log->pushHandler(new StreamHandler(__DIR__.'/logs/controllers_log.log', Logger::INFO ) );
 			
 			global $mail;
 			$this->_mail = $mail;
@@ -71,7 +71,12 @@ namespace Olive\controllers;
 	            $data = array_merge(["showmodal" => $showmodal], $data);
 	        }
 	        $data = array_merge(["system" => ['current'=>time()]], $data);
-	         echo $res->blade->render($template, $data);
+	        try {
+	        	echo $res->blade->render($template, $data);
+	         	
+	        } catch (ErrorException $e) {
+	         	echo 'No se puede mostrar tu petición: ' . $e->getMessage();
+	        } 
 	    }
 
 		protected function mailer($res, $data, $template) {
