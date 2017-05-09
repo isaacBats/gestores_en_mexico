@@ -8,6 +8,7 @@
                     <h1 class="titulo mayus">Apostilla de constancia de soltería</h1>
                     <p>Para hacer valida tu constancia en otro país dentro del convenio dela haya, necesitarás apostillarla, Nosotros lo hacemos por ti. No la tienes aun?  </p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
+                    <p><strong>Para este trámite nos es necesario contar con el original de su acta a apostillar de reciente expedición, es necesario nos la haga llegar, si no la tiene aún despreocúpese, la tramitamos por usted, déjenos saberlo en el espacio de comentarios.</strong></p>
                     <h4 class="mayus light azul noneo">Requisitos</h4>
                     <ul class="noneo">
                         <li>Requisito 1</li>

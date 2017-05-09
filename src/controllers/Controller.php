@@ -58,6 +58,7 @@ namespace Olive\controllers;
          */
         public function renderView($res, $template, $data = [])
         {
+        	$alert = null;
         	$session = $this->session_handle->getSegment('Olive\Session');
 	        $data = array_merge(["user" => $session->get("user")], $data);
 	        $alert = $this->session->getFlash("alert");

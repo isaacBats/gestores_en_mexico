@@ -38,7 +38,7 @@
 </head>
 <body class="gradient">
 	@include('partials.menu')
-	@if ($alert)
+	@if (isset($alert))
 		<div class="alert {{ $alert['class'] }} fade in">
 	        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 	        <strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
