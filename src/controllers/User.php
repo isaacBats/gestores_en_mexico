@@ -52,9 +52,13 @@ class User extends Controller
         unset($data['_RAW_HTTP_DATA']);
         $data['is_active'] = self::ACTIVO;
         $user = $this->userRepo->create($data);
-        // self::vdd($user);
+        
+        if ($user->get('errors'))
+            $this->session->setFlash("alert", ["message" => var_export($user->get('errors')), "class" => "alert-warning"]);
+        else
+            $this->session->setFlash('alert', ['message' => 'Usuario creado correctamente!', 'class' => 'alert-info']);
 
-        return $res->send(200);
+        header('Location: /admin/usuarios');
 
     }
 
