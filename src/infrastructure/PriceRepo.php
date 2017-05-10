@@ -17,14 +17,13 @@ class PriceRepo extends BaseRepository
 			return $this->mapper->where(['id_state' => $stateORid, 'id_transaction' => $transaction])->first();
 	}
 
-	public function getStatesWithPrices()
+	public function getPricesWithStates()
 	{
-		$prices = $this->mapper->all()->with('state');
-		$statesID = array_map(function ($price) {
-			return $price['state']['id_contry'];
-		}, $prices->toArray()); 
-		echo '<pre>'; print_r($statesID); exit;
+		return $this->mapper->all()->with('state');
 	}
 
-	
+	public function pricesOfState ($state)
+	{
+		return $this->mapper->where(['id_state' => $state->id]);
+	}
 }

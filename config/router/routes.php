@@ -82,3 +82,8 @@
 		'path'	=> '/admin/precios',
 		'get'	=> array('PriceController', 'index'),
 	));
+
+	$router->addRoute(array(
+		'path'	=> '/admin/precios/{code}/{state}',
+		'get'	=> array('PriceController', 'priceState'),
+	));

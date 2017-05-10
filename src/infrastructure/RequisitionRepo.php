@@ -8,10 +8,5 @@ class RequisitionRepo extends BaseRepository
 	{
 		return 'Requisition';
 	}
-
-	public function listRequisitions ()
-	{
-		return $this->mapper->all();
-	}
 	
 }

@@ -2,15 +2,21 @@
 
 use Olive\controllers\Controller;
 use Olive\infrastructure\PriceRepo;
+use Olive\infrastructure\ContryRepo;
+use Olive\infrastructure\StateRepo;
 
 class PriceController extends Controller
 {
 	private $priceRepo;
+	private $contryRepo;
+	private $stateRepo;
 
 	function __construct ()
 	{
 		parent::__construct ();
 		$this->priceRepo = new PriceRepo();
+		$this->contryRepo = new ContryRepo();
+		$this->stateRepo = new StateRepo();
 	}
 
 	public function getPrice ($req, $res)
@@ -25,8 +31,32 @@ class PriceController extends Controller
 	public function index ($req, $res)
 	{
 		$this->addBread(['label' => 'Lista de precios']);
-		$states = $this->priceRepo->getStatesWithPrices();
-		self::vdd($states);
-		return $this->renderView($res, 'Price.index');
+		$prices = $this->priceRepo->getPricesWithStates();
+		$contries = array();
+		$states = array();
+		foreach ($prices as $price) {
+			$contry = $this->contryRepo->get($price->state->id_contry);
+			$price->state->slug = $this->url_slug(utf8_encode($price->state->name));
+			$price->state->code_slug = $this->url_slug($price->state->code);
+			if (!in_array($contry, $contries))
+				$contries[utf8_encode($contry->name)] = $contry;
+
+			if(!in_array($price->state, $states))
+				$states[utf8_encode($price->state->name)] = $price->state;
+		}
+
+		return $this->renderView($res, 'Price.index', compact('prices', 'contries', 'states'));
+	}
+
+	public function priceState ($req, $res)
+	{
+		$state = $this->stateRepo->getStateByCode($req->params['code']);
+
+		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
+		$this->addBread(['label' => $state->name]);
+
+		$prices = $this->priceRepo->pricesOfState($state);
+
+		return $this->renderView($res, 'Price.state', compact('state','prices'));
 	}
 }

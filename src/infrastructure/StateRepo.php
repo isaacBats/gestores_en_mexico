@@ -23,5 +23,10 @@ class StateRepo extends BaseRepository
 		return $this->mapper->where(['id_contry' => $contry->id]);
 	}
 
+	public function getStateByCode($code)
+	{
+		return $this->mapper->query("SELECT * FROM states WHERE code LIKE '%{$code}%'")->first();
+	}
+
 	
 }
