@@ -89,7 +89,7 @@ class Transaction extends Controller
 		$newRequisition->id_transaction = $data['id_transaction'];
 		$newRequisition->id_price = $price->id;
 		$newRequisition->total_cost = $data['attr_total'];
-		$newRequisition->status = 'pending';
+		$newRequisition->status = 'solicitud';
 		$newRequisition->message = $data['attr_mensaje'];
 		
 		if (isset($data['cb_reciver'])) {

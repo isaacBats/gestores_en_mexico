@@ -73,6 +73,11 @@
 
 	/* Admin Tramites */
 	$router->addRoute(array(
+		'path'	=> '/admin/tramites/{id}',
+		'get'	=> array('RequisitionController', 'detailRequisition'),
+	));
+
+	$router->addRoute(array(
 		'path'	=> '/admin/tramites',
 		'get'	=> array('RequisitionController', 'showRequisitions'),
 	));

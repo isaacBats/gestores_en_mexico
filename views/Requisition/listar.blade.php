@@ -34,8 +34,8 @@
 									<td>
 										<ul class="table-options">
 											<li>
-												<a href="">
-													<i class="fa fa-pencil"></i>
+												<a href="/admin/tramites/{{ $row->id }}">
+													<i class="fa fa-search"></i>
 												</a>
 											</li>
 											<li>

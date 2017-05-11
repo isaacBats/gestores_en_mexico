@@ -20,4 +20,15 @@ class RequisitionController extends Controller
         $requisitions = $this->requisitionRepo->all();
         return $this->renderView($res, 'Requisition.listar', compact('requisitions'));
 	}
+
+	public function detailRequisition($req, $res)
+	{
+		$this->addBread(['url' => '/admin/tramites', 'label' => 'Lista de tramites']);
+		$this->addBread(['label' => 'Detalle']);
+		
+		$requisition = $this->requisitionRepo->get($req->params['id']);
+
+		return $this->renderView($res, 'Requisition.detail', compact('requisition'));
+		
+	}
 }

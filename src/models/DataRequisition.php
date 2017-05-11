@@ -28,7 +28,7 @@ use Spot\MapperInterface as Mapper;
     public static function relations(Mapper $mapper, Entity $entity) {
         return [
             'requisition' => $mapper->belongsTo($entity, 'Olive\models\Requisition', 'id_requisition'),
-            'client' => $mapper->belongsTo($entity, 'Olive\models\Attribute', 'id_attribute'),
+            'attribute' => $mapper->belongsTo($entity, 'Olive\models\Attribute', 'id_attribute'),
         ];
     }
  } 

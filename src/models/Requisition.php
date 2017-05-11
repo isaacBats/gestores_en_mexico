@@ -26,9 +26,15 @@ use Spot\EventEmitter as EventEmitter;
             'id_price'  => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'total_cost'         => ['type' => 'float'],
             'status'    => ['type' => 'string', 'required' => true, 'options' => [
-                'pending',
-                'process', 
-                'delivered'
+                'solicitud',
+                'verificacion',
+                'en_tramite',
+                'no_localizado',
+                'oficinas',
+                'enviado',
+                'detenido',
+                'no_procede',
+                'concluido',
             ]],
             'message'         => ['type' => 'string'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
