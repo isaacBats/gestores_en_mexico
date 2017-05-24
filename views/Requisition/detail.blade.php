@@ -56,6 +56,29 @@
 								<th class="text-right" >Total</th>	
 								<td>{{ sprintf("$%01.2f", $requisition->total_cost) }}</td>
 							</tr>
+							<tr>
+								<th>Fecha de entrega</th>
+								<td>
+									<div class="input-group mb20">
+										<spana class="input-group-addon">
+											<i class="fa fa-calendar"></i>
+										</spana>
+										<input type="date" id="fecha_entrega" class="form-control">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>Estatus</th>
+								<td>
+									<div class="form-group">
+										<select name="status" id="status" class="form-control">
+											@foreach ($options as $key => $item)
+												<option value={{ $key }}>{{ $item }}</option>
+											@endforeach	
+										</select>
+									</div>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

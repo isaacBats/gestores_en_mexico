@@ -27,8 +27,9 @@ class RequisitionController extends Controller
 		$this->addBread(['label' => 'Detalle']);
 		
 		$requisition = $this->requisitionRepo->get($req->params['id']);
-
-		return $this->renderView($res, 'Requisition.detail', compact('requisition'));
+		$options = $requisition->fields()['status']['options'];
+		
+		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options'));
 		
 	}
 }
