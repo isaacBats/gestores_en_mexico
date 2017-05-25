@@ -112,6 +112,7 @@ $(document).ready(function () {
 
         $.get('/serv/obtener-precio?state=' + $state.val() + '&transaction=' + $transaction.val(), function(data) {
             if (data) {
+                data = JSON.parse(data);
                 var copias = (!data.copy_cost) ? 0 : data.copy_cost * $numCopies;
                 var cp = 0;
                 $costoTramite.text(data.cost);
@@ -122,7 +123,10 @@ $(document).ready(function () {
                     $('#value_price_copy').val(data.copy_cost);
                 }
                 $costoEnvio.text(data.copy_send);
+                debugger;
                 $costoTotal.val(parseInt($costoTramite.html()) + cp + parseInt($costoEnvio.html()));
+            } else {
+                console.log('Sorry something went wrong :(');
             }
         });
     });

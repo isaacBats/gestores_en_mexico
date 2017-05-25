@@ -17,7 +17,7 @@ class RequisitionController extends Controller
 	public function showRequisitions($req, $res)
 	{
 		$this->addBread(['label' => 'Lista de tramites']);
-        $requisitions = $this->requisitionRepo->all();
+        $requisitions = $this->requisitionRepo->all()->order(['id' => 'DESC']);
         return $this->renderView($res, 'Requisition.listar', compact('requisitions'));
 	}
 

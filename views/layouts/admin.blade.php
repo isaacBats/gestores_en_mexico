@@ -14,8 +14,10 @@
   <link rel="stylesheet" href="/assets/lib/jquery-toggles/toggles-full.css">
 
   <link rel="stylesheet" href="/assets/css/quirk.css">
-
+  @yield('css');
+  <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/lib/modernizr/modernizr.js"></script>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="../lib/html5shiv/html5shiv.js"></script>
@@ -277,12 +279,13 @@
         @yield('content')
       </div><!-- contentpanel -->
     </div><!-- mainpanel -->
-</section>
+  </section>
 
 <script src="/assets/lib/jquery/jquery.js"></script>
 <script src="/assets/lib/jquery-ui/jquery-ui.js"></script>
 <script src="/assets/lib/bootstrap/js/bootstrap.js"></script>
 <script src="/assets/lib/jquery-toggles/toggles.js"></script>
+@yield('scripts');
 
 <script src="/assets/js/quirk.js"></script>
 
