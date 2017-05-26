@@ -82,6 +82,11 @@
 		'get'	=> array('RequisitionController', 'showRequisitions'),
 	));
 
+	$router->addRoute(array(
+		'path'	=> '/comment/{type}/add',
+		'get'	=> array('CommentController', 'create'),
+	));
+
 	/* Admin Precios */
 	$router->addRoute(array(
 		'path'	=> '/admin/precios',

@@ -48,6 +48,12 @@ use Spot\EventEmitter as EventEmitter;
             'reciver' => $mapper->belongsTo($entity, 'Olive\models\Client', 'id_reciver'),
             'attributes' => $mapper->hasMany($entity, 'Olive\models\DataRequisition', 'id_requisition'),
             'price' => $mapper->belongsTo($entity, 'Olive\models\Price', 'id_price'),
+            'comments_private' => $mapper->hasMany($entity, 'Olive\models\Comment', 'id_requisition')
+                ->where(['type' => 'private'])
+                ->order(['created_at' => 'DESC']),
+            'comments_public' => $mapper->hasMany($entity, 'Olive\models\Comment', 'id_requisition')
+                ->where(['type' => 'public'])
+                ->order(['created_at' => 'DESC']),
         ];
     }
 
