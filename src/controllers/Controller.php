@@ -5,6 +5,7 @@ namespace Olive\controllers;
 use PHPRouter\Route;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Olive\helpers\Utils;
 
 /**
  *	Controlador base para Olive	

@@ -68,4 +68,9 @@ abstract class BaseRepository
 	{
 		return $this->_errors;
 	}
+
+	public function update ($entity)
+	{
+		return $this->mapper->update($entity);
+	}
 }

@@ -75,6 +75,7 @@
 	$router->addRoute(array(
 		'path'	=> '/admin/tramites/{id}',
 		'get'	=> array('RequisitionController', 'detailRequisition'),
+		'post'	=> array('RequisitionController', 'update'),
 	));
 
 	$router->addRoute(array(
@@ -82,9 +83,11 @@
 		'get'	=> array('RequisitionController', 'showRequisitions'),
 	));
 
+	
+ 	/* Admin Comentarios */
 	$router->addRoute(array(
 		'path'	=> '/comment/{type}/add',
-		'get'	=> array('CommentController', 'create'),
+		'post'	=> array('CommentController', 'create'),
 	));
 
 	/* Admin Precios */

@@ -32,4 +32,20 @@ class RequisitionController extends Controller
 		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options'));
 		
 	}
+
+	public function update($req, $res)
+	{
+		$id = $req->params['id'];
+		$requisition = $this->requisitionRepo->get($id);
+		$requisition->status = $req->data['status'];
+		
+		try {
+			$this->requisitionRepo->update($requisition);
+            $this->session->setFlash('alert', ['message' => 'Se ha actualizado con exito.', 'class' => 'alert-info']);
+		} catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+		}
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+		
+	}
 }

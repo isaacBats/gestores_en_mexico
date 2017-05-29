@@ -1,3 +1,4 @@
+{{--*/ use Olive\helpers\Utils; /*--}}
 @extends('layouts.admin')
 @section('page_title', 'Lista de tramites')
 @section('content')
@@ -8,7 +9,7 @@
 			</div> --}}
 			<div class="panel-body">
 				<div class="col-sm-8 col-sm-offset-2 table-responsive">
-					<form action="">
+					<form action="" method="post" >
 						<table class="table table-bordered table-striped-col nomargin">
 							<tbody>
 								<tr>
@@ -74,7 +75,7 @@
 										<div class="form-group">
 											<select name="status" id="status" class="form-control">
 												@foreach ($options as $key => $item)
-													<option value={{ $key }}>{{ $item }}</option>
+													<option value={{ $item }} {{ $requisition->status == $item ? 'selected' : ''}} >{{ Utils::getStatus($item) }}</option>
 												@endforeach	
 											</select>
 										</div>
@@ -84,7 +85,7 @@
 									<th>Mensajería</th>
 									<td>
 										<div class="form-group col-sm-6">
-											<input type="text" name="mensajeria" class="form-control" />
+											<input type="text" name="attr_mensajeria" class="form-control" />
 										</div>
 									</td>
 								</tr>
@@ -92,7 +93,7 @@
 									<th>Guía</th>
 									<td>
 										<div class="form-group col-sm-6">
-											<input type="text" name="guia" class="form-control" />
+											<input type="text" name="attr_guia" class="form-control" />
 										</div>
 									</td>
 								</tr>
@@ -203,7 +204,7 @@
 			</div>
 			<div class="panel-body">
 				<form action="/comment/private/add" method="post">
-					<input type="hidden" name="requisition_id" value="{{ $requisition->id }}">
+					<input type="hidden" name="id_requisition" value="{{ $requisition->id }}">
 					<div class="form-group">
 						<textarea class="summernote" name="comment" ></textarea>
 						<input type="submit" value="Agregar comentario privado" class="btn btn-primary pull-right mt10">
@@ -218,11 +219,21 @@
 								<tr>
 									<th>#</th>
 									<th>Registro</th>
-									<th>Usiario</th>
-									<th>Fecha</th>
+									<th>Usuario</th>
 									<th>Comentario</th>
 								</tr>
 							</thead>
+							<tbody>
+								{{--*/ $i = 1 /*--}}
+								@foreach ($requisition->comments_private as $private)
+									<tr>
+										<td>{{ $i++ }}</td>
+										<td>{{ $private->created_at->format('d-m-Y H:i:s') }}</td>
+										<td>{{ $private->user->first_name .' '. $private->user->last_name }}</td>
+										<td>{{ $private->comment }}</td>
+									</tr>
+								@endforeach
+							</tbody>
 						</table>
 					</div>
 				</div>
@@ -237,7 +248,7 @@
 			</div>
 			<div class="panel-body">
 				<form action="/comment/public/add" method="post">
-					<input type="hidden" name="requisition_id" value="{{ $requisition->id }}">
+					<input type="hidden" name="id_requisition" value="{{ $requisition->id }}">
 					<div class="form-group">
 						<textarea class="summernote" name="comment" ></textarea>
 						<input type="submit" value="Agregar comentario publico" class="btn btn-primary pull-right mt10">
@@ -252,11 +263,21 @@
 								<tr>
 									<th>#</th>
 									<th>Registro</th>
-									<th>Usiario</th>
-									<th>Fecha</th>
+									<th>Usuario</th>
 									<th>Comentario</th>
 								</tr>
 							</thead>
+							<tbody>
+								{{--*/ $i = 1 /*--}}
+								@foreach ($requisition->comments_public as $public)
+									<tr>
+										<td>{{ $i++ }}</td>
+										<td>{{ $public->created_at->format('d-m-Y H:i:s') }}</td>
+										<td>{{ $public->user->first_name .' '. $public->user->last_name }}</td>
+										<td>{{ $public->comment }}</td>
+									</tr>
+								@endforeach
+							</tbody>
 						</table>
 					</div>
 				</div>
