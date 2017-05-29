@@ -66,10 +66,21 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     
   }
 
-  public function migrate() {
+  public function migrate($req, $res) {
     global $spot;
     $entities = [];
     echo "<pre>";
+
+    if (isset($req->data['entity'])) {
+      $mapper = $spot->mapper("Olive\\models\\".$req->data['entity']);
+      $entity = $mapper->entity();
+      echo "Creating table ".$entity::table()." for ".$entity."\n";
+      flush();
+      $mapper->dropTable();
+      $mapper->migrate();
+      exit('Table ' . $entity::table() . ' created satisfactorily.');
+    }
+
     foreach( scandir( __OLIVE__.'/src/models' ) as $model ){
       $bffmodel = explode("." , $model);
       if( end( $bffmodel ) == "php" ){
