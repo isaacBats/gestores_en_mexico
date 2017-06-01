@@ -65,7 +65,7 @@
 											<spana class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</spana>
-											<input type="date" id="fecha_entrega" class="form-control">
+											<input type="date" name="fecha_entrega" id="fecha_entrega" class="form-control" value="{{ $fecha_entrega }}">
 										</div>
 									</td>
 								</tr>
