@@ -18,7 +18,7 @@
 								</tr>
 								<tr>
 									<th class="text-right" >Código</th>	
-									<td>{{ $requisition->id_public}}</td>
+									<td>{{ $requisition->id_public }}</td>
 								</tr>
 								<tr>
 									<th class="text-right" >Registro</th>	

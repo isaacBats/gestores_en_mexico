@@ -27,7 +27,10 @@ class RequisitionController extends Controller
 		$this->addBread(['label' => 'Detalle']);
 		
 		$requisition = $this->requisitionRepo->get($req->params['id']);
+		$delivery_max = $requisition->price->delivery_max;
+
 		$options = $requisition->fields()['status']['options'];
+		$fecha_entrega = gmdate('d-m-Y',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
 		
 		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options'));
 		
