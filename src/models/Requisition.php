@@ -37,6 +37,9 @@ use Spot\EventEmitter as EventEmitter;
                 'concluido',
             ]],
             'message'         => ['type' => 'string'],
+            'messeger' => ['type' => 'string', 'length' => 150],
+            'guia' => ['type' => 'string', 'length' => 150],
+            'date_sender' =>['type' => 'datetime'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }

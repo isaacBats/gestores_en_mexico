@@ -38,6 +38,8 @@
 										@foreach ($requisition->attributes as $attribute)
 											@if ($attribute->attribute->attribute == 'attr_copies')
 												{{ $attribute->value }}
+											@else
+												-
 											@endif
 										@endforeach									
 									</td>
