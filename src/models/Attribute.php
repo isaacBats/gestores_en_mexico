@@ -18,6 +18,7 @@ use Spot\MapperInterface as Mapper;
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
             'attribute'    => ['type' => 'string'],
+            'display_name' => ['type' => 'string'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }

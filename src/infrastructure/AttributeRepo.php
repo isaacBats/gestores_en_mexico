@@ -13,5 +13,4 @@ class AttributeRepo extends BaseRepository
 	{
 		return $this->mapper->first(['attribute' => $name]);
 	}
-	
 }

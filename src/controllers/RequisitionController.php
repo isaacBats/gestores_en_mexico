@@ -31,16 +31,29 @@ class RequisitionController extends Controller
 
 		$options = $requisition->fields()['status']['options'];
 		$fecha_entrega = gmdate('d-m-Y',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
+
+		$attributesController = new AttributesController();
+		$attributes = $attributesController->getAttributesByRequisition($requisition->id);
+		vdd($attributes);
 		
 		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options', 'fecha_entrega'));
 		
 	}
 
+	/**
+	 * Update the requisition in Administrator page
+	 * @param  Object $req 
+	 * @param  Object $res 
+	 * @return Redirect to request
+	 */
 	public function update($req, $res)
 	{
 		$id = $req->params['id'];
 		$requisition = $this->requisitionRepo->get($id);
 		$requisition->status = $req->data['status'];
+		$requisition->messeger = $req->data['attr_mensajeria'];
+		$requisition->guia = $req->data['attr_guia'];
+		$requisition->date_sender = new DateTime($req->data['fecha_entrega']);
 		
 		try {
 			$this->requisitionRepo->update($requisition);

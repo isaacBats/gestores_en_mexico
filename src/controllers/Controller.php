@@ -1,7 +1,10 @@
 <?php 
 
+
 namespace Olive\controllers;
 	
+require_once __OLIVE__ . '/src/helpers/helpers.php';
+
 use PHPRouter\Route;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -41,17 +44,6 @@ class Controller
 	}
 
 	/**
-	 * Mejor visualizacion de print_r
-	 * @param  * $mixed Mixed data to print
-	 */
-	protected static function vdd($mixed){
-		echo "<pre>";
-		var_dump($mixed);
-		print_r($mixed);
-		exit;
-	}
-
-	 /**
      * Hace render 
      * @param array $data
      * @param Zapha\Reponse $res

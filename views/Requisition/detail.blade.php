@@ -87,7 +87,7 @@
 									<th>Mensajería</th>
 									<td>
 										<div class="form-group col-sm-6">
-											<input type="text" name="attr_mensajeria" class="form-control" />
+											<input type="text" name="attr_mensajeria" class="form-control" value="{{ !is_null($requisition->messeger) ? $requisition->messeger : '' }}" />
 										</div>
 									</td>
 								</tr>
@@ -95,7 +95,7 @@
 									<th>Guía</th>
 									<td>
 										<div class="form-group col-sm-6">
-											<input type="text" name="attr_guia" class="form-control" />
+											<input type="text" name="attr_guia" class="form-control" value="{{ !is_null($requisition->guia) ? $requisition->guia : '' }}" />
 										</div>
 									</td>
 								</tr>
@@ -199,6 +199,7 @@
 			</div>
 		</div>
 	</div>
+	{{-- Comentarios publicos y privados --}}
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading">
