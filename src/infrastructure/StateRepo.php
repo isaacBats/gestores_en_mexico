@@ -31,6 +31,6 @@ class StateRepo extends BaseRepository
 	public function getName($id)
 	{
 		$state = $this->mapper->where(['id' => $id])->first();
-		return $state->name;
+		return utf8_encode($state->name);
 	}
 }

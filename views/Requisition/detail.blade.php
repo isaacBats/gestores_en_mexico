@@ -175,20 +175,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($requisition->attributes as $attribute)
-								@if ($attribute->attribute->attribute != 'attr_copies' 
-									&& $attribute->attribute->attribute != 'attr_total' 
-									&& $attribute->attribute->attribute != 'attr_image')
+							@foreach ($attributes as $key => $attribute)
+								@if ($key != 'attr_copies' 
+									&& $key != 'attr_total' 
+									&& $key != 'attr_image')
 									<tr>
-										<td class="text-right" >{{ $attribute->attribute->attribute }}</td>
-										<td>{{ $attribute->value }}</td>
+										<td class="text-right" >{{ $attribute['name'] }}</td>
+										<td>{{ $attribute['value'] }}</td>
 									</tr>
 								@endif
-								@if ($attribute->attribute->attribute == 'attr_image')
+								@if ($key == 'attr_image')
 									<tr>
-										<td class="text-right">{{ $attribute->attribute->attribute }}</td>
+										<td class="text-right">{{ $attribute['name'] }}</td>
 										<td>
-											<img src="{{ $attribute->value }}" class="mw-80 img-thumbnail">
+											<img src="{{ $attribute['value'] }}" class="mw-80 img-thumbnail">
 										</td>
 									</tr>
 								@endif

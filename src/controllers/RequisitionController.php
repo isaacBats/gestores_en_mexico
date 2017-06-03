@@ -34,9 +34,8 @@ class RequisitionController extends Controller
 
 		$attributesController = new AttributesController();
 		$attributes = $attributesController->getAttributesByRequisition($requisition->id);
-		vdd($attributes);
 		
-		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options', 'fecha_entrega'));
+		return $this->renderView($res, 'Requisition.detail', compact('requisition', 'options', 'fecha_entrega', 'attributes'));
 		
 	}
 
