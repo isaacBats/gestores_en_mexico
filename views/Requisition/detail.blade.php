@@ -35,13 +35,15 @@
 								<tr>
 									<th class="text-right" >Copias adicionales</th>	
 									<td>
-										@foreach ($requisition->attributes as $attribute)
-											@if ($attribute->attribute->attribute == 'attr_copies')
-												{{ $attribute->value }}
-											@else
-												-
-											@endif
-										@endforeach									
+										@if ($requisition->transaction->h_copies)
+											@foreach ($requisition->attributes as $attribute)
+												@if ($attribute->attribute->attribute == 'attr_copies')
+													{{ $attribute->value }}
+												@endif
+											@endforeach
+										@else
+											0
+										@endif									
 									</td>
 								</tr>
 								<tr>
