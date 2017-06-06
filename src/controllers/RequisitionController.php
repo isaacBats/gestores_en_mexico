@@ -1,5 +1,7 @@
 <?php
+
 use Olive\controllers\Controller;
+use Olive\models\Requisition;
 use Olive\infrastructure\RequisitionRepo;
 /**
 * Requisition Controller
@@ -18,7 +20,10 @@ class RequisitionController extends Controller
 	{
 		$this->addBread(['label' => 'Lista de tramites']);
         $requisitions = $this->requisitionRepo->all()->order(['id' => 'DESC']);
-        return $this->renderView($res, 'Requisition.listar', compact('requisitions'));
+        $status = Requisition::fields()['status']['options'];
+        // vdd($status);
+
+        return $this->renderView($res, 'Requisition.listar', compact('requisitions', 'status'));
 	}
 
 	public function detailRequisition($req, $res)
