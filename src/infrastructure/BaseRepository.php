@@ -36,6 +36,11 @@ abstract class BaseRepository
 		return $this->mapper->all();
 	}
 
+	public function where ($where = array())
+	{
+		return $this->mapper->where($where);
+	}
+
 	public function save (\Spot\Entity $entity)
 	{
 		$rs = $this->mapper->insert($entity);

@@ -18,12 +18,21 @@ class RequisitionController extends Controller
 	
 	public function showRequisitions($req, $res)
 	{
-		$this->addBread(['label' => 'Lista de tramites']);
-        $requisitions = $this->requisitionRepo->all()->order(['id' => 'DESC']);
-        $status = Requisition::fields()['status']['options'];
-        // vdd($status);
+		$limit = isset($req->data['numpp']) ? $req->data['numpp'] : 10;
+        $page = isset($req->data['page']) ? ($req->data['page'] * $limit) - $limit : 0;
 
-        return $this->renderView($res, 'Requisition.listar', compact('requisitions', 'status'));
+		$this->addBread(['label' => 'Lista de tramites']);
+        $status = Requisition::fields()['status']['options'];
+        $where = array();
+
+        
+        $all = $this->requisitionRepo->where($where);
+        $requisitions = $all->order(['id' => 'DESC'])->limit($limit)->offset($page);
+        $count = $all->count();
+        dump(['count' => $count, 'all' => $all->toArray(), 'requisitions' => $requisitions->toArray(), 'where' => $where]);
+        $end = ($page + $limit >= $count) ? $count : $page + $limit;
+
+        return $this->renderView($res, 'Requisition.listar', compact('requisitions', 'status', 'page', 'count', 'end'));
 	}
 
 	public function detailRequisition($req, $res)

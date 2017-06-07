@@ -11,11 +11,19 @@ $(document).ready(function () {
     if (url.param('numpp') != null) {
         $('#bootpag_text_count_select').val(url.param('numpp'));
     }
-    if (url.param('estado') != null) {
-        $('#estados').val(url.param('estado'));
+    if (url.param('status') != null) {
+        $('#status').val(url.param('status'));
     }
-    if (url.param('municipio') != null) {
-        $('#cuponMunicipio').val(url.param('municipio'));
+    if (url.param('buscar') != null) {
+        $('#buscar').val(url.param('buscar'));
+    }
+
+    if (url.param('desde') != null) {
+        $('#desde').val(url.param('desde'));
+    }
+
+    if (url.param('hasta') != null) {
+        $('#hasta').val(url.param('hasta'));
     }
      
     setNavigation();

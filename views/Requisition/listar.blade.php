@@ -13,7 +13,7 @@
 		                <div class="col-sm-12">
 	                        <div class="form-group col-md-3">
 	                        	<label class="control-label" for="status">Estatus:</label>
-	                            <select name="status" class="form-control">
+	                            <select name="status" class="form-control" id="status">
 	                                <option value="todos">Todos</option>
 	                                @foreach ($status as $item)
 										<option value={{ $item }}>{{ Utils::getStatus($item) }}</option>
@@ -23,17 +23,17 @@
 	                        <div class="form-group col-md-5">
 	                            <div class="col-md-6">
 	                            	<span>Registro desde </span>
-	                            	<input class="form-control" type="date" name="desde">
+	                            	<input class="form-control" type="date" name="desde" id="desde">
 	                            </div>
 	                            <div class="col-md-6">
 	                            	<span> hasta </span>
-									<input class="form-control" type="date" name="hasta">
+									<input class="form-control" type="date" name="hasta" id="hasta">
 	                            </div>
 	                        </div>
 	                        <div class="col-md-3">
 	                        	<span>Buscar</span>
 	                        	<div class="input-group">
-					            	<input type="text" class="form-control" placeholder="Search for...">
+					            	<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Search for...">
 					            	<span class="input-group-btn">
 					              		<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
 					            	</span>
@@ -41,7 +41,7 @@
 					        </div>
 	                        <div class="col-md-1">
 	                        	<span>.</span>
-	                        	<button type="submit" class="btn btn-default">Filtrar</button>
+	                        	<button type="submit" class="btn btn-default" id="btn-buscador" >Filtrar</button>
 	                        </div>
 		                </div>
 		                <div class="col-sm-12">
@@ -106,7 +106,7 @@
 					</table>
 					<div class="col-md-6">
 						<p id="bootpag_text">
-							Mostrando registros del <b>{{ $ini }}</b> al <b>{{ $end }}</b> de un total de <b>{{ $count }}</b> registros.
+							Mostrando registros del <b>{{ $page + 1 }}</b> al <b>{{ $end }}</b> de un total de <b>{{ $count }}</b> registros.
 						</p>
 					</div>
     				<div class="col-md-6"><p id="bootpag_pag" data-count="{{ $count }}"></p></div>
