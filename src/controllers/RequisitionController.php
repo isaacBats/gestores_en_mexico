@@ -33,7 +33,7 @@ class RequisitionController extends Controller
         $where = array();
 
         if(!empty($fstatus)) {
-        	if(!$fstatus == 'todos')
+        	if($fstatus != 'todos')
         		$where['status'] = $fstatus;
         }
 
@@ -49,7 +49,6 @@ class RequisitionController extends Controller
 
         if (!empty($buscar)) {
         	$buscar = strtolower($buscar);
-        	// vdd($buscar);
         	if(substr($buscar, 0, 3) == 'ge-') {
         		$id = substr($buscar, 3);
         		$where['id'] = $id;
