@@ -33,7 +33,7 @@
 	                        <div class="col-md-3">
 	                        	<span>Buscar</span>
 	                        	<div class="input-group">
-					            	<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Search for...">
+					            	<input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar por...">
 					            	<span class="input-group-btn">
 					              		<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
 					            	</span>
@@ -83,7 +83,7 @@
 									<td>{{ $row->date_created->format('d-m-Y H:i:s') }}</td>
 									<td>{{ $row->client->first_name }} {{ $row->client->middle_name }} {{ $row->client->last_name }}</td>
 									<td>{{ $row->client->email }}</td>
-									<td>{{ $row->status }}</td>
+									<td>{{ Utils::getStatus($row->status) }}</td>
 									<td>{{ utf8_encode($row->transaction->name) }}</td>
 									<td>{{ sprintf("$%01.2f", $row->total_cost) }}</td>
 									<td>

@@ -36,9 +36,9 @@ abstract class BaseRepository
 		return $this->mapper->all();
 	}
 
-	public function where ($where = array())
+	public function where ($where = array(), $type = 'AND')
 	{
-		return $this->mapper->where($where);
+		return $this->mapper->where($where, $type);
 	}
 
 	public function save (\Spot\Entity $entity)

@@ -3,33 +3,74 @@
 use Olive\controllers\Controller;
 use Olive\models\Requisition;
 use Olive\infrastructure\RequisitionRepo;
+use Olive\infrastructure\ClientRepo;
 /**
 * Requisition Controller
 */
 class RequisitionController extends Controller
 {
 	private $requisitionRepo;
+	private $clientRepo;
 	
 	function __construct()
 	{
 		parent::__construct();
 		$this->requisitionRepo = new RequisitionRepo();
+		$this->clientRepo = new ClientRepo();
 	}
 	
 	public function showRequisitions($req, $res)
 	{
 		$limit = isset($req->data['numpp']) ? $req->data['numpp'] : 10;
         $page = isset($req->data['page']) ? ($req->data['page'] * $limit) - $limit : 0;
+        $fstatus = isset($req->data['status']) ? $req->data['status'] : '';
+        $desde = isset($req->data['desde']) ? $req->data['desde'] : '';
+        $hasta = isset($req->data['hasta']) ? $req->data['hasta'] : '';
+        $buscar = isset($req->data['buscar']) ? $req->data['buscar'] : '';
 
 		$this->addBread(['label' => 'Lista de tramites']);
         $status = Requisition::fields()['status']['options'];
         $where = array();
 
-        
+        if(!empty($fstatus)) {
+        	if(!$fstatus == 'todos')
+        		$where['status'] = $fstatus;
+        }
+
+        if(!empty($desde)) {
+        	$fdesde = new DateTime($desde);
+        	$where['date_created >='] = $fdesde->format('Y-m-d');
+        }
+
+        if(!empty($hasta)) {
+        	$fhasta = new DateTime($hasta);
+        	$where['date_created <='] = $fhasta->format('Y-m-d');
+        }
+
+        if (!empty($buscar)) {
+        	$buscar = strtolower($buscar);
+        	// vdd($buscar);
+        	if(substr($buscar, 0, 3) == 'ge-') {
+        		$id = substr($buscar, 3);
+        		$where['id'] = $id;
+        	} elseif (filter_var($buscar, FILTER_VALIDATE_EMAIL)) {
+        		$user = $this->clientRepo->where(['email' => $buscar])->first();
+        		$where['id_client'] = $user->id;
+        	} else {
+        		$user = $this->clientRepo->where(['first_name :like' => $buscar])
+        			->orWhere(['middle_name :like' => $buscar])
+        			->orWhere(['last_name :like' => $buscar]);
+        		if($user->count() > 1)
+        			$where['id_client :in'] = array_column($user->toArray(),'id');
+        		else
+        			$where['id_client'] = $user->first()->id;
+        	}
+        }
+
         $all = $this->requisitionRepo->where($where);
         $requisitions = $all->order(['id' => 'DESC'])->limit($limit)->offset($page);
-        $count = $all->count();
-        dump(['count' => $count, 'all' => $all->toArray(), 'requisitions' => $requisitions->toArray(), 'where' => $where]);
+        $count = $this->requisitionRepo->where($where)->count();
+        
         $end = ($page + $limit >= $count) ? $count : $page + $limit;
 
         return $this->renderView($res, 'Requisition.listar', compact('requisitions', 'status', 'page', 'count', 'end'));
