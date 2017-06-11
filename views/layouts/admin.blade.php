@@ -243,6 +243,12 @@
                   {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
                 </ul>
               </li>
+              <li class="nav-parent">
+                <a href="javascript:void(0)"><i class="fa fa-tasks"></i> <span>Atributos</span></a>
+                <ul class="children">
+                  <li><a href="/admin/atributos">Listar atributos</a></li>
+                </ul>
+              </li>
               {{-- <li class="nav-parent">
                 <a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
                 <ul class="children">
