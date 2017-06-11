@@ -144,8 +144,6 @@ $(document).ready(function () {
         $costoCopiasHtml.text(ccopies);
 
         $costoTotal.val($costoTramite + ccopies + $costoEnvio);
-
-
     });
 
     

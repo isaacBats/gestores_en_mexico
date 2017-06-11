@@ -78,4 +78,9 @@ abstract class BaseRepository
 	{
 		return $this->mapper->update($entity);
 	}
+
+	public function delete ($entity)
+	{
+		return $this->mapper->delete($entity);
+	}
 }

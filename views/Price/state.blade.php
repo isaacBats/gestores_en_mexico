@@ -35,7 +35,7 @@
 									<td>
 										<ul class="table-options">
 											<li>
-												<a href="/admin/precios/{{ $state->code_slug }}/{{ $state->slug }}">
+												<a href="/admin/precios/{{ $state->code }}/{{ $row->id }}">
 													<i class="fa fa-pencil"></i>
 												</a>
 											</li>

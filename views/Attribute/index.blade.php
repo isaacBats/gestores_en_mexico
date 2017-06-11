@@ -33,7 +33,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="">
+												<a href="/admin/atributo/borrar/{{ $row->id }}" data-toggle="modal" data-target="#myModal" >
 													<i class="fa fa-trash"></i>
 												</a>
 											</li>

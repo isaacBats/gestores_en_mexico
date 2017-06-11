@@ -84,5 +84,17 @@ class AttributesController extends Controller
         header('Location: /admin/atributos');
 	}
 
+	public function delete($req, $res)
+	{
+		$attribute = $this->attributeRepo->get($req->params['id']);
+		try {
+			$this->attributeRepo->delete($attribute);
+			$this->session->setFlash('alert', ['message' => "Se ha borrado el atributo {$attribute->display_name} correctamente!", 'class' => 'alert-info']);
+		} catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+		}
+        header('Location: /admin/atributos');
+	}
+
 
 }

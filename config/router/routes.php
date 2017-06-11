@@ -110,3 +110,8 @@
 				'get'	=> array('AttributesController', 'edit'),
 				'post'	=> array('AttributesController', 'update'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/atributo/borrar/{id}',
+				'post'	=> array('AttributesController', 'delete'),
+			));
