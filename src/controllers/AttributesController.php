@@ -16,6 +16,7 @@ class AttributesController extends Controller
 
 	public function __construct()
 	{
+		parent::__construct ();
 		$this->attributeRepo = new AttributeRepo();
 		$this->dataRequisitionRepo = new DataRequisitionRepo();
 		$this->contryRepo = new ContryRepo();
@@ -48,6 +49,39 @@ class AttributesController extends Controller
 
 		}
 		return $array;
+	}
+
+	public function index ($req, $res)
+	{
+		$this->addBread(['label' => 'Lista de atributos']);
+		$attributes = $this->attributeRepo->all();
+
+		return $this->renderView($res, 'Attribute.index', compact('attributes'));
+	}
+
+	public function edit ($req, $res) 
+	{
+		$this->addBread(['label' => 'Atributos', 'url' => '/admin/atributos']);
+        $this->addBread(['label' => 'Editar atributo']);
+
+        $attribute = $this->attributeRepo->get($req->params['id']);
+        
+        $form = self::form(new Olive\models\Attribute, $attribute->toArray());
+        return $this->renderView($res, 'Attribute.edit', compact('form'));
+	}
+
+	public function update($req, $res)
+	{
+		$attribute = $this->attributeRepo->get($req->params['id']);
+		$attribute->attribute = $req->data['attribute'];
+		$attribute->display_name = $req->data['display_name'];		
+		try {
+			$this->attributeRepo->update($attribute);
+			$this->session->setFlash('alert', ['message' => 'Atributo editado correctamente!', 'class' => 'alert-info']);
+		} catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+		}
+        header('Location: /admin/atributos');
 	}
 
 

@@ -102,11 +102,11 @@
 		/* Admin Atributos */
 			$router->addRoute(array(
 				'path'	=> '/admin/atributos',
-				'get'	=> array('AttributeController', 'index'),
+				'get'	=> array('AttributesController', 'index'),
 			));
 
 			$router->addRoute(array(
 				'path'	=> '/admin/atributo/{id}',
-				'get'	=> array('AttributeController', 'edit'),
-				'post'	=> array('AttributeController', 'update'),
+				'get'	=> array('AttributesController', 'edit'),
+				'post'	=> array('AttributesController', 'update'),
 			));
