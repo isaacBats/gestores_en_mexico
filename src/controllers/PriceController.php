@@ -51,12 +51,26 @@ class PriceController extends Controller
 	public function priceState ($req, $res)
 	{
 		$state = $this->stateRepo->getStateByCode($req->params['code']);
+		$state->code = $this->url_slug($state->code);
 
 		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
-		$this->addBread(['label' => $state->name]);
+		$this->addBread(['label' => utf8_encode($state->name)]);
 
 		$prices = $this->priceRepo->pricesOfState($state);
 
 		return $this->renderView($res, 'Price.state', compact('state','prices'));
+	}
+
+	public function priceEdit ($req, $res)
+	{
+		$state = $this->stateRepo->getStateByCode($req->params['code']);
+		$state->code = $this->url_slug($state->code);
+		$price = $this->priceRepo->get($req->params['id']);
+
+		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
+		$this->addBread(['url' => "/admin/precios/".$state->code."/".$this->url_slug(utf8_encode($state->name)), 'label' => utf8_encode($state->name)]);
+		$this->addBread(['label' => utf8_encode($price->transaction->name)]);
+
+		return $this->renderView($res, 'Price.edit', compact('state','price'));
 	}
 }
