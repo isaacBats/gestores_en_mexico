@@ -287,20 +287,22 @@
 	</div><!-- mainpanel -->
   </section>
   {{-- Modal --}}
-<div class="modal bounceIn animated" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal bounceIn animated" id="generalModal" tabindex="-1" role="dialog" aria-labelledby="myGeneralModal" aria-hidden="true">
 	<div class="modal-dialog">
   		<div class="modal-content">
-			<div class="modal-header">
-	  			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	  			<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			</div>
-			<div class="modal-body">
-	  			Content goes here...
-			</div>
-			<div class="modal-footer">
-	  			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	  			<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
+			<form action="" method="">
+				<div class="modal-header">
+		  			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		  			<h4 class="modal-title" id="modal-title-alert">Modal title</h4>
+				</div>
+				<div class="modal-body">
+		  			<p></p>
+				</div>
+				<div class="modal-footer">
+		  			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  			<button id="btn-submit" type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+			</form>
   		</div><!-- modal-content -->
 	</div><!-- modal-dialog -->
 </div><!-- modal -->
