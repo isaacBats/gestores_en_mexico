@@ -97,6 +97,7 @@
 			$router->addRoute(array(
 				'path'	=> '/admin/precios/editar/{code}/{id}',
 				'get'	=> array('PriceController', 'priceEdit'),
+				'post'	=> array('PriceController', 'priceUpdate'),
 			));
 
 			$router->addRoute(array(

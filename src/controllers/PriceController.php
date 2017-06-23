@@ -73,4 +73,35 @@ class PriceController extends Controller
 
 		return $this->renderView($res, 'Price.edit', compact('state','price'));
 	}
+
+	public function priceUpdate ($req, $res)
+	{
+		$data = $req->data;
+		$price = $this->priceRepo->get($req->params['id']);
+		$price->cost = $data['cost'];
+		$price->copy_cost = isset($data['copy_cost']) ? $data['copy_cost'] : $price->copy_cost;
+		$price->copy_send = isset($data['copy_send']) ? $data['copy_send'] : $price->copy_send;
+		$price->delivery_min = $data['delivery_min'];
+		$price->delivery_max = $data['delivery_max'];
+
+		try {
+			$this->priceRepo->update($price);
+			$this->session->setFlash('alert', ['message' => 'Se ha actualizado el precio correcamente!', 'class' => 'alert-info']);
+		} catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+		}
+        header('Location: /admin/precios');
+	}
+
+	public function delete($req, $res)
+	{
+		$price = $this->priceRepo->get($req->params['id']);
+		try {
+			$this->priceRepo->delete($price);
+			$this->session->setFlash('alert', ['message' => "Se ha borrado el precio para {$price->transaction->name} de {$price->state->name} correctamente!", 'class' => 'alert-info']);
+		} catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+		}
+        header('Location: /admin/precios');
+	}
 }

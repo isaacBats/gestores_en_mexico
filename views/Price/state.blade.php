@@ -39,11 +39,11 @@
 													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
-											<li>
+											{{-- <li>
 												<a href="">
 													<i class="fa fa-trash"></i>
 												</a>
-											</li>
+											</li> --}}
 										</ul>
 									</td>
 								</tr>
