@@ -146,7 +146,6 @@ $(document).ready(function () {
         $costoTotal.val($costoTramite + ccopies + $costoEnvio);
     });
 
-    
     //function  number with commas
     function numberWithCommas(x) {
         var parts = x.toString().split(".");

@@ -9,7 +9,7 @@
 			</div> --}}
 			<div class="panel-body">
 				<div class="col-sm-8 col-sm-offset-2 table-responsive">
-					<form action="" method="post" >
+					<form action="" method="post" id="form-detail-transaction">
 						<table class="table table-bordered table-striped-col nomargin">
 							<tbody>
 								<tr>
@@ -77,7 +77,7 @@
 									<th>Estatus</th>
 									<td>
 										<div class="form-group">
-											<select name="status" id="status" class="form-control">
+											<select name="status" id="status" class="form-control" data-email="{{ $requisition->reciver->email }}" data-idtransaction={{ $requisition->id }}>
 												@foreach ($options as $key => $item)
 													<option value={{ $item }} {{ $requisition->status == $item ? 'selected' : ''}} >{{ Utils::getStatus($item) }}</option>
 												@endforeach	
@@ -122,14 +122,14 @@
 								<td class="panel-title" >Destinatario</td>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="data-reciver">
 							<tr>
 								<td class="text-right" >Nombre</td>
-								<td>{{ $requisition->client->first_name }}</td>
+								<td id="reciver-name">{{ $requisition->client->first_name }}</td>
 							</tr>
 							<tr>
 								<td class="text-right" >Apellido Paterno</td>	
-								<td>{{ $requisition->client->middle_name }}</td>
+								<td id="reciver-last-name">{{ $requisition->client->middle_name }}</td>
 							</tr>
 							<tr>
 								<td class="text-right" >Apellido Materno</td>	
@@ -140,7 +140,7 @@
 							</tr>
 							<tr>
 								<td class="text-right" >Correo</td>	
-								<td>{{ $requisition->reciver->email }}</td>
+								<td id="reciver-email">{{ $requisition->reciver->email }}</td>
 							</tr>
 							<tr>
 								<td class="text-right" >Telefono Fijo</td>	
@@ -290,6 +290,23 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="modalNotification" tabindex="-1" role="dialog">
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        	<h4 class="modal-title">Modal title</h4>
+		      	</div>
+		      	<div class="modal-body">
+		        	<p>One fine body&hellip;</p>
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        	<button type="button" class="btn btn-primary btn-submit">Save changes</button>
+		      	</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 @stop
 @section('scripts')
 	<script src="/assets/lib/summernote/summernote.js"></script>

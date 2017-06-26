@@ -72,15 +72,21 @@
 
 		/* Admin Tramites */
 			$router->addRoute(array(
+				'path'	=> '/admin/tramites',
+				'get'	=> array('RequisitionController', 'showRequisitions'),
+			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/tramites/enviar-correo-status-ok',
+				'get'	=> array('RequisitionController', 'sendMail'),
+			));
+
+			$router->addRoute(array(
 				'path'	=> '/admin/tramites/{id}',
 				'get'	=> array('RequisitionController', 'detailRequisition'),
 				'post'	=> array('RequisitionController', 'update'),
 			));
 
-			$router->addRoute(array(
-				'path'	=> '/admin/tramites',
-				'get'	=> array('RequisitionController', 'showRequisitions'),
-			));
 	
  		/* Admin Comentarios */
 			$router->addRoute(array(

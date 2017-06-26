@@ -114,7 +114,34 @@ class RequisitionController extends Controller
 		} catch (Spot\Exception $e) {
             $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
 		}
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);		
+	}
+
+	/**
+	 * Send mail when status updated
+	 * @param   Object $req In the object $req->data two parameters are expected
+	 *                 $req->data['mail'] Is the mail of receiver
+	 *                 $req->data['transaction'] **Optional id of transaction.
+	 * @param   Object $res 
+	 * @return  Http status
+	 */
+	public function sendMail($req, $res)
+	{
+		$mail = $req->data['mail'];
+		$transaction = isset($req->data['transaction']) ? $req->data['transaction'] : null;
+		$json = new stdClass();
+		$mailStatus = $this->mailer($res, ['usuario' => $mail, 'subject' => 'Esta es una notificación de envio de documento', 'id' => $transaction], 'Emails.email_notificacion_envio');
+
+		if(!$mailStatus) {
+			$json->exito = false;
+			$json->message = 'No se pudo mandar el correo';
+		}
+
+		$json->exito = true;
+		$json->message = "Se ha mandado una notificaci&oacuten v&iacutea correo a <strong>{$mail}</strong>, para informarle que su documento ha sido enviado.";
 		
+		$res->addHeader( "Content-Type", "application/json; charset=utf-8");
+        $res->add(json_encode($json, JSON_UNESCAPED_UNICODE));
+        echo $res->send();
 	}
 }
