@@ -93,7 +93,14 @@ class User extends Controller
 
     public function remove($req, $res)
     {
-
+        $user = $this->userRepo->get($req->params['id']);
+        try {
+            $this->userRepo->delete($user);
+            $this->session->setFlash('alert', ['message' => "Se ha borrado el usuario {$user->first_name} {$user->last_name} correctamente!", 'class' => 'alert-info']);
+        } catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+        }
+        header('Location: /admin/usuarios');
     }
 
 }

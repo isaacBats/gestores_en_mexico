@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
 	/*
-	 * Modal para eliminar Atributo
-	 */
-	$('a#delete-attribute').on('click', function(event) {
+     * Modal para eliminar Atributo
+     */
+    $('a#delete-attribute').on('click', function(event) {
         event.preventDefault();
         var routeAction = $(this).attr('href');
         var $modal = $('#generalModal');
@@ -13,6 +13,23 @@ $(document).ready(function () {
         $form.attr('action', routeAction).attr('method', 'post');
         $modal.find('.modal-title').html('Eliminar atributo');
         $modal.find('.modal-body p').html('¿Seguro que quieres eliminar a <strong>'+attribute+'</strong> ?');
+        $modal.find('#btn-submit').html('Eliminar');
+        $modal.modal('show');
+     });
+
+     /*
+	 * Modal para eliminar Usuarios
+	 */
+	$('a#delete-user').on('click', function(event) {
+        event.preventDefault();
+        var routeAction = $(this).attr('href');
+        var $modal = $('#generalModal');
+        var $form = $modal.find('form');
+        var trFather = $(this).parent().parent().parent().parent();
+        var user_name = trFather.find('td')[1].innerHTML;
+        $form.attr('action', routeAction).attr('method', 'post');
+        $modal.find('.modal-title').html('Eliminar usuario');
+        $modal.find('.modal-body p').html('¿Seguro que quieres eliminar a <strong>'+user_name+'</strong> ?');
         $modal.find('#btn-submit').html('Eliminar');
         $modal.modal('show');
      });

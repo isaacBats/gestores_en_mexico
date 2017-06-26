@@ -11,9 +11,7 @@
 					<thead>
 						<tr>
 							<th class="text-center">
-		                    	<label class="ckbox ckbox-primary">
-		                      		<input type="checkbox"><span></span>
-		                    	</label>
+		                    	#
 		                  	</th>
 							<th>Name</th>
 							<th>Email</th>
@@ -23,13 +21,10 @@
 						</tr>
 					</thead>
 					<tbody>
+						{{--*/ $i = 1 /*--}}
 						@foreach ($users as $user)
 							<tr>
-								<td class="text-center">
-									<label class="ckbox ckbox-primary">
-									<input type="checkbox"><span></span>
-									</label>
-								</td>
+								<td class="text-center">{{ $i++ }}</td>
 								<td>{{ $user->first_name .' '. $user->last_name}}</td>
 								<td>{{ $user->email }}</td>
 								<td>{{ $user->user_name }}</td>
@@ -37,7 +32,7 @@
 								<td>
 									<ul class="table-options">
 										<li><a href="/admin/usuario/editar/{{ $user->id }}"><i class="fa fa-pencil"></i></a></li>
-										<li><a href="/admin/usuario/borrar/{{ $user->id }}"><i class="fa fa-trash"></i></a></li>
+										<li><a href="/admin/usuario/borrar/{{ $user->id }}" id="delete-user"><i class="fa fa-trash"></i></a></li>
 									</ul>
 								</td>
 			                </tr>
