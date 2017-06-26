@@ -104,14 +104,15 @@ class Controller
 	 * @param  string $method
 	 * @return string $html
 	 */
-	public static function form( \Spot\Entity $entity, $values = null, $action = "" , $method = 'post')
+	public static function form( \Spot\Entity $entity, $values = null, $action = "" , $method = 'post', $button = 'send')
 	{	
-			$fields = $entity->fields();
-			$html = "<form action='{$action}' method='{$method}'>";
-
+		$fields = $entity->fields();
+		$html = "<form action='{$action}' method='{$method}'>";
+		
 		foreach ($fields as $key => $value) {
 			if( $key != "id" && $key != 'is_active' && is_array( $value ) && !isset( $value["value"] ) ){
 				$val = ($values != NULL && isset($values[$key])) ? $values[$key] : "";
+				
 				$html .= "<div class='form-group'>";
 				// If field is options 
 				if(isset($value['options'])) {
@@ -128,7 +129,12 @@ class Controller
 				elseif ($key == 'email') {
 					$html .= "<label>{$key}</label>";
 					$html .= "<input type='email' class='form-control' name='{$key}' value='{$val}' >";
-				} else {
+				}
+				elseif ($key == 'is_active') {
+					$html .= "<label class=\"ckbox\">
+								<input type=\"checkbox\" name='{$key}' ".($val ? 'checked value="1"' : 'value="0"')."> <span>Usuario activo</span>
+							  </label>";
+				}else {
 					$html .= "<label>{$key}</label>";
 					$val = ($key == 'password') ? '' : $val;
 					$html .= "<input type='text' class='form-control' name='{$key}' value='{$val}' >";	
@@ -136,7 +142,7 @@ class Controller
 				$html .= "</div>";
 			}
 		}
-		$html.= "<input type='submit' class=\"btn btn-primary col-sm-offset-11\" value='send'>";
+		$html.= "<input type='submit' class=\"btn btn-primary col-sm-offset-10\" value='{$button}'>";
 		$html.= "</form>";
 		return $html;
 	}

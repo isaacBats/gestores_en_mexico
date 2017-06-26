@@ -59,6 +59,40 @@ class User extends Controller
             $this->session->setFlash('alert', ['message' => 'Usuario creado correctamente!', 'class' => 'alert-info']);
 
         header('Location: /admin/usuarios');
+    }
+
+    public function edit($req, $res)
+    {
+        $this->addBread(['label' => 'Usuarios', 'url' => '/admin/usuarios']);
+        $this->addBread(['label' => 'Editar usuario']);
+        $user = $this->userRepo->get($req->params['id']);
+        $form = self::form(new Olive\models\User, $user->toArray(), '', 'post', 'Actualizar');
+        return $this->renderView($res, 'User.edit', compact('form'));
+    }
+
+    public function update($req, $res)
+    {
+        $userID = $req->params['id'];
+        $data = $req->data;
+        
+        $user = $this->userRepo->get($userID);
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->user_name = $data['user_name'];
+        $user->type_user = $data['type_user'];
+        try {
+            $this->userRepo->update($user);
+            $this->session->setFlash('alert', ['message' => 'Usuario editado correctamente!', 'class' => 'alert-info']);
+        } catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
+        }
+        header('Location: /admin/usuarios');
+    }
+
+    public function remove($req, $res)
+    {
 
     }
 

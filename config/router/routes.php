@@ -70,6 +70,16 @@
 				'post'	=> array('User', 'store'),
 			));
 
+			$router->addRoute(array(
+				'path'	=> '/admin/usuario/editar/{id}',
+				'get'	=> array('User', 'edit'),
+				'post'	=> array('User', 'update'),
+			));
+			$router->addRoute(array(
+				'path'	=> '/admin/usuario/borrar/{id}',
+				'post'	=> array('User', 'remove'),
+			));
+
 		/* Admin Tramites */
 			$router->addRoute(array(
 				'path'	=> '/admin/tramites',
@@ -86,7 +96,6 @@
 				'get'	=> array('RequisitionController', 'detailRequisition'),
 				'post'	=> array('RequisitionController', 'update'),
 			));
-
 	
  		/* Admin Comentarios */
 			$router->addRoute(array(

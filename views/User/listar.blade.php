@@ -36,8 +36,8 @@
 								<td class="text-center">{{ $user->type_user }}</td>
 								<td>
 									<ul class="table-options">
-										<li><a href=""><i class="fa fa-pencil"></i></a></li>
-										<li><a href=""><i class="fa fa-trash"></i></a></li>
+										<li><a href="/admin/usuario/editar/{{ $user->id }}"><i class="fa fa-pencil"></i></a></li>
+										<li><a href="/admin/usuario/borrar/{{ $user->id }}"><i class="fa fa-trash"></i></a></li>
 									</ul>
 								</td>
 			                </tr>

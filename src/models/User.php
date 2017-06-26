@@ -45,9 +45,11 @@ use Spot\EventEmitter as EventEmitter;
         });
 
         $eventEmitter->on('beforeUpdate', function (Entity $entity, Mapper $mapper) {
-            $current_passr = $mapper->first(['id' => $entity->toArray()['id']])->toArray()['password'];
-            if ($entity->password != $current_passr) {
+            $current_passr = $mapper->first(['id' => $entity->id])->password;
+            if ($entity->password != $current_passr && !empty($entity->password)) {
                 $entity->password = md5($entity->password);
+            } else {
+                $entity->password = $current_passr;
             }
         });
     }
