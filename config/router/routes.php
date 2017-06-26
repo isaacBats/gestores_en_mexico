@@ -75,9 +75,15 @@
 				'get'	=> array('User', 'edit'),
 				'post'	=> array('User', 'update'),
 			));
+			
 			$router->addRoute(array(
 				'path'	=> '/admin/usuario/borrar/{id}',
 				'post'	=> array('User', 'remove'),
+			));
+			
+			$router->addRoute(array(
+				'path'	=> '/admin/usuario/perfil',
+				'get'	=> array('User', 'profile'),
 			));
 
 		/* Admin Tramites */

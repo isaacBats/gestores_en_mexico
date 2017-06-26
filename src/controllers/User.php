@@ -103,4 +103,12 @@ class User extends Controller
         header('Location: /admin/usuarios');
     }
 
+    public function profile($req, $res)
+    {
+        $session = $this->session_handle->getSegment('Olive\Session');
+        $userProfile = $session->get("user");
+        $user = $this->userRepo->get($userProfile->id);
+        return $this->renderView($res, 'User.profile', compact('user'));
+    }
+
 }
