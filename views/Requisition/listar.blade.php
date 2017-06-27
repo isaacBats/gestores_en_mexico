@@ -79,7 +79,7 @@
 						<tbody>
 							@foreach ($requisitions as $row)
 								<tr>
-									<td>GE-{{ $row->id }}</td>
+									<td>GMX-{{ $row->id }}</td>
 									<td>{{ $row->date_created->format('d-m-Y H:i:s') }}</td>
 									<td>{{ $row->client->first_name }} {{ $row->client->middle_name }} {{ $row->client->last_name }}</td>
 									<td>{{ $row->client->email }}</td>

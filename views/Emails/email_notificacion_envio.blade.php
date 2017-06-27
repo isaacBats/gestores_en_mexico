@@ -39,7 +39,7 @@
                                 <td width="40%" style="padding:6px 0;">
                                     <div style="background:#f44336; display:block;">
                                         <p>Folio: 
-                                            <span style="font-weight:bold;">GE-{{ $id }}</span>
+                                            <span style="font-weight:bold;">GMX-{{ $id }}</span>
                                         </p>
                                     </div>
                                 </td>
