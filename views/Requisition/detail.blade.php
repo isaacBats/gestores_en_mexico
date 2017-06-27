@@ -14,7 +14,7 @@
 							<tbody>
 								<tr>
 									<th class="text-right" >#</th>
-									<td>GE-{{ $requisition->id }}</td>
+									<td>GMX-{{ $requisition->id }}</td>
 								</tr>
 								<tr>
 									<th class="text-right" >Código</th>	
