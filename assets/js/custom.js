@@ -123,7 +123,6 @@ $(document).ready(function () {
                     $('#value_price_copy').val(data.copy_cost);
                 }
                 $costoEnvio.text(data.copy_send);
-                debugger;
                 $costoTotal.val(parseInt($costoTramite.html()) + cp + parseInt($costoEnvio.html()));
             } else {
                 console.log('Sorry something went wrong :(');

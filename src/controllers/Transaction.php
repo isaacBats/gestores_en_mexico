@@ -54,18 +54,25 @@ class Transaction extends Controller
 		$states = $this->stateRepo->getStatesByContry($codeContry);
 		$contries = $this->contryRepo->all();
 		$transaction = $this->transactionRepo->findBySlug($req->params['slug']);
+		$costo = null;
+
+		if($transaction->code_product == 'SERV_CER_LIBGRAV' || $transaction->code_product == 'SERV_DOC_FOLCDMX') {
+			foreach ($transaction->price as $price) {
+				if($price->id_state == 9)
+					$costo = $price;
+			}
+		}
 
 		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		
-		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry'));
+		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
 	}
 
 	public function saveTrancaction($req, $res)
 	{
 		// Para guardar el archivo si es que trae.
 		$data = $req->data;
-
 		if ($_FILES['attr_image']['error'] == 0 ) {
 			$storage = new FileSystem(__ASSETS__.'storage');
 			$file = new File('attr_image', $storage);
@@ -180,7 +187,8 @@ class Transaction extends Controller
 		}
 		
 		if(!$requisition = $this->requisitionRepo->save($newRequisition)) {
-			$this->session->set('errors_tramite', $this->requisitionRepo->getErrors());
+			$error = $this->requisitionRepo->getErrors();
+			$this->session->set('errors_tramite', $error);
 			$this->session->setFlash("alert", ["message" => "No se pudo completar tu tramite", "status" => "Error:", "class" => "alert-danger"]);
             header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
             exit();

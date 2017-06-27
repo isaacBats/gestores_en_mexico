@@ -18,14 +18,23 @@
                 </div>
             </div>
             <div class="col-md-12 calculoCosto">
-                <input type="hidden" name="price_id" id="price_id" value=""> 
                 <h4>Costo por concepto de <span class="tituloTramite">{{ utf8_encode($transaction->name) }}</span></h4>
                 <div class="col-md-8 col-md-offset-2" id="pricesTransaction">
-                    <p id="costoTramite" >
-                        Costo del trámite $
-                        <span id="costoTramitePesos" >0</span>
-                        <sup>mn</sup>
-                    </p>
+                    @if ($transaction->code_product == 'SERV_CER_LIBGRAV' || $transaction->code_product == 'SERV_DOC_FOLCDMX')
+                        <input type="hidden" name="price_id" id="price_id" value="{{ $costo->id }}"> 
+                        <p id="costoTramite" >
+                            Costo del trámite $
+                            <span id="costoTramitePesos" >{{ $costo->cost }}</span>
+                            <sup>mn</sup>
+                        </p>
+                    @else
+                        <input type="hidden" name="price_id" id="price_id" value=""> 
+                        <p id="costoTramite" >
+                            Costo del trámite $
+                            <span id="costoTramitePesos" >0</span>
+                            <sup>mn</sup>
+                        </p>
+                    @endif
                     @if ($transaction->h_copies)
                         <p id="costoCopias">
                             Copias adicionales
@@ -35,14 +44,25 @@
                             <sup>mn</sup>
                         </p>
                     @endif
-                    <p id="costoEnvio">
-                        Envío $<span id="costoEnvioPesos">0</span><sup>mn</sup>
-                    </p>
-                    <p id="costoTotal">
-                        Total $
-                        <input id="costoTotalPesos" name="attr_total" value="0" readonly>
-                        <sup>mn</sup>
-                    </p>
+                    @if ($transaction->code_product == 'SERV_CER_LIBGRAV' || $transaction->code_product == 'SERV_DOC_FOLCDMX')
+                        <p id="costoEnvio">
+                            Envío $<span id="costoEnvioPesos">{{ $costo->copy_send }}</span><sup>mn</sup>
+                        </p>
+                        <p id="costoTotal">
+                            Total $
+                            <input id="costoTotalPesos" name="attr_total" value="{{ $costo->cost + $costo->copy_send }}" readonly>
+                            <sup>mn</sup>
+                        </p>
+                    @else
+                        <p id="costoEnvio">
+                            Envío $<span id="costoEnvioPesos">0</span><sup>mn</sup>
+                        </p>
+                        <p id="costoTotal">
+                            Total $
+                            <input id="costoTotalPesos" name="attr_total" value="0" readonly>
+                            <sup>mn</sup>
+                        </p>
+                    @endif
                 </div>
                 <hr>
                 <div class="col-md-12">

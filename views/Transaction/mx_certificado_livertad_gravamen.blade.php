@@ -19,7 +19,7 @@
                     <p>Los requisitos arriba señalados son indispensables, la falta de uno de ellos imposibilita el trámite. Favor de anotarlos en la parte de “comentarios".</p>
                 </div>
             </div>
-            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
+            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction', 'costo'))
         </div>
     </div>
     <div class="callCentre paddingContent">
