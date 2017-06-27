@@ -11,10 +11,8 @@
 
   <link rel="stylesheet" href="/assets/lib/fontawesome/css/font-awesome.css">
   <link rel="stylesheet" href="/assets/lib/weather-icons/css/weather-icons.css">
-  <link rel="stylesheet" href="/assets/lib/jquery-toggles/toggles-full.css">
-
-  <link rel="stylesheet" href="/assets/css/quirk.css">
   @yield('css');
+  <link rel="stylesheet" href="/assets/css/quirk.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/lib/modernizr/modernizr.js"></script>
 
@@ -310,7 +308,6 @@
 <script src="/assets/lib/jquery/jquery.js"></script>
 <script src="/assets/lib/jquery-ui/jquery-ui.js"></script>
 <script src="/assets/lib/bootstrap/js/bootstrap.js"></script>
-<script src="/assets/lib/jquery-toggles/toggles.js"></script>
 @yield('scripts');
 <script type="text/javascript" src="/assets/js/admin/custom.js"></script>
 <script src="/assets/js/quirk.js"></script>

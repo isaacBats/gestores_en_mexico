@@ -59,10 +59,9 @@ $(document).ready(function () {
                     json = JSON.parse(json);
                     var html = '<div class="alert '+(json.exito ? 'alert-info' : 'alert-warning')+' fade in">' +
                                     '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
-                                    json.message + '<br> Recuerda precionar el boton de <strong>Modificar</strong> para guardar el estatus final del tramite.'
+                                    json.message + '<br> Recuerda precionar el boton de <strong>Modificar</strong> para guardar el estatus final del tramite.' +
                                 '</div>';
                     $('.contentpanel').prepend(html);
-                    console.log(json, html);
                 });
             });
             

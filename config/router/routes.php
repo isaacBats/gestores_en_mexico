@@ -86,6 +86,11 @@
 				'get'	=> array('User', 'profile'),
 			));
 
+			$router->addRoute(array(
+				'path'	=> '/admin/usuario/cambiar-status',
+				'post'	=> array('User', 'changeStatus'),
+			));
+
 		/* Admin Tramites */
 			$router->addRoute(array(
 				'path'	=> '/admin/tramites',

@@ -111,4 +111,23 @@ class User extends Controller
         return $this->renderView($res, 'User.profile', compact('user'));
     }
 
+    public function changeStatus($req, $res)
+    {
+        $data = $req->data;
+        $json = new stdClass();
+        $user = $this->userRepo->get($data['user']);
+        $user->is_active = $data['status'] == 'true' ? 1 : 0;
+        try {
+            $this->userRepo->update($user);
+            $json->exito = true;
+            $json->message = 'Usuario ' . ($data['status'] == 'true' ? 'Activado' : 'Desactivado') . ' correctamente!';
+        } catch (Spot\Exception $e) {
+            $json->exito = false;
+            $json->message = $e->getMessage();
+        }
+        $res->addHeader( "Content-Type", "application/json; charset=utf-8");
+        $res->add(json_encode($json, JSON_UNESCAPED_UNICODE));
+        echo $res->send();
+    }
+
 }
