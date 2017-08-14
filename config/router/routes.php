@@ -3,7 +3,7 @@
 	/* Front routes */
 		$router->addRoute(array(
 		  'path'     => '/',
-		  'get'      => array('Plain', 'construction')
+		  'get'      => array('Plain', 'home')
 		));
 
 		$router->addRoute(array(
