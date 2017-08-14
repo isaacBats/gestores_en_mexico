@@ -9,9 +9,8 @@
             </div>
             <div id="validacion_forzosos" >
                 @include($templateFields, compact('states', 'transaction'))
-                @include('Components.holder', compact('states', 'contries', 'codeContry'))
             </div>
-            @include('Components.reciver', compact('states', 'contries', 'codeContry'))
+            @include('Components.holder', compact('states', 'contries', 'codeContry'))
             <div class="col-md-12">
                 <div class="field">
                     <textarea class="light" name="attr_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>

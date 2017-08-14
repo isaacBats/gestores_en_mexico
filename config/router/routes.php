@@ -18,7 +18,8 @@
 
 		$router->addRoute(array(
 		  'path'     => '/contacto',
-		  'get'      => array('Plain', 'contacto')
+		  'get'      => array('Plain', 'contacto'),
+		  'post'		 => array('Plain', 'sendFormContact')
 		));
 
 		$router->addRoute(array(

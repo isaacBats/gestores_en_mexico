@@ -22,6 +22,7 @@ class Controller
 	public $bread = array();
 	public $entity;
 	private $_mail;
+  protected $dotenv;
 	
 	/**
 	 * Comienza la session en el constructor de la accion
@@ -31,7 +32,8 @@ class Controller
 		if( !isset($_SESSION)){
 			session_start();
 		}
-		global $session_handle;
+
+    global $session_handle;
 		$this->session_handle = $session_handle;
 		$this->session = $this->session_handle->getSegment('Olive\controllers');
 
@@ -41,6 +43,9 @@ class Controller
 		
 		global $mail;
 		$this->_mail = $mail;
+
+    $dotenv = new \Dotenv\Dotenv(__DIR__.'/../../');
+    $dotenv->load();
 	}
 
 	/**
@@ -89,8 +94,8 @@ class Controller
         }
         // $this->_mail->Send();
         if( ! $this->_mail->send() ) {
-		  return $this->_mail->ErrorInfo;
-		} 
+		      return $this->_mail->ErrorInfo;
+		    } 
 
 		return true;
     }
