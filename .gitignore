@@ -22,3 +22,6 @@ composer.phar
 #sublime
 *.sublime-project
 *.sublime-workspace
+
+#Enviroments
+.env
