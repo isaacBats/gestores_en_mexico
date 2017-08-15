@@ -84,9 +84,12 @@
 	            <p class="blanco dereFull light">Somos expertos en los diversos procesos requeridos <br>
 	            en cada gestoría administrativa que realizamos</p>
 	                <br>
-	                <p class="mayus light dereFull blanco">comunícate a los teléfonos</p>
-	            <div class="row">
+	                <p class="mayus light dereFull blanco">comunícate con nosotros</p>
+                    <div class="col-md-12 blanco">
+                        <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
+                    </div>
 
+	            <!-- <div class="row">
 	                <div class="col-md-6 dereFull blanco">
 	                    <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h2>
 	                    <p>Desde la Ciudad de México</p>
@@ -95,7 +98,7 @@
 	                    <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h2>
 	                    <p>Del interior de la República</p>
 	                </div>
-	            </div>
+	            </div> -->
 	        </div>
 	    </div>
 	</div>
