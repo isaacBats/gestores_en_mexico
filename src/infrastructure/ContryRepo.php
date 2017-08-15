@@ -9,5 +9,14 @@ class ContryRepo extends BaseRepository
 		return 'Contry';
 	}
 
-	
+	public function getContryByCode ($code)
+	{
+		return $this->mapper->where(['code' => $code])->first();
+	}
+
+	public function getName($id)
+	{
+		$contry = $this->mapper->where(['id' => $id])->first();
+		return $contry->name;
+	}
 }

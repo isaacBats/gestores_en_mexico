@@ -10,8 +10,18 @@ vendor/
 tmp/
 
 # Migraciones
-migration/
+#migration/
 
 #config
 config/config.php
 composer.phar
+
+# storage
+/assets/storage/
+
+#sublime
+*.sublime-project
+*.sublime-workspace
+
+#Enviroments
+.env

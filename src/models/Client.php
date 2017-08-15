@@ -18,10 +18,10 @@ use Spot\MapperInterface as Mapper;
     public static function fields(){
         return [
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
-            'fist_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
+            'first_name'    => ['type' => 'string', 'length' => 100, 'notnull' => true, 'required' => true],
             'middle_name'    => ['type' => 'string', 'length' => 100 ],
             'last_name'    => ['type' => 'string', 'length' => 100 ],
-            'email'        => ['type' => 'string', 'required' => true, 'unique' => true,
+            'email'        => ['type' => 'string', 'required' => true,
                 'validation' => [
                     'email',
                     'length' => [4, 255]
@@ -37,7 +37,7 @@ use Spot\MapperInterface as Mapper;
             'id_state' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'id_contry' => ['type' => 'integer', 'required' => true, 'unsigned' => true],
             'reference'    => ['type' => 'string'],
-            'is_reciver'    => ['type' => 'string'],
+            'is_reciver'    => ['type' => 'smallint'],
             'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
         ];
     }

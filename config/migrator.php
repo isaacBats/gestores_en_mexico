@@ -40,7 +40,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     global $spot;
     echo "<pre>";
     if( isset( $req->params["entity"] ) ){
-      $entMapper = $spot->mapper( "Entity\\".$req->params["entity"] );  
+      $entMapper = $spot->mapper( "Olive\\models\\".$req->params["entity"] );  
     }else{
       if( !is_dir( __OLIVE__.$this->dir )){mkdir( __OLIVE__.$this->dir );}
       $migration = date("YmdHis");
@@ -52,7 +52,7 @@ class Migrator extends \Zaphpa\BaseMiddleware {
           array_pop($bffmodel);
           if( str_replace("Mapper" , "" ,implode("." , $bffmodel ) ) == implode("." , $bffmodel )){
             echo "\n\t Exporting data for Entity ".implode("." , $bffmodel ).":";
-            $entMapper = $spot->mapper("Entity\\".implode("." , $bffmodel ) );
+            $entMapper = $spot->mapper("Olive\\models\\".implode("." , $bffmodel ) );
             file_put_contents(__OLIVE__.$this->dir."/".$migration."/".implode("." , $bffmodel ).".json" , 
                               serialize( $entMapper->all()->toArray() ));
             echo "done";
@@ -66,16 +66,27 @@ class Migrator extends \Zaphpa\BaseMiddleware {
     
   }
 
-  public function migrate() {
+  public function migrate($req, $res) {
     global $spot;
     $entities = [];
     echo "<pre>";
+
+    if (isset($req->data['entity'])) {
+      $mapper = $spot->mapper("Olive\\models\\".$req->data['entity']);
+      $entity = $mapper->entity();
+      echo "Creating table ".$entity::table()." for ".$entity."\n";
+      flush();
+      $mapper->dropTable();
+      $mapper->migrate();
+      exit('Table ' . $entity::table() . ' created satisfactorily.');
+    }
+
     foreach( scandir( __OLIVE__.'/src/models' ) as $model ){
       $bffmodel = explode("." , $model);
       if( end( $bffmodel ) == "php" ){
         array_pop($bffmodel);
         if( str_replace("Mapper" , "" ,implode("." , $bffmodel ) ) == implode("." , $bffmodel )){
-          $entMapper = $spot->mapper("Entity\\".implode("." , $bffmodel ) );
+          $entMapper = $spot->mapper("Olive\\models\\".implode("." , $bffmodel ) );
           $entity = $entMapper->entity();
           echo "Creating table ".$entity::table()." for ".$entity."\n";
           flush();

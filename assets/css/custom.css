@@ -116,7 +116,7 @@ ul li {list-style: none ;}
     width: 100%;
     height: 34px;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 12px !important;
     line-height: 1.42857143;
     color: #444;
     background-color: #fff;
@@ -285,7 +285,7 @@ height: 100% !important;
 }
 .navbar-default .navbar-nav > li > a {
     padding-bottom: 68px;
-    padding-top: 45px;
+    padding-top: 50px;
     font-family: "Open Sans",Arial,sans-serif;
     font-size: 13px;
     height: 65px;
@@ -420,5 +420,10 @@ sup {font-size: 9px;}
 .noneo {display: none !important;}
 .noDisponible { font-size: 9px;}
 
-
-
+#costoTotalPesos {
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    width: 60px;
+}

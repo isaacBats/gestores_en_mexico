@@ -31,21 +31,26 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
 
   public function preroute(&$req, &$res) {
 
-    $redirect_after_login = "/";
+    $redirect_after_login = "/admin/index";
 
     //  URL's Autorizadas
     $allow_uri = [
+                    "",
                     "/" ,
                     "/login" , 
                     "/logout",
-                    "/migrate/up" ,
-                    "/migrate/data" ,
+                    // "/migrate/up" ,
+                    // "/migrate/data" ,
                     "/nosotros",
                     "/como-funciona",
                     "/contacto",
                     "/aviso-privacidad",
+                    "/preguntas-frecuentes",
                     "/tramites/{code_contry}/{slug}",
-                  ""];
+                    "/serv/obtener-precio",
+                    "/gracias",
+                    "/test-email",
+                  ];
 
     global $spot;
     $usersMapper = $spot->mapper("Olive\models\User");
@@ -81,11 +86,11 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
             $username = $req->data["username"];
             $password = $req->data["password"];
 
-            $user = $usersMapper->where(["email" => $username]);
+            $user = $usersMapper->where(["user_name" => $username]);
             if( $user->first() ){
                 if( $user->first()->password === md5($password)){
 
-                    $user = $user->select()->with("detail")->first()->toArray();
+                    $user = $user->select()->first();
                     $session->set( "user" , $user );
                     
                     if(isset($req->data["redirect"] )){
@@ -96,11 +101,11 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     
                 }else{
                    $session_controller = $session_handle->getSegment('Olive\Controllers');
-                   $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
+                   $session_controller->setFlashNow("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
                 }
             }else{
                 $session_controller = $session_handle->getSegment('Olive\Controllers');
-                $session_controller->setFlash("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
+                $session_controller->setFlashNow("alert", ["message" => "El password y el usuario no coinciden!", "status" => "Error", "class" => "error"]);
             }
         }
     }
