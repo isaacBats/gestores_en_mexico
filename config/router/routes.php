@@ -3,7 +3,7 @@
 	/* Front routes */
 		$router->addRoute(array(
 		  'path'     => '/',
-		  'get'      => array('Plain', 'construction')
+		  'get'      => array('Plain', 'home')
 		));
 
 		$router->addRoute(array(
@@ -18,7 +18,8 @@
 
 		$router->addRoute(array(
 		  'path'     => '/contacto',
-		  'get'      => array('Plain', 'contacto')
+		  'get'      => array('Plain', 'contacto'),
+		  'post'		 => array('Plain', 'sendFormContact')
 		));
 
 		$router->addRoute(array(

@@ -23,7 +23,7 @@
                     </div>
 
                     <div id="formulario">
-                        <form class="form-inline" role="form" action="php/contacto.php" method="POST" id="contacto" title="Nombre">
+                        <form class="form-inline" role="form" action="/contacto" method="POST" id="contacto" >
                             <div class="form-group col-md-6">
                                 <input class="form-control" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
                             </div>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <input class="btn btn-large btn-success transitions" type="submit" name="enviar" tabindex="6" value="Enviar mis datos">
+                                <input class="btn btn-large btn-success transitions" type="submit" tabindex="6" >
                             </div>
                         </form>
                     </div>

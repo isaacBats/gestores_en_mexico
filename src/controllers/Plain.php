@@ -1,7 +1,7 @@
 <?php 
 
 // namespace Olive\controllers;
-
+// TODO: @Plain Crear el metodo de envio de contcato.
 use Olive\controllers\Controller;
 
 class Plain extends Controller
@@ -23,6 +23,26 @@ class Plain extends Controller
 	public function contacto ($req, $res)
 	{		
 		return $this->renderView($res, 'Plain.contacto');
+	}
+
+	public function sendFormContact($req, $res)
+	{
+		$data = $req->data;
+		unset($data['_RAW_HTTP_DATA']);
+		
+		if(ENVIROMENT === 'prod' )
+			$usuario = 'contacto@gestoresenmexico.com';
+		else
+			$usuario = 'klonate@gmail.com';
+		
+		$subject = 'Nuevo Contacto :D';
+		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto'))
+			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
+		else
+			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
+
+    header('Location: /contacto');
+    exit();
 	}
 
 	public function aviso ($req, $res)

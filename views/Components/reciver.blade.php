@@ -1,12 +1,12 @@
 <!-- Copiar datos -->
 <div class="col-md-12">
     <h5>Datos para el envío del documento</h5>
-    <label>Utilizar los mismos datos del titular para el envío
+    {{-- <label>Utilizar los mismos datos del titular para el envío
         <input name="cb_reciver" type="checkbox" id="cb_reciver" class="check">
-    </label>
+    </label> --}}
 </div>
 <div id="validacion_opcionales">
-    <div class="col-md-4">
+    {{-- <div class="col-md-4">
         <input name="reciv_name" class="form-control materail-input light" id="reciv_name" placeholder="Nombre(s)" required>
     </div>
     <div class="col-md-4">
@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-4">
         <input name="reciv_mobil" class="form-control materail-input light" id="reciv_mobil" placeholder="Celular" required>
-    </div>
+    </div> --}}
     <div class="col-md-4">
         <input name="reciv_calle" class="form-control materail-input light" id="reciv_calle" placeholder="Calle" required>
     </div>
@@ -44,6 +44,7 @@
     </div>
 
     <div class="col-md-4">
+        {{-- // TODO: @vistaReciver Quitar el combo de seleccion de pais y cambiar la logica para que el campo sea un input text. --}}
         <select name="reciv_pais" id="reciv_pais" class="form-control light">
             <option value="" selected>País donde surtirá efecto</option>
             @foreach ($contries as $contry)
@@ -54,6 +55,7 @@
         </select>
     </div>
     <div class="col-md-4">
+        {{-- // TODO: @vistaReciver Quitar el combo de seleccion de estado y cambiar la logica para que el campo sea un input text. --}}
         <select name="reciv_estado" id="reciv_estado" class="form-control light">
             <option value="">Seleccionar {{ ($codeContry == 'mx') ? 'Estado' : 'Provincia' }}</option>
             @foreach ($states as $state)
@@ -62,6 +64,6 @@
         </select>
     </div>
     <div class="col-md-4">
-        <input name="reciv_referencia" class="form-control materail-input light" id="reciv_referencia" placeholder="Referencia" required>
+        <input name="reciv_referencia" class="form-control materail-input light" id="reciv_referencia" placeholder="Referencia" >
     </div>
 </div>

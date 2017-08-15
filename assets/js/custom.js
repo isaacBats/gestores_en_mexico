@@ -33,70 +33,23 @@ $(document).ready(function () {
 
     // Rellena campos de persona para envío
     $('#cb_reciver').on( 'click', function() {
-        var $r_name = $("#reciv_name");
-        var $r_middleName = $("#reciv_paterno");
-        var $r_lastName = $("#reciv_materno");
-        var $r_email = $("#reciv_email");
-        var $r_phone = $("#reciv_tel");
-        var $r_mobil = $("#reciv_mobil");
-        var $r_street = $("#reciv_calle");
-        var $r_noout = $("#reciv_num_ext");
-        var $r_noin = $("#reciv_num_int");
-        var $r_township = $("#reciv_colonia");
-        var $r_zipCode = $("#reciv_cp");
-        var $r_settlement = $("#reciv_municipio");
-        var $r_contry = $("#reciv_pais");
-        var $r_state = $("#reciv_estado");
-        var $r_referer = $("#reciv_referencia");
-
         var $h_name = $("#hold_name");
         var $h_middleName = $("#hold_paterno");
         var $h_lastName = $("#hold_materno");
-        var $h_email = $("#hold_email");
-        var $h_phone = $("#hold_tel");
-        var $h_mobil = $("#hold_mobil");
-        var $h_street = $("#hold_calle");
-        var $h_noout = $("#hold_num_ext");
-        var $h_noin = $("#hold_num_int");
-        var $h_township = $("#hold_colonia");
-        var $h_zipCode = $("#hold_cp");
-        var $h_settlement = $("#hold_municipio");
-        var $h_contry = $("#hold_pais");
-        var $h_state = $("#hold_estado");
-        var $h_referer = $("#hold_referencia");
+        
+        var $name = $("#nombres");
+        var $middleName = $("#apellidoPaterno");
+        var $lastName = $("#apellidoMaterno");
         
         if( $(this).is(':checked') ){
-            $r_name.val($h_name.val());
-            $r_middleName.val($h_middleName.val());
-            $r_lastName.val($h_lastName.val());
-            $r_email.val($h_email.val());
-            $r_phone.val($h_phone.val());
-            $r_mobil.val($h_mobil.val());
-            $r_street.val($h_street.val());
-            $r_noout.val($h_noout.val());
-            $r_noin.val($h_noin.val());
-            $r_township.val($h_township.val());
-            $r_zipCode.val($h_zipCode.val());
-            $r_settlement.val($h_settlement.val());
-            $r_contry.val($h_contry.val());
-            $r_state.val($h_state.val());
-            $r_referer.val($h_referer.val());
+            $h_name.val($name.val());
+            $h_middleName.val($middleName.val());
+            $h_lastName.val($lastName.val());
+            
         } else {
-            $r_name.val('');
-            $r_middleName.val('');
-            $r_lastName.val('');
-            $r_email.val('');
-            $r_phone.val('');
-            $r_mobil.val('');
-            $r_street.val('');
-            $r_noout.val('');
-            $r_noin.val('');
-            $r_township.val('');
-            $r_zipCode.val('');
-            $r_settlement.val('');
-            $r_contry.val('');
-            $r_state.val('');
-            $r_referer.val('');
+            $h_name.val('');
+            $h_middleName.val('');
+            $h_lastName.val('');
         }
     });
 
