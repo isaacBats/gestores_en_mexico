@@ -19,9 +19,10 @@
 							</tr>
 						</thead>
 						<tbody>
+							{{--*/ $i = 1 /*--}}
 							@foreach ($attributes as $row)
 								<tr>
-									<td></td>
+									<td>{{ $i++ }}</td>
 									<td>{{ $row->attribute }}</td>
 									<td>{{ $row->display_name }}</td>
 									<td>{{ $row->date_created->format('d-m-Y H:i:s') }}</td>

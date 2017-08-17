@@ -228,24 +228,30 @@
 			<h5 class="sidebar-title">Catalogos</h5>
 			<ul class="nav nav-pills nav-stacked nav-quirk">
 			  <li class="nav-parent">
-				<a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
-				<ul class="children">
-				  <li><a href="/admin/usuarios">Listar usuarios</a></li>
-				  <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
-				</ul>
+					<a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+					<ul class="children">
+					  <li><a href="/admin/usuarios">Listar usuarios</a></li>
+					  <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
+					</ul>
 			  </li>
 			  <li class="nav-parent">
-				<a href="javascript:void(0)"><i class="fa fa-usd"></i> <span>Precios</span></a>
-				<ul class="children">
-				  <li><a href="/admin/precios">Listar precios</a></li>
-				  {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
-				</ul>
+					<a href="javascript:void(0)"><i class="fa fa-usd"></i> <span>Precios</span></a>
+					<ul class="children">
+					  <li><a href="/admin/precios">Listar precios</a></li>
+					  {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
+					</ul>
 			  </li>
 			  <li class="nav-parent">
-				<a href="javascript:void(0)"><i class="fa fa-tasks"></i> <span>Atributos</span></a>
-				<ul class="children">
-				  <li><a href="/admin/atributos">Listar atributos</a></li>
-				</ul>
+					<a href="javascript:void(0)"><i class="fa fa-tasks"></i> <span>Atributos</span></a>
+					<ul class="children">
+					  <li><a href="/admin/atributos">Listar atributos</a></li>
+					</ul>
+			  </li>
+			  <li class="nav-parent">
+					<a href="javascript:void(0)"><i class="fa fa-globe"></i> <span>Países</span></a>
+					<ul class="children">
+					  <li><a href="/admin/paises">Listar países</a></li>
+					</ul>
 			  </li>
 			  {{-- <li class="nav-parent">
 				<a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>

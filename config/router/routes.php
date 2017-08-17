@@ -148,3 +148,9 @@
 				'path'	=> '/admin/atributo/borrar/{id}',
 				'post'	=> array('AttributesController', 'delete'),
 			));
+
+		/* Admin Contries*/
+			$router->addRoute(array(
+				'path'	=> '/admin/paises',
+				'get'	=> array('CountryController', 'index'),
+			));

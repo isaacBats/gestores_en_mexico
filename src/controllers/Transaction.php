@@ -99,92 +99,34 @@ class Transaction extends Controller
 		$newRequisition->status = 'solicitud';
 		$newRequisition->message = $data['attr_mensaje'];
 		
-		if (isset($data['cb_reciver'])) {
-			$settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
-			$newClient = new Olive\models\Client();
-			$newClient->first_name = $data['hold_name'];
-			$newClient->middle_name = $data['hold_paterno'];
-			$newClient->last_name = $data['hold_materno'];
-			$newClient->email = $data['hold_email'];
-			$newClient->telephone = $data['hold_tel'];
-			$newClient->mobile = $data['hold_mobil'];
-			$newClient->address = $data['hold_calle'];
-			$newClient->num_inside = $data['hold_num_int'];
-			$newClient->num_extern = $data['hold_num_ext'];
-			// Para las pruebas se pondra por defecto 1
-			$newClient->id_settlement = ($settlemetn) ? $settlemetn->id : 1;
-			$newClient->id_township = $settlemetn->id_township;
-			$newClient->id_state = $data['hold_estado'];
-			$newClient->id_contry = $data['hold_pais'];
-			$newClient->reference = $data['hold_referencia'];
-			$newClient->is_reciver = self::RECIVER;
-
-			if ($client = $this->clientRepo->save($newClient)) {
-				$newRequisition->id_client = $client->id;
-				$newRequisition->id_reciver = $client->id;
-			} else {
-				$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
-				$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
-	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
-	            exit();
-			}
+		$settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
+		$newClient = new Olive\models\Client();
+		$newClient->first_name = $data['hold_name'];
+		$newClient->middle_name = $data['hold_paterno'];
+		$newClient->last_name = $data['hold_materno'];
+		$newClient->email = $data['hold_email'];
+		$newClient->telephone = $data['hold_tel'];
+		$newClient->mobile = $data['hold_mobil'];
+		$newClient->address = $data['hold_calle'];
+		$newClient->num_inside = $data['hold_num_int'];
+		$newClient->num_extern = $data['hold_num_ext'];
+		// Para las pruebas se pondra por defecto 1
+		$newClient->id_settlement = ($settlemetn) ? $settlemetn->id : 1;
+		$newClient->id_township = $settlemetn->id_township;
+		$newClient->id_state = $data['hold_estado'];
+		$newClient->id_contry = $data['hold_pais'];
+		$newClient->reference = $data['hold_referencia'];
+		
+		if ($client = $this->clientRepo->save($newClient)) {
+			$newRequisition->id_client = $client->id;
+			$newRequisition->id_reciver = $client->id;
 		} else {
-			$hold_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['hold_cp']);
-			$newHold = new Olive\models\Client();
-			$newHold->first_name = $data['hold_name'];
-			$newHold->middle_name = $data['hold_paterno'];
-			$newHold->last_name = $data['hold_materno'];
-			$newHold->email = $data['hold_email'];
-			$newHold->telephone = $data['hold_tel'];
-			$newHold->mobile = $data['hold_mobil'];
-			$newHold->address = $data['hold_calle'];
-			$newHold->num_inside = $data['hold_num_int'];
-			$newHold->num_extern = $data['hold_num_ext'];
-			// Para las pruebas se pondra por defecto 1
-			$newHold->id_settlement = ($hold_settlemetn) ? $hold_settlemetn->id : 1;
-			$newHold->id_township = $hold_settlemetn->id_township;
-			$newHold->id_state = $data['hold_estado'];
-			$newHold->id_contry = $data['hold_pais'];
-			$newHold->reference = $data['hold_referencia'];
-			$newHold->is_reciver = self::NO_RECIVER;
-
-			if ($hold = $this->clientRepo->save($newHold)) {
-				$newRequisition->id_client = $hold->id;
-			} else {
-				$this->session->set('errors_solicitante', $this->clientRepo->getErrors());
-				$this->session->setFlash("alert", ["message" => "Error al agregar los datos de la persona que lo solicita", "status" => "Error:", "class" => "alert-danger"]);
-	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
-	            exit();
-			}
-
-			$reciver_settlemetn = $this->settlementRepo->getSettlementByZipCode($data['reciv_cp']);
-			$newReciver = new Olive\models\Client();
-			$newReciver->first_name = $data['reciv_name'];
-			$newReciver->middle_name = $data['reciv_paterno'];
-			$newReciver->last_name = $data['reciv_materno'];
-			$newReciver->email = $data['reciv_email'];
-			$newReciver->telephone = $data['reciv_tel'];
-			$newReciver->mobile = $data['reciv_mobil'];
-			$newReciver->address = $data['reciv_calle'];
-			$newReciver->num_inside = $data['reciv_num_int'];
-			$newReciver->num_extern = $data['reciv_num_ext'];
-			// Para las pruebas se pondra por defecto 1
-			$newReciver->id_settlement = ($reciver_settlemetn) ? $reciver_settlemetn->id : 1;
-			$newReciver->id_township = $reciver_settlemetn->id_township;
-			$newReciver->id_state = $data['reciv_estado'];
-			$newReciver->id_contry = $data['reciv_pais'];
-			$newReciver->reference = $data['reciv_referencia'];
-			$newReciver->is_reciver = self::NO_RECIVER;
-
-			if ($reciver = $this->clientRepo->save($newReciver)) {
-				$newRequisition->id_reciver = $reciver->id;
-			} else {
-				$this->session->set('errors_recive', $this->clientRepo->getErrors());
-				$this->session->setFlash("alert", ["message" => "Error al agregar los datos de la persona que lo recive", "status" => "Error:", "class" => "alert-danger"]);
-	            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
-	            exit();
-			}
+			$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
+			$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
+            header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
+            exit();
 		}
+		
 		
 		if(!$requisition = $this->requisitionRepo->save($newRequisition)) {
 			$error = $this->requisitionRepo->getErrors();
