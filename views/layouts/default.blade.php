@@ -23,6 +23,7 @@
     <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
     <!-- Font Awesome Styles -->
     <link type="text/css" rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.css">
     <!-- Bootstrap Styles -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/css/menu.css" rel="stylesheet">

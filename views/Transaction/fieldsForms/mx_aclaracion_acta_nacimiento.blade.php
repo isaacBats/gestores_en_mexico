@@ -7,9 +7,7 @@
 <div class="col-md-4">
     <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno">
 </div>
-<div class="col-md-4">
-    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
-</div>
+
 <div class="col-md-4">
     <select name="attr_sexo" id="sexo" class="form-control light">
         <option value="">Seleccionar sexo</option>
