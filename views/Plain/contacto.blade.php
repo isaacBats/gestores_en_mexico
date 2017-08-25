@@ -8,10 +8,10 @@
 	        </div>
 	    </div>
 	    <div class="row">
-	        <div class="col-md-6 google-maps">
+	        <div class="col-md-6 google-maps noneo">
 	                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60205.37718509265!2d-99.22448158264157!3d19.419487475335025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x42e2e5c1a219c3af!2sBosque+de+Chapultepec!5e0!3m2!1ses!2smx!4v1485971076645" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 	        </div>
-	        <div class="col-md-6">  
+	        <div class="col-md-12">  
                 <div class="formBg clearfix">
                     <div class="center back">
                         <div class="tituloForm">
@@ -62,14 +62,10 @@
 	            <h3 class="blanco mayus light">¿Necesitas algún trámite?</h3>
 	            <h4 class="blanco light centrar mayus">comunícate con nosotros</h4>      
 	            <div class="row">
-	                <div class="col-md-6 blanco">
-	                    <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h3>
-	                    <p class="centrar">Desde la Ciudad de México</p>
-	                </div>
-	                <div class="col-md-6 blanco">
-	                    <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h3>
-	                    <p class="centrar">Del interior de la República</p>
-	                </div>
+	                <div class="col-md-12 blanco">
+                        <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
+                        <p class="centrar">Desde cualquier parte de México</p>
+                    </div>
 	            </div>
 	        </div>
 	    </div>

@@ -21,13 +21,7 @@
         @endforeach
     </select>
 </div>
-<div class="col-md-4">
-    <h5>Fecha de nacimiento</h5>
-</div>
-<div class="col-md-8">
-    <input class="form-control" size="16" type="date" name="attr_fnacimiento" >
-    <br>
-</div>
+
 <div class="col-md-4">
     <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
 </div>

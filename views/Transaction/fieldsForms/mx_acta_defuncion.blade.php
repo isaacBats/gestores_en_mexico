@@ -62,7 +62,7 @@
 </div>
 
 <div class="col-md-12">
-    <h6>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
+    <h6><span class="azul italic">**Opcional** </span>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
 </div>
 
 <div class="col-md-12">

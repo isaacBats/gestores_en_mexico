@@ -21,13 +21,9 @@
                 <h4 class="blanco light centrar mayus">comunícate con nosotros</h4>
 
                 <div class="row">
-                    <div class="col-md-6 blanco">
-                        <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h3>
-                        <p class="centrar">Desde la Ciudad de México</p>
-                    </div>
-                    <div class="col-md-6 blanco">
-                        <h2><i class="fa fa-phone" aria-hidden="true"></i> 555 5555 5555</h3>
-                        <p class="centrar">Del interior de la República</p>
+                    <div class="col-md-12 blanco">
+                        <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
+                        <p class="centrar">Desde cualquier parte de México</p>
                     </div>
                 </div>
             </div>
