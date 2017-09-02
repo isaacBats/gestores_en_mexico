@@ -5,24 +5,12 @@ $(document).ready(function () {
         rules: {
             attr_name: "required",
             attr_paterno: "required",
-            attr_materno: "required",
-            attr_curp: "required",
-            attr_sexo: "required",
-            attr_estado: "required",
-            attr_fnacimiento: "required",
-            attr_fregistro: "required",
-            attr_no_acta: "required",
-            attr_no_libro: "required",
-            attr_foja: "required",
-            attr_juzgado: "required",
-            attr_nom_padre: "required",
-            attr_nom_madre: "required",
+            attr_materno: "required"
         },
         messages: {
             attr_name: { required: "Campo requerido" },
             attr_paterno: { required: "Campo requerido" },
-            attr_materno: { required: "Campo requerido" },
-            attr_curp: { required: "Campo requerido"}
+            attr_materno: { required: "Campo requerido" }
         },
         errorClass: "error",
         debug: true,

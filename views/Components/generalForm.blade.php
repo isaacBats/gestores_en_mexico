@@ -9,13 +9,13 @@
             </div>
             <div id="validacion_forzosos" >
                 @include($templateFields, compact('states', 'transaction'))
-            </div>
-            @include('Components.holder', compact('states', 'contries', 'codeContry'))
-            <div class="col-md-12">
-                <div class="field">
-                    <textarea class="light" name="attr_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>
+                <div class="col-md-12">
+                    <div class="field">
+                        <textarea class="light" name="attr_mensaje" rows="4" id="mensaje" placeholder="Mensaje adicional :)" tabindex="5"></textarea>
+                    </div>
                 </div>
             </div>
+            @include('Components.holder', compact('states', 'contries', 'codeContry'))
             <div class="col-md-12 calculoCosto">
                 <h4>Costo por concepto de <span class="tituloTramite">{{ utf8_encode($transaction->name) }}</span></h4>
                 <div class="col-md-8 col-md-offset-2" id="pricesTransaction">
