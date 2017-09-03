@@ -1,5 +1,5 @@
 <div class="col-md-4">
-    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)">
+    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)" required>
 </div>
 <div class="col-md-4">
     <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno" required>
@@ -9,10 +9,10 @@
 </div>
 
 <div class="col-md-4">
-    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP" required>
+    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
 </div>
 <div class="col-md-4">
-    <select name="attr_sexo" id="sexo" class="form-control light" required>
+    <select name="attr_sexo" id="sexo" class="form-control light">
         <option value="">Seleccionar sexo</option>
         <option value="1">Hombre</option>
         <option value="2">Mujer</option>
@@ -30,36 +30,36 @@
     <h5>Fecha de nacimiento</h5>
 </div>
 <div class="col-md-8">
-    <input class="form-control" size="16" type="date" name="attr_fnacimiento" required>
+    <input class="form-control" size="16" type="date" name="attr_fnacimiento" >
     <br>
 </div>
 <div class="col-md-4">
     <h5>Fecha de registro</h5>
 </div>
 <div class="col-md-8">
-    <input class="form-control" size="16" type="date" name="attr_fregistro" required>
+    <input class="form-control" size="16" type="date" name="attr_fregistro" >
     <br>
 </div>
 
 <div class="col-md-4">
-    <input name="attr_no_acta" class="form-control materail-input light" id="no_acta" placeholder="No. de acta" required>
+    <input name="attr_no_acta" class="form-control materail-input light" id="no_acta" placeholder="No. de acta" >
 </div>
 <div class="col-md-4">
-    <input name="attr_no_libro" class="form-control materail-input light" id="no_libro" placeholder="No. de libro" required>
+    <input name="attr_no_libro" class="form-control materail-input light" id="no_libro" placeholder="No. de libro" >
 </div>
 <div class="col-md-4">
-    <input name="attr_foja" class="form-control materail-input light" id="foja" placeholder="Foja y/o Partida" required>
-</div>
-
-<div class="col-md-4">
-    <input name="attr_juzgado" class="form-control materail-input light" id="juzgado_oficialia" placeholder="Juzgado u Oficialia" required>
+    <input name="attr_foja" class="form-control materail-input light" id="foja" placeholder="Foja y/o Partida" >
 </div>
 
 <div class="col-md-4">
-    <input name="attr_nom_padre" class="form-control materail-input light" id="nombre_padre" placeholder="Nombre del padre" required>
+    <input name="attr_juzgado" class="form-control materail-input light" id="juzgado_oficialia" placeholder="Juzgado u Oficialia" >
+</div>
+
+<div class="col-md-4">
+    <input name="attr_nom_padre" class="form-control materail-input light" id="nombre_padre" placeholder="Nombre del padre" >
 </div>
 <div class="col-md-4">
-    <input name="attr_nom_madre" class="form-control materail-input light" id="nombre_madre" placeholder="Nombre de la madre" required>
+    <input name="attr_nom_madre" class="form-control materail-input light" id="nombre_madre" placeholder="Nombre de la madre" >
 </div>
 
 <div class="col-md-12">

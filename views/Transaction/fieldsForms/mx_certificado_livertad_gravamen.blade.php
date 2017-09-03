@@ -23,7 +23,7 @@
     <input type="hidden" name="attr_pais" value="142">
 </div>
 <div class="col-md-4">
-    <input name="attr_folreal" class="form-control materail-input light" id="folioReal" placeholder="Folio Real" required>
+    <input name="attr_folreal" class="form-control materail-input light" id="folioReal" placeholder="Folio Real" >
 </div>
 <div class="col-md-12">
     <input name="attr_dominm" class="form-control materail-input light" id="domicilioInmueble" placeholder="Domicilio del Inmueble">
