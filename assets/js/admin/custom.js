@@ -17,6 +17,18 @@ $(document).ready(function () {
         $modal.modal('show');
      });
 
+    // Check box de paices
+    $('#all-countries').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('.cbox-country').prop('checked', true)
+        } else {
+            $('.cbox-country').prop('checked', false)
+        }
+    })
+
+    // checked if all countries selected
+    // TODO: @Jquery Crear una funcion que checkee el checkbox general en el admin de paices.
+
      /*
 	 * Modal para eliminar Usuarios
 	 */

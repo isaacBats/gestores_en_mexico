@@ -26,4 +26,17 @@ class CountryController extends Controller
 
         return $this->renderView($res, 'Country.index', compact('countries'));
     }
+
+    public function saveConf($req, $res)
+    {
+        unset($req->data['_RAW_HTTP_DATA']);
+        $ids = $req->data;
+        $this->contryRepo->saveConf($ids);
+        $this->session->setFlash('alert', [
+            'message' => 'Configuración guardada', 
+            'status' => 'Exito:', 
+            'class' => 'alert-info']
+        );
+        header('Location: /admin/paises');
+    }
 }

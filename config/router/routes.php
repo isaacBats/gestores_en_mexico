@@ -154,3 +154,8 @@
 				'path'	=> '/admin/paises',
 				'get'	=> array('CountryController', 'index'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/paises/guardar-configuracion',
+				'post'	=> array('CountryController', 'saveConf'),
+			));
