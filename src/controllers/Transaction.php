@@ -18,6 +18,8 @@ class Transaction extends Controller
 {
 	const RECIVER = 1;
 	const NO_RECIVER = 0;
+	const ACTIVE = 1;
+	const INACTIVE = 0;
 
 	private $dataRequisitionRepo;
 	private $requisitionRepo;
@@ -52,7 +54,7 @@ class Transaction extends Controller
 	{
 		$codeContry = strtolower($req->params['code_contry']);
 		$states = $this->stateRepo->getStatesByContry($codeContry);
-		$contries = $this->contryRepo->all();
+		$contries = $this->contryRepo->where(['is_active' => self::ACTIVE]);
 		$transaction = $this->transactionRepo->findBySlug($req->params['slug']);
 		$costo = null;
 

@@ -44,6 +44,7 @@
                     <p style="font-size:12px;">Apellidos: <span style="font-weight:bold;">{{ $data['apellidos'] }}</span></p>
                     <p style="font-size:12px;">Correo: <span style="font-weight:bold;">{{ $data['email'] }}</span></p>
                     <p style="font-size:12px;">Teléfono: <span style="font-weight:bold;">{{ $data['telefono'] }}</span></p>
+                    <p style="font-size:12px;">País: <span style="font-weight:bold;">{{ $data['pais'] }}</span></p>
                     <p style="font-size:12px;">Mensaje:</p>
                     <p style="font-size:12px;">{{ $data['mensaje'] }}</p>
                 </td>

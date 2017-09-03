@@ -36,6 +36,16 @@
                             <div class="form-group col-md-6">
                                 <input class="form-control" name="telefono" type="text" id="telefono" placeholder="teléfono" tabindex="4" title="Telefono">
                             </div>
+                            <div class="col-md-12">
+                                <label>País desde donde nos contactas</label>
+                                <select name="pais" class="form-control">
+                                    <option value="" selected>País desde donde nos contactas</option>
+                                    @foreach ($countries as $cuontry)
+                                        <option value="{{ $cuontry->id }}" {{ ($cuontry->id == 142) ? 'selected' : '' }}>{{ utf8_encode($cuontry->name) }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="hidden" name="attr_pais" value="142">
+                            </div>
                             
                             <div class="form-group col-md-12">
                                 <textarea class="form-control" name="mensaje" rows="4" id="mensaje" placeholder="mensaje :)" tabindex="5"></textarea>
@@ -48,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <input class="btn btn-large btn-success transitions" type="submit" tabindex="6" >
+                                <input class="btn btn-large btn-success transitions" type="submit" tabindex="6" value="Enviar" >
                             </div>
                         </form>
                     </div>

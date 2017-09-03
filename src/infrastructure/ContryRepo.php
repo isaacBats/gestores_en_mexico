@@ -4,6 +4,9 @@ namespace Olive\infrastructure;
 
 class ContryRepo extends BaseRepository
 {
+	const ACTIVE = 1;
+	const INACTIVE = 0;
+
 	public function getModel ()
 	{
 		return 'Contry';
@@ -18,5 +21,18 @@ class ContryRepo extends BaseRepository
 	{
 		$contry = $this->mapper->where(['id' => $id])->first();
 		return $contry->name;
+	}
+
+	public function saveConf(array $ids = array())
+	{
+		foreach ($this->all() as $key => $contry) {
+			if (array_key_exists($contry->id, $ids)) {
+				$contry->is_active = self::ACTIVE;
+				$this->update($contry);
+			} else {
+				$contry->is_active = self::INACTIVE;
+				$this->update($contry);
+			}
+		}
 	}
 }
