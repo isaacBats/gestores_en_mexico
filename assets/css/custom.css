@@ -173,6 +173,7 @@ footer i {font-size: 30px !important; margin-right: 10px;}
 .light {font-weight: 300;}
 .medium {font-weight: 400;}
 .bold {font-weight: 700;}
+.italic {font-style: italic;}
 .dereFull {text-align: right;}
 
 .aliceBlue {background: #f7fcfe;}
@@ -208,7 +209,7 @@ footer i {font-size: 30px !important; margin-right: 10px;}
 }
 .form-control {
     border-radius: 0px !important;
-    padding: 12px;
+    padding: 0 12px;
     border: 1px solid #4682b4;
     width: 100% !important;
 }
@@ -252,9 +253,11 @@ width: 100% !important;
 height: 100% !important;
 }
 
-
+.clear {clear: both;}
 
 /*Fixes*/
+
+.fondoNavbar { background: #e6e6e6; }
 
 .navbar-default {
     background-color: #f1f1f1;

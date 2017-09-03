@@ -22,11 +22,15 @@
     </select>
     <input type="hidden" name="attr_pais" value="142">
 </div>
-<div class="col-md-12">
-    <h6>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
+<div class="col-md-4">
+    <input name="attr_folreal" class="form-control materail-input light" id="folioReal" placeholder="Folio Real" required>
 </div>
 <div class="col-md-12">
-    <div class="form-group">
-        <input name="attr_image" id="file-1" type="file" class="file" data-preview-file-type="any">
-    </div>
+    <input name="attr_dominm" class="form-control materail-input light" id="domicilioInmueble" placeholder="Domicilio del Inmueble">
 </div>
+<div class="col-md-12">
+    <input name="attr_nomprop" class="form-control materail-input light" id="nombrePropietario" placeholder="Nombre del o los Propietarios ">
+</div>
+
+
+

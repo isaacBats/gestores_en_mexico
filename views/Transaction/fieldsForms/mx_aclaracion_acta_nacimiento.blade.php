@@ -8,14 +8,9 @@
     <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno">
 </div>
 
-<div class="col-md-4">
-    <select name="attr_sexo" id="sexo" class="form-control light">
-        <option value="">Seleccionar sexo</option>
-        <option value="1">Hombre</option>
-        <option value="2">Mujer</option>
-    </select>
-</div>
-<div class="col-md-4">
+
+
+<div class="col-md-4 noneo">
     <select name="attr_estado" id="attr_estado" class="form-control light">
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
@@ -23,12 +18,20 @@
         @endforeach
     </select>
 </div>
+
 <div class="col-md-4">
     <h5>Fecha de nacimiento</h5>
 </div>
-<div class="col-md-8">
+<div class="col-md-4">
     <input class="form-control" size="16" type="date" name="attr_fnacimiento">
     <br>
+</div>
+<div class="col-md-4">
+    <select name="attr_sexo" id="sexo" class="form-control light">
+        <option value="">Seleccionar sexo</option>
+        <option value="1">Hombre</option>
+        <option value="2">Mujer</option>
+    </select>
 </div>
 <div class="col-md-12">
     <div class="field">
@@ -37,7 +40,7 @@
     </div>
 </div>
 <div class="col-md-12">
-    <h6>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
+    <h6><span class="azul italic">**Opcional**</span> Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb) </h6>
 </div>
 <div class="col-md-12">
     <div class="form-group">

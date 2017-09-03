@@ -17,7 +17,7 @@
                     </div><!-- end navbar-header -->
         
                     <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav fondoNavbar">
 
                             <li class="dropdown ttmenu-full"><a href="/" class="">Inicio</a></li>
                             <li class="dropdown ttmenu-full"><a href="/nosotros" class="">Nosotros</a></li>
@@ -51,29 +51,13 @@
                                                                         <li><a href="/tramites/MX/acta-defuncion" class="link transitions">Acta de defunción </a></li>
                                                                         <li><a href="/tramites/MX/acta-matrimonio" class="link transitions">Acta de matrimonio </a></li>
                                                                         <li><a href="/tramites/MX/acta-divorcio" class="link transitions">Acta de divoricio </a></li>
-                                                                        <li><a href="/tramites/MX/acta-reconocimiento" class="link transitions">Acta de reconocimiento </a></li>
+                                                                        <!-- <li><a href="/tramites/MX/acta-reconocimiento" class="link transitions">Acta de reconocimiento </a></li> -->
                                                                         <li><a href="/tramites/MX/constancia-solteria-cdmx" class="link transitions">Constancia de soltería CDMX</a></li>
                                                                         <li><a href="/tramites/MX/busqueda-acta" class="link transitions">Búsqueda de acta </a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
 
-                                                            <!-- <div class="col-md-4 col-sm-6 col-xs-12">
-                                                                <div class="box">
-                                                                    <ul>
-                                                                        <li><h4>WHY CHOOSE TT MENU</h4></li>
-                                                                        <li><a href="#">Responsive Layout</a></li>
-                                                                        <li><a href="#">Retina Display Ready</a></li>
-                                                                        <li><a href="#">Tons of Icons</a></li>
-                                                                        <li><a href="#">Gradient Colors</a></li>
-                                                                        <li><a href="#">Beginner Friendly</a></li>
-                                                                        <li><a href="#">Detailed Documentation</a></li>
-                                                                        <li><a href="#">100% Bootstrap Base</a></li>
-                                                                        <li><a href="#">HTML5 CSS3</a></li>
-                                                                        <li><a href="#">And Much More...</a></li>
-                                                                    </ul>
-                                                                </div> --><!-- end box -->
-                                                            <!-- </div> --><!-- end col -->
                                                             <div class="col-md-8 col-sm-6 col-xs-12">
                                                                 <img src="/assets/images/ejecutiva.png" alt="" class="img-responsive">
                                                             </div><!-- end col -->
@@ -114,7 +98,7 @@
                                                                         <li><a href="/tramites/MX/apostilla-acta-matrimonio" class="link transitions">Apostilla de actas de matrimonio</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-documentos-escolares" class="link transitions">Apostilla de documentos escolares</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-constancia-solteria" class="link transitions">Apostilla de constancia de soltería</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de todo tipo de documentos</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de documentos no listados</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -294,7 +278,7 @@
                                         <div class="tabbable row">
                                             <div class="col-md-3">
                                                 <ul class="nav nav-pills nav-stacked">
-                                                    <li class="active"><a href="#tabs5-pane6" data-toggle="tab">Argentina</a></li>
+                                                    <li class="active"><a href="#tabs5-pane6" data-toggle="tab">Internacional</a></li>
                                                     <!-- <li><a href="#tabs5-pane7" data-toggle="tab">España</a></li> -->
                                                 </ul>
                                             </div><!-- end col -->
@@ -306,13 +290,17 @@
                                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                                 <div class="box">
                                                                     <ul>
-                                                                        <li><h4>Trámites en México - Argentina</h4></li>
+                                                                        <li><a href="#" class="link transitions">Argentina</a></li>
+                                                                        <li><a href="#" class="link transitions">España</a></li>
+                                                                        <li><a href="#" class="link transitions">Estados Unidos</a></li>
+                                                                        <li><a href="#" class="link transitions">Inglaterra</a></li>
+                                                                        <!-- <li><h4>Trámites en México - Argentina</h4></li>
                                                                         <li><a href="/tramites/AR/apostilla-certificado-nacimiento" class="link transitions">Apostillado de Certificado de Nacimiento</a></li>
                                                                         <li><a href="/tramites/AR/apostilla-certificado-matrimonio" class="link transitions">Apostillado de Certificado de Matrimonio</a></li>
                                                                         <li><a href="/tramites/AR/apostilla-certificado-defuncion" class="link transitions">Apostillado de Certificado de Defunción</a></li>
                                                                         <li><a href="/tramites/AR/legalizacion-ministerio-interno-nacion" class="link transitions">Legalización en Ministerio del Interior de la Nación</a></li>
                                                                         <li><a href="/tramites/AR/apostilla-antecedentes-reincidencia-penal" class="link transitions">Apostilla de Antecedentes de Reincidencia penal</a></li>
-                                                                        <li><a href="/tramites/AR/apostilla-certificado-estudios-multiples" class="link transitions">Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios</a></li>
+                                                                        <li><a href="/tramites/AR/apostilla-certificado-estudios-multiples" class="link transitions">Apostillado de Certificados de Estudios. Secundaria, Primaria, Terciarios y Universitarios</a></li> -->
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
