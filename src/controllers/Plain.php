@@ -1,11 +1,15 @@
 <?php 
 
 // namespace Olive\controllers;
-// TODO: @Plain Crear el metodo de envio de contcato.
 use Olive\controllers\Controller;
+use Olive\infrastructure\ContryRepo as CountryRepo;
 
 class Plain extends Controller
 {	
+
+	const ACTIVE = 1;
+	const INACTIVE = 0;
+
 	public function home( $req , $res ){		
 		return $this->renderView($res, 'Plain.home');
 	}
@@ -22,7 +26,9 @@ class Plain extends Controller
 
 	public function contacto ($req, $res)
 	{		
-		return $this->renderView($res, 'Plain.contacto');
+		$countriesRepo = new CountryRepo();
+		$countries = $countriesRepo->where(['is_active' => self::ACTIVE]);
+		return $this->renderView($res, 'Plain.contacto', compact('countries'));
 	}
 
 	public function sendFormContact($req, $res)
