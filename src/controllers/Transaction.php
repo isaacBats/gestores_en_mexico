@@ -93,7 +93,7 @@ class Transaction extends Controller
 			    $errorsFile = $file->getErrors();
 			}
 		}
-		$price = $this->priceRepo->getPrice($data['attr_estado'], $data['id_transaction']);
+		$price = $this->priceRepo->getPrice($data['hold_estado'], $data['id_transaction']);
 		$newRequisition = new Olive\models\Requisition();
 		$newRequisition->id_transaction = $data['id_transaction'];
 		$newRequisition->id_price = $price->id;
@@ -112,23 +112,24 @@ class Transaction extends Controller
 		$newClient->address = $data['hold_calle'];
 		$newClient->num_inside = $data['hold_num_int'];
 		$newClient->num_extern = $data['hold_num_ext'];
-		// Para las pruebas se pondra por defecto 1
-		$newClient->id_settlement = ($settlemetn) ? $settlemetn->id : 1;
-		$newClient->id_township = $settlemetn->id_township;
+		$newClient->settlement = $data['hold_colonia'];
+		$newClient->township = $data['hold_municipio'];
+		$newClient->zip_code = $data['hold_cp'];
 		$newClient->id_state = $data['hold_estado'];
 		$newClient->id_contry = $data['hold_pais'];
 		$newClient->reference = $data['hold_referencia'];
 		
-		if ($client = $this->clientRepo->save($newClient)) {
+		$client = $this->clientRepo->save($newClient);
+		
+		if ($client) {
 			$newRequisition->id_client = $client->id;
 			$newRequisition->id_reciver = $client->id;
 		} else {
 			$this->session->set('errors_solicitante_envio', $this->clientRepo->getErrors());
-			$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita y que lo recive", "status" => "Error:", "class" => "alert-danger"]);
+			$this->session->setFlash("alert", ["message" => "Error en los datos de la persona que lo solicita", "status" => "Error:", "class" => "alert-danger"]);
             header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
             exit();
 		}
-		
 		
 		if(!$requisition = $this->requisitionRepo->save($newRequisition)) {
 			$error = $this->requisitionRepo->getErrors();
@@ -165,13 +166,7 @@ class Transaction extends Controller
             header('Location: /tramites/'.$req->params['code_contry'].'/' . $req->params['slug']);
             exit();	
 		} else {
-			if (isset($data['cb_reciver'])) {
-				$c = $r = $this->clientController->getMap($client);
-			} else {
-				$c = $this->clientController->getMap($hold);
-				$r = $this->clientController->getMap($reciver);
-			}
-
+			$c = $r = $this->clientController->getMap($client);
 			// Admin List contacts
 			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com', 'jm217938@hotmail.com'];
 			// falta traerme toda la data de la requsisicion

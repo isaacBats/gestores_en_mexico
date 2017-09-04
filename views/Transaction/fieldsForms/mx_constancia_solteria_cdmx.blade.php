@@ -11,7 +11,7 @@
 <div class="col-md-4">
     <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
 </div>
-<div class="col-md-4 noneo">
+{{-- <div class="col-md-4 noneo">
     <select name="attr_estado" id="attr_estado" class="form-control light">
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
@@ -26,7 +26,7 @@
             <option value="{{ $contry->id }}">{{ utf8_encode($contry->name) }}</option>
         @endforeach
     </select>
-</div>
+</div> --}}
 <div class="col-md-4 col-md-offset-4">
     <select name="attr_sexo" id="sexo" class="form-control light">
         <option value="">Seleccionar sexo</option>
