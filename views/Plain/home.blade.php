@@ -15,7 +15,7 @@
                     <div class="item active">
                         <img alt="Carousel Bootstrap First" src="/assets/images/slide-1.jpg" />
                         <div class="carousel-caption">
-                            <h1>Obtén tu acta de matrimonio, <br>
+                            <h1>Gestionamos cualquier trámite, <br>
                             no importa en dónde estés
                             <span>¡la tramitamos por ti!</span> </h1>
                             <a href="/tramites/MX/acta-matrimonio" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
@@ -24,11 +24,11 @@
                     <div class="item">
                         <img alt="Carousel Bootstrap Second" src="/assets/images/slide-2.jpg" />
                         <div class="carousel-caption">
-                            <h1 class="blanco shadow">¿Eres de Argentina y vives en México?
-                                <span>Estamos aquí para acercarte <br>
-                                a cada ministerio argentino</span>
+                            <h1 class="blanco shadow">¿Vives en México, pero eres extranjero?
+                                <span>Te ayudamos a gestionar<br>
+                                cualquier tipo de trámite</span>
                             </h1>
-                            <a href="javascript:void(0);" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
+                            <a href="/contacto" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
                         </div>
                     </div>
                     <div class="item">
@@ -37,7 +37,7 @@
                             <h1>¿Necesitas apostillar tus papeles <br>
                             para estudiar en el extranjero?
                             <span>¡Nosotros lo hacemos por ti!</span></h1>
-                            <a href="javascript:void(0);" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
+                            <a href="tramites/MX/apostilla-titulo-profesional" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
                         </div>
                     </div>
 	            </div> <a class="left carousel-control" href="#carousel-720087" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-720087" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>

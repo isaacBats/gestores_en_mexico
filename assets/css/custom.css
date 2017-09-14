@@ -4,6 +4,8 @@
 
 body {background: #f1f1f1; font-family: 'Open Sans', sans-serif; color:#363c45; height: auto;}
 
+html, body { overflow-x: hidden; }
+
 .logoHeader { width: 150px; }
 
 .link:a {color: #f90;}
@@ -114,7 +116,7 @@ ul li {list-style: none ;}
 .form-control {
     display: block;
     width: 100%;
-    height: 34px;
+    height: 40px;
     padding: 6px 12px;
     font-size: 12px !important;
     line-height: 1.42857143;
@@ -123,6 +125,13 @@ ul li {list-style: none ;}
     background-image: none;
     margin-bottom: 10px;
 
+}
+.form-control {
+    border-radius: 0px !important;
+    
+    border: 1px solid #4682b4;
+    width: 100% !important;
+    
 }
 select { color: #333;
     border-bottom: 1px solid #ccc;
@@ -207,12 +216,7 @@ footer i {font-size: 30px !important; margin-right: 10px;}
     display: block;
     font-weight: 400;
 }
-.form-control {
-    border-radius: 0px !important;
-    padding: 0 12px;
-    border: 1px solid #4682b4;
-    width: 100% !important;
-}
+
 textarea {
     width: 100% !important;
     color: #000;
