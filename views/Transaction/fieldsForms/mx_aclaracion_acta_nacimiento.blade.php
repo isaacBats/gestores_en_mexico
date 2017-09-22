@@ -7,18 +7,6 @@
 <div class="col-md-4">
     <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno">
 </div>
-
-
-
-{{-- <div class="col-md-4 noneo">
-    <select name="attr_estado" id="attr_estado" class="form-control light">
-        <option value="">Seleccionar Estado</option>
-        @foreach ($states as $state)
-            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
-        @endforeach
-    </select>
-</div> --}}
-
 <div class="col-md-4">
     <h5>Fecha de nacimiento</h5>
 </div>

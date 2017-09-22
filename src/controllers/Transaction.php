@@ -145,7 +145,7 @@ class Transaction extends Controller
 
 		$attrNoInserted = array();
 		foreach ($attrbs as $key => $attr) {
-			if ($key != 'attr_mensaje' && $key != 'attr_total'){
+			if ($key != 'attr_mensaje' && $key != 'attr_total' && $attr != ''){
 				if(!$attribute = $this->attributeRepo->findByName($key)) {
 					$newAttribute = new Olive\models\Attribute();
 					$newAttribute->attribute = $key;
