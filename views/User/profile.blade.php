@@ -12,7 +12,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-10 col-offset-sm-1 col-md-6">
 							<a href="javascript:void(0);" class="profile-photo">
-								<img src="http://lorempixel.com/260/260/people/1" class="img-circle img-responsive">
+								<img src="/{{ $user->image }}" class="img-responsive">
 							</a>
 						</div>
 						<div class="col-sm-10 col-offset-sm-1 col-md-6 card-profile">

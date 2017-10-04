@@ -16,7 +16,6 @@ use Olive\helpers\Utils;
  */
 class Controller
 {	
-	public $spot;
 	public $session_handle;
 	public $session;
 	public $bread = array();
@@ -121,7 +120,7 @@ class Controller
 				$html .= "<div class='form-group'>";
 				// If field is options 
 				if(isset($value['options'])) {
-					$html .= "<select name='{$key}' class='form-control'>
+					$html .= "<label>{$key}</label><select name='{$key}' class='form-control'>
 								<option value=''>Select a {$key}</option>";
 					foreach ($value['options'] as $option) {
 						$html .= "<option value='{$option}' ";

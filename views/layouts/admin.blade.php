@@ -194,7 +194,7 @@
 			<li>
 			  <div class="btn-group">
 				<button type="button" class="btn btn-logged" data-toggle="dropdown">
-				  <img src="http://lorempixel.com/260/260/people/1" alt="{{$user->first_name .' '.$user->last_name}}" />
+				  <img src="/{{ $user->image }}" alt="{{$user->first_name .' '.$user->last_name}}" />
 					{{$user->first_name .' '.$user->last_name}}
 				  <span class="caret"></span>
 				</button>
