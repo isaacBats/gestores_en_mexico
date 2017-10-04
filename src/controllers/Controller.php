@@ -112,7 +112,7 @@ class Controller
 	public static function form( \Spot\Entity $entity, $values = null, $action = "" , $method = 'post', $button = 'send')
 	{	
 		$fields = $entity->fields();
-		$html = "<form action='{$action}' method='{$method}'>";
+		$html = "<form action='{$action}' method='{$method}' enctype='multipart/form-data'>";
 		
 		foreach ($fields as $key => $value) {
 			if( $key != "id" && $key != 'is_active' && is_array( $value ) && !isset( $value["value"] ) ){
@@ -139,7 +139,10 @@ class Controller
 					$html .= "<label class=\"ckbox\">
 								<input type=\"checkbox\" name='{$key}' ".($val ? 'checked value="1"' : 'value="0"')."> <span>Usuario activo</span>
 							  </label>";
-				}else {
+				} elseif ($key == 'image') {
+                    $html .= "<label>{$key}</label>
+                    <input type='file' name='image' />";
+                } else {
 					$html .= "<label>{$key}</label>";
 					$val = ($key == 'password') ? '' : $val;
 					$html .= "<input type='text' class='form-control' name='{$key}' value='{$val}' >";	

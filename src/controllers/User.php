@@ -132,6 +132,12 @@ class User extends Controller
         $user->password = $data['password'];
         $user->user_name = $data['user_name'];
         $user->type_user = $data['type_user'];
+        if (!empty($_FILES['image'])) {
+            $path = 'assets/images/photos/';
+            $image = saveImage($_FILES['image'], $path);
+            $user->image = $image->path;
+        }
+
         try {
             $this->userRepo->update($user);
             $this->session->setFlash('alert', ['message' => 'Usuario editado correctamente!', 'class' => 'alert-info']);

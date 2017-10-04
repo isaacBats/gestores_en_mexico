@@ -34,7 +34,8 @@ use Spot\EventEmitter as EventEmitter;
                 'user'
             ]],
             'is_active'    => ['type' => 'smallint'],
-            'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
+            'date_created' => ['type' => 'datetime', 'value' => new \DateTime()],
+            'image' => ['type' => 'string', 'required' => false]
         ];
     }
 

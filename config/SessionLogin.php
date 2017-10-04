@@ -31,7 +31,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
 
   public function preroute(&$req, &$res) {
 
-    $redirect_after_login = "/admin/index";
+    $redirect_after_login = "/admin/tramites";
 
     //  URL's Autorizadas
     $allow_uri = [
