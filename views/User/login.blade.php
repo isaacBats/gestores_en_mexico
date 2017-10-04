@@ -33,7 +33,9 @@
 
   <div class="panel signin">
     <div class="panel-heading">
-      <h1>Gestores en México</h1>
+      <h1>
+        <img src="/assets/images/logo.png" alt="Gestores en México">
+      </h1>
       <h4 class="panel-title">Bienvenido! Porfavor identificate.</h4>
     </div>
     <div class="panel-body">
