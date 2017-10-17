@@ -260,6 +260,15 @@
 				</ul>
 			  </li> --}}
 			</ul>
+			<h5 class="sidebar-title">CMS</h5>
+			<ul class="nav nav-pills nav-stacked nav-quirk">
+				<li class="nav-parent">
+					<a href="javascript:void(0)"><i class="fa fa-list-alt"></i> <span>Formularios</span></a>
+					<ul class="children">
+					  <li><a href="/admin/formularios">Listar formularios</a></li>
+					</ul>
+				</li>
+			</ul>
 			<h5 class="sidebar-title">Tramites</h5>
 			<ul class="nav nav-pills nav-stacked nav-quirk">
 			  <li class="nav-parent">

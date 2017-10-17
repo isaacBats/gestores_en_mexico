@@ -159,3 +159,9 @@
 				'path'	=> '/admin/paises/guardar-configuracion',
 				'post'	=> array('CountryController', 'saveConf'),
 			));
+
+		/* Admin CMS Forms */
+			$router->addRoute(array(
+				'path'	=> '/admin/formularios',
+				'get'	=> array('FormController', 'index'),
+			));

@@ -36,7 +36,8 @@ use Spot\EventEmitter as EventEmitter;
             'contry' => $mapper->belongsTo($entity, 'Olive\models\Contry', 'id_contry'),
             'requisitions' => $mapper->hasMany($entity, 'Olive\models\Requisition', 'id_transaction'),
             'transactionType' => $mapper->belongsTo($entity, 'Olive\models\TypeTransaction', 'id_transaction_type'),
-            'price' => $mapper->hasMany($entity, 'Olive\models\Price', 'id_transaction')
+            'price' => $mapper->hasMany($entity, 'Olive\models\Price', 'id_transaction'),
+            'form' => $mapper->hasOne($entity, 'Olive\models\Form', 'id_transaction')
         ];
     }
 
