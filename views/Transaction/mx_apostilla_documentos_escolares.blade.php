@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Apostilla de documentos escolares</h1>
+                    {{-- <h1 class="titulo mayus">Apostilla de documentos escolares</h1>
                     <p>Continuarás tus estudios en otro país? O simplemente necesitas darle efecto legal en otro país? Necesitarás apostillarlo, sin importar de donde sea, nosotros lo hacemos por ti.</p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     
@@ -13,7 +13,11 @@
                     <ul class="noneo">
                         <li>Requisito 1</li>
                         <li>Requisito 2</li>
-                    </ul>
+                    </ul> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))

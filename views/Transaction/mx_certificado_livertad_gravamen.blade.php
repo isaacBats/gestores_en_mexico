@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Certificado de libertad o gravamen</h1>
+                    {{-- <h1 class="titulo mayus">Certificado de libertad o gravamen</h1>
                     <p>El certificado de libertad de existencia o inexistencia de gravámenes, se emite para comprobar la situación jurídica un inmueble en cuanto a los gravámenes, como hipotecas por ejemplo.</p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     
@@ -16,7 +16,11 @@
                         <li>Folio Real</li>
                     </ul>
                     <p><strong>Trámite únicamente para la CDMX.</strong></p>
-                    <p>Los requisitos arriba señalados son indispensables, la falta de uno de ellos imposibilita el trámite. Favor de anotarlos en la parte de “comentarios".</p>
+                    <p>Los requisitos arriba señalados son indispensables, la falta de uno de ellos imposibilita el trámite. Favor de anotarlos en la parte de “comentarios".</p> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction', 'costo'))

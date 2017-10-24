@@ -5,9 +5,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Acta de Nacimiento</h1>
+                    {{-- <h1 class="titulo mayus">Acta de Nacimiento</h1>
                     <p>Obtén tu acta de nacimiento solicitándola aquí. La tramitamos por ti.</p>
-                    <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
+                    <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction', 'codeContry'))

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Apostilla de constancia de soltería</h1>
+                    {{-- <h1 class="titulo mayus">Apostilla de constancia de soltería</h1>
                     <p>Para hacer válida tu constancia en otro país dentro del convenio de la haya, necesitarás apostillarla, Nosotros lo hacemos por ti. No la tienes aún?  </p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     <p><strong>Para este trámite nos es necesario contar con el original de su acta a apostillar de reciente expedición, es necesario nos la haga llegar, si no la tiene aún despreocúpese, la tramitamos por usted, déjenos saberlo en el espacio de comentarios.</strong></p>
@@ -13,7 +13,11 @@
                     <ul class="noneo">
                         <li>Requisito 1</li>
                         <li>Requisito 2</li>
-                    </ul>
+                    </ul> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))

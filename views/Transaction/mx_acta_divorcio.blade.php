@@ -5,14 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Acta de divorcio</h1>
+                    {{-- <h1 class="titulo mayus">Acta de divorcio</h1>
                     <p>Obtén tu acta de divorcio, o acta de matrimonio con nota marginal de divorcio solicitándola aquí. La tramitamos por ti.</p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     <h4 class="mayus light azul noneo">Requisitos</h4>
                     <ul class="noneo">
                         <li>Requisito 1</li>
                         <li>Requisito 2</li>
-                    </ul>
+                    </ul> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))

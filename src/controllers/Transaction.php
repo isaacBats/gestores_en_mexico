@@ -11,6 +11,7 @@ use Olive\infrastructure\ClientRepo;
 use Olive\infrastructure\TownshipRepo;
 use Olive\infrastructure\AttributeRepo;
 use Olive\infrastructure\DataRequisitionRepo;
+use Olive\infrastructure\FormRepo;
 use \Upload\Storage\FileSystem;
 use \Upload\File;
 
@@ -31,12 +32,14 @@ class Transaction extends Controller
 	private $clientRepo;
 	private $stateRepo;
 	private $priceRepo;
+	private $formRepo;
 	private $clientController;
 
 	
 	function __construct()
 	{
 		parent::__construct();
+		$this->dataRequisitionRepo = new DataRequisitionRepo();
 		$this->stateRepo = new StateRepo();
 		$this->contryRepo = new ContryRepo();
 		$this->transactionRepo = new TransactionRepo();
@@ -46,7 +49,7 @@ class Transaction extends Controller
 		$this->clientRepo = new ClientRepo();
 		$this->townshipRepo = new TownshipRepo();
 		$this->attributeRepo = new AttributeRepo();
-		$this->dataRequisitionRepo = new DataRequisitionRepo();
+		$this->formRepo = new FormRepo();
 		$this->clientController = new Client();
 	}
 

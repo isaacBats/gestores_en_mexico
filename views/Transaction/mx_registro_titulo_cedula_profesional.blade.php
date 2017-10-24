@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Registro de título y cédula profesional</h1>
+                    {{-- <h1 class="titulo mayus">Registro de título y cédula profesional</h1>
                     <p>Toda la documentación que se presenta es en original, respecto a los documentos académicos deben de estar debidamente legalizados. </p>
                     <h4 class="mayus light azul">Requisitos</h4>
                     <ul>
@@ -23,7 +23,11 @@
                     <p>El domicilio de envío de sus documentos originales y el nombre del gestor responsable de realizar su trámite se le notificara vía correo electrónico una vez reportado su pago.</p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     <p>¿Terminaste tu licenciatura y aun no tienes la cédula que lo acredita?</p>
-                    <p>En gestoresenmexico.com gestionamos tu registro de título y la expedición de la cédula, tramítala aquí.</p>
+                    <p>En gestoresenmexico.com gestionamos tu registro de título y la expedición de la cédula, tramítala aquí.</p> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
