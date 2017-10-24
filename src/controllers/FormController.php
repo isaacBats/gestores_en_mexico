@@ -33,21 +33,25 @@ class FormController extends Controller
     public function edit($req, $res)
     {
         $this->addBread(['label' => 'Edicion de formulario']);
+        $transaction = $this->transactionRepo->get($req->params['formid']);
         
-        
-        return $this->renderView($res, 'Form.edit', compact('countries'));
+        return $this->renderView($res, 'Form.edit', compact('transaction'));
     }
 
     public function update($req, $res)
     {
         unset($req->data['_RAW_HTTP_DATA']);
-        $ids = $req->data;
-        $this->formRepo->saveConf($ids);
+        
+        $id = $req->params['formid'];
+        $form = $this->formRepo->get($id);
+        $form->title = $req->data['title'];
+        $form->description = $req->data['description'];
+        $this->formRepo->update($form);
         $this->session->setFlash('alert', [
-            'message' => 'Configuración guardada', 
+            'message' => "El formulario: {$form->name} se ha actualizado satisfactoriamente!." , 
             'status' => 'Exito:', 
             'class' => 'alert-info']
         );
-        header('Location: /admin/paises');
+        header('Location: /admin/formularios');
     }
 }

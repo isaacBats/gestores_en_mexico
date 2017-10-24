@@ -315,7 +315,7 @@
 		  'use strict';
 		  $('.summernote').summernote({
 		    height: 80,
-		    placeholder: 'Write one comment...'
+		    placeholder: 'Escribe un comentario'
 		  });
 
 		});

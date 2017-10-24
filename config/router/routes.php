@@ -165,3 +165,9 @@
 				'path'	=> '/admin/formularios',
 				'get'	=> array('FormController', 'index'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/formulario/{formid}',
+				'get'	=> array('FormController', 'edit'),
+				'post'	=> array('FormController', 'update'),
+			));
