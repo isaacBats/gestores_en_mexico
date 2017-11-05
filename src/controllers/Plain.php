@@ -42,12 +42,13 @@ class Plain extends Controller
 			$usuario = 'klonate@gmail.com';
 		
 		$subject = 'Nuevo Contacto :D';
-		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto'))
-			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
-		else
-			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
     	header('Location: /contacto');
-    	exit;
+		
+		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto')){
+			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
+		} else {
+			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
+		}
 	}
 
 	public function aviso ($req, $res)
@@ -82,5 +83,4 @@ class Plain extends Controller
 		else
 			die('No se mando el correo');
 	}
-
 }
