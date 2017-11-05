@@ -78,22 +78,24 @@ class Transaction extends Controller
 	{
 		// Para guardar el archivo si es que trae.
 		$data = $req->data;
-		if ($_FILES['attr_image']['error'] == 0 ) {
-			$storage = new FileSystem(__ASSETS__.'storage');
-			$file = new File('attr_image', $storage);
-			$file->setName($file->getName().'_'.uniqid());
-			$file->addValidations(array(
-			    new \Upload\Validation\Mimetype(['image/png', 'image/jpeg', 'image/jpg', 'image/gif']),
-			    new \Upload\Validation\Size('5M')
-			));
-			try {
-			    
-			    $file->upload();
-			$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
+		if (isset($_FILES['attr_image'])) {
+			if ($_FILES['attr_image']['error'] == 0 ) {
+				$storage = new FileSystem(__ASSETS__.'storage');
+				$file = new File('attr_image', $storage);
+				$file->setName($file->getName().'_'.uniqid());
+				$file->addValidations(array(
+				    new \Upload\Validation\Mimetype(['image/png', 'image/jpeg', 'image/jpg', 'image/gif']),
+				    new \Upload\Validation\Size('5M')
+				));
+				try {
+				    
+				    $file->upload();
+				$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
 
-			} catch (\Exception $e) {
+				} catch (\Exception $e) {
 
-			    $errorsFile = $file->getErrors();
+				    $errorsFile = $file->getErrors();
+				}
 			}
 		}
 		$price = $this->priceRepo->getPrice($data['hold_estado'], $data['id_transaction']);
