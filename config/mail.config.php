@@ -19,4 +19,6 @@ $mail->Port = getenv('MAIL_PORT');
 
 if ($env === 'prod') {
   $mail->setFrom('soporte@gestoresenmexico.com', 'Soporte');
+} else {
+  $mail->setFrom(getenv('MAIL_USERNAME'), 'Soporte');
 }

@@ -48,7 +48,6 @@ class Plain extends Controller
 			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
 
     header('Location: /contacto');
-    exit();
 	}
 
 	public function aviso ($req, $res)
