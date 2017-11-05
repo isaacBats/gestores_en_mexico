@@ -7,7 +7,7 @@ $dotenv->load();
 
 $env = ENVIROMENT;
 
-$mail->SMTPDebug = 2;
+// $mail->SMTPDebug = 2;
 $mail->isSMTP();
 $mail->isHTML(true);
 $mail->Host = getenv('MAIL_HOST');
