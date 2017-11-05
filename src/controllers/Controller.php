@@ -93,9 +93,7 @@ class Controller
         }
         // $this->_mail->Send();
         if( ! $this->_mail->send() ) {
-            echo '<pre>';
-            print_r($this->_mail->ErrorInfo);
-            exit;
+            return $this->_mail->ErrorInfo;
 		} 
 
 		return true;
