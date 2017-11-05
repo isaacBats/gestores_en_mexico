@@ -46,8 +46,8 @@ class Plain extends Controller
 			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
 		else
 			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
-
-    header('Location: /contacto');
+    	header('Location: /contacto');
+    	exit;
 	}
 
 	public function aviso ($req, $res)
@@ -74,7 +74,6 @@ class Plain extends Controller
 
 	public function test ($req, $res)
 	{
-		self::vdd($_SERVER);
 		$color = 'Red';
 		$usuario = 'klonate@gmail.com';
 		$subject = 'Test email';
