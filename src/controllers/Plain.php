@@ -78,7 +78,7 @@ class Plain extends Controller
 		$color = 'Red';
 		$usuario = 'klonate@gmail.com';
 		$subject = 'Test email';
-		if ($mail = $this->mailer($res, compact('color', 'usuario', 'subject'), 'Emails.test') === true)
+		if ($mail = $this->mailer($res, compact('color', 'usuario', 'subject'), 'Emails.test') == true)
 			exit('Se ha enviado el correo ');
 		else {
 			vdd($mail);
