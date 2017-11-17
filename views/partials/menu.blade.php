@@ -29,13 +29,17 @@
                                         <div class="tabbable row">
                                             <div class="col-md-3">
                                                 <ul class="nav nav-pills nav-stacked">
-                                                    <li class="active"><a href="#tabs5-pane1" data-toggle="tab">Registro civil</a></li>
+                                                    <li class="active"><a href="#tabs5-pane1" data-toggle="tab">Apostillas</a></li>
+
                                                     <li><a href="#tabs5-pane2" data-toggle="tab">S.E.P.</a></li>
-                                                    <li><a href="#tabs5-pane3" data-toggle="tab">Apostillas</a></li>
-                                                    <li><a href="#tabs5-pane4" data-toggle="tab">Registro público de la propiedad</a></li>
-                                                    <li><a href="#tabs5-pane5" data-toggle="tab">Legalización de documentos</a></li>
                                                     <li><a href="#tabs5-pane6" data-toggle="tab">Carta de antecedentes no penales federal</a></li>
+                                                    <li><a href="#tabs5-pane4" data-toggle="tab">Registro público de la propiedad</a></li>
+                                                    <li><a href="#tabs5-pane3" data-toggle="tab">Registro civil</a></li>
+                                                    
+                                                    <li><a href="#tabs5-pane5" data-toggle="tab">Legalización de documentos</a></li>
+                                                    
                                                     <li><a href="/contacto">Contactanos si tu tramite no se encuentra en la lista</a></li>
+                                                    <li><a href="/listado" class="link transitions">Ver listado completo</a></li>
                                                 </ul>
                                             </div><!-- end col -->
                                             <div class="col-md-9">
@@ -45,15 +49,14 @@
                                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                                 <div class="box">
                                                                     <ul>
-                                                                        <li><h4>Registro Civil</h4></li>
-                                                                        <li><a href="/tramites/MX/acta-nacimiento" class="link transitions">Acta de nacimiento </a></li>
-                                                                        <li><a href="/tramites/MX/aclaracion-acta-nacimiento" class="link transitions">Aclaración de acta de nacimiento </a></li>
-                                                                        <li><a href="/tramites/MX/acta-defuncion" class="link transitions">Acta de defunción </a></li>
-                                                                        <li><a href="/tramites/MX/acta-matrimonio" class="link transitions">Acta de matrimonio </a></li>
-                                                                        <li><a href="/tramites/MX/acta-divorcio" class="link transitions">Acta de divoricio </a></li>
-                                                                        <!-- <li><a href="/tramites/MX/acta-reconocimiento" class="link transitions">Acta de reconocimiento </a></li> -->
-                                                                        <li><a href="/tramites/MX/constancia-solteria-cdmx" class="link transitions">Constancia de soltería CDMX</a></li>
-                                                                        <li><a href="/tramites/MX/busqueda-acta" class="link transitions">Búsqueda de acta </a></li>
+                                                                        <li><h4>Apostillas</h4></li>
+                                                                        <li><a href="/tramites/MX/apostilla-titulo-profesional" class="link transitions">Apostilla de título profesional</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-carta-antecedentes-penales-federal" class="link transitions">Apostilla de carta de antecedentes no penales federal</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-acta-nacimiento" class="link transitions">Apostilla de actas de nacimiento</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-acta-matrimonio" class="link transitions">Apostilla de actas de matrimonio</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-documentos-escolares" class="link transitions">Apostilla de documentos escolares</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-constancia-solteria" class="link transitions">Apostilla de constancia de soltería</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de documentos no listados</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -91,14 +94,15 @@
                                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                                 <div class="box">
                                                                     <ul>
-                                                                        <li><h4>Apostillas</h4></li>
-                                                                        <li><a href="/tramites/MX/apostilla-titulo-profesional" class="link transitions">Apostilla de título profesional</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-carta-antecedentes-penales-federal" class="link transitions">Apostilla de carta de antecedentes no penales federal</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-acta-nacimiento" class="link transitions">Apostilla de actas de nacimiento</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-acta-matrimonio" class="link transitions">Apostilla de actas de matrimonio</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-documentos-escolares" class="link transitions">Apostilla de documentos escolares</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-constancia-solteria" class="link transitions">Apostilla de constancia de soltería</a></li>
-                                                                        <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de documentos no listados</a></li>
+                                                                        <li><h4>Registro Civil</h4></li>
+                                                                        <li><a href="/tramites/MX/acta-nacimiento" class="link transitions">Acta de nacimiento </a></li>
+                                                                        <li><a href="/tramites/MX/aclaracion-acta-nacimiento" class="link transitions">Aclaración de acta de nacimiento </a></li>
+                                                                        <li><a href="/tramites/MX/acta-defuncion" class="link transitions">Acta de defunción </a></li>
+                                                                        <li><a href="/tramites/MX/acta-matrimonio" class="link transitions">Acta de matrimonio </a></li>
+                                                                        <li><a href="/tramites/MX/acta-divorcio" class="link transitions">Acta de divoricio </a></li>
+                                                                        <!-- <li><a href="/tramites/MX/acta-reconocimiento" class="link transitions">Acta de reconocimiento </a></li> -->
+                                                                        <li><a href="/tramites/MX/constancia-solteria-cdmx" class="link transitions">Constancia de soltería CDMX</a></li>
+                                                                        <li><a href="/tramites/MX/busqueda-acta" class="link transitions">Búsqueda de acta </a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -278,7 +282,7 @@
                                         <div class="tabbable row">
                                             <div class="col-md-3">
                                                 <ul class="nav nav-pills nav-stacked">
-                                                    <li class="active"><a href="#tabs5-pane6" data-toggle="tab">Internacional</a></li>
+                                                    <li class="active"><a href="#tabs5-pane6" data-toggle="tab">    Internacional</a></li>
                                                     <!-- <li><a href="#tabs5-pane7" data-toggle="tab">España</a></li> -->
                                                 </ul>
                                             </div><!-- end col -->
@@ -290,10 +294,10 @@
                                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                                 <div class="box">
                                                                     <ul>
-                                                                        <li><a href="/contacto" class="link transitions">Argentina</a></li>
-                                                                        <li><a href="/contacto" class="link transitions">España</a></li>
-                                                                        <li><a href="/contacto" class="link transitions">Estados Unidos</a></li>
-                                                                        <li><a href="/contacto" class="link transitions">Inglaterra</a></li>
+                                                                        <li><a href="/formulario-internacional" class="link transitions">Argentina</a></li>
+                                                                        <li><a href="/formulario-internacional" class="link transitions">España</a></li>
+                                                                        <li><a href="/formulario-internacional" class="link transitions">Estados Unidos</a></li>
+                                                                        <li><a href="/formulario-internacional" class="link transitions">Inglaterra</a></li>
                                                                         <!-- <li><h4>Trámites en México - Argentina</h4></li>
                                                                         <li><a href="/tramites/AR/apostilla-certificado-nacimiento" class="link transitions">Apostillado de Certificado de Nacimiento</a></li>
                                                                         <li><a href="/tramites/AR/apostilla-certificado-matrimonio" class="link transitions">Apostillado de Certificado de Matrimonio</a></li>
@@ -373,14 +377,14 @@
                                                                 <input type="text" name="phone" id="phone2" class="form-control" placeholder="Phone">
                                                                 <input type="text" name="subject" id="subject2" class="form-control" placeholder="Subject"> 
                                                             </div>
-                                                            <div class="clearfix"></div>                   
+                                                            <div class="clearfix"></div>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <textarea class="form-control" name="comments" id="comments2" rows="6" placeholder="Your Message ..."></textarea>
-                                                            </div>   
+                                                            </div>
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="pull-left">
                                                                     <input type="submit" value="SEND" id="submit2" class="btn btn-primary small">
-                                                                </div>  
+                                                                </div>
                                                             </div>
                                                         </form>
                                                     </div><!-- end box -->

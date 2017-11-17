@@ -19,6 +19,11 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.nosotros');
 	}
 
+	public function listado ($req, $res)
+	{		
+		return $this->renderView($res, 'Plain.listado');
+	}
+
 	public function comoFunciona ($req, $res)
 	{		
 		return $this->renderView($res, 'Plain.comoFunciona');
