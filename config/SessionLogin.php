@@ -49,6 +49,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/tramites/{code_contry}/{slug}",
                     "/serv/obtener-precio",
                     "/gracias",
+                    "/listado",
                     "/test-email",
                   ];
 
