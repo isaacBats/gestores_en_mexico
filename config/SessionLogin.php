@@ -50,6 +50,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/serv/obtener-precio",
                     "/gracias",
                     "/listado",
+                    "/formulario-internacional",
                     "/test-email",
                   ];
 

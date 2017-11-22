@@ -24,6 +24,13 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.listado');
 	}
 
+	public function internacional ($req, $res)
+	{		
+		$countriesRepo = new CountryRepo();
+		$countries = $countriesRepo->where(['is_active' => self::ACTIVE]);
+		return $this->renderView($res, 'Plain.formulario-internacional', compact('countries'));
+	}
+
 	public function comoFunciona ($req, $res)
 	{		
 		return $this->renderView($res, 'Plain.comoFunciona');

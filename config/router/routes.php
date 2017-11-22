@@ -22,6 +22,11 @@
 		));
 
 		$router->addRoute(array(
+		  'path'     => '/formulario-internacional',
+		  'get'      => array('Plain', 'internacional')
+		));
+
+		$router->addRoute(array(
 		  'path'     => '/contacto',
 		  'get'      => array('Plain', 'contacto'),
 		  'post'		 => array('Plain', 'sendFormContact')
