@@ -38,6 +38,13 @@
 	@yield('css')
 </head>
 <body class="gradient">
+
+<div class="phoneTop light mayus">
+    <div class="container">
+        <a href="tel:5527189072">Llamar ahora <i class="fa fa-phone" aria-hidden="true"></i></a>
+    </div>
+</div>
+
 	@include('partials.menu')
 	@if (isset($alert))
 		<div class="alert {{ $alert['class'] }} fade in">

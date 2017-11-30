@@ -18,7 +18,7 @@
                             <h1>Gestionamos cualquier trámite, <br>
                             no importa en dónde estés
                             <span>¡la tramitamos por ti!</span> </h1>
-                            <a href="/tramites/MX/acta-matrimonio" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
+                            <a href="/listado" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
                         </div>
                     </div>
                     <div class="item">
@@ -28,7 +28,7 @@
                                 <span>Te ayudamos a gestionar<br>
                                 cualquier tipo de trámite</span>
                             </h1>
-                            <a href="/contacto" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
+                            <a href="/formulario-internacional" class="callToAction transitions"><button class="btn material-btn material-btn_lg material-btn_success">¡Solicítalo aquí!</button></a>
                         </div>
                     </div>
                     <div class="item">
@@ -89,6 +89,7 @@
 	                <div class="col-md-12 dereFull blanco">
 	                    <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
                         <p>Desde cualquier parte de México</p>
+                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
 	                </div>
 	            </div>
 	        </div>

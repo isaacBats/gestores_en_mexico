@@ -259,6 +259,12 @@ height: 100% !important;
 
 .clear {clear: both;}
 
+/* Phone top */
+
+.phoneTop {background: #4682b4; padding: 8px; text-align: center;}
+.phoneTop a {color: #fff; font-size: 20px; background: rgba(0,0,0,.3); padding: 10px;}
+
+
 /*Fixes*/
 
 .fondoNavbar { background: #e6e6e6; }
@@ -387,7 +393,14 @@ sup {font-size: 9px;}
     footer a {
         font-size: 9px;
     }
-
+    .phoneTop { 
+        padding: 0; 
+    }
+    
+    .phoneTop a {
+        padding: 12px;
+        display: block; 
+    }
 }
 
 @media (min-width: 768px) {

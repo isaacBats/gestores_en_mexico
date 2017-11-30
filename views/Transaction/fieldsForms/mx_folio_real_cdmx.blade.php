@@ -1,5 +1,5 @@
 <div class="col-md-4">
-    <select name="attr_estado" id="attr_estado" class="form-control light" readonly>
+    <select name="attr_estado" id="attr_estado" class="form-control light" disabled>
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
             @if ($state->id == 9)
@@ -11,7 +11,7 @@
     <input type="hidden" name="attr_estado" value="9">
 </div>
 <div class="col-md-4">
-    <select name="attr_pais" class="form-control light" readonly>
+    <select name="attr_pais" class="form-control light" disabled>
         <option value="" selected>País donde surtirá efecto</option>
         @foreach ($contries as $contry)
             @if ($contry->id == 142)

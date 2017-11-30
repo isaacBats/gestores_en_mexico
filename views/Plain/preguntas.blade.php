@@ -74,6 +74,7 @@
 	                <div class="col-md-12 blanco">
                         <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
                         <p class="centrar">Desde cualquier parte de México</p>
+                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
                     </div>
 	            </div>
 
