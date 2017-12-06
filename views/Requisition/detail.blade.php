@@ -29,8 +29,8 @@
 									<td>{{ utf8_encode($requisition->transaction->name) }}</td>
 								</tr>
 								<tr>
-									<th class="text-right" >Opción</th>	
-									<td>Aqui va el estado seleccionado al inicio del tramite</td>
+									<th class="text-right" >Lugar de solicitud</th>	
+									<td>{{ $requisition->client->state->name }}</td>
 								</tr>
 								<tr>
 									<th class="text-right" >Copias adicionales</th>	
@@ -77,7 +77,7 @@
 									<th>Estatus</th>
 									<td>
 										<div class="form-group">
-											<select name="status" id="status" class="form-control" data-email="{{ $requisition->reciver->email }}" data-idtransaction={{ $requisition->id }}>
+											<select name="status" id="status" class="form-control" data-email="{{ $requisition->client->email }}" data-idtransaction={{ $requisition->id }}>
 												@foreach ($options as $key => $item)
 													<option value={{ $item }} {{ $requisition->status == $item ? 'selected' : ''}} >{{ Utils::getStatus($item) }}</option>
 												@endforeach	
@@ -140,15 +140,15 @@
 							</tr>
 							<tr>
 								<td class="text-right" >Correo</td>	
-								<td id="reciver-email">{{ $requisition->reciver->email }}</td>
+								<td id="reciver-email">{{ $requisition->client->email }}</td>
 							</tr>
 							<tr>
 								<td class="text-right" >Telefono Fijo</td>	
-								<td>{{ $requisition->reciver->telephone }}</td>
+								<td>{{ $requisition->client->telephone }}</td>
 							</tr>
 							<tr>
 								<td class="text-right" >Celular</td>	
-								<td>{{ $requisition->reciver->mobile }}</td>
+								<td>{{ $requisition->client->mobile }}</td>
 							</tr>
 							<tr>
 								
@@ -156,15 +156,31 @@
 							</tr>
 							<tr>
 								<td class="text-right" >Pais</td>	
-								<td>{{ $requisition->reciver->contry->name }}</td>
+								<td>{{ $requisition->client->contry->name }}</td>
 							</tr>
 							<tr>
-								<td class="text-right" >CP</td>	
-								<td>00998</td>
+								<td class="text-right" >Dirección</td>	
+								<td>{{ $requisition->client->address . ' No. Ext: ' . $requisition->client->num_extern . ' No. Int: ' . $requisition->client->num_inside }}</td>
 							</tr>
 							<tr>
-								<td class="text-right" >Calle</td>	
-								<td>{{ $requisition->reciver->address }}</td>
+								<td class="text-right" >Colonia</td>	
+								<td>{{ $requisition->client->settlement }}</td>
+							</tr>
+							<tr>
+								<td class="text-right" >C.P.:</td>	
+								<td>{{ $requisition->client->zip_code }}</td>
+							</tr>
+							<tr>
+								<td class="text-right" >Delegación / Municipio</td>	
+								<td>{{ $requisition->client->township }}</td>
+							</tr>
+							<tr>
+								<td class="text-right" >Estado</td>	
+								<td>{{ $requisition->client->state->name }}</td>
+							</tr>
+							<tr>
+								<td class="text-right" >Referencia</td>	
+								<td>{{ $requisition->client->reference }}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -195,6 +211,12 @@
 									</tr>
 								@endif
 							@endforeach
+							@if ($requisition->message)
+								<tr>
+									<td class="text-right" >Mensaje Cliente</td>
+									<td>{{ $requisition->message }}</td>
+								</tr>
+							@endif
 						</tbody>
 					</table>
 				</div>

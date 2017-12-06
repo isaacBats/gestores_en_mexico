@@ -174,17 +174,15 @@ class Transaction extends Controller
 			$c = $r = $this->clientController->getMap($client);
 			// Admin List contacts
 			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com', 'jm217938@hotmail.com'];
-			// falta traerme toda la data de la requsisicion
 			// $usersList = ['klonate@gmail.com'];
+			$attributesController = new AttributesController();
+			$attributes = $attributesController->getAttributesByRequisition($requisition->id);
 			foreach ($usersList as $user) {
-				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.email_admins');
+				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'attributes' => $attributes], 'Emails.email_admins');
 			}
 
 			// List users reciver
-			$usersReciver = isset($client) ? array($client->email) : array($hold->email, $reciver->email);
-			foreach ($usersReciver as $userr) {
-				$this->mailer($res, ['usuario' => $userr, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
-			}
+			$this->mailer($res, ['usuario' => $client->email, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
 
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";

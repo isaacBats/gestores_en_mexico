@@ -51,17 +51,31 @@
             </tr>
             <tr>
                 <td>
-                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;"> {{ $data->data_created }}"</span></p>
+                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;"> {{ $data->date_created->format('d-m-Y') }}"</span></p>
                     <h5 style="color:#4682b4; font-size:9px;">Registro de trámite</h5>
                     @foreach ($requisition as $key => $r)
                         <p style="font-size:12px;">{{ $key }}: <span style="font-weight:bold;">{{ $r }}</span></p>
                     @endforeach
-                    <h5 style="color:#4682b4; font-size:9px;">Dirección de Solicitante</h5>
-                    @foreach ($client as $key => $c)
-                        <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
+                    @foreach ($attributes as $key => $attribute)
+                        @if ($key != 'attr_copies' 
+                            && $key != 'attr_total' 
+                            && $key != 'attr_image')
+                            <p style="font-size:12px;">{{ $attribute['name'] }} 
+                                <span style="font-weight:bold;">
+                                    {{ $attribute['value'] }}
+                                </span>
+                            </p>
+                        @endif
                     @endforeach
+                    @if ($data->message)
+                    <p style="font-size:12px;">Mensaje Cliente 
+                        <span style="font-weight:bold;">
+                            {{ $data->message }}
+                        </span>
+                    </p>
+                    @endif
                     <h5 style="color:#4682b4; font-size:9px;">Datos de envío</h5>
-                    @foreach ($reciver as $key => $re)
+                    @foreach ($client as $key => $re)
                         <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $re }} </span></p>
                     @endforeach
                     <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">${{ $data->total_cost }} <sup style="font-size:8px;">MN</sup></span></p>
