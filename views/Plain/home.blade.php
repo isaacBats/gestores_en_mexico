@@ -13,7 +13,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img alt="Carousel Bootstrap First" src="/assets/images/slide-1-c.jpg" />
+                        <img alt="Carousel Bootstrap First" src="/assets/images/slide-1-d.jpg" />
                         <div class="carousel-caption">
                             <h1>Gestionamos cualquier trámite, <br>
                             no importa en dónde estés

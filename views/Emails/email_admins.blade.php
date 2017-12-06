@@ -5,7 +5,7 @@
     <title>Confirmación - Gestores en México</title>
 </head>
 <body style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; margin:0 auto; background:#f7fcfe; color:#363c45;">
-    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px;">
+    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px; margin:0 auto;">
         <tbody>
             <tr>
                 <td>
