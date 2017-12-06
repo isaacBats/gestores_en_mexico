@@ -13,7 +13,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img alt="Carousel Bootstrap First" src="/assets/images/slide-1.jpg" />
+                        <img alt="Carousel Bootstrap First" src="/assets/images/slide-1-c.jpg" />
                         <div class="carousel-caption">
                             <h1>Gestionamos cualquier trámite, <br>
                             no importa en dónde estés
@@ -67,7 +67,7 @@
 	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> No hagas filas</li>
 	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> Ahorra tiempo</li>
 	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> Fácil, seguro y confiable</li>
-	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> Traducimos a más de 20 idiomas</li>
+	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> Traducimos a más de 20 idiomas por perito certificado</li>
 	                            <li><i class="fa fa-chevron-right azul" aria-hidden="true"></i> Enviamos a cualquier parte del mundo</li>
 	                        </ul>
 	                    </div>

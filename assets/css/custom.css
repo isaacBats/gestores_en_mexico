@@ -42,7 +42,7 @@ ul li {list-style: none ;}
 
 .paddingContent {padding: 40px 0;}
 
-.callCenter {background: url(../images/necesitas-ayuda-gestores.png) no-repeat 80% 0 #4682b4;}
+.callCenter {background: url(../images/necesitas-ayuda-gestores.png) no-repeat 80% bottom #4682b4}
 
 .callCentre {background: #4682b4;}
 
@@ -261,8 +261,10 @@ height: 100% !important;
 
 /* Phone top */
 
-.phoneTop {background: #4682b4; padding: 8px; text-align: center;}
-.phoneTop a {color: #fff; font-size: 20px; background: rgba(0,0,0,.3); padding: 10px;}
+.phoneTop {background: #4682b4; padding: 8px; text-align: center; display: block;}
+.phoneTop a {color: #fff; font-size: 20px; background: rgba(0,0,0,.3); padding: 10px; font-weight: 700;}
+
+.phoneDesk { font-size: 20px; font-weight: 700; color: #fff;}
 
 
 /*Fixes*/
@@ -373,11 +375,17 @@ label {
 
 sup {font-size: 9px;}
 
-
+.carousel-inner>.item>a>img, .carousel-inner>.item>img { width: 100%;}
 
 
 
 /*Media Queries*/
+@media (min-width: 600px) {
+    .phoneMobile {
+        display: none;
+    }
+
+}
 
 @media (max-width: 600px) {
   .navbar-default .navbar-nav > li > a {
@@ -401,6 +409,38 @@ sup {font-size: 9px;}
         padding: 12px;
         display: block; 
     }
+    .phoneDesk {
+        display: none;
+    }
+    .carousel-inner {
+        position: relative;
+        /* width: 100%; */
+        /* overflow: hidden; */
+        display: block;
+        height: 310px; 
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#116ab2+0,4682b4+99 */
+        background: #116ab2; /* Old browsers */
+        background: -moz-linear-gradient(left, #116ab2 0%, #4682b4 99%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #116ab2 0%,#4682b4 99%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #116ab2 0%,#4682b4 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116ab2', endColorstr='#4682b4',GradientType=1 ); /* IE6-9 */
+    }
+    .carousel-caption h1 {
+        font-weight: 300;
+        font-size: 18px;
+        color: #fff;
+    }
+    .carousel-indicators li {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+    }
+    .carousel-indicators .active {
+        width: 4px;
+        height: 4px;
+    }
+
+
 }
 
 @media (min-width: 768px) {
@@ -420,12 +460,13 @@ sup {font-size: 9px;}
 
 @media (max-width: 991px) {
     .dereFull {
-    text-align: center;
-  }
-  .callCenter {background: url(../images/necesitas-ayuda-gestores-20.png) no-repeat 80% bottom #4682b4;
-  }
-  .nosotros {background: url(../images/ejecutiva-nosotros-300-20.png) no-repeat 80% bottom #e9eff4;
-  }
+        text-align: center;
+    }
+    .callCenter {
+        background: url(../images/necesitas-ayuda-gestores-20.png) no-repeat 80% bottom #4682b4;
+    }
+    .nosotros {background: url(../images/ejecutiva-nosotros-300-20.png) no-repeat 80% bottom #e9eff4;
+    }
 }
 
 @media (min-width: 800px) {

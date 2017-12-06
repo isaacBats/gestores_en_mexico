@@ -13,7 +13,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo.png" width="140" height="80" alt="Gestores en México" />
+                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo-azul.png" width="140" height="80" alt="Gestores en México" />
                                 </td>
                                 <td width="70%">
                                     <h2 style="font-size:12px; text-align:right; color:#4682b4;">CONSULTORIA ESPECIALIZADA EN GESTORIA DE TRÁMITES <br>
@@ -96,7 +96,7 @@
                                 <td style="padding:10px; text-align:right; font-size:12px;">
                                     <p>Gestores en México<br>
                                     info@gestoreseenmexico.com<br>
-                                    Tel: (55) 5555 5555</p>
+                                    Tel: (55) 2718 9072</p>
                                 </td>
                             </tr>
                         </tbody>
