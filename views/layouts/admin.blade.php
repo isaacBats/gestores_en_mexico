@@ -29,7 +29,7 @@
 	<div class="headerpanel">
 
 	  <div class="logopanel">
-		<h2><a href="/admin/index">Administrador</a></h2>
+		<h2><a href="/admin/index"><img src="/assets/images/logo.png" alt="Gestores en México" height="40"></a></h2>
 	  </div><!-- logopanel -->
 
 	  <div class="headerbar">
