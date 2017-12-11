@@ -41,7 +41,7 @@
                                 <select name="pais" class="form-control">
                                     <option value="" selected>País desde donde nos contactas</option>
                                     @foreach ($countries as $cuontry)
-                                        <option value="{{ $cuontry->id }}" {{ ($cuontry->id == 142) ? 'selected' : '' }}>{{ utf8_encode($cuontry->name) }}</option>
+                                        <option value="{{ utf8_encode($cuontry->name) }}" {{ ($cuontry->id == 142) ? 'selected' : '' }}>{{ utf8_encode($cuontry->name) }}</option>
                                     @endforeach
                                 </select>
                                 <input type="hidden" name="attr_pais" value="142">
