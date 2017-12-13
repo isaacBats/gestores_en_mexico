@@ -329,3 +329,43 @@ INSERT INTO prices (id_state, id_transaction, cost, copy_cost, copy_send, delive
     (30,24,0,0,0,7,9, NOW()),
     (31,24,0,0,0,3,7, NOW()),
     (32,24,0,0,0,3,7, NOW());
+
+
+
+INSERT INTO transactions (id_public, id_transaction_type, id_contry, code_product, name, slug, date_created) VALUES
+('3bb4484311c3b2964c9abb51595ef9f4', 3, 142, 'APOS_TIT_PROFESI', 'Apostilla de título profesional', 'apostilla-titulo-profesional', NOW());
+
+INSERT INTO prices (id_state, id_transaction, cost, copy_cost, copy_send, delivery_min, delivery_max, create_at) VALUES
+-- Precios Apostilla titulo profesional
+    (1,30,0,0,0,3,6, NOW()),
+    (2,30,0,0,0,3,6, NOW()),
+    (3,30,0,0,0,3,7, NOW()),
+    (4,30,0,0,0,3,5, NOW()),
+    (7,30,0,0,0,3,7, NOW()),
+    (8,30,0,0,0,3,7, NOW()),
+    (6,30,0,0,0,3,5, NOW()),
+    (5,30,0,0,0,3,5, NOW()),
+    (9,30,0,0,0,3,4, NOW()),
+    (10,30,0,0,0,3,6, NOW()),
+    (15,30,0,0,0,9,12, NOW()),
+    (11,30,0,0,0,3,5, NOW()),
+    (12,30,0,0,0,3,5, NOW()),
+    (13,30,0,0,0,3,5, NOW()),
+    (14,30,0,0,0,3,5, NOW()),
+    (16,30,0,0,0,3,7, NOW()),
+    (17,30,0,0,0,3,5, NOW()),
+    (18,30,0,0,0,3,5, NOW()),
+    (19,30,0,0,0,3,6, NOW()),
+    (20,30,0,0,0,3,7, NOW()),
+    (21,30,0,0,0,3,7, NOW()),
+    (22,30,0,0,0,3,6, NOW()),
+    (23,30,0,0,0,3,6, NOW()),
+    (24,30,0,0,0,3,6, NOW()),
+    (25,30,0,0,0,3,7, NOW()),
+    (26,30,0,0,0,3,5, NOW()),
+    (27,30,0,0,0,3,7, NOW()),
+    (28,30,0,0,0,3,6, NOW()),
+    (29,30,0,0,0,3,7, NOW()),
+    (30,30,0,0,0,7,9, NOW()),
+    (31,30,0,0,0,3,7, NOW()),
+    (32,30,0,0,0,3,7, NOW());
