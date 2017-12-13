@@ -94,7 +94,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="">
+												<a href="/admin/tramite/remover/{{ $row->id }}" id="delete-tramite">
 													<i class="fa fa-trash"></i>
 												</a>
 											</li>

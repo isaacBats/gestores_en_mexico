@@ -144,4 +144,21 @@ class RequisitionController extends Controller
         $res->add(json_encode($json, JSON_UNESCAPED_UNICODE));
         echo $res->send();
 	}
+
+    /**
+     * Delete requisition in Administrator page
+     * @param  Object $req 
+     * @param  Object $res
+     */
+    public function delete($req, $res)
+    {
+        $requisition = $this->requisitionRepo->get($req->params['id']);
+        try {
+            $this->requisitionRepo->delete($requisition);
+            $this->session->setFlash('alert', ['status' => 'Exito:', 'message' => "Se ha borrado correctamente el tramite GMX-{$requisition->id}!", 'class' => 'alert-info']);
+        } catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ['status' => 'Error:', 'message' => $e->getMessage(), "class" => "alert-warning"]);
+        }
+        header('Location: /admin/tramites');
+    }
 }

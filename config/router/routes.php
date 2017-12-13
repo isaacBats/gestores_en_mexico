@@ -118,6 +118,11 @@
 				'get'	=> array('RequisitionController', 'detailRequisition'),
 				'post'	=> array('RequisitionController', 'update'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/tramite/remover/{id}',
+				'post'	=> array('RequisitionController', 'delete'),
+			));
 	
  		/* Admin Comentarios */
 			$router->addRoute(array(
