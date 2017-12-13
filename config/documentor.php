@@ -20,7 +20,7 @@ function __construct($path = '/docs', $details = false) {
  public function preprocess(&$router) {
     $router->addRoute(array(
       'path' => $this->path,
-      'get'  => array('\Luna\AutoDocumentator', 'generateDocs'),
+      'get'  => array('\config\AutoDocumentator', 'generateDocs'),
     ));
   }
   /**
@@ -29,7 +29,7 @@ function __construct($path = '/docs', $details = false) {
   public function generateDocs($req, $res) {
     $res->setFormat('html');
 
-    $res->add("<h1 class='text-centered'>LUNA - API Documentation</h1>");
+    $res->add("<h1 class='text-centered'>Olive - API Documentation</h1>");
 
     $style = '
     <link rel="stylesheet" type="text/css" href="/assets/css/kube.min.css">

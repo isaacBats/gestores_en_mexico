@@ -88,11 +88,10 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
             $username = $req->data["username"];
             $password = $req->data["password"];
 
-            $user = $usersMapper->where(["user_name" => $username]);
-            if( $user->first() ){
-                if( $user->first()->password === md5($password)){
+            $user = $usersMapper->where(["user_name" => $username])->first();
+            if($user){
+                if($user->password === md5($password)){
 
-                    $user = $user->select()->first();
                     $session->set( "user" , $user );
                     
                     if(isset($req->data["redirect"] )){
@@ -119,10 +118,6 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
   }
 
   function prerender( &$buffer ) {
-
-
+    // your code here
   }
-
-
 }
-?>
