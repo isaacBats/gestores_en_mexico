@@ -8,7 +8,6 @@ function vdd($mixed){
 	echo "<pre>";
 		var_dump($mixed);
 		print_r($mixed);
-        var_export($mixed, true);
 	echo '</pre>';
 	exit;
 }

@@ -3,12 +3,21 @@
 // namespace Olive\controllers;
 use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo as CountryRepo;
+use Olive\infrastructure\RequisitionRepo;
 
 class Plain extends Controller
 {	
 
 	const ACTIVE = 1;
 	const INACTIVE = 0;
+
+	private $requisitionRepo;
+	
+	function __construct()
+	{
+		parent::__construct();
+		$this->requisitionRepo = new RequisitionRepo();
+	}
 
 	public function home( $req , $res ){		
 		return $this->renderView($res, 'Plain.home');
@@ -83,6 +92,18 @@ class Plain extends Controller
 		$rs = $this->session->get('requisition_result');
 		$this->session->set('requisition_result', NULL);
 		return $this->renderView($res, 'Plain.gracias', compact('rs'));
+	}
+
+	public function statusPublico($req, $res)
+	{
+		try {
+			$tramiteIdPublico = $req->data['id'];
+			$requisition = $this->requisitionRepo->where(['id_public' => $tramiteIdPublico])->first();
+			$comments = $requisition->comments_public ? $requisition->comments_public : NULL;
+			return $this->renderView($res, 'Plain.status', compact('comments'));
+		} catch (Exception $e) {
+			throw new Exception("Error: {$e->getMessage()}", 1);
+		}
 	}
 
 	public function test ($req, $res)

@@ -52,6 +52,7 @@ class SessionLogin extends \Zaphpa\BaseMiddleware {
                     "/listado",
                     "/formulario-internacional",
                     "/test-email",
+                    "/tramite/consulta/status",
                   ];
 
     global $spot;

@@ -53,6 +53,11 @@
 		));
 
 		$router->addRoute(array(
+		  'path'     => '/tramite/consulta/status',
+		  'post'      => array('Plain', 'statusPublico')
+		));
+
+		$router->addRoute(array(
 		  'path'     => '/tramites/{code_contry}/{slug}',
 		  'get'      => array('Transaction', 'showFormTransaction'),
 		  'post'	 => array('Transaction', 'saveTrancaction'),
