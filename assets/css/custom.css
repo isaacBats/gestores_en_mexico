@@ -524,11 +524,15 @@ sup {font-size: 9px;}
     }
 
 
+.detalles { margin-bottom: 40px; }
+.detalles p { text-align: justify; }
 
-
-
-
-
-
+.internacionales {}
+.internacionales i {color: #16e847;}
+.internacionales ul { padding-left: 10px; margin-bottom: 40px;}
+.internacionales ul li { }
+.internacionales ul li span { font-size: 9px; font-style: italic; }
+.internacionales h3,h5 { color: #323232 !important; margin-bottom: 30px;}
+.internacionales h4 { color: #4682b4 !important;}
 
 

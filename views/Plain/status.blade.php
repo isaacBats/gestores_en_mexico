@@ -6,9 +6,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="row pushTreinta">
-						<span>
+						<div class="col-md-8 col-md-offset-2">
+							<h1 class="mayus">Detalles de tu trámite</h1>
+						</div>
+						<div class="col-md-8 col-md-offset-2 detalles">
 							{{ $comment->comment }}
-						</span>
+						</div>
 					</div>
 				</div>
 			</div>
