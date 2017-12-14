@@ -97,10 +97,10 @@ class Plain extends Controller
 	public function statusPublico($req, $res)
 	{
 		try {
-			$tramiteIdPublico = $req->data['id'];
-			$requisition = $this->requisitionRepo->where(['id_public' => $tramiteIdPublico])->first();
+			$clave = $req->data['clave'];
+			$requisition = $this->requisitionRepo->where(['id_public' => $clave])->first();
 			$comments = $requisition->comments_public ? $requisition->comments_public : NULL;
-			return $this->renderView($res, 'Plain.status', compact('comments'));
+			return $this->renderView($res, 'Plain.status', compact('comments', 'clave'));
 		} catch (Exception $e) {
 			throw new Exception("Error: {$e->getMessage()}", 1);
 		}

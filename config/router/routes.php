@@ -54,7 +54,7 @@
 
 		$router->addRoute(array(
 		  'path'     => '/tramite/consulta/status',
-		  'post'      => array('Plain', 'statusPublico')
+		  'get'      => array('Plain', 'statusPublico')
 		));
 
 		$router->addRoute(array(

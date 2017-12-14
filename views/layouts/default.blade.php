@@ -60,11 +60,11 @@
             <span class="phoneDesk"><i class="fa fa-phone" aria-hidden="true"></i> <span class="light">Tel:</span> (55) 2718 9072</span>
         </div>
         <div class="col-md-4 consulta">
-
-                <p>Consulta tu trámite</p>
-                <input name="consulta_tramite" class="form-control materail-input light consultaCampo" id="consulta_tramite" placeholder="Ingresa tu ID" required="" aria-required="false">
-                <input type="submit" id="button_consultar" class="btn material-btn_lg material-btn_success main-container__column" value="Buscar">
-
+                <form action="/tramite/consulta/status">
+                    <p>Consulta tu trámite</p>
+                    <input name="clave" class="form-control materail-input light consultaCampo" id="consulta_tramite" placeholder="Ingresa tu clave" required="" aria-required="false" value="{{ isset($clave) ? $clave : NULL; }}">
+                    <input type="submit" id="button_consultar" class="btn material-btn_lg material-btn_success main-container__column" value="Buscar">
+                </form>
         </div>
     </div>
 </div>
