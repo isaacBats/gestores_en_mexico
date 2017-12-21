@@ -66,14 +66,14 @@
                     @foreach ($client as $key => $c)
                         <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
                     @endforeach
-                    {{-- <p style="font-size:12px;">Nombre(s): <span style="font-weight:bold;">Juan </span></p>
-                    <p style="font-size:12px;">Apellido paterno: <span style="font-weight:bold;">Pérex</span></p>
-                    <p style="font-size:12px;">Apellido materno: <span style="font-weight:bold;">Lopex</span></p>
-                    <p style="font-size:12px;">Trámite: <span style="font-weight:bold;">Apostilla de Acta del Registro Civil</span></p>
-                    <p style="font-size:12px;">Cantidad de copias: <span style="font-weight:bold;">1</span></p>
-                    <p style="font-size:12px;">Estado: <span style="font-weight:bold;">Torreón, Coahuila</span></p>
-                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;">11 de enero de 2017</span></p>
-                    <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">$1,350 <sup style="font-size:8px;">MN</sup></span></p> --}}
+                    
+                    <h3 style="color:#4682b4;">
+                        Para consultar el estatus de tu tramite 
+                        <a href="http://{{ $_SERVER['HTTP_HOST'] }}/tramite/consulta/status?clave={{ $data->id_public }}">Da click aqui</a>
+                    </h3>
+                    <p>
+                        Puedes también consultar el estatus con este codigo, en la pagina de Gestores:<br><span>Codigo: </span><strong>{{ $data->id_public }}</strong>
+                    </p>
                     <h5 style="color:#4682b4; font-size:9px;">Formas de pago</h5>
                     <p style="font-size:12px;">Depósito o transferencia electrónica</p>
                     <p style="font-size:12px;">Institución bancaria: <span style="font-weight:bold;">Banamex</span></p>
