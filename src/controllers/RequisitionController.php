@@ -92,8 +92,11 @@ class RequisitionController extends Controller
 		$delivery_max = $requisition->price->delivery_max;
 
 		$options = $requisition->fields()['status']['options'];
-		$fecha_entrega = gmdate('d-m-Y',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
 
+		$fecha_entrega = ($requisition->date_sender) 
+        ? $requisition->date_sender->format('Y-m-d')
+        : gmdate('Y-m-d',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
+        
 		$attributesController = new AttributesController();
 		$attributes = $attributesController->getAttributesByRequisition($requisition->id);
 		
