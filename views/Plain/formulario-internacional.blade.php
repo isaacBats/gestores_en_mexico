@@ -3,9 +3,35 @@
 @section('content')
 	<div class="container paddingContent">
 	    <div class="row">
-	        <div class="col-md-12">
+	        <div class="col-md-8 col-md-offset-2">
 	            <h1 class="titulo mayus">Trámites internacionales</h1>
 	        </div>
+            <div class="col-md-8 col-md-offset-2 internacionales">
+                <h2>Gestores en México tiene mucha experiencia en prestación de servicios migratorios</h2>
+                <h3>En el cual contamos con abogados altamente especializados en materia migratoria, de esa manera podremos brindarle un servicio seguro, transparente y con resultados favorables.</h3>
+                
+                <h4>Nuestros servicios en materia Migratoria son:</h4>
+                <div class="col-md-6">
+                    <ul>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Visitantes</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Residencia Temporal</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Residencia Permanente</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Cambio de condición de Estancia</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Condicion Migratoria por vínculo familiar</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Regularización Migratoria</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Visa de Estudiante</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Visa por oferta de empleo</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Reposición de Residencia por extravío</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Permiso de Salida y entrada</li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Notificaciones al INM <span>(Instituto Nacional de Migración)</span></li>
+                        <li><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Naturalización</li>
+                    </ul>
+                </div>
+            </div>
 	    </div>
 	    <div class="row">
 	        <div class="col-md-12">
@@ -47,7 +73,7 @@
                             </div>
                             
                             <div class="form-group col-md-12">
-                                <textarea class="form-control" name="mensaje" rows="4" id="mensaje" placeholder="mensaje :)" tabindex="5"></textarea>
+                                <textarea class="form-control" name="mensaje" rows="4" id="mensaje" placeholder="Detalles de tu trámite" tabindex="5"></textarea>
                             </div>
                             <div class="form-group col-md-12">
                                 <div class="checkbox">
