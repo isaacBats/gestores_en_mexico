@@ -42,7 +42,7 @@ $(document).ready(function () {
     });
 
     //Agrega el precio dependiendo del estado 
-    $('#hold_estado').on('change', function() {
+    $('#attr_estado').on('change', function() {
         var $transaction = $('#id_transaction');
         var $state = $(this);
         var $costoTramite = $('#costoTramitePesos');

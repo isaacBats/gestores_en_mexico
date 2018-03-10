@@ -106,7 +106,7 @@ class Transaction extends Controller
 				}
 			}
 		}
-		$price = $this->priceRepo->getPrice($data['hold_estado'], $data['id_transaction']);
+		$price = $this->priceRepo->getPrice($data['attr_estado'], $data['id_transaction']);
 		$newRequisition = new Olive\models\Requisition();
 		$newRequisition->id_transaction = $data['id_transaction'];
 		$newRequisition->id_price = $price->id;
