@@ -19,6 +19,14 @@
     </select>
 </div>
 <div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Seleccionar Estado</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
+    </select>
+</div>
+<div class="col-md-4">
     <h5>Fecha de nacimiento</h5>
 </div>
 <div class="col-md-8">
