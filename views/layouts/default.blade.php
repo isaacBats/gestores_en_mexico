@@ -37,6 +37,27 @@
     <![endif]-->
 	@yield('css')
 
+    <!-- Google Code para etiquetas de remarketing -->
+    <!--
+    Es posible que las etiquetas de remarketing todavía no estén asociadas a la información personal identificable o que estén en páginas relacionadas con las categorías delicadas. Para obtener más información e instrucciones sobre cómo configurar la etiqueta, consulte http://google.com/ads/remarketingsetup.
+    -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 869136133;
+        var google_conversion_label = "x4cKCLbE-2sQhe63ngM";
+        var google_remarketing_only = false;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt=""  
+                src="//www.googleadservices.com/pagead/conversion/869136133/?label=x4cKCLbE-2sQhe63ngM&amp;guid=ON&amp;script=0"/>
+        </div>
+    </noscript>
+
+
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
