@@ -75,10 +75,7 @@
                                                                     <ul>
                                                                         <li><h4>Secretaría de Educación Pública</h4></li>
                                                                         <li><a href="/tramites/MX/duplicados-certificado-estudio" class="link transitions">Duplicados de certificado de estudio</a></li>
-                                                                        <li><a href="/tramites/MX/duplicado-cedula-profesional" class="link transitions">Duplicado de cédula profesional</a></li>
-                                                                        <li><a href="/tramites/MX/registro-titulo-cedula-profesional" class="link transitions">Regístro de título y cédula profesional</a></li>
                                                                         <li><a href="/tramites/MX/revalidacion-estudios" class="link transitions">Revalidación de estudios</a></li>
-                                                                        <li><a href="/tramites/MX/registro-grado" class="link transitions">Registro de grado</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
