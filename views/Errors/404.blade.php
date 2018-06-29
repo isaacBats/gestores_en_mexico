@@ -4,16 +4,15 @@
     <div class="aliceBlue paddingContent">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-offset-5 col-md-6">
                     <h1 class="titulo mayus">404 Not Found</h1>
                     <!-- <h3 class="mayus light">trámites sin complicaciones, tan sólo en 3 sencillos pasos</h3> -->
                 </div>
             </div>
 
             <div class="row pushTreinta">
-                <div class="col-md-12">
+                <div class="col-md-12 mayus azul h3">
                     {{ $error }}
-
                 </div>
             </div>
 
