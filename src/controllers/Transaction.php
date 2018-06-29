@@ -75,11 +75,30 @@ class Transaction extends Controller
 					$costo = $price;
 			}
 		}
-
+		// if(file_exists())
 		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
+		$arch = __OLIVE__ . '/views/' . str_replace('.', '/', $template) . '.blade.php';
+		if (file_exists($arch)) {
+			return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
+		} else {
+			return $this->renderView($res, 'Errors.404', ['error' => 'No se encontro el formulario']);
+			// $response = json_encode([
+			// 	'response' => 'No se pudo encontra la pagina',
+			// 	'error' => 'N/A',
+			// 	'code' => 1
+			// ]);
+			// http_response_code(404);
+			// throw new Exception('No se pudo encontra el formulario');
+			// exit;
+			
+			// // echo $response; exit;
+			// $res->setFormat("json");
+		 //    $res->add($response);
+		 //    $res->send(404);
+
+		}
 		
-		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
 	}
 
 	public function saveTrancaction($req, $res)
