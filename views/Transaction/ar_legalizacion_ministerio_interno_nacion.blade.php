@@ -7,14 +7,18 @@
                 <div class="col-md-8 col-md-offset-2 requisitos">
 	                <img src="/assets/images/bandera-Mexico.svg" class="imgSVG bandera" alt="Gestores en México" title="Gestores en México y Argentina" />
 	                <img src="/assets/images/bandera-Argentina.svg" class="imgSVG bandera" alt="Gestores en México" title="Gestores en México y Argentina" />
-		            <h1 class="titulo mayus">Legalización en Ministerio del Interior de la Nación</h1>
+		            {{-- <h1 class="titulo mayus">Legalización en Ministerio del Interior de la Nación</h1>
                     <p>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</p>
                     <p><em>Tiempo requerido: de 3 a 4 días hábiles aprox.</em></p>
                     <h4 class="mayus light azul">Requisitos</h4>
                     <ul>
                         <li>Requisito 1</li>
                         <li>Requisito 2</li>
-                    </ul>
+                    </ul> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
 	            </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))

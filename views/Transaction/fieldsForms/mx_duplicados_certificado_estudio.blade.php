@@ -7,9 +7,9 @@
 <div class="col-md-4">
     <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno" required >
 </div>
-<div class="col-md-4">
+<!-- <div class="col-md-4">
     <input name="attr_no_cedula" class="form-control materail-input light" id="cedula" placeholder="Numero de cédula">
-</div>
+</div> -->
 <div class="col-md-4">
     <input name="attr_profesion" class="form-control materail-input light" id="profesion" placeholder="Profesión">
 </div>

@@ -21,6 +21,14 @@
         <option value="2">Mujer</option>
     </select>
 </div>
+<div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Seleccionar Estado</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
+    </select>
+</div>
 <div class="col-md-12">
     <div class="field">
     <p>Menciona el dato a corregir, cómo dice y cómo debe de decir</p>

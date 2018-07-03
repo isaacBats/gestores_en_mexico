@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of AtaqueVisual.
+ *
+ * (c) Isaac Daniel Batista <@codeisaac>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 /**
  * Mejor visualizacion de print_r y de var_dump
@@ -8,7 +16,6 @@ function vdd($mixed){
 	echo "<pre>";
 		var_dump($mixed);
 		print_r($mixed);
-        var_export($mixed, true);
 	echo '</pre>';
 	exit;
 }

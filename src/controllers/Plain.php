@@ -1,14 +1,31 @@
 <?php 
+/*
+ * This file is part of AtaqueVisual.
+ *
+ * (c) Isaac Daniel Batista <@codeisaac>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 // namespace Olive\controllers;
 use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo as CountryRepo;
+use Olive\infrastructure\RequisitionRepo;
 
 class Plain extends Controller
 {	
 
 	const ACTIVE = 1;
 	const INACTIVE = 0;
+
+	private $requisitionRepo;
+	
+	function __construct()
+	{
+		parent::__construct();
+		$this->requisitionRepo = new RequisitionRepo();
+	}
 
 	public function home( $req , $res ){		
 		return $this->renderView($res, 'Plain.home');
@@ -17,6 +34,18 @@ class Plain extends Controller
 	public function nosotros ($req, $res)
 	{		
 		return $this->renderView($res, 'Plain.nosotros');
+	}
+
+	public function listado ($req, $res)
+	{		
+		return $this->renderView($res, 'Plain.listado');
+	}
+
+	public function internacional ($req, $res)
+	{		
+		$countriesRepo = new CountryRepo();
+		$countries = $countriesRepo->where(['is_active' => self::ACTIVE]);
+		return $this->renderView($res, 'Plain.formulario-internacional', compact('countries'));
 	}
 
 	public function comoFunciona ($req, $res)
@@ -42,13 +71,13 @@ class Plain extends Controller
 			$usuario = 'klonate@gmail.com';
 		
 		$subject = 'Nuevo Contacto :D';
-		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto'))
+		
+		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto')){
 			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
-		else
+		} else {
 			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
-
-    header('Location: /contacto');
-    exit();
+		}
+    	header('Location: /contacto');
 	}
 
 	public function aviso ($req, $res)
@@ -73,16 +102,27 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.gracias', compact('rs'));
 	}
 
+	public function statusPublico($req, $res)
+	{
+		try {
+			$clave = $req->data['clave'];
+			$requisition = $this->requisitionRepo->where(['id_public' => $clave])->first();
+			$comments = $requisition->comments_public ? $requisition->comments_public : NULL;
+			return $this->renderView($res, 'Plain.status', compact('comments', 'clave'));
+		} catch (Exception $e) {
+			throw new Exception("Error: {$e->getMessage()}", 1);
+		}
+	}
+
 	public function test ($req, $res)
 	{
-		self::vdd($_SERVER);
 		$color = 'Red';
 		$usuario = 'klonate@gmail.com';
 		$subject = 'Test email';
-		if ($mail = $this->mailer($res, compact('color', 'usuario', 'subject'), 'Emails.test'))
+		if ($mail = $this->mailer($res, compact('color', 'usuario', 'subject'), 'Emails.test') === true)
 			exit('Se ha enviado el correo ');
-		else
+		else {
 			die('No se mando el correo');
+		}
 	}
-
 }

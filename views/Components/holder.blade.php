@@ -33,7 +33,7 @@
         <input name="hold_num_ext" class="form-control materail-input light" id="hold_num_ext" placeholder="Número exterior" required>
     </div>
     <div class="col-md-4">
-        <input name="hold_num_int" class="form-control materail-input light" id="hold_num_int" placeholder="Número interior" required>
+        <input name="hold_num_int" class="form-control materail-input light" id="hold_num_int" placeholder="Número interior" >
     </div>
     <div class="col-md-4">
         <input name="hold_colonia" class="form-control materail-input light" id="hold_colonia" placeholder="Colonia" required>

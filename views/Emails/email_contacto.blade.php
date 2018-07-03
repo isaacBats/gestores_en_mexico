@@ -5,7 +5,7 @@
     <title>Contacto - Gestores en México</title>
 </head>
 <body style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; margin:0 auto; background:#f7fcfe; color:#363c45;">
-    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px;">
+    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px; margin:0 auto; border:1px solid #ebebeb;">
         <tbody>
             <tr>
                 <td>
@@ -13,7 +13,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo.png" width="140" height="80" alt="Gestores en México" />
+                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo-azul.png" width="140" height="80" alt="Gestores en México" />
                                 </td>
                                 <td width="70%">
                                     <h2 style="font-size:12px; text-align:right; color:#4682b4;">CONSULTORIA ESPECIALIZADA EN GESTORIA DE TRÁMITES <br>

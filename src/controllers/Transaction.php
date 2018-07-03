@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of AtaqueVisual.
+ *
+ * (c) Isaac Daniel Batista <@codeisaac>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo;
@@ -11,6 +19,7 @@ use Olive\infrastructure\ClientRepo;
 use Olive\infrastructure\TownshipRepo;
 use Olive\infrastructure\AttributeRepo;
 use Olive\infrastructure\DataRequisitionRepo;
+use Olive\infrastructure\FormRepo;
 use \Upload\Storage\FileSystem;
 use \Upload\File;
 
@@ -31,12 +40,14 @@ class Transaction extends Controller
 	private $clientRepo;
 	private $stateRepo;
 	private $priceRepo;
+	private $formRepo;
 	private $clientController;
 
 	
 	function __construct()
 	{
 		parent::__construct();
+		$this->dataRequisitionRepo = new DataRequisitionRepo();
 		$this->stateRepo = new StateRepo();
 		$this->contryRepo = new ContryRepo();
 		$this->transactionRepo = new TransactionRepo();
@@ -46,7 +57,7 @@ class Transaction extends Controller
 		$this->clientRepo = new ClientRepo();
 		$this->townshipRepo = new TownshipRepo();
 		$this->attributeRepo = new AttributeRepo();
-		$this->dataRequisitionRepo = new DataRequisitionRepo();
+		$this->formRepo = new FormRepo();
 		$this->clientController = new Client();
 	}
 
@@ -64,36 +75,42 @@ class Transaction extends Controller
 					$costo = $price;
 			}
 		}
-
 		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
+		$arch = __OLIVE__ . '/views/' . str_replace('.', '/', $template) . '.blade.php';
+		if (file_exists($arch)) {
+			return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
+		} else {
+			return $this->renderView($res, 'Errors.404', ['error' => 'No se encontro el formulario']);
+		}
 		
-		return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
 	}
 
 	public function saveTrancaction($req, $res)
 	{
 		// Para guardar el archivo si es que trae.
 		$data = $req->data;
-		if ($_FILES['attr_image']['error'] == 0 ) {
-			$storage = new FileSystem(__ASSETS__.'storage');
-			$file = new File('attr_image', $storage);
-			$file->setName($file->getName().'_'.uniqid());
-			$file->addValidations(array(
-			    new \Upload\Validation\Mimetype(['image/png', 'image/jpeg', 'image/jpg', 'image/gif']),
-			    new \Upload\Validation\Size('5M')
-			));
-			try {
-			    
-			    $file->upload();
-			$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
+		if (isset($_FILES['attr_image'])) {
+			if ($_FILES['attr_image']['error'] == 0 ) {
+				$storage = new FileSystem(__ASSETS__.'storage');
+				$file = new File('attr_image', $storage);
+				$file->setName($file->getName().'_'.uniqid());
+				$file->addValidations(array(
+				    new \Upload\Validation\Mimetype(['image/png', 'image/jpeg', 'image/jpg', 'image/gif']),
+				    new \Upload\Validation\Size('5M')
+				));
+				try {
+				    
+				    $file->upload();
+				$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
 
-			} catch (\Exception $e) {
+				} catch (\Exception $e) {
 
-			    $errorsFile = $file->getErrors();
+				    $errorsFile = $file->getErrors();
+				}
 			}
 		}
-		$price = $this->priceRepo->getPrice($data['hold_estado'], $data['id_transaction']);
+		$price = $this->priceRepo->getPrice($data['attr_estado'], $data['id_transaction']);
 		$newRequisition = new Olive\models\Requisition();
 		$newRequisition->id_transaction = $data['id_transaction'];
 		$newRequisition->id_price = $price->id;
@@ -169,17 +186,15 @@ class Transaction extends Controller
 			$c = $r = $this->clientController->getMap($client);
 			// Admin List contacts
 			$usersList = ['info@gestoresenmexico.com', 'ataquevisual@gmail.com', 'klonate@gmail.com', 'jm217938@hotmail.com'];
-			// falta traerme toda la data de la requsisicion
 			// $usersList = ['klonate@gmail.com'];
+			$attributesController = new AttributesController();
+			$attributes = $attributesController->getAttributesByRequisition($requisition->id);
 			foreach ($usersList as $user) {
-				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'reciver' => $r], 'Emails.email_admins');
+				$this->mailer($res, ['usuario' => $user, 'subject' => 'Nuevo Tramite', 'data' => $requisition, 'requisition' => $dataRequisition, 'client' => $c, 'attributes' => $attributes], 'Emails.email_admins');
 			}
 
 			// List users reciver
-			$usersReciver = isset($client) ? array($client->email) : array($hold->email, $reciver->email);
-			foreach ($usersReciver as $userr) {
-				$this->mailer($res, ['usuario' => $userr, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
-			}
+			$this->mailer($res, ['usuario' => $client->email, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
 
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";

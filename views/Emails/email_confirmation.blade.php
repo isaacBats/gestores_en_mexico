@@ -5,7 +5,7 @@
     <title>Confirmación - Gestores en México</title>
 </head>
 <body style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; margin:0 auto; background:#f7fcfe; color:#363c45;">
-    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px;">
+    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px; margin:0 auto; border:1px solid #ebebeb;">
         <tbody>
             <tr>
                 <td>
@@ -13,7 +13,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo.png" width="140" height="80" alt="Gestores en México" />
+                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo-azul.png" width="140" height="80" alt="Gestores en México" />
                                 </td>
                                 <td width="70%">
                                     <h2 style="font-size:12px; text-align:right; color:#4682b4;">CONSULTORIA ESPECIALIZADA EN GESTORIA DE TRÁMITES <br>
@@ -66,14 +66,14 @@
                     @foreach ($client as $key => $c)
                         <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
                     @endforeach
-                    {{-- <p style="font-size:12px;">Nombre(s): <span style="font-weight:bold;">Juan </span></p>
-                    <p style="font-size:12px;">Apellido paterno: <span style="font-weight:bold;">Pérex</span></p>
-                    <p style="font-size:12px;">Apellido materno: <span style="font-weight:bold;">Lopex</span></p>
-                    <p style="font-size:12px;">Trámite: <span style="font-weight:bold;">Apostilla de Acta del Registro Civil</span></p>
-                    <p style="font-size:12px;">Cantidad de copias: <span style="font-weight:bold;">1</span></p>
-                    <p style="font-size:12px;">Estado: <span style="font-weight:bold;">Torreón, Coahuila</span></p>
-                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;">11 de enero de 2017</span></p>
-                    <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">$1,350 <sup style="font-size:8px;">MN</sup></span></p> --}}
+                    
+                    <h3 style="color:#4682b4;">
+                        Para consultar el estatus de tu tramite 
+                        <a href="http://{{ $_SERVER['HTTP_HOST'] }}/tramite/consulta/status?clave={{ $data->id_public }}">Da click aqui</a>
+                    </h3>
+                    <p>
+                        Puedes también consultar el estatus con este codigo, en la pagina de Gestores:<br><span>Codigo: </span><strong>{{ $data->id_public }}</strong>
+                    </p>
                     <h5 style="color:#4682b4; font-size:9px;">Formas de pago</h5>
                     <p style="font-size:12px;">Depósito o transferencia electrónica</p>
                     <p style="font-size:12px;">Institución bancaria: <span style="font-weight:bold;">Banamex</span></p>
@@ -96,7 +96,7 @@
                                 <td style="padding:10px; text-align:right; font-size:12px;">
                                     <p>Gestores en México<br>
                                     info@gestoreseenmexico.com<br>
-                                    Tel: (55) 5555 5555</p>
+                                    Tel: (55) 2718 9072</p>
                                 </td>
                             </tr>
                         </tbody>

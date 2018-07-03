@@ -42,7 +42,7 @@ ul li {list-style: none ;}
 
 .paddingContent {padding: 40px 0;}
 
-.callCenter {background: url(../images/necesitas-ayuda-gestores.png) no-repeat 80% 0 #4682b4;}
+.callCenter {background: url(../images/necesitas-ayuda-gestores.png) no-repeat 80% bottom #4682b4}
 
 .callCentre {background: #4682b4;}
 
@@ -259,6 +259,14 @@ height: 100% !important;
 
 .clear {clear: both;}
 
+/* Phone top */
+
+.phoneTop {background: #4682b4; padding: 8px; text-align: center; display: block;}
+.phoneTop a {color: #fff; font-size: 20px; background: rgba(0,0,0,.3); padding: 10px; font-weight: 700;}
+
+.phoneDesk { font-size: 20px; font-weight: 700; color: #fff;}
+
+
 /*Fixes*/
 
 .fondoNavbar { background: #e6e6e6; }
@@ -367,11 +375,17 @@ label {
 
 sup {font-size: 9px;}
 
-
+.carousel-inner>.item>a>img, .carousel-inner>.item>img { width: 100%;}
 
 
 
 /*Media Queries*/
+@media (min-width: 600px) {
+    .phoneMobile {
+        display: none;
+    }
+
+}
 
 @media (max-width: 600px) {
   .navbar-default .navbar-nav > li > a {
@@ -387,6 +401,63 @@ sup {font-size: 9px;}
     footer a {
         font-size: 9px;
     }
+    .phoneTop { 
+        padding: 0; 
+    }
+    
+    .phoneTop a {
+        padding: 12px;
+        display: block; 
+    }
+    .phoneDesk {
+        display: none;
+    }
+    .carousel-inner {
+        position: relative;
+        /* width: 100%; */
+        /* overflow: hidden; */
+        display: block;
+        height: 310px; 
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#116ab2+0,4682b4+99 */
+        background: #116ab2; /* Old browsers */
+        background: -moz-linear-gradient(left, #116ab2 0%, #4682b4 99%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #116ab2 0%,#4682b4 99%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #116ab2 0%,#4682b4 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116ab2', endColorstr='#4682b4',GradientType=1 ); /* IE6-9 */
+    }
+    .carousel-caption h1 {
+        font-weight: 300;
+        font-size: 18px;
+        color: #fff;
+    }
+    .carousel-indicators li {
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+    }
+    .carousel-indicators .active {
+        width: 4px;
+        height: 4px;
+    }
+
+    .consulta {
+        margin-bottom: 20px;
+    }
+    .consulta input {
+        display: block;
+        width: 100% !important;
+    }
+    .consulta p { 
+        display: block;
+        width: 100%;
+        text-align:center;
+        font-size: 20px;
+    }
+
+    .consultaCampo { 
+        display: block;
+        width: 100%
+        }
 
 }
 
@@ -407,12 +478,13 @@ sup {font-size: 9px;}
 
 @media (max-width: 991px) {
     .dereFull {
-    text-align: center;
-  }
-  .callCenter {background: url(../images/necesitas-ayuda-gestores-20.png) no-repeat 80% bottom #4682b4;
-  }
-  .nosotros {background: url(../images/ejecutiva-nosotros-300-20.png) no-repeat 80% bottom #e9eff4;
-  }
+        text-align: center;
+    }
+    .callCenter {
+        background: url(../images/necesitas-ayuda-gestores-20.png) no-repeat 80% bottom #4682b4;
+    }
+    .nosotros {background: url(../images/ejecutiva-nosotros-300-20.png) no-repeat 80% bottom #e9eff4;
+    }
 }
 
 @media (min-width: 800px) {
@@ -434,3 +506,47 @@ sup {font-size: 9px;}
     text-align: center;
     width: 60px;
 }
+
+.consulta { }
+.consulta input {font-size: 11px !important; height: 30px;}
+.consulta p { 
+    color: #fff;
+    float: left;
+    margin: 5px 9px 0 0;
+    text-transform: initial;
+    font-size: 11px;
+    }
+
+.consultaCampo { 
+    width: 166px !important;
+    float: left;
+    margin-right: 5px;
+    }
+
+
+.detalles { margin-bottom: 40px; }
+.detalles p { text-align: justify; }
+
+.internacionales {}
+.internacionales i {color: #16e847;}
+.internacionales ul { padding-left: 10px; margin-bottom: 40px;}
+.internacionales ul li { }
+.internacionales ul li span { font-size: 9px; font-style: italic; }
+.internacionales h3,h5 { color: #323232 !important; margin-bottom: 30px;}
+.internacionales h4 { color: #4682b4 !important;}
+
+.botonIntBox {
+    background: #62e223 !important;
+    text-align: center;
+    padding-left: 25px !important;}
+
+.botonInt {
+    text-align: center;
+    font-size: 14px !important;
+    line-height: 16px;
+    color: #fff !important;
+    display: inline-block;
+    text-shadow: 1px 1px 0 #398e0b;
+    font-weight: bold !important;}
+
+

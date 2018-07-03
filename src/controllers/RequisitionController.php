@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of AtaqueVisual.
+ *
+ * (c) Isaac Daniel Batista <@codeisaac>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 use Olive\controllers\Controller;
 use Olive\models\Requisition;
@@ -84,8 +92,11 @@ class RequisitionController extends Controller
 		$delivery_max = $requisition->price->delivery_max;
 
 		$options = $requisition->fields()['status']['options'];
-		$fecha_entrega = gmdate('d-m-Y',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
 
+		$fecha_entrega = ($requisition->date_sender) 
+        ? $requisition->date_sender->format('Y-m-d')
+        : gmdate('Y-m-d',strtotime('+'.$delivery_max.' day', $requisition->date_created->getTimestamp()));
+        
 		$attributesController = new AttributesController();
 		$attributes = $attributesController->getAttributesByRequisition($requisition->id);
 		
@@ -144,4 +155,21 @@ class RequisitionController extends Controller
         $res->add(json_encode($json, JSON_UNESCAPED_UNICODE));
         echo $res->send();
 	}
+
+    /**
+     * Delete requisition in Administrator page
+     * @param  Object $req 
+     * @param  Object $res
+     */
+    public function delete($req, $res)
+    {
+        $requisition = $this->requisitionRepo->get($req->params['id']);
+        try {
+            $this->requisitionRepo->delete($requisition);
+            $this->session->setFlash('alert', ['status' => 'Exito:', 'message' => "Se ha borrado correctamente el tramite GMX-{$requisition->id}!", 'class' => 'alert-info']);
+        } catch (Spot\Exception $e) {
+            $this->session->setFlash("alert", ['status' => 'Error:', 'message' => $e->getMessage(), "class" => "alert-warning"]);
+        }
+        header('Location: /admin/tramites');
+    }
 }

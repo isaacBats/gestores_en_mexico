@@ -1,4 +1,12 @@
 <?php 
+/*
+ * This file is part of AtaqueVisual.
+ *
+ * (c) Isaac Daniel Batista <@codeisaac>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 use Olive\controllers\Controller;
 use Olive\infrastructure\StateRepo;
@@ -30,13 +38,14 @@ class Client extends Controller
 		$row['Apellido materno:'] = $client->last_name;
 		$row['Email:'] = $client->email;
 		$row['Telefono:'] = $client->telephone;
+		$row['Celular:'] = $client->mobile;
 		$row['Calle:'] = $client->address;
 		$row['Número exterior:'] = $client->num_extern;
 		$row['Número interior:'] = $client->num_inside;
-		$row['Colonia:'] = $settlement->name;
-		$row['Delegación/Municipio:'] = $township->name;
+		$row['Colonia:'] = $client->settlement;
+		$row['Delegación/Municipio:'] = $client->township;
 		$row['Estado:'] = $state->name;
-		$row['C.P.:'] = $settlement->zipcode;
+		$row['C.P.:'] = $client->zip_code;
 		$row['Referencia:'] = $client->reference;
 		return $row;
 	}

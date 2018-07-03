@@ -30,9 +30,9 @@ $(document).ready(function () {
     // TODO: @Jquery Crear una funcion que checkee el checkbox general en el admin de paices.
 
      /*
-	 * Modal para eliminar Usuarios
-	 */
-	$('a#delete-user').on('click', function(event) {
+     * Modal para eliminar Usuarios
+     */
+    $('a#delete-user').on('click', function(event) {
         event.preventDefault();
         var routeAction = $(this).attr('href');
         var $modal = $('#generalModal');
@@ -42,6 +42,23 @@ $(document).ready(function () {
         $form.attr('action', routeAction).attr('method', 'post');
         $modal.find('.modal-title').html('Eliminar usuario');
         $modal.find('.modal-body p').html('¿Seguro que quieres eliminar a <strong>'+user_name+'</strong> ?');
+        $modal.find('#btn-submit').html('Eliminar');
+        $modal.modal('show');
+     });
+
+     /*
+	 * Modal para eliminar tramites
+	 */
+	$('a#delete-tramite').on('click', function(event) {
+        event.preventDefault();
+        var routeAction = $(this).attr('href');
+        var $modal = $('#generalModal');
+        var $form = $modal.find('form');
+        var trFather = $(this).parent().parent().parent().parent();
+        var num_tramite = trFather.find('td')[0].innerHTML;
+        $form.attr('action', routeAction).attr('method', 'post');
+        $modal.find('.modal-title').html('Eliminar tramite');
+        $modal.find('.modal-body p').html('¿Seguro que quieres eliminar el tramite <strong>'+num_tramite+'</strong> ?');
         $modal.find('#btn-submit').html('Eliminar');
         $modal.modal('show');
      });

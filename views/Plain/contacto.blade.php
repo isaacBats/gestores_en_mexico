@@ -41,7 +41,7 @@
                                 <select name="pais" class="form-control">
                                     <option value="" selected>País desde donde nos contactas</option>
                                     @foreach ($countries as $cuontry)
-                                        <option value="{{ $cuontry->id }}" {{ ($cuontry->id == 142) ? 'selected' : '' }}>{{ utf8_encode($cuontry->name) }}</option>
+                                        <option value="{{ utf8_encode($cuontry->name) }}" {{ ($cuontry->id == 142) ? 'selected' : '' }}>{{ utf8_encode($cuontry->name) }}</option>
                                     @endforeach
                                 </select>
                                 <input type="hidden" name="attr_pais" value="142">
@@ -75,6 +75,7 @@
 	                <div class="col-md-12 blanco">
                         <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
                         <p class="centrar">Desde cualquier parte de México</p>
+                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
                     </div>
 	            </div>
 	        </div>

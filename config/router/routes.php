@@ -17,6 +17,16 @@
 		));
 
 		$router->addRoute(array(
+		  'path'     => '/listado',
+		  'get'      => array('Plain', 'listado')
+		));
+
+		$router->addRoute(array(
+		  'path'     => '/formulario-internacional',
+		  'get'      => array('Plain', 'internacional')
+		));
+
+		$router->addRoute(array(
 		  'path'     => '/contacto',
 		  'get'      => array('Plain', 'contacto'),
 		  'post'		 => array('Plain', 'sendFormContact')
@@ -40,6 +50,11 @@
 		$router->addRoute(array(
 		  'path'     => '/test-email',
 		  'get'      => array('Plain', 'test')
+		));
+
+		$router->addRoute(array(
+		  'path'     => '/tramite/consulta/status',
+		  'get'      => array('Plain', 'statusPublico')
 		));
 
 		$router->addRoute(array(
@@ -108,6 +123,11 @@
 				'get'	=> array('RequisitionController', 'detailRequisition'),
 				'post'	=> array('RequisitionController', 'update'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/tramite/remover/{id}',
+				'post'	=> array('RequisitionController', 'delete'),
+			));
 	
  		/* Admin Comentarios */
 			$router->addRoute(array(
@@ -158,4 +178,16 @@
 			$router->addRoute(array(
 				'path'	=> '/admin/paises/guardar-configuracion',
 				'post'	=> array('CountryController', 'saveConf'),
+			));
+
+		/* Admin CMS Forms */
+			$router->addRoute(array(
+				'path'	=> '/admin/formularios',
+				'get'	=> array('FormController', 'index'),
+			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/formulario/{formid}',
+				'get'	=> array('FormController', 'edit'),
+				'post'	=> array('FormController', 'update'),
 			));

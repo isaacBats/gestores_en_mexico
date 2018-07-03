@@ -17,11 +17,11 @@
 							<label for="copy_cost">Costo copia</label>
 							<input type="text" name="copy_cost" class="form-control" value="{{ $price->copy_cost }}" />
 						</div>
-						<div class="form-group col-sm-3">
-							<label for="copy_send">Costo copia envio</label>
-							<input type="text" name="copy_send" class="form-control" value="{{ $price->copy_send }}" />
-						</div>
 					@endif
+					<div class="form-group col-sm-3">
+						<label for="copy_send">Costo copia envio</label>
+						<input type="text" name="copy_send" class="form-control" value="{{ $price->copy_send }}" />
+					</div>
 					<div class="form-group col-sm-3">
 						<label for="">Tiempo mínimo de entrega</label>
 						<input type="text" name="delivery_min" class="form-control" value="{{ $price->delivery_min }}" />

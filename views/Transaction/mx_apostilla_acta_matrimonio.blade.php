@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">Apostilla de acta de matrimonio</h1>
+                    {{-- <h1 class="titulo mayus">Apostilla de acta de matrimonio</h1>
                     <p>¿Va a utilizar su acta en otro país? le será necesario el sello del convenio de la halla, evite perder tiempo, hágalo rápido y a la primera, sin largas filas. Nosotros lo hacemos por usted. ¿No la tiene aún? Tramítala aquí.</p>
                     <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p>
                     <p><strong>Para este trámite nos es necesario contar con el original de su acta a apostillar de reciente expedición, es necesario nos la haga llegar, si no la tiene aún despreocúpese, la tramitamos por usted, déjenos saberlo en el espacio de comentarios.</strong></p>
@@ -13,7 +13,11 @@
                     <ul class="noneo">
                         <li>Requisito 1</li>
                         <li>Requisito 2</li>
-                    </ul>
+                    </ul> --}}
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <p>
+                        {{ $transaction->form->description }}
+                    </p>
                 </div>
             </div>
             @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
@@ -29,6 +33,7 @@
                     <div class="col-md-12 blanco">
                         <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
                         <p class="centrar">Desde cualquier parte de México</p>
+                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
                     </div>
                 </div>
             </div>

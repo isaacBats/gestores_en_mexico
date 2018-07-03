@@ -5,7 +5,7 @@
     <title>Confirmación - Gestores en México</title>
 </head>
 <body style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; margin:0 auto; background:#f7fcfe; color:#363c45;">
-    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px;">
+    <table width="600" border="0" cellpadding="0" style="background:#fff; padding:20px; margin:0 auto;">
         <tbody>
             <tr>
                 <td>
@@ -13,7 +13,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo.png" width="140" height="80" alt="Gestores en México" />
+                                    <img src="{{ $_SERVER['HTTP_HOST'] }}/assets/images/logo-azul.png" width="140" height="80" alt="Gestores en México" />
                                 </td>
                                 <td width="70%">
                                     <h2 style="font-size:12px; text-align:right; color:#4682b4;">CONSULTORIA ESPECIALIZADA EN GESTORIA DE TRÁMITES <br>
@@ -51,17 +51,31 @@
             </tr>
             <tr>
                 <td>
-                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;"> {{ $data->data_created }}"</span></p>
+                    <p style="font-size:12px;">Fecha de solicitud: <span style="font-weight:bold;"> {{ $data->date_created->format('d-m-Y') }}"</span></p>
                     <h5 style="color:#4682b4; font-size:9px;">Registro de trámite</h5>
                     @foreach ($requisition as $key => $r)
                         <p style="font-size:12px;">{{ $key }}: <span style="font-weight:bold;">{{ $r }}</span></p>
                     @endforeach
-                    <h5 style="color:#4682b4; font-size:9px;">Dirección de Solicitante</h5>
-                    @foreach ($client as $key => $c)
-                        <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
+                    @foreach ($attributes as $key => $attribute)
+                        @if ($key != 'attr_copies' 
+                            && $key != 'attr_total' 
+                            && $key != 'attr_image')
+                            <p style="font-size:12px;">{{ $attribute['name'] }} 
+                                <span style="font-weight:bold;">
+                                    {{ $attribute['value'] }}
+                                </span>
+                            </p>
+                        @endif
                     @endforeach
+                    @if ($data->message)
+                    <p style="font-size:12px;">Mensaje Cliente 
+                        <span style="font-weight:bold;">
+                            {{ $data->message }}
+                        </span>
+                    </p>
+                    @endif
                     <h5 style="color:#4682b4; font-size:9px;">Datos de envío</h5>
-                    @foreach ($reciver as $key => $re)
+                    @foreach ($client as $key => $re)
                         <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $re }} </span></p>
                     @endforeach
                     <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">${{ $data->total_cost }} <sup style="font-size:8px;">MN</sup></span></p>
@@ -80,7 +94,7 @@
                                 <td style="padding:10px; text-align:right; font-size:12px;">
                                     <p>Gestores en México<br>
                                     info@gestoreseenmexico.com<br>
-                                    Tel: (55) 5555 5555</p>
+                                    Tel: (55) 2718 9072</p>
                                 </td>
                             </tr>
                         </tbody>
