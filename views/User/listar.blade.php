@@ -25,19 +25,19 @@
 					</thead>
 					<tbody>
 						{{--*/ $i = 1 /*--}}
-						@foreach ($users as $user)
+						@foreach ($users as $person)
 							<tr>
 								<td class="text-center">{{ $i++ }}</td>
-								<td>{{ $user->first_name .' '. $user->last_name}}</td>
-								<td>{{ $user->email }}</td>
-								<td>{{ $user->user_name }}</td>
-								<td class="text-center">{{ $user->type_user }}</td>
+								<td>{{ $person->first_name .' '. $person->last_name}}</td>
+								<td>{{ $person->email }}</td>
+								<td>{{ $person->user_name }}</td>
+								<td class="text-center">{{ $person->type_user }}</td>
 								<td>
 									<ul class="table-options">
-										<li><a href="/admin/usuario/editar/{{ $user->id }}"><i class="fa fa-pencil"></i></a></li>
-										<li><a href="/admin/usuario/borrar/{{ $user->id }}" id="delete-user"><i class="fa fa-trash"></i></a></li>
+										<li><a href="/admin/usuario/editar/{{ $person->id }}"><i class="fa fa-pencil"></i></a></li>
+										<li><a href="/admin/usuario/borrar/{{ $person->id }}" id="delete-user"><i class="fa fa-trash"></i></a></li>
 										<li>
-							                <div class="toggle toggle-light info" data-toggle-on="{{ $user->is_active }}" data-user-id="{{ $user->id }}"></div>
+							                <div class="toggle toggle-light info" data-toggle-on="{{ $person->is_active }}" data-user-id="{{ $person->id }}"></div>
 										</li>
 									</ul>
 								</td>
