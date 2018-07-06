@@ -85,6 +85,8 @@ class Plain extends Controller
 		return $this->renderView($res, 'Plain.aviso');
 	}
 
+	// TODO: @Plain Agregar el link de preguntas frecuentes en el front.
+	// TODO: @Plain Agregar una tabla y un formulario para crear preguntas para esta seccion
 	public function preguntas ($req, $res)
 	{		
 		return $this->renderView($res, 'Plain.preguntas');
@@ -112,6 +114,19 @@ class Plain extends Controller
 		} catch (Exception $e) {
 			throw new Exception("Error: {$e->getMessage()}", 1);
 		}
+	}
+
+	public function infoHeader ($req, $res)
+	{
+		$this->addBread(['label' => 'Configuración Header']);
+        
+		$transactions = [];
+        return $this->renderView($res, 'Plain.admin_header_options', compact('transactions'));
+	}
+
+	public function infoFooter ($req, $res)
+	{
+		echo 'Info Footer';
 	}
 
 	public function test ($req, $res)

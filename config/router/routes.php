@@ -191,3 +191,13 @@
 				'get'	=> array('FormController', 'edit'),
 				'post'	=> array('FormController', 'update'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/static/header',
+				'get'	=> array('Plain', 'infoHeader'),
+			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/static/footer',
+				'get'	=> array('Plain', 'infoFooter'),
+			));

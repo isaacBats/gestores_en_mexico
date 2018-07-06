@@ -199,10 +199,10 @@
 				  <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu pull-right">
-				  <li><a href="/admin/usuario/perfil"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
+				  <li><a href="/admin/usuario/perfil"><i class="glyphicon glyphicon-user"></i> Mi perfil</a></li>
 				  {{-- <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li> --}}
 				  {{-- <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li> --}}
-				  <li><a href="/logout"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
+				  <li><a href="/logout"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
 				</ul>
 			  </div>
 			</li>
@@ -267,6 +267,13 @@
 						<a href="javascript:void(0)"><i class="fa fa-list-alt"></i> <span>Formularios</span></a>
 						<ul class="children">
 						  <li><a href="/admin/formularios">Listar formularios</a></li>
+						</ul>
+					</li>
+					<li class="nav-parent">
+						<a href="javascript:void(0)"><i class="fa fa-file-text"></i> <span>Páginas Estáticas</span></a>
+						<ul class="children">
+						  <li><a href="/admin/static/header">Header</a></li>
+						  <li><a href="/admin/static/footer">Footer</a></li>
 						</ul>
 					</li>
 				</ul>
