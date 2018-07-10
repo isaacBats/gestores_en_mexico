@@ -12,6 +12,7 @@
 use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo as CountryRepo;
 use Olive\infrastructure\RequisitionRepo;
+use Olive\infrastructure\CmsOptionRepo;
 
 class Plain extends Controller
 {	
@@ -21,10 +22,13 @@ class Plain extends Controller
 
 	private $requisitionRepo;
 	
+	private $cmsOptionRepo;
+	
 	function __construct()
 	{
 		parent::__construct();
 		$this->requisitionRepo = new RequisitionRepo();
+		$this->cmsOptionRepo = new CmsOptionRepo();
 	}
 
 	public function home( $req , $res ){		
@@ -120,8 +124,31 @@ class Plain extends Controller
 	{
 		$this->addBread(['label' => 'Configuración Header']);
         
-		$transactions = [];
-        return $this->renderView($res, 'Plain.admin_header_options', compact('transactions'));
+		$headerInfo = $this->cmsOptionRepo->where(['name :like' => '%header%']);
+		$phone = null;
+		$whats = null;
+		$direction = null;
+		
+		foreach ($headerInfo as $info) {
+			if($info->name == 'telephone_header') {
+				$phone = $info->value;
+			}
+
+			if($info->name == 'whatsapp_header') {
+				$whats = $info->value;
+			}
+
+			if($info->name == 'direccion_header') {
+				$direction = $info->value;
+			}
+		}
+		
+		return $this->renderView($res, 'Plain.admin_header_options', compact('phone', 'whats', 'direction'));
+	}
+
+	public function updateHeader ($req, $res)
+	{
+		vdd($req);
 	}
 
 	public function infoFooter ($req, $res)

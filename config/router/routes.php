@@ -195,6 +195,7 @@
 			$router->addRoute(array(
 				'path'	=> '/admin/static/header',
 				'get'	=> array('Plain', 'infoHeader'),
+				'post'	=> array('Plain', 'updateHeader'),
 			));
 
 			$router->addRoute(array(
