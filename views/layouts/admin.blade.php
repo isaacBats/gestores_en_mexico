@@ -273,7 +273,7 @@
 						<a href="javascript:void(0)"><i class="fa fa-file-text"></i> <span>Páginas Estáticas</span></a>
 						<ul class="children">
 						  <li><a href="/admin/static/header">Header</a></li>
-						  <li><a href="/admin/static/footer">Footer</a></li>
+						  {{-- <li><a href="/admin/static/footer">Footer</a></li> --}}
 						</ul>
 					</li>
 				</ul>
