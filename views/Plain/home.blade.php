@@ -87,7 +87,8 @@
 	                <p class="mayus light dereFull blanco">comunícate al teléfono o envíanos un mensaje</p>
                <div class="row">
 	                <div class="col-md-12 dereFull blanco">
-	                    <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> 55 2718 9072</h3>
+                        <h2><i class="fa fa-phone" aria-hidden="true"></i> {{ $phone }}</h3>
+	                    <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> {{ $whats }}</h3>
                         <p>Desde cualquier parte de México</p>
                         <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
 	                </div>

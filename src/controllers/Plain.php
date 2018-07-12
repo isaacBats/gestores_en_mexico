@@ -128,6 +128,9 @@ class Plain extends Controller
 		$phone = null;
 		$whats = null;
 		$direction = null;
+		$correo = null;
+		$horaIni = null;
+		$horaFin = null;
 		
 		foreach ($headerInfo as $info) {
 			if($info->name == 'telephone_header') {
@@ -141,14 +144,39 @@ class Plain extends Controller
 			if($info->name == 'direccion_header') {
 				$direction = $info->value;
 			}
+
+			if($info->name == 'email_header') {
+				$correo = $info->value;
+			}
+
+			if($info->name == 'hora_ini_header') {
+				$horaIni = $info->value;
+			}
+
+			if($info->name == 'hora_fin_header') {
+				$horaFin = $info->value;
+			}
 		}
 		
-		return $this->renderView($res, 'Plain.admin_header_options', compact('phone', 'whats', 'direction'));
+		return $this->renderView($res, 'Plain.admin_header_options', compact('phone', 'whats', 'direction', 'correo', 'horaIni', 'horaFin'));
 	}
 
 	public function updateHeader ($req, $res)
 	{
-		vdd($req);
+		try {
+			unset($req->data['_RAW_HTTP_DATA']);
+			$data = $req->data;
+			foreach ($data as $key => $value) {
+				$cmsOption = new \Olive\models\CmsOption();
+				$cmsOption->name = $key;
+				$cmsOption->value = $value;
+				$this->cmsOptionRepo->createOrUpdate($cmsOption);
+			}
+		} catch (\Exception $e) {
+			throw new Exception("Error: {$e->getMessage()}", 1);
+		}
+
+		header('Location: /admin/static/header');
 	}
 
 	public function infoFooter ($req, $res)

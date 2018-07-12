@@ -86,17 +86,26 @@
     <!-- End Google Tag Manager (noscript) -->
 
 <div class="phoneTop light mayus">
-    <div class="container centrar">
-        <div class="col-md-4 col-md-offset-4">
-            <a href="tel:5527189072" class="phoneMobile">Llamar ahora <i class="fa fa-phone" aria-hidden="true"></i></a>
-            <span class="phoneDesk"><i class="fa fa-phone" aria-hidden="true"></i> <span class="light">Tel:</span> (55) 2718 9072</span>
+    <div class="container">
+        <div class="col-md-8 info">
+            <a href="tel:{{ $phone }}" class="phoneMobile">Llamar ahora <i class="fa fa-phone" aria-hidden="true"></i></a>
+            <span class="phoneDesk"><i class="fa fa-phone" aria-hidden="true"></i> <strong>desde México </strong>{{ $phone }}, </span><span class="phoneDesk"><i class="fa fa-whatsapp" aria-hidden="true"></i>  {{ $whats }}, </span><span style="text-transform: lowercase;" class="phoneDesk"><i class="fa fa-envelope-o" aria-hidden="true"></i>  {{ $correo }}</span>
+            <br>
+            <span class="phoneDesk">de lunes a viernes de {{ $horaIni }} A {{ $horaFin }}</span>
+            <a href="whatsapp://send?abid={{ $whats }}&text=Hello%2C%20World!" class="phoneMobile">Escribir mensaje <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+            {{-- <a href="tel:5527189072" class="phoneMobile">Llamar ahora <i class="fa fa-phone" aria-hidden="true"></i></a> --}}
+            <a href="mailito:{{ $correo }}" class="phoneMobile">Contactar <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            <br>
+            <span class="phoneDesk"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                {{ $direction }}
+            </span>
         </div>
         <div class="col-md-4 consulta">
-                <form action="/tramite/consulta/status">
-                    <p>Consulta tu trámite</p>
-                    <input name="clave" class="form-control materail-input light consultaCampo" id="consulta_tramite" placeholder="Ingresa tu clave" required="" aria-required="false" value="{{ isset($clave) ? $clave : NULL; }}">
-                    <input type="submit" id="button_consultar" class="btn material-btn_lg material-btn_success main-container__column" value="Buscar">
-                </form>
+            <form action="/tramite/consulta/status">
+                <p>Consulta tu trámite</p>
+                <input name="clave" class="form-control materail-input light consultaCampo" id="consulta_tramite" placeholder="Ingresa tu clave" required="" aria-required="false" value="{{ isset($clave) ? $clave : NULL; }}">
+                <input type="submit" id="button_consultar" class="btn material-btn_lg material-btn_success main-container__column" value="Buscar">
+            </form>
         </div>
     </div>
 </div>
@@ -128,7 +137,7 @@
 	                <a href="#" class="transitions"><i class="fa fa-linkedin" aria-hidden="true"></i></a> -->
 	            </div>
 	            <div class="col-md-4 justificadoDerecha">
-	            <!-- <a href="preguntas-frecuentes.php" class="transitions">Preguntas Frecuentes </a> |  --> <a href="/aviso-privacidad" class="transitions">Aviso de Privacidad </a> <!-- |  <a href="#" class="transitions">Términos de uso</a> -->
+	            <a href="/aviso-privacidad" class="transitions">Aviso de Privacidad </a>
 	        </div>
 	    </div>
 	    <!-- Main Scripts-->

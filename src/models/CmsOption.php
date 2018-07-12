@@ -12,6 +12,7 @@ namespace Olive\models;
 
 use Spot\EntityInterface as Entity;
 use Spot\MapperInterface as Mapper;
+use Spot\EventEmitter as EventEmitter;
 
 /**
  *  Model for Attribute
@@ -28,7 +29,19 @@ use Spot\MapperInterface as Mapper;
             'id'           => ['type' => 'integer', 'primary' => true, 'autoincrement' => true],
             'name'         => ['type' => 'string'],
             'value'        => ['type' => 'text'],
-            'date_created' => ['type' => 'datetime', 'value' => new \DateTime()]
+            'date_created' => ['type' => 'datetime'],
+            'date_updated' => ['type' => 'datetime']
         ];
+    }
+
+    public static function events(EventEmitter $eventEmitter)
+    {
+        $eventEmitter->on('beforeInsert', function (Entity $entity, Mapper $mapper) {
+            $entity->date_created = new \DateTime();
+        });
+
+        $eventEmitter->on('beforeUpdate', function (Entity $entity, Mapper $mapper) {
+            $entity->date_updated = new \DateTime();
+        });
     }
 } 

@@ -17,4 +17,13 @@ class CmsOptionRepo extends BaseRepository
         return 'CmsOption';
     }
     
+    public function createOrUpdate ($entity) {
+        if ($update = $this->mapper->where(['name' => $entity->name])->first()) {
+            $update->value = $entity->value;
+            return $this->update($update);
+        }
+
+        return $this->save($entity);
+    }
+
 }

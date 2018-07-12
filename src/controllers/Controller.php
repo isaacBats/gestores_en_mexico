@@ -16,6 +16,7 @@ use PHPRouter\Route;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Olive\helpers\Utils;
+use Olive\infrastructure\CmsOptionRepo;
 
 /**
  *	Controlador base para Olive	
@@ -76,6 +77,52 @@ class Controller
             $data = array_merge(["showmodal" => $showmodal], $data);
         }
         $data = array_merge(["system" => ['current'=>time()]], $data);
+
+        // Info header
+        $cmsOptionRepo = new CmsOptionRepo();
+        $headerInfo = $cmsOptionRepo->where(['name :like' => '%header%']);
+        $phone = null;
+        $whats = null;
+        $direction = null;
+        $correo = null;
+        $horaIni = null;
+        $horaFin = null;
+        
+        foreach ($headerInfo as $info) {
+            if($info->name == 'telephone_header') {
+                $phone = $info->value;
+            }
+
+            if($info->name == 'whatsapp_header') {
+                $whats = $info->value;
+            }
+
+            if($info->name == 'direccion_header') {
+                $direction = $info->value;
+            }
+
+            if($info->name == 'email_header') {
+                $correo = $info->value;
+            }
+
+            if($info->name == 'hora_ini_header') {
+                $horaIni = $info->value;
+            }
+
+            if($info->name == 'hora_fin_header') {
+                $horaFin = $info->value;
+            }
+        }
+
+        $data = array_merge([
+            'phone' => $phone,
+            'whats' => $whats,
+            'direction' => $direction,
+            'correo' => $correo,
+            'horaIni' => $horaIni,
+            'horaFin' => $horaFin
+        ], $data);
+
         try {
         	echo $res->blade->render($template, $data);
          	
