@@ -92,7 +92,7 @@
             <span class="phoneDesk"><i class="fa fa-phone" aria-hidden="true"></i> <strong>desde México </strong>{{ $phone }}, </span><span class="phoneDesk"><i class="fa fa-whatsapp" aria-hidden="true"></i>  {{ $whats }}, </span><span style="text-transform: lowercase;" class="phoneDesk"><i class="fa fa-envelope-o" aria-hidden="true"></i>  {{ $correo }}</span>
             <br>
             <span class="phoneDesk">de lunes a viernes de {{ $horaIni }} A {{ $horaFin }}</span>
-            <a href="whatsapp://send?abid={{ $whats }}&text=Hello%2C%20World!" class="phoneMobile">Escribir mensaje <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=+{{ $whats }}" class="phoneMobile">Escribir mensaje <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
             {{-- <a href="tel:5527189072" class="phoneMobile">Llamar ahora <i class="fa fa-phone" aria-hidden="true"></i></a> --}}
             <a href="mailito:{{ $correo }}" class="phoneMobile">Contactar <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
             <br>
