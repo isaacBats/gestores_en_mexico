@@ -57,9 +57,9 @@ class RequisitionController extends Controller
 
         if (!empty($buscar)) {
         	$buscar = strtolower($buscar);
-        	if(substr($buscar, 0, 3) == 'ge-') {
-        		$id = substr($buscar, 3);
-        		$where['id'] = $id;
+        	if(substr($buscar, 0, 4) == 'gmx-') {
+        		preg_match("/\d+/", $buscar, $match);
+        		$where['id'] = current($match);
         	} elseif (filter_var($buscar, FILTER_VALIDATE_EMAIL)) {
         		$user = $this->clientRepo->where(['email' => $buscar])->first();
         		$where['id_client'] = $user->id;
