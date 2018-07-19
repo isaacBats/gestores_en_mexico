@@ -202,3 +202,9 @@
 				'path'	=> '/admin/static/footer',
 				'get'	=> array('Plain', 'infoFooter'),
 			));
+
+			$router->addRoute(array(
+				'path'	=> '/admin/static/cuentas',
+				'get'	=> array('Plain', 'infoAccounts'),
+				'post'	=> array('Plain', 'updateAccounts'),
+			));

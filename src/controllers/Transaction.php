@@ -9,17 +9,18 @@
  */
 
 use Olive\controllers\Controller;
-use Olive\infrastructure\ContryRepo;
-use Olive\infrastructure\StateRepo;
-use Olive\infrastructure\TransactionRepo;
-use Olive\infrastructure\SettlementRepo;
-use Olive\infrastructure\PriceRepo;
-use Olive\infrastructure\RequisitionRepo;
-use Olive\infrastructure\ClientRepo;
-use Olive\infrastructure\TownshipRepo;
 use Olive\infrastructure\AttributeRepo;
+use Olive\infrastructure\ContryRepo;
+use Olive\infrastructure\CmsOptionRepo;
+use Olive\infrastructure\ClientRepo;
 use Olive\infrastructure\DataRequisitionRepo;
 use Olive\infrastructure\FormRepo;
+use Olive\infrastructure\PriceRepo;
+use Olive\infrastructure\RequisitionRepo;
+use Olive\infrastructure\SettlementRepo;
+use Olive\infrastructure\StateRepo;
+use Olive\infrastructure\TownshipRepo;
+use Olive\infrastructure\TransactionRepo;
 use \Upload\Storage\FileSystem;
 use \Upload\File;
 
@@ -41,6 +42,7 @@ class Transaction extends Controller
 	private $stateRepo;
 	private $priceRepo;
 	private $formRepo;
+	private $cmsOptionRepo;
 	private $clientController;
 
 	
@@ -58,6 +60,7 @@ class Transaction extends Controller
 		$this->townshipRepo = new TownshipRepo();
 		$this->attributeRepo = new AttributeRepo();
 		$this->formRepo = new FormRepo();
+		$this->cmsOptionRepo = new CmsOptionRepo();
 		$this->clientController = new Client();
 	}
 
@@ -194,7 +197,12 @@ class Transaction extends Controller
 			}
 
 			// List users reciver
-			$this->mailer($res, ['usuario' => $client->email, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c], 'Emails.email_confirmation');
+			$infoBank = null;
+			if ($infoBank = $this->cmsOptionRepo->where(['name' => 'account_bank'])->first()) {
+				$unserialize = unserialize($infoBank->value);
+				$infoBank = $unserialize['infoBank'];
+			}
+			$this->mailer($res, ['usuario' => $client->email, 'subject' => 'Confirmación de solicitud de trámite', 'data' => $requisition, 'client' => $c, 'infoBank' => $infoBank], 'Emails.email_confirmation');
 
 			$rs = new stdClass();
 			$rs->message = "Tu tramite sé ha completado. En breve te llegara un correo con la clave y datos de tu registro.";

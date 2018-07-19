@@ -76,10 +76,10 @@
                     </p>
                     <h5 style="color:#4682b4; font-size:9px;">Formas de pago</h5>
                     <p style="font-size:12px;">Depósito o transferencia electrónica</p>
-                    <p style="font-size:12px;">Institución bancaria: <span style="font-weight:bold;">Banamex</span></p>
-                    <p style="font-size:12px;">Titular: <span style="font-weight:bold;">Consultoría Especializada en Gestoria de Trámites y Servicios Administrativos e Integrales. S. de R.L.</span></p>
-                    <p style="font-size:12px;">Número de cuenta: <span style="font-weight:bold;">0123456789</span></p>
-                    <p style="font-size:12px;">Clabe interbancaria: <span style="font-weight:bold;">01234567891234</span></p>    
+                    <p style="font-size:12px;">Institución bancaria: <span style="font-weight:bold;">{{ $infoBank['institute'] }}</span></p>
+                    <p style="font-size:12px;">Titular: <span style="font-weight:bold;">{{ $infoBank['headline'] }}</span></p>
+                    <p style="font-size:12px;">Número de cuenta: <span style="font-weight:bold;">{{ $infoBank['account_number'] }}</span></p>
+                    <p style="font-size:12px;">Clabe interbancaria: <span style="font-weight:bold;">{{ $infoBank['interbank_clabe'] }}</span></p>    
                     <p style="font-size:12px; margin-top:20px;"> <span style="font-weight:bold;">Importante: </span>Al finalizar el proceso, es necesario que nos envíes tu comprobante o ticket de pago al correo documentos@gestoresenmexico.com añadiendo número de folio del recuadro rojo en la página de confirmación.</p>
                 </td>
             </tr>
@@ -95,8 +95,8 @@
                                 </td>
                                 <td style="padding:10px; text-align:right; font-size:12px;">
                                     <p>Gestores en México<br>
-                                    info@gestoreseenmexico.com<br>
-                                    Tel: (55) 2718 9072</p>
+                                    {{ $correoManager }}<br>
+                                    Tel: {{ $phoneManager }}</p>
                                 </td>
                             </tr>
                         </tbody>

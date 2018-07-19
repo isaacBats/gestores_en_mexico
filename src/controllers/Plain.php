@@ -172,6 +172,7 @@ class Plain extends Controller
 				$cmsOption->value = $value;
 				$this->cmsOptionRepo->createOrUpdate($cmsOption);
 			}
+			$this->session->setFlash("alert", ["message" => "Datos actualizados correctamente!", "status" => "Exito:", "class" => "alert-success"]);
 		} catch (\Exception $e) {
 			throw new Exception("Error: {$e->getMessage()}", 1);
 		}
@@ -182,6 +183,38 @@ class Plain extends Controller
 	public function infoFooter ($req, $res)
 	{
 		echo 'Info Footer';
+	}
+
+	public function infoAccounts ($req, $res)
+	{
+		$this->addBread(['label' => 'Configuración Cuentas de Pago']);
+        
+		$accountInfoBank = null;
+		if ($accountInfoBank = $this->cmsOptionRepo->where(['name' => 'account_bank'])->first()) {
+			$data = unserialize($accountInfoBank->value);
+			$accountInfoBank = $data['infoBank'];
+		}
+
+		return $this->renderView($res, 'Plain.admin_account_options', compact('accountInfoBank'));
+	}
+
+	public function updateAccounts ($req, $res)
+	{
+		unset($req->data['_RAW_HTTP_DATA']);
+		$serialize = serialize($req->data);
+		
+		try {
+			$cmsOption = new \Olive\models\CmsOption();
+			$cmsOption->name = 'account_bank';
+			$cmsOption->value = $serialize;
+			$this->cmsOptionRepo->createOrUpdate($cmsOption);
+			$this->session->setFlash("alert", ["message" => "Datos de la cuenta actualizados correctamente!", "status" => "Exito:", "class" => "alert-success"]);
+		} catch (\Exception $e) {
+			throw new Exception("Error: {$e->getMessage()}", 1);
+		}
+
+		header('Location: /admin/static/cuentas');
+
 	}
 
 	public function test ($req, $res)

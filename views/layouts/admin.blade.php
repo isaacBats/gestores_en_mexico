@@ -274,6 +274,7 @@
 						<ul class="children">
 						  <li><a href="/admin/static/header">Header</a></li>
 						  {{-- <li><a href="/admin/static/footer">Footer</a></li> --}}
+						  <li><a href="/admin/static/cuentas">Cuentas de pago</a></li>
 						</ul>
 					</li>
 				</ul>

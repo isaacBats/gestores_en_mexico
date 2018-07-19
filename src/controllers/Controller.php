@@ -137,6 +137,32 @@ class Controller
           $attachment['name']='HolaName.pdf';
           $this->mailer($res, ["attachment"=> $attachment,.....
          * */
+        $cmsOptionRepo = new CmsOptionRepo();
+        $headerInfo = $cmsOptionRepo->where(['name :like' => '%header%']);
+        $phone = null;
+        $whats = null;
+        $correo = null;
+        
+        foreach ($headerInfo as $info) {
+            if($info->name == 'telephone_header') {
+                $phone = $info->value;
+            }
+
+            if($info->name == 'whatsapp_header') {
+                $whats = $info->value;
+            }
+
+            if($info->name == 'email_header') {
+                $correo = $info->value;
+            }
+        }
+
+        $data = array_merge([
+            'phoneManager' => $phone,
+            'whatsManager' => $whats,
+            'correoManager' => $correo
+        ], $data);
+
         $this->_mail->clearAddresses();
         $this->_mail->CharSet = "UTF-8";
         $this->_mail->AddAddress($data['usuario']);
