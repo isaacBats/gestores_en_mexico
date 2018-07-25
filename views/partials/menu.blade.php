@@ -57,6 +57,7 @@
                                                                         <li><a href="/tramites/MX/apostilla-documentos-escolares" class="link transitions">Apostilla de documentos escolares</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-constancia-solteria" class="link transitions">Apostilla de constancia de soltería</a></li>
                                                                         <li><a href="/tramites/MX/apostilla-todo-tipo-documentos" class="link transitions">Apostilla de documentos no listados</a></li>
+                                                                        <li><a href="/tramites/MX/apostilla-usa" class="link transitions">Apostilla de documentos U.S.A</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
