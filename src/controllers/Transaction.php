@@ -78,11 +78,10 @@ class Transaction extends Controller
 					$costo = $price;
 			}
 		}
-		$template = 'Transaction.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
 		$templateFields = 'Transaction.fieldsForms.' . $codeContry . '_' . str_replace('-', '_', $req->params['slug']);
-		$arch = __OLIVE__ . '/views/' . str_replace('.', '/', $template) . '.blade.php';
+		$arch = __OLIVE__ . '/views/' . str_replace('.', '/', $templateFields) . '.blade.php';
 		if (file_exists($arch)) {
-			return $this->renderView($res, $template, compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
+			return $this->renderView($res, 'layouts.template_forms_transactions', compact('states', 'contries', 'templateFields', 'transaction', 'codeContry', 'costo'));
 		} else {
 			return $this->renderView($res, 'Errors.404', ['error' => 'No se encontro el formulario']);
 		}
