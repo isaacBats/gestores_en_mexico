@@ -1,50 +1,45 @@
-@extends('layouts.default')
-@section('page_title', 'Gestores en México | Acta de nacimiento')
-@section('content')
-	<div class="aliceBlue paddingContent">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 requisitos">
-                    {{-- <h1 class="titulo mayus">Aclaración acta de nacimiento</h1>
-                    <p>Aclaración de acta de nacimiento "y" conjuntiva o copulativa.</p>
-                    <ul>
-                        <li>Aclaración de apellidos paterno o materno</li>
-                        <li>Aclaración de nombre o nombres de pila</li>
-                        <li>Aclaración de fecha de registro</li>
-                        <li>Aclaración por sexo (femenino/masculino)</li>
-                        <li>Aclaración de  lugar de nacimiento</li>
-                        <li>Aclaración de datos de actas de defunción</li>
-                    </ul>
-                    <h4 class="mayus light azul">Requisitos básicos</h4>
-                    <ul>
-                        <li>5 o más documentos en original y copia del titular de la aclaración donde venga el dato correcto</li>
-                        <li>Copia del acta que desea aclarar</li>
-                    </ul>
-                    <p><strong>Trámite únicamente para la CDMX.</strong></p>
-                    <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p> --}}
-                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
-                    <p>
-                        {{ $transaction->form->description }}
-                    </p>
-                </div>
-            </div>
-            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
-        </div>
+<div class="col-md-4">
+    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)">
+</div>
+<div class="col-md-4">
+    <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno">
+</div>
+<div class="col-md-4">
+    <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno">
+</div>
+<div class="col-md-4">
+    <h5>Fecha de nacimiento</h5>
+</div>
+<div class="col-md-4">
+    <input class="form-control" size="16" type="date" name="attr_fnacimiento">
+    <br>
+</div>
+<div class="col-md-4">
+    <select name="attr_sexo" id="sexo" class="form-control light">
+        <option value="">Seleccionar sexo</option>
+        <option value="1">Hombre</option>
+        <option value="2">Mujer</option>
+    </select>
+</div>
+<div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Seleccionar Estado</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
+    </select>
+</div>
+<div class="col-md-12">
+    <div class="field">
+    <p>Menciona el dato a corregir, cómo dice y cómo debe de decir</p>
+        <textarea name="attr_corregir" class="light" name="dato_corregir" rows="4" id="dato_corregir" placeholder="Explica brevemente el dato a corregir :)" tabindex="5"></textarea>
     </div>
-    <div class="callCentre paddingContent">
-        <div class="container">
-            <div class="col-md-8 col-md-offset-2 centrar">
-                <h3 class="blanco mayus light">¿Necesitas algún trámite?</h3>
-                <h4 class="blanco light centrar mayus">comunícate con nosotros</h4>
-
-                <div class="row">
-                    <div class="col-md-12 blanco">
-                        <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> {{ $whats }}</h2>
-                        <p class="centrar">Desde cualquier parte de México</p>
-                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
+<div class="col-md-12">
+    <h6><span class="azul italic">**Opcional**</span> Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb) </h6>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <input name="attr_image" id="file-1" type="file" class="file" data-preview-file-type="any">
     </div>
-@stop
+</div>

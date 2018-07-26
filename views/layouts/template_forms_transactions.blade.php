@@ -7,13 +7,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
+                    <h1 class="titulo mayus">{{ utf8_encode($transaction->form->title) }}</h1>
                     <p>
-                        {{ $transaction->form->description }}
+                        {{ utf8_encode($transaction->form->description) }}
                     </p>
                 </div>
             </div>
-            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
+            @include('Components.generalForm', compact('states', 'contries', 'fields', 'transaction'))
         </div>
     </div>
     <div class="callCentre paddingContent">
