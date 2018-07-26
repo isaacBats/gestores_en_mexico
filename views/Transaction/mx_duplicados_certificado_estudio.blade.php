@@ -1,42 +1,44 @@
-@extends('layouts.default')
-@section('page_title', 'Gestores en México | Duplicado de certificado de estudio')
-@section('content')
-	<div class="aliceBlue paddingContent">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 requisitos">
-                    {{-- <h1 class="titulo mayus">Duplicado de certificado de estudio</h1>
-                    <h4 class="mayus light azul">Duplicado de certificados </h4>
-                    <ul>
-                        <li>Primaria</li>
-                        <li>Secundaria</li>
-                        <li>Bachillerato</li>
-                        <li>Certificado de estudios profesionales</li>
-                    </ul>
-                    <p><em>En caso de que tu trámite requiera envío de documentos originales a nuestras oficinas, te notificaremos por correo electrónico.</em></p> --}}
-                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
-                    <p>
-                        {{ $transaction->form->description }}
-                    </p>
-                </div>
-            </div>
-            @include('Components.generalForm', compact('states', 'contries', 'templateFields', 'transaction'))
-        </div>
-    </div>
-    <div class="callCentre paddingContent">
-        <div class="container">
-            <div class="col-md-8 col-md-offset-2 centrar">
-                <h3 class="blanco mayus light">¿Necesitas algún trámite?</h3>
-                <h4 class="blanco light centrar mayus">comunícate con nosotros</h4>
+<div class="col-md-4">
+    <input name="attr_name" class="form-control materail-input light" id="nombres" placeholder="Nombre(s)" required >
+</div>
+<div class="col-md-4">
+    <input name="attr_paterno" class="form-control materail-input light" id="apellidoPaterno" placeholder="Apellido paterno" required >
+</div>
+<div class="col-md-4">
+    <input name="attr_materno" class="form-control materail-input light" id="apellidoMaterno" placeholder="Apellido materno" required >
+</div>
+<!-- <div class="col-md-4">
+    <input name="attr_no_cedula" class="form-control materail-input light" id="cedula" placeholder="Numero de cédula">
+</div> -->
+<div class="col-md-4">
+    <input name="attr_profesion" class="form-control materail-input light" id="profesion" placeholder="Profesión">
+</div>
+<div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Seleccionar Estado</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
+    </select>
+</div>
 
-                <div class="row">
-                    <div class="col-md-12 blanco">
-                        <h2><i class="fa fa-whatsapp" aria-hidden="true"></i> {{ $whats }}</h2>
-                        <p class="centrar">Desde cualquier parte de México</p>
-                        <p>En Gestores de México nunca aceptamos pagos a nombre de una persona física.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="col-md-4">
+    <input name="attr_curp" class="form-control materail-input light" id="curp" placeholder="CURP">
+</div>
+<div class="col-md-4">
+    <select name="nivel" id="nivel" class="form-control light">
+        <option value="">Seleccionar nivel de estudios</option>
+        <option value="primaria">Primaria</option>
+        <option value="secundaria">Secundaria</option>
+        <option value="bachillerato">Bachillerato</option>
+        <option value="licenciatura">Licenciatura</option>
+    </select>
+</div>
+<div class="col-md-12">
+    <h6>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <input name="attr_image" id="file-1" type="file" class="file" data-preview-file-type="any">
     </div>
-@stop
+</div>
