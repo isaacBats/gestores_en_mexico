@@ -1,15 +1,15 @@
 @extends('layouts.default')
 @section('page_title')
-    Gestores en México | {{ utf8_encode($transaction->name) }}
+    Gestores en México | {{ $transaction->name }}
 @stop
 @section('content')
     <div class="aliceBlue paddingContent">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 requisitos">
-                    <h1 class="titulo mayus">{{ utf8_encode($transaction->form->title) }}</h1>
+                    <h1 class="titulo mayus">{{ $transaction->form->title }}</h1>
                     <p>
-                        {{ utf8_encode($transaction->form->description) }}
+                        {{ $transaction->form->description }}
                     </p>
                 </div>
             </div>
