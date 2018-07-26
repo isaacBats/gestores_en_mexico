@@ -8,7 +8,6 @@
                 <h5>Datos generales para el trámite</h5>
             </div>
             <div id="validacion_forzosos" >
-                <?php echo "Plantilla {$fields}"; var_dump($fields); exit;?>
                 @include($fields, compact('states', 'transaction'))
                 <div class="col-md-12">
                     <div class="field">
