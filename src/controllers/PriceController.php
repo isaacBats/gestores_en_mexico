@@ -60,13 +60,14 @@ class PriceController extends Controller
 	{
 		$state = $this->stateRepo->getStateByCode($req->params['code']);
 		$state->code = $this->url_slug($state->code);
+		$paramStateName = $req->params['state'];
 
 		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
 		$this->addBread(['label' => utf8_encode($state->name)]);
 
 		$prices = $this->priceRepo->pricesOfState($state);
 
-		return $this->renderView($res, 'Price.state', compact('state','prices'));
+		return $this->renderView($res, 'Price.state', compact('state','prices', 'paramStateName'));
 	}
 
 	public function priceEdit ($req, $res)
@@ -101,15 +102,18 @@ class PriceController extends Controller
         header('Location: /admin/precios');
 	}
 
-	public function delete($req, $res)
+	public function priceDelete($req, $res)
 	{
 		$price = $this->priceRepo->get($req->params['id']);
+		$codeState = $req->params['code'];
+		$state = $req->params['state'];
 		try {
 			$this->priceRepo->delete($price);
 			$this->session->setFlash('alert', ['message' => "Se ha borrado el precio para {$price->transaction->name} de {$price->state->name} correctamente!", 'class' => 'alert-info']);
 		} catch (Spot\Exception $e) {
             $this->session->setFlash("alert", ["message" => $e->getMessage(), "class" => "alert-warning"]);
 		}
-        header('Location: /admin/precios');
+        $url = "/admin/precios/{$codeState}/{$state}";
+        header("Location: " . $url);
 	}
 }

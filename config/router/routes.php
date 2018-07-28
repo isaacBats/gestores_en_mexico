@@ -152,6 +152,11 @@
 				'get'	=> array('PriceController', 'priceState'),
 			));
 
+			$router->addRoute(array(
+				'path'	=> '/admin/precios/{code}/{state}/delete/{id}',
+				'post'	=> array('PriceController', 'priceDelete'),
+			));
+
 		/* Admin Atributos */
 			$router->addRoute(array(
 				'path'	=> '/admin/atributos',

@@ -24,9 +24,8 @@
 </head>
 
 <body>
-
-  <header>
-	<div class="headerpanel">
+	<header>
+		<div class="headerpanel">
 
 	  <div class="logopanel">
 		<h2><a href="/admin/index"><img src="/assets/images/logo.png" alt="Gestores en México" height="40"></a></h2>
@@ -215,100 +214,96 @@
 		  </ul>
 		</div><!-- header-right -->
 	  </div><!-- headerbar -->
-	</div><!-- header-->
-  </header>
-
-  <section>
-
-	<div class="leftpanel">
-	  <div class="leftpanelinner">
-		<div class="tab-content">
-		  <!-- ################# MAIN MENU ################### -->
-		  <div class="tab-pane active" id="mainmenu">
-			<ul class="nav nav-pills nav-stacked nav-quirk">
-			  @if ($user->type_user === 'admin')
-				  <h5 class="sidebar-title">Catalogos</h5>
-				  <li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+		</div><!-- header-->
+  	</header>
+  	<section>
+		<div class="leftpanel">
+		  <div class="leftpanelinner">
+			<div class="tab-content">
+			  <!-- ################# MAIN MENU ################### -->
+			  <div class="tab-pane active" id="mainmenu">
+				<ul class="nav nav-pills nav-stacked nav-quirk">
+				  @if ($user->type_user === 'admin')
+					  <h5 class="sidebar-title">Catalogos</h5>
+					  <li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+							<ul class="children">
+							  <li><a href="/admin/usuarios">Listar usuarios</a></li>
+							  <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
+							</ul>
+					  </li>
+					  <li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-usd"></i> <span>Precios</span></a>
+							<ul class="children">
+							  <li><a href="/admin/precios">Listar precios</a></li>
+							  {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
+							</ul>
+					  </li>
+					  <li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-tasks"></i> <span>Atributos</span></a>
+							<ul class="children">
+							  <li><a href="/admin/atributos">Listar atributos</a></li>
+							</ul>
+					  </li>
+					  <li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-globe"></i> <span>Países</span></a>
+							<ul class="children">
+							  <li><a href="/admin/paises">Listar países</a></li>
+							</ul>
+					  </li>
+					  {{-- <li class="nav-parent">
+						<a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
 						<ul class="children">
-						  <li><a href="/admin/usuarios">Listar usuarios</a></li>
-						  <li><a href="/admin/usuario/crear">Crear usuarios</a></li>
+						  <li><a href="/admin/tramites">Listar tramites</a></li>
 						</ul>
-				  </li>
+					  </li> --}}
+					</ul>
+					<h5 class="sidebar-title">CMS</h5>
+					<ul class="nav nav-pills nav-stacked nav-quirk">
+						<li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-list-alt"></i> <span>Formularios</span></a>
+							<ul class="children">
+							  <li><a href="/admin/formularios">Listar formularios</a></li>
+							</ul>
+						</li>
+						<li class="nav-parent">
+							<a href="javascript:void(0)"><i class="fa fa-file-text"></i> <span>Páginas Estáticas</span></a>
+							<ul class="children">
+							  <li><a href="/admin/static/header">Header</a></li>
+							  {{-- <li><a href="/admin/static/footer">Footer</a></li> --}}
+							  <li><a href="/admin/static/cuentas">Cuentas de pago</a></li>
+							</ul>
+						</li>
+					</ul>
+				  @endif
+				<h5 class="sidebar-title">Tramites</h5>
+				<ul class="nav nav-pills nav-stacked nav-quirk">
 				  <li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-usd"></i> <span>Precios</span></a>
-						<ul class="children">
-						  <li><a href="/admin/precios">Listar precios</a></li>
-						  {{-- <li><a href="/admin/usuario/crear">Crear usuarios</a></li> --}}
-						</ul>
-				  </li>
-				  <li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-tasks"></i> <span>Atributos</span></a>
-						<ul class="children">
-						  <li><a href="/admin/atributos">Listar atributos</a></li>
-						</ul>
-				  </li>
-				  <li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-globe"></i> <span>Países</span></a>
-						<ul class="children">
-						  <li><a href="/admin/paises">Listar países</a></li>
-						</ul>
-				  </li>
-				  {{-- <li class="nav-parent">
 					<a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
 					<ul class="children">
 					  <li><a href="/admin/tramites">Listar tramites</a></li>
 					</ul>
-				  </li> --}}
+				  </li>
 				</ul>
-				<h5 class="sidebar-title">CMS</h5>
-				<ul class="nav nav-pills nav-stacked nav-quirk">
-					<li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-list-alt"></i> <span>Formularios</span></a>
-						<ul class="children">
-						  <li><a href="/admin/formularios">Listar formularios</a></li>
-						</ul>
-					</li>
-					<li class="nav-parent">
-						<a href="javascript:void(0)"><i class="fa fa-file-text"></i> <span>Páginas Estáticas</span></a>
-						<ul class="children">
-						  <li><a href="/admin/static/header">Header</a></li>
-						  {{-- <li><a href="/admin/static/footer">Footer</a></li> --}}
-						  <li><a href="/admin/static/cuentas">Cuentas de pago</a></li>
-						</ul>
-					</li>
-				</ul>
-			  @endif
-			<h5 class="sidebar-title">Tramites</h5>
-			<ul class="nav nav-pills nav-stacked nav-quirk">
-			  <li class="nav-parent">
-				<a href="javascript:void(0)"><i class="fa fa-institution"></i> <span>Tramites</span></a>
-				<ul class="children">
-				  <li><a href="/admin/tramites">Listar tramites</a></li>
-				</ul>
-			  </li>
-			</ul>
-		  </div><!-- tab-pane -->
-		</div><!-- tab-content -->
-	  </div><!-- leftpanelinner -->
-	</div><!-- leftpanel -->
-
-	<div class="mainpanel">
-
-	  <div class="contentpanel">
-		@if (isset($bread))
-		  {{ $bread }}
-		@endif
-		@if ($alert)
-		  <div class="alert {{ $alert['class'] }} fade in">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
-		  </div>
-		@endif
-		@yield('content')
-	  </div><!-- contentpanel -->
-	</div><!-- mainpanel -->
-  </section>
+			  </div><!-- tab-pane -->
+			</div><!-- tab-content -->
+		  </div><!-- leftpanelinner -->
+		</div><!-- leftpanel -->
+		<div class="mainpanel">
+		  <div class="contentpanel">
+			@if (isset($bread))
+			  {{ $bread }}
+			@endif
+			@if ($alert)
+			  <div class="alert {{ $alert['class'] }} fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong class="status">{{ $alert['status'] }}</strong>  {{ $alert['message'] }}
+			  </div>
+			@endif
+			@yield('content')
+		  </div><!-- contentpanel -->
+		</div><!-- mainpanel -->
+  	</section>
   {{-- Modal --}}
 <div class="modal bounceIn animated" id="generalModal" tabindex="-1" role="dialog" aria-labelledby="myGeneralModal" aria-hidden="true">
 	<div class="modal-dialog">
