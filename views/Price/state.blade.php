@@ -39,11 +39,11 @@
 													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
-											{{-- <li>
-												<a href="">
+											<li>
+												<a href="/admin/precios/{{ $state->code }}/{{ $paramStateName }}/delete/{{ $row->id }}" id="delete-price">
 													<i class="fa fa-trash"></i>
 												</a>
-											</li> --}}
+											</li>
 										</ul>
 									</td>
 								</tr>
@@ -55,4 +55,21 @@
 			</div>
 		</div>
 	</div>
+@stop
+@section('scripts')
+	<script type="text/javascript">
+		$('a#delete-price').on('click', function(event) {
+	        event.preventDefault();
+	        var routeAction = $(this).attr('href');
+	        var $modal = $('#generalModal');
+	        var $form = $modal.find('form');
+	        var trFather = $(this).parent().parent().parent().parent();
+	        var precio = trFather.find('td')[1].innerHTML;
+	        $form.attr('action', routeAction).attr('method', 'post');
+	        $modal.find('.modal-title').html('Eliminar precio');
+	        $modal.find('.modal-body p').html('¿Seguro que quieres eliminar el precio de <strong>'+precio+'</strong> ?');
+	        $modal.find('#btn-submit').html('Eliminar');
+	        $modal.modal('show');
+	    });
+	</script>
 @stop
