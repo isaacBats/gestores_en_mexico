@@ -105,7 +105,7 @@ class Transaction extends Controller
 				try {
 				    
 				    $file->upload();
-				$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
+					$data['attr_image'] = '/assets/storage/'.$file->getNameWithExtension();
 
 				} catch (\Exception $e) {
 
