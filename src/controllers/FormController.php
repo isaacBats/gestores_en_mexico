@@ -51,7 +51,7 @@ class FormController extends Controller
         unset($req->data['_RAW_HTTP_DATA']);
         
         $id = $req->params['formid'];
-        $form = $this->formRepo->get($id);
+        $form = $this->formRepo->where(['id_transaction' => $id])->first();
         $form->title = $req->data['title'];
         $form->description = $req->data['description'];
         $this->formRepo->update($form);
