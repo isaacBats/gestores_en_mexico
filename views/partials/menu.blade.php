@@ -35,6 +35,7 @@
                                                     <li><a href="#tabs5-pane4" data-toggle="tab">Registro público de la propiedad</a></li>
                                                     <li><a href="#tabs5-pane3" data-toggle="tab">Registro civil</a></li>
                                                     <li><a href="#tabs5-pane5" data-toggle="tab">Legalización de documentos</a></li>
+                                                    <li><a href="/tramites/MX/tramites-no-listados">Tramites no listados</a></li>
                                                     <li><a href="/contacto">Contactanos si tu tramite no se encuentra en la lista</a></li>
                                                     <li><a href="/listado" class="link transitions">Ver listado completo</a></li>
                                                 </ul>
@@ -133,6 +134,7 @@
                                                                     <ul>
                                                                         <li><h4>Legalización de documentos</h4></li>
                                                                         <li><a href="/tramites/MX/legalizacion-documentos" class="link transitions">Legalización de documentos</a></li>
+                                                                        <li><a href="/tramites/MX/traducciones-certificadas" class="link transitions">Traducciones Certificadas</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
