@@ -5,6 +5,14 @@
         @endforeach
     </select>
 </div>
+<div class="col-md-4">
+    <select name="attr_estado" id="attr_estado" class="form-control light">
+        <option value="">Estado ubicación actual</option>
+        @foreach ($states as $state)
+            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+        @endforeach
+    </select>
+</div>
 <div class="col-md-12">
     <h6>Adjunta copia de tu documento (archivos .jpg con peso máximo de 1Mb)</h6>
 </div>
