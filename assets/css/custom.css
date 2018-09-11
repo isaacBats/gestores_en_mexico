@@ -261,8 +261,8 @@ height: 100% !important;
 
 /* Phone top */
 
-.phoneTop {background: #4682b4; padding: 8px; text-align: center; display: block;}
-.phoneTop a {color: #fff; font-size: 20px; background: rgba(0,0,0,.3); padding: 10px; font-weight: 700;}
+.phoneTop {background: #4682b4; text-align: center; display: inline-block;}
+.phoneTop a {color: #fff; font-size: 12px;}
 
 .phoneDesk { color: #fff;}
 
@@ -406,8 +406,7 @@ sup {font-size: 9px;}
     }
     
     .phoneTop a {
-        padding: 12px;
-        display: block; 
+        display: inline-block; 
     }
     .phoneDesk {
         display: none;
