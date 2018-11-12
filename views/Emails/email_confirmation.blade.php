@@ -66,6 +66,9 @@
                     @foreach ($client as $key => $c)
                         <p style="font-size:12px;">{{ $key }} <span style="font-weight:bold;">{{ $c }} </span></p>
                     @endforeach
+
+                    {{-- Costo de documentos --}}
+                    <p style="font-size:12px;">Costo total: <span style="font-weight:bold;">${{ $data->total_cost }} <sup style="font-size:8px;">MN</sup></span></p>
                     
                     <h3 style="color:#4682b4;">
                         Para consultar el estatus de tu tramite 
