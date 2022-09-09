@@ -14,7 +14,7 @@
     <select name="hold_pais" class="form-control light">
         <option value="" selected>País donde cursaste tus estudios</option>
         @foreach ($contries as $contry)
-            <option value="{{ $contry->id }}">{{ utf8_encode($contry->name) }}</option>
+            <option value="{{ $contry->id }}">{{ $contry->name }}</option>
         @endforeach
     </select>
 </div>
@@ -22,7 +22,7 @@
     <select name="attr_estado" id="attr_estado" class="form-control light">
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
-            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+            <option value="{{ $state->id }}">{{ $state->name }}</option>
         @endforeach
     </select>
 </div>

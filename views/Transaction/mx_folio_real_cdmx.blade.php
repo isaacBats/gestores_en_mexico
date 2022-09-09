@@ -3,9 +3,9 @@
         <option value="">Seleccionar Estado</option>
         @foreach ($states as $state)
             @if ($state->id == 9)
-                <option value="{{ $state->id }}" selected>{{ utf8_encode($state->name) }}</option>
+                <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
             @endif
-            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+            <option value="{{ $state->id }}">{{ $state->name }}</option>
         @endforeach
     </select>
     <input type="hidden" name="attr_estado" value="9">
@@ -15,9 +15,9 @@
         <option value="" selected>País donde surtirá efecto</option>
         @foreach ($contries as $contry)
             @if ($contry->id == 142)
-                <option value="{{ $contry->id }}" selected >{{ utf8_encode($contry->name) }}</option>
+                <option value="{{ $contry->id }}" selected >{{ $contry->name }}</option>
             @endif
-            <option value="{{ $contry->id }}">{{ utf8_encode($contry->name) }}</option>
+            <option value="{{ $contry->id }}">{{ $contry->name }}</option>
         @endforeach
     </select>
     <input type="hidden" name="attr_pais" value="142">

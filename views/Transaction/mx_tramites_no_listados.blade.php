@@ -2,7 +2,7 @@
     <select name="attr_estado" id="attr_estado" class="form-control light">
         <option value="">Estado ubicación actual</option>
         @foreach ($states as $state)
-            <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+            <option value="{{ $state->id }}">{{ $state->name }}</option>
         @endforeach
     </select>
 </div>
