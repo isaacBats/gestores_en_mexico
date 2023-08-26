@@ -24,7 +24,7 @@
 								<tr>
 									<td>{{ $i++ }}</td>
 									<td>{{ $row->attribute }}</td>
-									<td>{{ utf8_encode($row->display_name) }}</td>
+									<td>{{ $row->display_name }}</td>
 									<td>{{ $row->date_created->format('d-m-Y H:i:s') }}</td>
 									<td>
 										<ul class="table-options">
