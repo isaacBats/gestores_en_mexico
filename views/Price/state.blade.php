@@ -26,7 +26,7 @@
 							@foreach ($prices as $row)
 								<tr>
 									<td>{{ $i++ }}</td>
-									<td>{{ utf8_encode($row->transaction->name) }}</td>
+									<td>{{ $row->transaction->name }}</td>
 									<td>{{ $row->cost }}</td>
 									<td>{{ $row->copy_cost }}</td>
 									<td>{{ $row->copy_send }}</td>

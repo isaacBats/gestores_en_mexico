@@ -24,7 +24,7 @@
 									@if($state->id_contry === $contry->id) 
 										<tr>
 											<td>{{ $i++ }}</td>
-											<td>{{ utf8_encode($state->name) }}</td>
+											<td>{{ $state->name }}</td>
 											<td>
 												<ul class="table-options">
 													<li>
