@@ -44,13 +44,13 @@ class PriceController extends Controller
 		$states = array();
 		foreach ($prices as $price) {
 			$contry = $this->contryRepo->get($price->state->id_contry);
-			$price->state->slug = $this->url_slug(utf8_encode($price->state->name));
+			$price->state->slug = $this->url_slug($price->state->name);
 			$price->state->code_slug = $this->url_slug($price->state->code);
 			if (!in_array($contry, $contries))
-				$contries[utf8_encode($contry->name)] = $contry;
+				$contries[$contry->name] = $contry;
 
 			if(!in_array($price->state, $states))
-				$states[utf8_encode($price->state->name)] = $price->state;
+				$states[$price->state->name] = $price->state;
 		}
 
 		return $this->renderView($res, 'Price.index', compact('prices', 'contries', 'states'));
@@ -63,7 +63,7 @@ class PriceController extends Controller
 		$paramStateName = $req->params['state'];
 
 		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
-		$this->addBread(['label' => utf8_encode($state->name)]);
+		$this->addBread(['label' => $state->name]);
 
 		$prices = $this->priceRepo->pricesOfState($state);
 
@@ -77,8 +77,8 @@ class PriceController extends Controller
 		$price = $this->priceRepo->get($req->params['id']);
 
 		$this->addBread(['url' => '/admin/precios', 'label' => 'Lista de precios']);
-		$this->addBread(['url' => "/admin/precios/".$state->code."/".$this->url_slug(utf8_encode($state->name)), 'label' => utf8_encode($state->name)]);
-		$this->addBread(['label' => utf8_encode($price->transaction->name)]);
+		$this->addBread(['url' => "/admin/precios/".$state->code."/".$this->url_slug($state->name), 'label' => utf8_encode($state->name)]);
+		$this->addBread(['label' => $price->transaction->name]);
 
 		return $this->renderView($res, 'Price.edit', compact('state','price'));
 	}

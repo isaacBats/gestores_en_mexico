@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Precios para los tramites en {{ utf8_encode($state->name) }}</h3>
+				<h3 class="panel-title">Precios para los tramites en {{ $state->name }}</h3>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
