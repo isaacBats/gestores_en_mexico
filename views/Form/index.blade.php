@@ -22,7 +22,7 @@
                         @foreach ($transactions as $transaction)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ utf8_encode($transaction->name) }}</td>
+                                <td>{{ $transaction->name }}</td>
                                 <td>
                                     <ul class="table-options">
                                         <li>

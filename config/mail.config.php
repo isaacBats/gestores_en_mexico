@@ -5,7 +5,8 @@ $mail = new \PHPMailer();
 $dotenv = new \Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
-$env = ENVIROMENT;
+// $env = ENVIROMENT;
+$env = 'prod';
 
 // $mail->SMTPDebug = 2;
 $mail->isSMTP();

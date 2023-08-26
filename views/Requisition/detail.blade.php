@@ -26,7 +26,7 @@
 								</tr>
 								<tr>
 									<th class="text-right" >Tramite</th>	
-									<td>{{ utf8_encode($requisition->transaction->name) }}</td>
+									<td>{{ $requisition->transaction->name }}</td>
 								</tr>
 								<tr>
 									<th class="text-right" >Lugar de solicitud</th>	

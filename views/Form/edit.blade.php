@@ -11,12 +11,12 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="title" >Titulo</label>
-                        <input type="text" name="title" class="form-control" placeholder="Titulo" id="title" value="{{ $transaction->form->title }}">
+                        <input type="text" name="title" class="form-control" placeholder="Titulo" id="title" value="{{ utf8_decode($transaction->form->title) }}">
                     </div>
                     <div class="form-group">
                         <label for="description" >Descripción</label>
                         <textarea name="description" class="form-control summernote" id="description">
-                          {{ $transaction->form->description }}  
+                          {{ utf8_decode($transaction->form->description) }}  
                         </textarea>
                     </div>
                     <input type="submit" class="btn btn-primary col-sm-offset-10" value="Actualizar">

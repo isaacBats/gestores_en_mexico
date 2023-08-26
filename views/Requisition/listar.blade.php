@@ -84,7 +84,7 @@
 									<td>{{ $row->client->first_name }} {{ $row->client->middle_name }} {{ $row->client->last_name }}</td>
 									<td>{{ $row->client->email }}</td>
 									<td>{{ Utils::getStatus($row->status) }}</td>
-									<td>{{ utf8_encode($row->transaction->name) }}</td>
+									<td>{{ $row->transaction->name }}</td>
 									<td>{{ sprintf("$%01.2f", $row->total_cost) }}</td>
 									<td>
 										<ul class="table-options">

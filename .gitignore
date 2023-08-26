@@ -26,3 +26,9 @@ composer.phar
 
 #Enviroments
 .env
+.env.old
+
+# others
+_bck/
+_firmas/
+favicon.*

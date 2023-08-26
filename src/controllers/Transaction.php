@@ -79,6 +79,9 @@ class Transaction extends Controller
 			}
 		}
 		$slugReplace = str_replace('-', '_', $req->params['slug']);
+		if($slugReplace === 'carta_antecedentes_penales_federales') {
+			return $this->renderView($res, 'Errors.404', ['error' => 'Formulario no disponible.']);
+		}
 		$fields = "Transaction.{$codeContry}_{$slugReplace}";
 		$arch = __OLIVE__ . '/views/' . str_replace('.', '/', $fields) . '.blade.php';
 		if (file_exists($arch)) {

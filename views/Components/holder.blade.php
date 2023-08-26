@@ -51,7 +51,7 @@
             <option value="" selected>País donde surtirá efecto</option>
             @foreach ($contries as $contry)
                 <option value="{{ $contry->id }}" {{ ($contry->code === strtoupper($codeContry)) ? 'selected' : '' }}>
-                    {{ utf8_encode($contry->name) }}
+                    {{ $contry->name }}
                 </option>
             @endforeach
         </select>
@@ -61,7 +61,7 @@
         <select name="hold_estado" id="hold_estado" class="form-control light">
             <option value="">Seleccionar {{ ($codeContry == 'mx') ? 'Estado' : 'Provincia' }}</option>
             @foreach ($states as $state)
-                <option value="{{ $state->id }}">{{ utf8_encode($state->name) }}</option>
+                <option value="{{ $state->id }}">{{ $state->name }}</option>
             @endforeach
         </select>
     </div>

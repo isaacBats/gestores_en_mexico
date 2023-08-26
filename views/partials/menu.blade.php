@@ -151,7 +151,8 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>SEGOB</h4></li>
-                                                                        <li><a href="/tramites/MX/carta-antecedentes-penales-federales" class="link transitions">Carta de antecedentes no penales federal</a></li>
+									<!-- <li><a href="/tramites/MX/carta-antecedentes-penales-federales" class="link transitions">Carta de antecedentes no penales federal</a></li> -->
+									<li><a href="javascript:void(0)" class="link transitions">Tramite no disponible</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
