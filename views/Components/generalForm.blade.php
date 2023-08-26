@@ -17,7 +17,7 @@
             </div>
             @include('Components.holder', compact('states', 'contries', 'codeContry'))
             <div class="col-md-12 calculoCosto">
-                <h4>Costo por concepto de <span class="tituloTramite">{{ utf8_encode($transaction->name) }}</span></h4>
+                <h4>Costo por concepto de <span class="tituloTramite">{{ $transaction->name }}</span></h4>
                 <div class="col-md-8 col-md-offset-2" id="pricesTransaction">
                     @if ($transaction->code_product == 'SERV_CER_LIBGRAV' || $transaction->code_product == 'SERV_DOC_FOLCDMX')
                         <input type="hidden" name="price_id" id="price_id" value="{{ $costo->id }}"> 
