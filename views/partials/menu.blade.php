@@ -92,7 +92,7 @@
                                                                     <ul>
                                                                         <li><h4>Registro Civil</h4></li>
                                                                         <li><a href="/tramites/MX/acta-nacimiento" class="link transitions">Acta de nacimiento </a></li>
-                                                                        <li><a href="/tramites/MX/aclaracion-acta-nacimiento" class="link transitions">Aclaración de acta de nacimiento </a></li>
+                                                                        <li><a href="/tramites/MX/aclaracion-acta-nacimiento-mx" class="link transitions">Aclaración de acta de nacimiento </a></li>
                                                                         <li><a href="/tramites/MX/acta-defuncion" class="link transitions">Acta de defunción </a></li>
                                                                         <li><a href="/tramites/MX/acta-matrimonio" class="link transitions">Acta de matrimonio </a></li>
                                                                         <li><a href="/tramites/MX/acta-divorcio" class="link transitions">Acta de divoricio </a></li>
@@ -151,8 +151,8 @@
                                                                 <div class="box">
                                                                     <ul>
                                                                         <li><h4>SEGOB</h4></li>
-									<!-- <li><a href="/tramites/MX/carta-antecedentes-penales-federales" class="link transitions">Carta de antecedentes no penales federal</a></li> -->
-									<li><a href="javascript:void(0)" class="link transitions">Tramite no disponible</a></li>
+                                    <!-- <li><a href="/tramites/MX/carta-antecedentes-penales-federales" class="link transitions">Carta de antecedentes no penales federal</a></li> -->
+                                    <li><a href="javascript:void(0)" class="link transitions">Tramite no disponible</a></li>
                                                                     </ul>
                                                                 </div><!-- end box -->
                                                             </div><!-- end col -->
@@ -305,6 +305,5 @@
             </div><!-- end menu 1 -->  
         </div><!-- end hero -->  
     </div>
-
 
 

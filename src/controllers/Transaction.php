@@ -79,7 +79,7 @@ class Transaction extends Controller
 			}
 		}
 		$slugReplace = str_replace('-', '_', $req->params['slug']);
-		if($slugReplace === 'carta_antecedentes_penales_federales') {
+		if($slugReplace === 'carta_antecedentes_penales_federales' || $slugReplace === 'aclaracion_acta_nacimiento') {
 			return $this->renderView($res, 'Errors.404', ['error' => 'Formulario no disponible.']);
 		}
 		$fields = "Transaction.{$codeContry}_{$slugReplace}";
@@ -92,8 +92,61 @@ class Transaction extends Controller
 		
 	}
 
+	/**
+	 * Verifica el token de reCAPTCHA v3
+	 * @param string $token Token del captcha
+	 * @return bool|float Retorna el score si es válido, false si no
+	 */
+	private function verifyRecaptcha($token)
+	{
+		if (empty($token)) {
+			return false;
+		}
+
+		$secretKey = getenv('RECAPTCHA_SECRET_KEY');
+		$url = 'https://www.google.com/recaptcha/api/siteverify';
+		
+		$data = [
+			'secret' => $secretKey,
+			'response' => $token,
+			'remoteip' => $_SERVER['REMOTE_ADDR']
+		];
+
+		$options = [
+			'http' => [
+				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+				'method' => 'POST',
+				'content' => http_build_query($data)
+			]
+		];
+
+		$context = stream_context_create($options);
+		$response = file_get_contents($url, false, $context);
+		$result = json_decode($response);
+
+		if ($result && $result->success) {
+			return $result->score; // Score entre 0.0 y 1.0
+		}
+
+		return false;
+	}
+
 	public function saveTrancaction($req, $res)
 	{
+		// Verificar reCAPTCHA al inicio
+		$recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
+		$score = $this->verifyRecaptcha($recaptchaToken);
+		
+		if (!$score || $score < 0.5) { // 0.5 es el umbral recomendado por Google
+			$this->session->setFlash("alert", [
+				"message" => "Error de verificación de seguridad. Por favor, intente nuevamente.", 
+				"status" => "Error:", 
+				"class" => "alert-danger"
+			]);
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			exit();
+		}
+
 		// Para guardar el archivo si es que trae.
 		$data = $req->data;
 		if (isset($_FILES['attr_image'])) {
