@@ -18,28 +18,36 @@ $(document).ready(function () {
             // Prevenir envío inmediato del formulario
             event.preventDefault();
             
-            // Ejecutar reCAPTCHA antes de enviar
-            grecaptcha.execute('6LfZsvwrAAAAAL6nS56RvIBiHIinWbcxFH7hU4Yn', {action: 'submit_form'})
-                .then(function(token) {
-                    // Agregar el token como campo oculto
-                    if (!$('#g-recaptcha-response').length) {
-                        $('<input>').attr({
-                            type: 'hidden',
-                            id: 'g-recaptcha-response',
-                            name: 'g-recaptcha-response',
-                            value: token
-                        }).appendTo(form);
-                    } else {
-                        $('#g-recaptcha-response').val(token);
-                    }
-                    
-                    // Enviar el formulario
-                    form.submit();
-                })
-                .catch(function(error) {
-                    console.error('Error en reCAPTCHA:', error);
-                    alert('Error al verificar reCAPTCHA. Por favor, intente nuevamente.');
+            // Verificar que grecaptcha esté disponible
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+                // Ejecutar reCAPTCHA antes de enviar
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LfZsvwrAAAAAL6nS56RvIBiHIinWbcxFH7hU4Yn', {
+                        action: 'submit_form'
+                    }).then(function(token) {
+                        // Agregar el token como campo oculto
+                        if (!$('#g-recaptcha-response').length) {
+                            $('<input>').attr({
+                                type: 'hidden',
+                                id: 'g-recaptcha-response',
+                                name: 'g-recaptcha-response',
+                                value: token
+                            }).appendTo(form);
+                        } else {
+                            $('#g-recaptcha-response').val(token);
+                        }
+                        
+                        // Enviar el formulario
+                        form.submit();
+                    }).catch(function(error) {
+                        console.error('Error en reCAPTCHA:', error);
+                        alert('Error al verificar reCAPTCHA. Por favor, intente nuevamente.');
+                    });
                 });
+            } else {
+                console.error('reCAPTCHA no está cargado correctamente');
+                alert('Error al cargar el sistema de verificación. Por favor, recarga la página.');
+            }
         }
     });
 
