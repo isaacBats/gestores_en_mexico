@@ -77,7 +77,7 @@
 
     <!-- Google ReCaptcha -->
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfZsvwrAAAAAL6nS56RvIBiHIinWbcxFH7hU4Yn"></script>
-	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfZsvwrAAAAAL6nS56RvIBiHIinWbcxFH7hU4Yn"></script>
     <!-- End Google ReCaptcha -->
      
 </head>
