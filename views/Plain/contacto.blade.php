@@ -86,8 +86,6 @@
 	    </div>
 	</div>
 @stop
-
-<?php
 @section('js')
 <script>
 $(document).ready(function() {
