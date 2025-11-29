@@ -13,14 +13,16 @@ use Olive\controllers\Controller;
 use Olive\infrastructure\ContryRepo as CountryRepo;
 use Olive\infrastructure\RequisitionRepo;
 use Olive\infrastructure\CmsOptionRepo;
+use Olive\traits\RecaptchaVerifier;
 
 class Plain extends Controller
 {	
+    use RecaptchaVerifier;
+    
+    const ACTIVE = 1;
+    const INACTIVE = 0;
 
-	const ACTIVE = 1;
-	const INACTIVE = 0;
-
-	private $requisitionRepo;
+    private $requisitionRepo;
 	
 	private $cmsOptionRepo;
 	
@@ -66,22 +68,39 @@ class Plain extends Controller
 
 	public function sendFormContact($req, $res)
 	{
-		$data = $req->data;
-		unset($data['_RAW_HTTP_DATA']);
-		
-		if(ENVIROMENT === 'prod' )
-			$usuario = 'contacto@gestoresenmexico.com';
-		else
-			$usuario = 'klonate@gmail.com';
-		
-		$subject = 'Nuevo Contacto :D';
-		
-		if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto')){
-			$this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
-		} else {
-			$this->session->setFlash("alert", ["message" => $mail, "status" => "Error:", "class" => "alert-danger"]);
-		}
-    	header('Location: /contacto');
+		// Verificar reCAPTCHA al inicio
+        $recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
+        $score = $this->verifyRecaptcha($recaptchaToken);
+        
+        if (!$score || $score < 0.5) { // 0.5 es el umbral recomendado por Google
+            $this->session->setFlash("alert", [
+                "message" => "Error de verificación de seguridad. Por favor, intente nuevamente.", 
+                "status" => "Error:", 
+                "class" => "alert-danger"
+            ]);
+            header('Location: /contacto');
+            exit();
+        }
+
+        // Proceder con el envío del formulario
+        $data = $req->data;
+        unset($data['_RAW_HTTP_DATA']);
+        unset($data['g-recaptcha-response']);
+        
+        if(ENVIROMENT === 'prod' )
+            $usuario = 'contacto@gestoresenmexico.com';
+        else
+            $usuario = 'klonate@gmail.com';
+        
+        $subject = 'Nuevo Contacto :D';
+        
+        if ($mail = $this->mailer($res, compact('subject', 'data', 'usuario'), 'Emails.email_contacto')){
+            $this->session->setFlash("alert", ["message" => "Se ha enviado tu petición correctamente. En breve nos pondremos en contacto contigo", "status" => "Exito:", "class" => "alert-success"]);
+        } else {
+            $this->session->setFlash("alert", ["message" => "Error al enviar el formulario. Intente más tarde.", "status" => "Error:", "class" => "alert-danger"]);
+        }
+        
+        header('Location: /contacto');
 	}
 
 	public function aviso ($req, $res)

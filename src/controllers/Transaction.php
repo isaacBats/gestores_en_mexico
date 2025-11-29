@@ -23,29 +23,32 @@ use Olive\infrastructure\TownshipRepo;
 use Olive\infrastructure\TransactionRepo;
 use \Upload\Storage\FileSystem;
 use \Upload\File;
+use Olive\traits\RecaptchaVerifier;
 
 class Transaction extends Controller
 {
-	const RECIVER = 1;
-	const NO_RECIVER = 0;
-	const ACTIVE = 1;
-	const INACTIVE = 0;
+    use RecaptchaVerifier;
+    
+    const RECIVER = 1;
+    const NO_RECIVER = 0;
+    const ACTIVE = 1;
+    const INACTIVE = 0;
 
-	private $dataRequisitionRepo;
-	private $requisitionRepo;
-	private $transactionRepo;
-	private $settlementRepo;
-	private $attributeRepo;
-	private $townshipRepo;
-	private $contryRepo;
-	private $clientRepo;
-	private $stateRepo;
-	private $priceRepo;
-	private $formRepo;
-	private $cmsOptionRepo;
-	private $clientController;
+    private $dataRequisitionRepo;
+    private $requisitionRepo;
+    private $transactionRepo;
+    private $settlementRepo;
+    private $attributeRepo;
+    private $townshipRepo;
+    private $contryRepo;
+    private $clientRepo;
+    private $stateRepo;
+    private $priceRepo;
+    private $formRepo;
+    private $cmsOptionRepo;
+    private $clientController;
 
-	
+    
 	function __construct()
 	{
 		parent::__construct();
@@ -99,36 +102,8 @@ class Transaction extends Controller
 	 */
 	private function verifyRecaptcha($token)
 	{
-		if (empty($token)) {
-			return false;
-		}
-
-		$secretKey = getenv('RECAPTCHA_SECRET_KEY');
-		$url = 'https://www.google.com/recaptcha/api/siteverify';
-		
-		$data = [
-			'secret' => $secretKey,
-			'response' => $token,
-			'remoteip' => $_SERVER['REMOTE_ADDR']
-		];
-
-		$options = [
-			'http' => [
-				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-				'method' => 'POST',
-				'content' => http_build_query($data)
-			]
-		];
-
-		$context = stream_context_create($options);
-		$response = file_get_contents($url, false, $context);
-		$result = json_decode($response);
-
-		if ($result && $result->success) {
-			return $result->score; // Score entre 0.0 y 1.0
-		}
-
-		return false;
+		// Ahora se hereda del trait RecaptchaVerifier
+		return parent::verifyRecaptcha($token);
 	}
 
 	public function saveTrancaction($req, $res)

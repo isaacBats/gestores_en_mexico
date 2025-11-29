@@ -23,7 +23,7 @@
                     </div>
 
                     <div id="formulario">
-                        <form class="form-inline" role="form" action="/contacto" method="POST" id="contacto" >
+                        <form class="form-inline" role="form" action="/contacto" method="POST" id="contacto">
                             <div class="form-group col-md-6">
                                 <input class="form-control" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
                             </div>
@@ -50,6 +50,10 @@
                             <div class="form-group col-md-12">
                                 <textarea class="form-control" name="mensaje" rows="4" id="mensaje" placeholder="mensaje :)" tabindex="5"></textarea>
                             </div>
+                            
+                            <!-- Campo oculto para el token de reCAPTCHA -->
+                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+                            
                             <div class="form-group col-md-12">
                                 <div class="checkbox">
                                     <label>
@@ -58,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <input class="btn btn-large btn-success transitions" type="submit" tabindex="6" value="Enviar" >
+                                <input class="btn btn-large btn-success transitions" id="btn-contacto" type="submit" tabindex="6" value="Enviar" >
                             </div>
                         </form>
                     </div>
@@ -81,4 +85,58 @@
 	        </div>
 	    </div>
 	</div>
+@stop
+
+<?php
+@section('js')
+<script>
+$(document).ready(function() {
+    // Validar el formulario de contacto
+    $('#contacto').validate({
+        rules: {
+            nombre: "required",
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            nombre: { required: "Por favor ingresa tu nombre" },
+            email: { 
+                required: "Por favor ingresa tu email",
+                email: "Por favor ingresa un email válido"
+            }
+        },
+        errorClass: "error",
+        submitHandler: function(form) {
+            // Prevenir envío inmediato
+            event.preventDefault();
+            
+            // Ejecutar reCAPTCHA v3
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{ getenv("RECAPTCHA_SITE_KEY") }}', {
+                        action: 'submit_contact'
+                    }).then(function(token) {
+                        // Agregar el token al campo oculto
+                        $('#g-recaptcha-response').val(token);
+                        
+                        // Deshabilitar el botón para evitar envíos múltiples
+                        $('#btn-contacto').prop('disabled', true).text('Enviando...');
+                        
+                        // Enviar el formulario
+                        form.submit();
+                    }).catch(function(error) {
+                        console.error('Error en reCAPTCHA:', error);
+                        alert('Error al verificar reCAPTCHA. Por favor, intente nuevamente.');
+                    });
+                });
+            } else {
+                console.error('reCAPTCHA no está cargado correctamente');
+                alert('Error al cargar el sistema de verificación. Por favor, recarga la página.');
+            }
+        }
+    });
+});
+</script>
 @stop
