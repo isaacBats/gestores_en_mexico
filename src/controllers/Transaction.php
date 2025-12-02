@@ -95,17 +95,6 @@ class Transaction extends Controller
 		
 	}
 
-	/**
-	 * Verifica el token de reCAPTCHA v3
-	 * @param string $token Token del captcha
-	 * @return bool|float Retorna el score si es válido, false si no
-	 */
-	private function verifyRecaptcha($token)
-	{
-		// Ahora se hereda del trait RecaptchaVerifier
-		return $this->verifyRecaptcha($token);
-	}
-
 	public function saveTrancaction($req, $res)
 	{
 		// Verificar reCAPTCHA al inicio
