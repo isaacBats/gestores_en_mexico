@@ -103,7 +103,7 @@ class Transaction extends Controller
 	private function verifyRecaptcha($token)
 	{
 		// Ahora se hereda del trait RecaptchaVerifier
-		return parent::verifyRecaptcha($token);
+		return $this->verifyRecaptcha($token);
 	}
 
 	public function saveTrancaction($req, $res)
